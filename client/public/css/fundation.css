@@ -1,0 +1,19 @@
+.fundation{
+    width: 800px;
+    height: 80px;
+    display: flex;
+}
+
+.fundation-icon{
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px gray solid;
+}
+
+.fundation-icon img{
+    width: 100%;
+    height: 100%;
+}

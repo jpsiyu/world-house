@@ -1,0 +1,23 @@
+{
+  "name": "world-house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon -w server -V server/app.js",
+    "watch": "parcel watch client/public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "parcel": "^1.10.3",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
