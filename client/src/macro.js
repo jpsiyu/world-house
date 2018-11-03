@@ -13,7 +13,9 @@ const MacroEventType = {
 }
 
 const MacroViewType = {
-    LoginGuide: 'LoginGuide'
+    LoginGuide: 'LoginGuide',
+    PageHome: 'PageHome',
+    PageMarket: 'PageMarket',
 }
 
 export {MacroMap, MacroEventType, MacroViewType}

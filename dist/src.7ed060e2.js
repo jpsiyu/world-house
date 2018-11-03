@@ -23098,7 +23098,9 @@ var MacroEventType = {
 };
 exports.MacroEventType = MacroEventType;
 var MacroViewType = {
-  LoginGuide: 'LoginGuide'
+  LoginGuide: 'LoginGuide',
+  PageHome: 'PageHome',
+  PageMarket: 'PageMarket'
 };
 exports.MacroViewType = MacroViewType;
 },{}],"../src/drawing/draw-land.js":[function(require,module,exports) {
@@ -23707,6 +23709,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _macro = require("../macro");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -23740,18 +23744,31 @@ function (_React$Component) {
 
   _createClass(Fundation, [{
     key: "onHomeClick",
-    value: function onHomeClick() {}
+    value: function onHomeClick() {
+      window.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageHome
+      });
+    }
+  }, {
+    key: "onMarketClick",
+    value: function onMarketClick() {
+      window.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageMarket
+      });
+    }
   }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
         className: "fundation"
       }, _react.default.createElement("div", {
-        className: "fundation-icon"
+        className: "fundation-icon",
+        onClick: this.onHomeClick.bind(this)
       }, _react.default.createElement("img", {
         src: "/images/house.png"
       })), _react.default.createElement("div", {
-        className: "fundation-icon"
+        className: "fundation-icon",
+        onClick: this.onMarketClick.bind(this)
       }, _react.default.createElement("img", {
         src: "/images/sale.png"
       })), _react.default.createElement("div", {
@@ -23767,7 +23784,7 @@ function (_React$Component) {
 
 var _default = Fundation;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js"}],"../src/event-listener.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/event-listener.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -23929,7 +23946,149 @@ function (_React$Component) {
 
 var _default = LoginGuide;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/page-mgr.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/fundation/page-home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PageHome =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageHome, _React$Component);
+
+  function PageHome(props) {
+    _classCallCheck(this, PageHome);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PageHome).call(this, props));
+  }
+
+  _createClass(PageHome, [{
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      window.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageHome);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, "My House"), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("p", null, "HaHa"))));
+    }
+  }]);
+
+  return PageHome;
+}(_react.default.Component);
+
+var _default = PageHome;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/fundation/page-market.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PageMarket =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageMarket, _React$Component);
+
+  function PageMarket(props) {
+    _classCallCheck(this, PageMarket);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PageMarket).call(this, props));
+  }
+
+  _createClass(PageMarket, [{
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      window.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageMarket);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, "House Markt"), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("p", null, "HaHa"))));
+    }
+  }]);
+
+  return PageMarket;
+}(_react.default.Component);
+
+var _default = PageMarket;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/page-mgr.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -23940,6 +24099,10 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _loginGuide = _interopRequireDefault(require("./login-guide"));
+
+var _pageHome = _interopRequireDefault(require("./fundation/page-home"));
+
+var _pageMarket = _interopRequireDefault(require("./fundation/page-market"));
 
 var _macro = require("./macro");
 
@@ -23989,6 +24152,8 @@ function (_React$Component) {
     value: function genViewCfg() {
       var viewCfg = {};
       viewCfg[_macro.MacroViewType.LoginGuide] = _loginGuide.default;
+      viewCfg[_macro.MacroViewType.PageHome] = _pageHome.default;
+      viewCfg[_macro.MacroViewType.PageMarket] = _pageMarket.default;
       return viewCfg;
     }
   }, {
@@ -24031,7 +24196,7 @@ function (_React$Component) {
 
 var _default = PageMgr;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./fundation/page-home":"../src/fundation/page-home.js","./fundation/page-market":"../src/fundation/page-market.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

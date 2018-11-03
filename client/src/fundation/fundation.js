@@ -1,4 +1,5 @@
 import React from 'react'
+import { MacroEventType, MacroViewType } from '../macro'
 
 class Fundation extends React.Component {
     constructor(props) {
@@ -6,15 +7,19 @@ class Fundation extends React.Component {
     }
 
     onHomeClick(){
-        
+       window.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageHome})
+    }
+
+    onMarketClick(){
+       window.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageMarket})
     }
 
     render() {
         return <div className='fundation'>
-            <div className='fundation-icon'>
+            <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
                 <img src='/images/house.png'></img>
             </div>
-            <div className='fundation-icon'>
+            <div className='fundation-icon' onClick={this.onMarketClick.bind(this)}>
                 <img src='/images/sale.png'></img>
             </div>
             <div className='fundation-icon'>
