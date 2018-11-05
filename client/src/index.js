@@ -9,6 +9,7 @@ import Fundation from './fundation/fundation'
 import EventListener from './event-listener'
 import PageMgr from './page-mgr'
 import { MacroEventType, MacroViewType } from './macro'
+import SolMgr from './sol/sol-mgr'
 
 class Entry extends React.Component {
     constructor(props) {
@@ -47,6 +48,7 @@ window.imageMgr = new ImageMgr()
 window.ownership = new Ownership()
 window.metamask = new Metamask()
 window.eventListener = new EventListener()
+window.solMgr = new SolMgr()
 
 window.imageMgr.loadImages(() => {
     ReactDOM.render(

@@ -8,6 +8,10 @@ class Metamask {
         return typeof web3 != 'undefined'
     }
 
+    getWeb3(){
+        return web3
+    }
+
     isLocked() {
         return new Promise((resolve, reject) =>
             web3.eth.getAccounts((err, accounts) => {
