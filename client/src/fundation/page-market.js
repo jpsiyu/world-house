@@ -7,7 +7,7 @@ class PageMarket extends React.Component {
     }
 
     onCloseClick() {
-        window.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
+        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
     }
 
     render() {

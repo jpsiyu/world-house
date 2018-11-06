@@ -14,8 +14,8 @@ class PageMgr extends React.Component {
             viewArgs: {},
         }
 
-        window.eventListener.register(MacroEventType.ShowView, this, this.showView.bind(this))
-        window.eventListener.register(MacroEventType.HideView, this, this.hideView.bind(this))
+        app.eventListener.register(MacroEventType.ShowView, this, this.showView.bind(this))
+        app.eventListener.register(MacroEventType.HideView, this, this.hideView.bind(this))
     }
 
     genViewCfg() {

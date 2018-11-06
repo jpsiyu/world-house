@@ -14,9 +14,9 @@ const check = () => {
             loginCheck: false,
         }
         res.browserCheck = isChrome() || isFirefox()
-        res.extensionCheck = window.metamask.isInstall()
+        res.extensionCheck = app.metamask.isInstall()
         if (res.extensionCheck) {
-            window.metamask.isLocked().then(locked => {
+            app.metamask.isLocked().then(locked => {
                 res.loginCheck = !locked
                 resolve(res)
             })

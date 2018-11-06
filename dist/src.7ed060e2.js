@@ -23076,380 +23076,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../../node_modules/react-dom/cjs/react-dom.development.js"}],"../src/macro.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MacroViewType = exports.MacroEventType = exports.MacroMap = void 0;
-var MacroMap = {
-  HourseSize: 100,
-  HourseImageSize: 60,
-  RowNum: 1000,
-  ColNum: 1000,
-  CanvasWidth: 800,
-  CanvasHeight: 400
-};
-exports.MacroMap = MacroMap;
-var MacroEventType = {
-  ShowView: 'ShowView',
-  HideView: 'HideView'
-};
-exports.MacroEventType = MacroEventType;
-var MacroViewType = {
-  LoginGuide: 'LoginGuide',
-  PageHome: 'PageHome',
-  PageMarket: 'PageMarket'
-};
-exports.MacroViewType = MacroViewType;
-},{}],"../src/drawing/draw-land.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _macro = require("../macro");
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var DrawLand =
-/*#__PURE__*/
-function () {
-  function DrawLand() {
-    _classCallCheck(this, DrawLand);
-
-    this.lineColor = 'black';
-    this.lineWidth = 0.1;
-  }
-
-  _createClass(DrawLand, [{
-    key: "draw",
-    value: function draw(ctx, pos) {
-      this.drawRows(ctx, pos);
-      this.drawCols(ctx, pos);
-    }
-  }, {
-    key: "drawRows",
-    value: function drawRows(ctx, pos) {
-      ctx.strokeStyle = this.lineColor;
-      ctx.lineWidth = this.lineWidth;
-      var lineY = 0;
-      var fixedY = 0;
-      ctx.lineWidth = this.lineWidth;
-
-      for (var i = 0; i < _macro.MacroMap.ColNum; i++) {
-        lineY = i * _macro.MacroMap.HourseSize;
-        fixedY = lineY + pos.y;
-
-        if (fixedY >= 0 && fixedY <= ctx.canvas.height) {
-          ctx.moveTo(0, lineY);
-          ctx.lineTo(_macro.MacroMap.RowNum * _macro.MacroMap.HourseSize, lineY);
-        }
-      }
-
-      ctx.stroke();
-    }
-  }, {
-    key: "drawCols",
-    value: function drawCols(ctx, pos) {
-      ctx.strokeStyle = this.lineColor;
-      ctx.lineWidth = this.lineWidth;
-      var lineX = 0;
-      var fixedX = 0;
-
-      for (var i = 0; i < _macro.MacroMap.RowNum; i++) {
-        lineX = i * _macro.MacroMap.HourseSize;
-        fixedX = lineX + pos.x;
-
-        if (fixedX >= 0 && fixedX <= ctx.canvas.width) {
-          ctx.moveTo(lineX, 0);
-          ctx.lineTo(lineX, _macro.MacroMap.ColNum * _macro.MacroMap.HourseSize);
-        }
-      }
-
-      ctx.stroke();
-    }
-  }]);
-
-  return DrawLand;
-}();
-
-var _default = DrawLand;
-exports.default = _default;
-},{"../macro":"../src/macro.js"}],"../src/drawing/drag-pos.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var DragPos =
-/*#__PURE__*/
-function () {
-  function DragPos(x, y) {
-    _classCallCheck(this, DragPos);
-
-    this.posX = x;
-    this.posY = y;
-    this.startX = 0;
-    this.startY = 0;
-    this.targetX = 0;
-    this.targetY = 0;
-    this.movedX = 0;
-    this.movedY = 0;
-  }
-
-  _createClass(DragPos, [{
-    key: "getPos",
-    value: function getPos() {
-      return {
-        x: this.posX,
-        y: this.posY
-      };
-    }
-  }, {
-    key: "setStart",
-    value: function setStart(x, y) {
-      this.startX = x;
-      this.startY = y;
-    }
-  }, {
-    key: "setTarget",
-    value: function setTarget(x, y) {
-      this.targetX = x;
-      this.targetY = y;
-    }
-  }, {
-    key: "move",
-    value: function move() {
-      this.movedX = this.targetX - this.startX;
-      this.movedY = this.targetY - this.startY;
-      this.posX += this.movedX;
-      this.posY += this.movedY;
-    }
-  }, {
-    key: "getMoved",
-    value: function getMoved() {
-      return {
-        x: this.movedX,
-        y: this.movedY
-      };
-    }
-  }]);
-
-  return DragPos;
-}();
-
-var _default = DragPos;
-exports.default = _default;
-},{}],"../src/drawing/draw-util.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.drawImageMid = exports.rectInCanvas = exports.grid2posMid = exports.grid2pos = exports.drawWrapper = void 0;
-
-var _macro = require("../macro");
-
-var drawWrapper = function drawWrapper(ctx, pos, callback) {
-  ctx.save();
-  ctx.translate(pos.x, pos.y);
-  ctx.beginPath();
-  callback(ctx, pos);
-  ctx.closePath();
-  ctx.restore();
-};
-
-exports.drawWrapper = drawWrapper;
-
-var grid2pos = function grid2pos(r, c) {
-  var x = c * _macro.MacroMap.HourseSize;
-  var y = r * _macro.MacroMap.HourseSize;
-  return {
-    x: x,
-    y: y
-  };
-};
-
-exports.grid2pos = grid2pos;
-
-var grid2posMid = function grid2posMid(r, c) {
-  var x = c * _macro.MacroMap.HourseSize + _macro.MacroMap.HourseSize / 2;
-  var y = r * _macro.MacroMap.HourseSize + _macro.MacroMap.HourseSize / 2;
-  return {
-    x: x,
-    y: y
-  };
-};
-
-exports.grid2posMid = grid2posMid;
-
-var rectInCanvas = function rectInCanvas(ctx, objPos, pos, objSize) {
-  var fixedX = objPos.x + pos.x;
-  var fixedY = objPos.y + pos.y;
-  var inView = fixedX >= -objSize && fixedX <= ctx.canvas.width && fixedY >= -objSize && fixedY <= ctx.canvas.height;
-  return inView;
-};
-
-exports.rectInCanvas = rectInCanvas;
-
-var drawImageMid = function drawImageMid(ctx, midPos, image, imageSize) {
-  ctx.drawImage(image, midPos.x - imageSize / 2, midPos.y - imageSize / 2, imageSize, imageSize);
-};
-
-exports.drawImageMid = drawImageMid;
-},{"../macro":"../src/macro.js"}],"../src/map.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("./macro");
-
-var _drawLand = _interopRequireDefault(require("./drawing/draw-land"));
-
-var _dragPos = _interopRequireDefault(require("./drawing/drag-pos"));
-
-var _drawUtil = require("./drawing/draw-util");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Map =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Map, _React$Component);
-
-  function Map(props) {
-    var _this;
-
-    _classCallCheck(this, Map);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Map).call(this, props));
-    _this.canvasRef = _react.default.createRef();
-    _this.state = {};
-    _this.dragPos = new _dragPos.default(0, 0);
-    _this.draging = false;
-    _this.land = new _drawLand.default();
-    return _this;
-  }
-
-  _createClass(Map, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", {
-        className: "map-container"
-      }, _react.default.createElement("canvas", {
-        className: "map-canvas",
-        width: _macro.MacroMap.CanvasWidth,
-        height: _macro.MacroMap.CanvasHeight,
-        ref: this.canvasRef
-      }));
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var canvas = this.canvasRef.current;
-      canvas.addEventListener('mousedown', this.onMouseDown.bind(this));
-      canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
-      canvas.addEventListener('mouseup', this.onMouseUp.bind(this));
-      canvas.addEventListener('mouseout', this.onMouseUp.bind(this));
-      this.draw();
-    }
-  }, {
-    key: "draw",
-    value: function draw() {
-      var _this2 = this;
-
-      var canvas = this.canvasRef.current;
-      var ctx = canvas.getContext('2d');
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      var pos = this.dragPos.getPos();
-      (0, _drawUtil.drawWrapper)(ctx, pos, function (ctx, pos) {
-        _this2.land.draw(ctx, pos);
-      });
-      (0, _drawUtil.drawWrapper)(ctx, pos, function (ctx, pos) {
-        var owners = window.ownership.getOwners();
-        Object.keys(owners).forEach(function (ownerAddr) {
-          var landInfo = owners[ownerAddr];
-          var objPos = (0, _drawUtil.grid2pos)(landInfo.land.r, landInfo.land.c);
-          var midPos = (0, _drawUtil.grid2posMid)(landInfo.land.r, landInfo.land.c);
-
-          if ((0, _drawUtil.rectInCanvas)(ctx, pos, objPos, _macro.MacroMap.HourseSize)) {
-            var houseImage = window.imageMgr.getImage(landInfo.house);
-            (0, _drawUtil.drawImageMid)(ctx, midPos, houseImage.obj, _macro.MacroMap.HourseImageSize);
-          }
-        });
-      });
-    }
-  }, {
-    key: "onMouseDown",
-    value: function onMouseDown(event) {
-      var startX = event.clientX;
-      var startY = event.clientY;
-      this.draging = true;
-      this.dragPos.setStart(startX, startY);
-    }
-  }, {
-    key: "onMouseUp",
-    value: function onMouseUp() {
-      this.draging = false;
-    }
-  }, {
-    key: "onMouseMove",
-    value: function onMouseMove(event) {
-      if (!this.draging) return;
-      var targetX = event.clientX;
-      var targetY = event.clientY;
-      this.dragPos.setTarget(targetX, targetY);
-      this.dragPos.move();
-      this.draw();
-      this.dragPos.setStart(targetX, targetY);
-    }
-  }]);
-
-  return Map;
-}(_react.default.Component);
-
-var _default = Map;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/drag-pos":"../src/drawing/drag-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/image-mgr.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../../node_modules/react-dom/cjs/react-dom.development.js"}],"../src/image-mgr.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -23666,130 +23293,7 @@ function () {
 
 var _default = Metamask;
 exports.default = _default;
-},{}],"../src/login-check.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.check = void 0;
-
-var isChrome = function isChrome() {
-  return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-};
-
-var isFirefox = function isFirefox() {
-  return typeof InstallTrigger !== 'undefined';
-};
-
-var check = function check() {
-  return new Promise(function (resolve, reject) {
-    var res = {
-      browserCheck: false,
-      extensionCheck: false,
-      loginCheck: false
-    };
-    res.browserCheck = isChrome() || isFirefox();
-    res.extensionCheck = window.metamask.isInstall();
-
-    if (res.extensionCheck) {
-      window.metamask.isLocked().then(function (locked) {
-        res.loginCheck = !locked;
-        resolve(res);
-      });
-    } else {
-      resolve(res);
-    }
-  });
-};
-
-exports.check = check;
-},{}],"../src/fundation/fundation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("../macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Fundation =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Fundation, _React$Component);
-
-  function Fundation(props) {
-    _classCallCheck(this, Fundation);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Fundation).call(this, props));
-  }
-
-  _createClass(Fundation, [{
-    key: "onHomeClick",
-    value: function onHomeClick() {
-      window.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageHome
-      });
-    }
-  }, {
-    key: "onMarketClick",
-    value: function onMarketClick() {
-      window.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageMarket
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", {
-        className: "fundation"
-      }, _react.default.createElement("div", {
-        className: "fundation-icon",
-        onClick: this.onHomeClick.bind(this)
-      }, _react.default.createElement("img", {
-        src: "/images/house.png"
-      })), _react.default.createElement("div", {
-        className: "fundation-icon",
-        onClick: this.onMarketClick.bind(this)
-      }, _react.default.createElement("img", {
-        src: "/images/sale.png"
-      })), _react.default.createElement("div", {
-        className: "fundation-icon"
-      }, _react.default.createElement("img", {
-        src: "/images/travel.png"
-      })));
-    }
-  }]);
-
-  return Fundation;
-}(_react.default.Component);
-
-var _default = Fundation;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/event-listener.js":[function(require,module,exports) {
+},{}],"../src/event-listener.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -23849,359 +23353,7 @@ function () {
 
 var _default = EventListener;
 exports.default = _default;
-},{}],"../src/login-guide.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("./macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var LoginGuide =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(LoginGuide, _React$Component);
-
-  function LoginGuide(props) {
-    var _this;
-
-    _classCallCheck(this, LoginGuide);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginGuide).call(this, props));
-    var check = props.viewArgs.check;
-    _this.state = {
-      browserCheck: check.browserCheck,
-      extensionCheck: check.extensionCheck,
-      loginCheck: check.loginCheck
-    };
-    return _this;
-  }
-
-  _createClass(LoginGuide, [{
-    key: "onCloseClick",
-    value: function onCloseClick() {
-      window.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.LoginGuide);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var yesno = function yesno(checkRes) {
-        return checkRes ? _react.default.createElement("img", {
-          className: "yesno",
-          src: "/images/yes.png"
-        }) : _react.default.createElement("img", {
-          className: "yesno",
-          src: "/images/no.png"
-        });
-      };
-
-      return _react.default.createElement("div", {
-        className: "overflow"
-      }, _react.default.createElement("div", {
-        className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "Login with MetaMask account."), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
-        className: "popup-content"
-      }, _react.default.createElement("div", {
-        className: "popup-item"
-      }, _react.default.createElement("img", {
-        src: "/images/browser.png"
-      }), _react.default.createElement("p", null, "1. Use Chrome or Firefox"), yesno(this.state.browserCheck)), _react.default.createElement("div", {
-        className: "popup-item"
-      }, _react.default.createElement("img", {
-        src: "/images/metamask.png"
-      }), _react.default.createElement("p", null, "2. Install MetaMask extension"), yesno(this.state.extensionCheck)), _react.default.createElement("div", {
-        className: "popup-item"
-      }, _react.default.createElement("img", {
-        src: "/images/metamask-login.png"
-      }), _react.default.createElement("p", null, "3. Login MetaMask"), yesno(this.state.loginCheck)))));
-    }
-  }]);
-
-  return LoginGuide;
-}(_react.default.Component);
-
-var _default = LoginGuide;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/fundation/page-home.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("../macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var PageHome =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(PageHome, _React$Component);
-
-  function PageHome(props) {
-    _classCallCheck(this, PageHome);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(PageHome).call(this, props));
-  }
-
-  _createClass(PageHome, [{
-    key: "onCloseClick",
-    value: function onCloseClick() {
-      window.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageHome);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", {
-        className: "overflow"
-      }, _react.default.createElement("div", {
-        className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "My House"), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
-        className: "popup-content"
-      }, _react.default.createElement("p", null, "HaHa"))));
-    }
-  }]);
-
-  return PageHome;
-}(_react.default.Component);
-
-var _default = PageHome;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/fundation/page-market.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("../macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var PageMarket =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(PageMarket, _React$Component);
-
-  function PageMarket(props) {
-    _classCallCheck(this, PageMarket);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(PageMarket).call(this, props));
-  }
-
-  _createClass(PageMarket, [{
-    key: "onCloseClick",
-    value: function onCloseClick() {
-      window.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageMarket);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", {
-        className: "overflow"
-      }, _react.default.createElement("div", {
-        className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "House Markt"), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
-        className: "popup-content"
-      }, _react.default.createElement("p", null, "HaHa"))));
-    }
-  }]);
-
-  return PageMarket;
-}(_react.default.Component);
-
-var _default = PageMarket;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/page-mgr.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _loginGuide = _interopRequireDefault(require("./login-guide"));
-
-var _pageHome = _interopRequireDefault(require("./fundation/page-home"));
-
-var _pageMarket = _interopRequireDefault(require("./fundation/page-market"));
-
-var _macro = require("./macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-var PageMgr =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(PageMgr, _React$Component);
-
-  function PageMgr(props) {
-    var _this;
-
-    _classCallCheck(this, PageMgr);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(PageMgr).call(this, props));
-    _this.viewCfg = _this.genViewCfg();
-    _this.state = {
-      activeView: null,
-      viewArgs: {}
-    };
-    window.eventListener.register(_macro.MacroEventType.ShowView, _assertThisInitialized(_assertThisInitialized(_this)), _this.showView.bind(_assertThisInitialized(_assertThisInitialized(_this))));
-    window.eventListener.register(_macro.MacroEventType.HideView, _assertThisInitialized(_assertThisInitialized(_this)), _this.hideView.bind(_assertThisInitialized(_assertThisInitialized(_this))));
-    return _this;
-  }
-
-  _createClass(PageMgr, [{
-    key: "genViewCfg",
-    value: function genViewCfg() {
-      var viewCfg = {};
-      viewCfg[_macro.MacroViewType.LoginGuide] = _loginGuide.default;
-      viewCfg[_macro.MacroViewType.PageHome] = _pageHome.default;
-      viewCfg[_macro.MacroViewType.PageMarket] = _pageMarket.default;
-      return viewCfg;
-    }
-  }, {
-    key: "showView",
-    value: function showView(_ref) {
-      var viewName = _ref.viewName,
-          viewArgs = _ref.viewArgs;
-      var view = this.viewCfg[viewName];
-      if (!view) return;
-      this.setState({
-        activeView: viewName,
-        viewArgs: viewArgs
-      });
-    }
-  }, {
-    key: "hideView",
-    value: function hideView(viewName) {
-      if (!this.state.activeView == viewName) return;
-      this.setState({
-        activeView: null,
-        viewArgs: {}
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this.state.activeView) {
-        var ViewClass = this.viewCfg[this.state.activeView];
-        return _react.default.createElement(ViewClass, {
-          viewArgs: this.state.viewArgs
-        });
-      } else {
-        return null;
-      }
-    }
-  }]);
-
-  return PageMgr;
-}(_react.default.Component);
-
-var _default = PageMgr;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./fundation/page-home":"../src/fundation/page-home.js","./fundation/page-market":"../src/fundation/page-market.js","./macro":"../src/macro.js"}],"../../node_modules/crypto-js/core.js":[function(require,module,exports) {
+},{}],"../../node_modules/crypto-js/core.js":[function(require,module,exports) {
 var define;
 ;(function (root, factory) {
 	if (typeof exports === "object") {
@@ -114022,15 +113174,14 @@ function () {
     value: function createWeb3Instance() {
       var web3Provider;
 
-      if (window.metamask.isInstall()) {
-        var metamaskWeb3 = window.metamask.getWeb3();
+      if (app.metamask.isInstall()) {
+        var metamaskWeb3 = app.metamask.getWeb3();
         web3Provider = metamaskWeb3.currentProvider;
       } else {
         web3Provider = new _web.default.providers.HttpProvider('http://127.0.0.1:8545');
       }
 
-      var web3 = new _web.default(web3Provider);
-      return web3;
+      this.web3 = new _web.default(web3Provider);
     }
   }]);
 
@@ -114039,14 +113190,13 @@ function () {
 
 var _default = SolMgr;
 exports.default = _default;
-},{"truffle-contract":"../../node_modules/truffle-contract/index.js","web3":"../../node_modules/web3/src/index.js"}],"../src/index.js":[function(require,module,exports) {
+},{"truffle-contract":"../../node_modules/truffle-contract/index.js","web3":"../../node_modules/web3/src/index.js"}],"../src/app.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _map = _interopRequireDefault(require("./map"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _imageMgr = _interopRequireDefault(require("./image-mgr"));
 
@@ -114054,17 +113204,908 @@ var _ownership = _interopRequireDefault(require("./ownership"));
 
 var _metamask = _interopRequireDefault(require("./metamask"));
 
+var _eventListener = _interopRequireDefault(require("./event-listener"));
+
+var _solMgr = _interopRequireDefault(require("./sol/sol-mgr"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var App =
+/*#__PURE__*/
+function () {
+  function App() {
+    _classCallCheck(this, App);
+  }
+
+  _createClass(App, [{
+    key: "init",
+    value: function init() {
+      this.imageMgr = new _imageMgr.default();
+      this.ownership = new _ownership.default();
+      this.metamask = new _metamask.default();
+      this.eventListener = new _eventListener.default();
+      this.solMgr = new _solMgr.default();
+    }
+  }]);
+
+  return App;
+}();
+
+var _default = App;
+exports.default = _default;
+},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/sol-mgr":"../src/sol/sol-mgr.js"}],"../src/macro.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MacroViewType = exports.MacroEventType = exports.MacroMap = void 0;
+var MacroMap = {
+  HourseSize: 100,
+  HourseImageSize: 60,
+  RowNum: 1000,
+  ColNum: 1000,
+  CanvasWidth: 800,
+  CanvasHeight: 400
+};
+exports.MacroMap = MacroMap;
+var MacroEventType = {
+  ShowView: 'ShowView',
+  HideView: 'HideView'
+};
+exports.MacroEventType = MacroEventType;
+var MacroViewType = {
+  LoginGuide: 'LoginGuide',
+  PageHome: 'PageHome',
+  PageMarket: 'PageMarket'
+};
+exports.MacroViewType = MacroViewType;
+},{}],"../src/drawing/draw-land.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _macro = require("../macro");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var DrawLand =
+/*#__PURE__*/
+function () {
+  function DrawLand() {
+    _classCallCheck(this, DrawLand);
+
+    this.lineColor = 'black';
+    this.lineWidth = 0.1;
+  }
+
+  _createClass(DrawLand, [{
+    key: "draw",
+    value: function draw(ctx, pos) {
+      this.drawRows(ctx, pos);
+      this.drawCols(ctx, pos);
+    }
+  }, {
+    key: "drawRows",
+    value: function drawRows(ctx, pos) {
+      ctx.strokeStyle = this.lineColor;
+      ctx.lineWidth = this.lineWidth;
+      var lineY = 0;
+      var fixedY = 0;
+      ctx.lineWidth = this.lineWidth;
+
+      for (var i = 0; i < _macro.MacroMap.ColNum; i++) {
+        lineY = i * _macro.MacroMap.HourseSize;
+        fixedY = lineY + pos.y;
+
+        if (fixedY >= 0 && fixedY <= ctx.canvas.height) {
+          ctx.moveTo(0, lineY);
+          ctx.lineTo(_macro.MacroMap.RowNum * _macro.MacroMap.HourseSize, lineY);
+        }
+      }
+
+      ctx.stroke();
+    }
+  }, {
+    key: "drawCols",
+    value: function drawCols(ctx, pos) {
+      ctx.strokeStyle = this.lineColor;
+      ctx.lineWidth = this.lineWidth;
+      var lineX = 0;
+      var fixedX = 0;
+
+      for (var i = 0; i < _macro.MacroMap.RowNum; i++) {
+        lineX = i * _macro.MacroMap.HourseSize;
+        fixedX = lineX + pos.x;
+
+        if (fixedX >= 0 && fixedX <= ctx.canvas.width) {
+          ctx.moveTo(lineX, 0);
+          ctx.lineTo(lineX, _macro.MacroMap.ColNum * _macro.MacroMap.HourseSize);
+        }
+      }
+
+      ctx.stroke();
+    }
+  }]);
+
+  return DrawLand;
+}();
+
+var _default = DrawLand;
+exports.default = _default;
+},{"../macro":"../src/macro.js"}],"../src/drawing/drag-pos.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var DragPos =
+/*#__PURE__*/
+function () {
+  function DragPos(x, y) {
+    _classCallCheck(this, DragPos);
+
+    this.posX = x;
+    this.posY = y;
+    this.startX = 0;
+    this.startY = 0;
+    this.targetX = 0;
+    this.targetY = 0;
+    this.movedX = 0;
+    this.movedY = 0;
+  }
+
+  _createClass(DragPos, [{
+    key: "getPos",
+    value: function getPos() {
+      return {
+        x: this.posX,
+        y: this.posY
+      };
+    }
+  }, {
+    key: "setStart",
+    value: function setStart(x, y) {
+      this.startX = x;
+      this.startY = y;
+    }
+  }, {
+    key: "setTarget",
+    value: function setTarget(x, y) {
+      this.targetX = x;
+      this.targetY = y;
+    }
+  }, {
+    key: "move",
+    value: function move() {
+      this.movedX = this.targetX - this.startX;
+      this.movedY = this.targetY - this.startY;
+      this.posX += this.movedX;
+      this.posY += this.movedY;
+    }
+  }, {
+    key: "getMoved",
+    value: function getMoved() {
+      return {
+        x: this.movedX,
+        y: this.movedY
+      };
+    }
+  }]);
+
+  return DragPos;
+}();
+
+var _default = DragPos;
+exports.default = _default;
+},{}],"../src/drawing/draw-util.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.drawImageMid = exports.rectInCanvas = exports.grid2posMid = exports.grid2pos = exports.drawWrapper = void 0;
+
+var _macro = require("../macro");
+
+var drawWrapper = function drawWrapper(ctx, pos, callback) {
+  ctx.save();
+  ctx.translate(pos.x, pos.y);
+  ctx.beginPath();
+  callback(ctx, pos);
+  ctx.closePath();
+  ctx.restore();
+};
+
+exports.drawWrapper = drawWrapper;
+
+var grid2pos = function grid2pos(r, c) {
+  var x = c * _macro.MacroMap.HourseSize;
+  var y = r * _macro.MacroMap.HourseSize;
+  return {
+    x: x,
+    y: y
+  };
+};
+
+exports.grid2pos = grid2pos;
+
+var grid2posMid = function grid2posMid(r, c) {
+  var x = c * _macro.MacroMap.HourseSize + _macro.MacroMap.HourseSize / 2;
+  var y = r * _macro.MacroMap.HourseSize + _macro.MacroMap.HourseSize / 2;
+  return {
+    x: x,
+    y: y
+  };
+};
+
+exports.grid2posMid = grid2posMid;
+
+var rectInCanvas = function rectInCanvas(ctx, objPos, pos, objSize) {
+  var fixedX = objPos.x + pos.x;
+  var fixedY = objPos.y + pos.y;
+  var inView = fixedX >= -objSize && fixedX <= ctx.canvas.width && fixedY >= -objSize && fixedY <= ctx.canvas.height;
+  return inView;
+};
+
+exports.rectInCanvas = rectInCanvas;
+
+var drawImageMid = function drawImageMid(ctx, midPos, image, imageSize) {
+  ctx.drawImage(image, midPos.x - imageSize / 2, midPos.y - imageSize / 2, imageSize, imageSize);
+};
+
+exports.drawImageMid = drawImageMid;
+},{"../macro":"../src/macro.js"}],"../src/map.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("./macro");
+
+var _drawLand = _interopRequireDefault(require("./drawing/draw-land"));
+
+var _dragPos = _interopRequireDefault(require("./drawing/drag-pos"));
+
+var _drawUtil = require("./drawing/draw-util");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Map =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Map, _React$Component);
+
+  function Map(props) {
+    var _this;
+
+    _classCallCheck(this, Map);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Map).call(this, props));
+    _this.canvasRef = _react.default.createRef();
+    _this.state = {};
+    _this.dragPos = new _dragPos.default(0, 0);
+    _this.draging = false;
+    _this.land = new _drawLand.default();
+    return _this;
+  }
+
+  _createClass(Map, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "map-container"
+      }, _react.default.createElement("canvas", {
+        className: "map-canvas",
+        width: _macro.MacroMap.CanvasWidth,
+        height: _macro.MacroMap.CanvasHeight,
+        ref: this.canvasRef
+      }));
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var canvas = this.canvasRef.current;
+      canvas.addEventListener('mousedown', this.onMouseDown.bind(this));
+      canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
+      canvas.addEventListener('mouseup', this.onMouseUp.bind(this));
+      canvas.addEventListener('mouseout', this.onMouseUp.bind(this));
+      this.draw();
+    }
+  }, {
+    key: "draw",
+    value: function draw() {
+      var _this2 = this;
+
+      var canvas = this.canvasRef.current;
+      var ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var pos = this.dragPos.getPos();
+      (0, _drawUtil.drawWrapper)(ctx, pos, function (ctx, pos) {
+        _this2.land.draw(ctx, pos);
+      });
+      (0, _drawUtil.drawWrapper)(ctx, pos, function (ctx, pos) {
+        var owners = app.ownership.getOwners();
+        Object.keys(owners).forEach(function (ownerAddr) {
+          var landInfo = owners[ownerAddr];
+          var objPos = (0, _drawUtil.grid2pos)(landInfo.land.r, landInfo.land.c);
+          var midPos = (0, _drawUtil.grid2posMid)(landInfo.land.r, landInfo.land.c);
+
+          if ((0, _drawUtil.rectInCanvas)(ctx, pos, objPos, _macro.MacroMap.HourseSize)) {
+            var houseImage = app.imageMgr.getImage(landInfo.house);
+            (0, _drawUtil.drawImageMid)(ctx, midPos, houseImage.obj, _macro.MacroMap.HourseImageSize);
+          }
+        });
+      });
+    }
+  }, {
+    key: "onMouseDown",
+    value: function onMouseDown(event) {
+      var startX = event.clientX;
+      var startY = event.clientY;
+      this.draging = true;
+      this.dragPos.setStart(startX, startY);
+    }
+  }, {
+    key: "onMouseUp",
+    value: function onMouseUp() {
+      this.draging = false;
+    }
+  }, {
+    key: "onMouseMove",
+    value: function onMouseMove(event) {
+      if (!this.draging) return;
+      var targetX = event.clientX;
+      var targetY = event.clientY;
+      this.dragPos.setTarget(targetX, targetY);
+      this.dragPos.move();
+      this.draw();
+      this.dragPos.setStart(targetX, targetY);
+    }
+  }]);
+
+  return Map;
+}(_react.default.Component);
+
+var _default = Map;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/drag-pos":"../src/drawing/drag-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/login-check.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.check = void 0;
+
+var isChrome = function isChrome() {
+  return /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+};
+
+var isFirefox = function isFirefox() {
+  return typeof InstallTrigger !== 'undefined';
+};
+
+var check = function check() {
+  return new Promise(function (resolve, reject) {
+    var res = {
+      browserCheck: false,
+      extensionCheck: false,
+      loginCheck: false
+    };
+    res.browserCheck = isChrome() || isFirefox();
+    res.extensionCheck = app.metamask.isInstall();
+
+    if (res.extensionCheck) {
+      app.metamask.isLocked().then(function (locked) {
+        res.loginCheck = !locked;
+        resolve(res);
+      });
+    } else {
+      resolve(res);
+    }
+  });
+};
+
+exports.check = check;
+},{}],"../src/fundation/fundation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Fundation =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Fundation, _React$Component);
+
+  function Fundation(props) {
+    _classCallCheck(this, Fundation);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Fundation).call(this, props));
+  }
+
+  _createClass(Fundation, [{
+    key: "onHomeClick",
+    value: function onHomeClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageHome
+      });
+    }
+  }, {
+    key: "onMarketClick",
+    value: function onMarketClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageMarket
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "fundation"
+      }, _react.default.createElement("div", {
+        className: "fundation-icon",
+        onClick: this.onHomeClick.bind(this)
+      }, _react.default.createElement("img", {
+        src: "/images/house.png"
+      })), _react.default.createElement("div", {
+        className: "fundation-icon",
+        onClick: this.onMarketClick.bind(this)
+      }, _react.default.createElement("img", {
+        src: "/images/sale.png"
+      })), _react.default.createElement("div", {
+        className: "fundation-icon"
+      }, _react.default.createElement("img", {
+        src: "/images/travel.png"
+      })));
+    }
+  }]);
+
+  return Fundation;
+}(_react.default.Component);
+
+var _default = Fundation;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/login-guide.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("./macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var LoginGuide =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(LoginGuide, _React$Component);
+
+  function LoginGuide(props) {
+    var _this;
+
+    _classCallCheck(this, LoginGuide);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginGuide).call(this, props));
+    var check = props.viewArgs.check;
+    _this.state = {
+      browserCheck: check.browserCheck,
+      extensionCheck: check.extensionCheck,
+      loginCheck: check.loginCheck
+    };
+    return _this;
+  }
+
+  _createClass(LoginGuide, [{
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.LoginGuide);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var yesno = function yesno(checkRes) {
+        return checkRes ? _react.default.createElement("img", {
+          className: "yesno",
+          src: "/images/yes.png"
+        }) : _react.default.createElement("img", {
+          className: "yesno",
+          src: "/images/no.png"
+        });
+      };
+
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, "Login with MetaMask account."), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("div", {
+        className: "popup-item"
+      }, _react.default.createElement("img", {
+        src: "/images/browser.png"
+      }), _react.default.createElement("p", null, "1. Use Chrome or Firefox"), yesno(this.state.browserCheck)), _react.default.createElement("div", {
+        className: "popup-item"
+      }, _react.default.createElement("img", {
+        src: "/images/metamask.png"
+      }), _react.default.createElement("p", null, "2. Install MetaMask extension"), yesno(this.state.extensionCheck)), _react.default.createElement("div", {
+        className: "popup-item"
+      }, _react.default.createElement("img", {
+        src: "/images/metamask-login.png"
+      }), _react.default.createElement("p", null, "3. Login MetaMask"), yesno(this.state.loginCheck)))));
+    }
+  }]);
+
+  return LoginGuide;
+}(_react.default.Component);
+
+var _default = LoginGuide;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/fundation/page-home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PageHome =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageHome, _React$Component);
+
+  function PageHome(props) {
+    _classCallCheck(this, PageHome);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PageHome).call(this, props));
+  }
+
+  _createClass(PageHome, [{
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageHome);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, "My House"), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("p", null, "HaHa"))));
+    }
+  }]);
+
+  return PageHome;
+}(_react.default.Component);
+
+var _default = PageHome;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/fundation/page-market.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PageMarket =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageMarket, _React$Component);
+
+  function PageMarket(props) {
+    _classCallCheck(this, PageMarket);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PageMarket).call(this, props));
+  }
+
+  _createClass(PageMarket, [{
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageMarket);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, "House Markt"), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("p", null, "HaHa"))));
+    }
+  }]);
+
+  return PageMarket;
+}(_react.default.Component);
+
+var _default = PageMarket;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/page-mgr.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _loginGuide = _interopRequireDefault(require("./login-guide"));
+
+var _pageHome = _interopRequireDefault(require("./fundation/page-home"));
+
+var _pageMarket = _interopRequireDefault(require("./fundation/page-market"));
+
+var _macro = require("./macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var PageMgr =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageMgr, _React$Component);
+
+  function PageMgr(props) {
+    var _this;
+
+    _classCallCheck(this, PageMgr);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PageMgr).call(this, props));
+    _this.viewCfg = _this.genViewCfg();
+    _this.state = {
+      activeView: null,
+      viewArgs: {}
+    };
+    app.eventListener.register(_macro.MacroEventType.ShowView, _assertThisInitialized(_assertThisInitialized(_this)), _this.showView.bind(_assertThisInitialized(_assertThisInitialized(_this))));
+    app.eventListener.register(_macro.MacroEventType.HideView, _assertThisInitialized(_assertThisInitialized(_this)), _this.hideView.bind(_assertThisInitialized(_assertThisInitialized(_this))));
+    return _this;
+  }
+
+  _createClass(PageMgr, [{
+    key: "genViewCfg",
+    value: function genViewCfg() {
+      var viewCfg = {};
+      viewCfg[_macro.MacroViewType.LoginGuide] = _loginGuide.default;
+      viewCfg[_macro.MacroViewType.PageHome] = _pageHome.default;
+      viewCfg[_macro.MacroViewType.PageMarket] = _pageMarket.default;
+      return viewCfg;
+    }
+  }, {
+    key: "showView",
+    value: function showView(_ref) {
+      var viewName = _ref.viewName,
+          viewArgs = _ref.viewArgs;
+      var view = this.viewCfg[viewName];
+      if (!view) return;
+      this.setState({
+        activeView: viewName,
+        viewArgs: viewArgs
+      });
+    }
+  }, {
+    key: "hideView",
+    value: function hideView(viewName) {
+      if (!this.state.activeView == viewName) return;
+      this.setState({
+        activeView: null,
+        viewArgs: {}
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.state.activeView) {
+        var ViewClass = this.viewCfg[this.state.activeView];
+        return _react.default.createElement(ViewClass, {
+          viewArgs: this.state.viewArgs
+        });
+      } else {
+        return null;
+      }
+    }
+  }]);
+
+  return PageMgr;
+}(_react.default.Component);
+
+var _default = PageMgr;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./fundation/page-home":"../src/fundation/page-home.js","./fundation/page-market":"../src/fundation/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _map = _interopRequireDefault(require("./map"));
+
 var _loginCheck = require("./login-check");
 
 var _fundation = _interopRequireDefault(require("./fundation/fundation"));
 
-var _eventListener = _interopRequireDefault(require("./event-listener"));
-
 var _pageMgr = _interopRequireDefault(require("./page-mgr"));
 
 var _macro = require("./macro");
-
-var _solMgr = _interopRequireDefault(require("./sol/sol-mgr"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114122,7 +114163,7 @@ function (_React$Component) {
           var viewArgs = {
             check: res
           };
-          window.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+          app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
             viewName: _macro.MacroViewType.LoginGuide,
             viewArgs: viewArgs
           });
@@ -114148,15 +114189,27 @@ function (_React$Component) {
   return Entry;
 }(_react.default.Component);
 
-window.imageMgr = new _imageMgr.default();
-window.ownership = new _ownership.default();
-window.metamask = new _metamask.default();
-window.eventListener = new _eventListener.default();
-window.solMgr = new _solMgr.default();
-window.imageMgr.loadImages(function () {
-  _reactDom.default.render(_react.default.createElement(Entry, null), document.getElementById('root'));
+var _default = Entry;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","./map":"../src/map.js","./login-check":"../src/login-check.js","./fundation/fundation":"../src/fundation/fundation.js","./page-mgr":"../src/page-mgr.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
+"use strict";
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _app = _interopRequireDefault(require("./app"));
+
+var _entry = _interopRequireDefault(require("./entry"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.app = new _app.default();
+app.init();
+app.imageMgr.loadImages(function () {
+  _reactDom.default.render(_react.default.createElement(_entry.default, null), document.getElementById('root'));
 });
-},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","./map":"../src/map.js","./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./login-check":"../src/login-check.js","./fundation/fundation":"../src/fundation/fundation.js","./event-listener":"../src/event-listener.js","./page-mgr":"../src/page-mgr.js","./macro":"../src/macro.js","./sol/sol-mgr":"../src/sol/sol-mgr.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react-dom":"../../node_modules/react-dom/index.js","react":"../../node_modules/react/index.js","./app":"../src/app.js","./entry":"../src/entry.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -114183,7 +114236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62334" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62805" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -7,11 +7,11 @@ class Fundation extends React.Component {
     }
 
     onHomeClick(){
-       window.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageHome})
+       app.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageHome})
     }
 
     onMarketClick(){
-       window.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageMarket})
+       app.eventListener.dispatch(MacroEventType.ShowView, {viewName: MacroViewType.PageMarket})
     }
 
     render() {

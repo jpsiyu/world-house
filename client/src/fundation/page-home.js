@@ -7,7 +7,7 @@ class PageHome extends React.Component {
     }
 
     onCloseClick() {
-        window.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageHome)
+        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageHome)
     }
 
     render() {

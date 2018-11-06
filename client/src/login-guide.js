@@ -13,7 +13,7 @@ class LoginGuide extends React.Component{
     }
 
     onCloseClick(){
-        window.eventListener.dispatch(MacroEventType.HideView, MacroViewType.LoginGuide)
+        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.LoginGuide)
     }
 
     render(){

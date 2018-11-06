@@ -41,13 +41,13 @@ class Map extends React.Component {
         })
 
         drawWrapper(ctx, pos, (ctx, pos) => {
-            const owners = window.ownership.getOwners()
+            const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
                 const landInfo = owners[ownerAddr]
                 const objPos = grid2pos(landInfo.land.r, landInfo.land.c)
                 const midPos = grid2posMid(landInfo.land.r, landInfo.land.c)
                 if (rectInCanvas(ctx, pos, objPos, MacroMap.HourseSize)) {
-                    const houseImage = window.imageMgr.getImage(landInfo.house)
+                    const houseImage = app.imageMgr.getImage(landInfo.house)
                     drawImageMid(ctx, midPos, houseImage.obj, MacroMap.HourseImageSize)
                 }
             })
