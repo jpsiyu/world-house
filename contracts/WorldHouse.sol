@@ -2,7 +2,7 @@ pragma solidity ^0.4.23;
 
 contract WorldHouse{
     address private owner;
-    string private greeting;
+    string private greetMsg;
     struct HouseData{
         uint row;
         uint col;
@@ -12,7 +12,11 @@ contract WorldHouse{
 
     constructor() public{
         owner = msg.sender;
-        greeting = "Welcome to WorldHouse!";
+        greetMsg = "Welcome to WorldHouse!";
+    }
+
+    function greet() public view returns(string){
+        return greetMsg;
     }
 
     function getHouse() public view returns(uint, uint, bool){
@@ -21,7 +25,7 @@ contract WorldHouse{
     }
 
     function buyHouse(uint row, uint col) public{
-        require(houseRecord[msg.sender].used == true, "Already has one");
+        require(houseRecord[msg.sender].used != true, "Already has one");
         HouseData memory data = HouseData(row, col, true);
         houseRecord[msg.sender] = data;
     }

@@ -89,7 +89,7 @@
 
 .popup-item{
     border: 2px lightgray solid;
-    width: 200px; 
+    width: 180px; 
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -97,19 +97,35 @@
     align-items: center;
 }
 
-.popup-item:nth-child(1) img:nth-child(1){
+.guide-img-rect{
     width: 160px;
     height: 80px;
 }
 
-.popup-item:nth-child(2) img:nth-child(1){
-    width: 80px;
+.guide-img-square{
+    width: 80;
     height: 80px;
 }
 
-.popup-item:nth-child(3) img:nth-child(1){
-    width: 160px;
-    height: 80px;
+.mainnet-guide{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 80%;
+    height: 50px;
+    margin: 15px 0;
+    border-radius: 20px;
+    border: 2px lightgray solid;
+}
+
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px white solid;
+    background-color: green;
 }
 
 .yesno{

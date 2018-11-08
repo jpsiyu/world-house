@@ -10,6 +10,21 @@ class PageHome extends React.Component {
         app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageHome)
     }
 
+    whenNoHouse() {
+        return <div className='no-house'>
+            <p>You don't have one, go to the market and buy one!</p>
+        </div>
+    }
+
+    whenOwnedHouse(houseData) {
+        return <div className='owned-house'>
+            <div className='owned-house-item'>
+                <img src='/images/house1.png'></img>
+                <p>Position: [{houseData.row}, {houseData.col}]</p>
+            </div>
+        </div>
+    }
+
     render() {
         return <div className='overflow'>
             <div className='popup'>
@@ -20,7 +35,7 @@ class PageHome extends React.Component {
                     </button>
                 </div>
                 <div className='popup-content'>
-                    <p>HaHa</p>
+                    {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse()}
                 </div>
             </div>
         </div>

@@ -17,3 +17,62 @@
     width: 100%;
     height: 100%;
 }
+
+/* market page */
+.market-content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.market-item{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.market-item img{
+    width: 150px;
+    height: 150px;
+}
+.market-item p{
+    font-size: 20px;
+}
+
+.market-item button{
+    background-color: lightseagreen;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+    width: 120px;
+    height: 50px;
+}
+
+.market-item button:hover{
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.market-item button:active{
+    box-shadow: none;
+}
+
+/* home page */
+.owned-house{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.owned-house-item{
+    border: 1px lightgray solid;
+    display: flex;
+    align-items: center;
+}
+
+.owned-house-item img{
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}

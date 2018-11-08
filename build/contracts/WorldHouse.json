@@ -10,6 +10,20 @@
     {
       "constant": true,
       "inputs": [],
+      "name": "greet",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
       "name": "getHouse",
       "outputs": [
         {
@@ -48,24 +62,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040805190810160405280601681526020017f57656c636f6d6520746f20576f726c64486f75736521000000000000000000008152506001908051906020019061009c9291906100a2565b50610147565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100e357805160ff1916838001178555610111565b82800160010185558215610111579182015b828111156101105782518255916020019190600101906100f5565b5b50905061011e9190610122565b5090565b61014491905b80821115610140576000816000905550600101610128565b5090565b90565b6102f4806101566000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f1461005157806383716e6d1461008e575b600080fd5b34801561005d57600080fd5b506100666100c5565b6040518084815260200183815260200182151515158152602001935050505060405180910390f35b34801561009a57600080fd5b506100c36004803603810190808035906020019092919080359060200190929190505050610134565b005b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050806000015481600101548260020160009054906101000a900460ff1693509350935050909192565b61013c6102a4565b60011515600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141515610207576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b60606040519081016040528084815260200183815260200160011515815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015560408201518160020160006101000a81548160ff021916908315150217905550905050505050565b606060405190810160405280600081526020016000815260200160001515815250905600a165627a7a72305820b4984ea9adbe3620f9a4b07621c4019761fe22d10fb5ca9d41fb6a528b7debb80029",
-  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f1461005157806383716e6d1461008e575b600080fd5b34801561005d57600080fd5b506100666100c5565b6040518084815260200183815260200182151515158152602001935050505060405180910390f35b34801561009a57600080fd5b506100c36004803603810190808035906020019092919080359060200190929190505050610134565b005b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050806000015481600101548260020160009054906101000a900460ff1693509350935050909192565b61013c6102a4565b60011515600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141515610207576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b60606040519081016040528084815260200183815260200160011515815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015560408201518160020160006101000a81548160ff021916908315150217905550905050505050565b606060405190810160405280600081526020016000815260200160001515815250905600a165627a7a72305820b4984ea9adbe3620f9a4b07621c4019761fe22d10fb5ca9d41fb6a528b7debb80029",
-  "sourceMap": "26:721:0:-;;;238:100;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:100:0;276:10;268:5;;:18;;;;;;;;;;;;;;;;;;296:35;;;;;;;;;;;;;;;;;;:8;:35;;;;;;;;;;;;:::i;:::-;;26:721;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "26:721:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:170;;8:9:-1;5:2;;;30:1;27;20:12;5:2;344:170:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;520:224;;8:9:-1;5:2;;;30:1;27;20:12;5:2;520:224:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:170;384:4;390;396;411:22;436:11;:23;448:10;436:23;;;;;;;;;;;;;;;411:48;;477:4;:8;;;487:4;:8;;;497:4;:9;;;;;;;;;;;;469:38;;;;;;344:170;;;;:::o;520:224::-;648:21;;:::i;:::-;614:4;582:36;;:11;:23;594:10;582:23;;;;;;;;;;;;;;;:28;;;;;;;;;;;;:36;;;574:64;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;672:25;;;;;;;;;682:3;672:25;;;;687:3;672:25;;;;692:4;672:25;;;;;648:49;;733:4;707:11;:23;719:10;707:23;;;;;;;;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;520:224;;;:::o;26:721::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.23;\n\ncontract WorldHouse{\n    address private owner;\n    string private greeting;\n    struct HouseData{\n        uint row;\n        uint col;\n        bool used;\n    }\n    mapping(address => HouseData) houseRecord;\n\n    constructor() public{\n        owner = msg.sender;\n        greeting = \"Welcome to WorldHouse!\";\n    }\n\n    function getHouse() public view returns(uint, uint, bool){\n        HouseData storage data = houseRecord[msg.sender];\n        return (data.row, data.col, data.used);\n    }\n\n    function buyHouse(uint row, uint col) public{\n        require(houseRecord[msg.sender].used == true, \"Already has one\");\n        HouseData memory data = HouseData(row, col, true);\n        houseRecord[msg.sender] = data;\n    }\n\n}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040805190810160405280601681526020017f57656c636f6d6520746f20576f726c64486f75736521000000000000000000008152506001908051906020019061009c9291906100a2565b50610147565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100e357805160ff1916838001178555610111565b82800160010185558215610111579182015b828111156101105782518255916020019190600101906100f5565b5b50905061011e9190610122565b5090565b61014491905b80821115610140576000816000905550600101610128565b5090565b90565b610432806101566000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f1461005c57806383716e6d14610099578063cfae3217146100d0575b600080fd5b34801561006857600080fd5b50610071610160565b6040518084815260200183815260200182151515158152602001935050505060405180910390f35b3480156100a557600080fd5b506100ce60048036038101908080359060200190929190803590602001909291905050506101cf565b005b3480156100dc57600080fd5b506100e5610340565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561012557808201518184015260208101905061010a565b50505050905090810190601f1680156101525780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050806000015481600101548260020160009054906101000a900460ff1693509350935050909192565b6101d76103e2565b60011515600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141515156102a3576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b60606040519081016040528084815260200183815260200160011515815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015560408201518160020160006101000a81548160ff021916908315150217905550905050505050565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d85780601f106103ad576101008083540402835291602001916103d8565b820191906000526020600020905b8154815290600101906020018083116103bb57829003601f168201915b5050505050905090565b606060405190810160405280600081526020016000815260200160001515815250905600a165627a7a72305820cda3ff2e215ac5e98f2d96930a375a7297846d250c884cd8960201e94d0499e80029",
+  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f1461005c57806383716e6d14610099578063cfae3217146100d0575b600080fd5b34801561006857600080fd5b50610071610160565b6040518084815260200183815260200182151515158152602001935050505060405180910390f35b3480156100a557600080fd5b506100ce60048036038101908080359060200190929190803590602001909291905050506101cf565b005b3480156100dc57600080fd5b506100e5610340565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561012557808201518184015260208101905061010a565b50505050905090810190601f1680156101525780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000209050806000015481600101548260020160009054906101000a900460ff1693509350935050909192565b6101d76103e2565b60011515600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060020160009054906101000a900460ff161515141515156102a3576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b60606040519081016040528084815260200183815260200160011515815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015560408201518160020160006101000a81548160ff021916908315150217905550905050505050565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d85780601f106103ad576101008083540402835291602001916103d8565b820191906000526020600020905b8154815290600101906020018083116103bb57829003601f168201915b5050505050905090565b606060405190810160405280600081526020016000815260200160001515815250905600a165627a7a72305820cda3ff2e215ac5e98f2d96930a375a7297846d250c884cd8960201e94d0499e80029",
+  "sourceMap": "26:803:1:-;;;238:100;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:100:1;276:10;268:5;;:18;;;;;;;;;;;;;;;;;;296:35;;;;;;;;;;;;;;;;;;:8;:35;;;;;;;;;;;;:::i;:::-;;26:803;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "26:803:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;426:170;;8:9:-1;5:2;;;30:1;27;20:12;5:2;426:170:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;602:224;;8:9:-1;5:2;;;30:1;27;20:12;5:2;602:224:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;344:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;344:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;426:170;466:4;472;478;493:22;518:11;:23;530:10;518:23;;;;;;;;;;;;;;;493:48;;559:4;:8;;;569:4;:8;;;579:4;:9;;;;;;;;;;;;551:38;;;;;;426:170;;;;:::o;602:224::-;730:21;;:::i;:::-;696:4;664:36;;:11;:23;676:10;664:23;;;;;;;;;;;;;;;:28;;;;;;;;;;;;:36;;;;656:64;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;754:25;;;;;;;;;764:3;754:25;;;;769:3;754:25;;;;774:4;754:25;;;;;730:49;;815:4;789:11;:23;801:10;789:23;;;;;;;;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;602:224;;;:::o;344:76::-;381:6;405:8;398:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:76;:::o;26:803::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.23;\n\ncontract WorldHouse{\n    address private owner;\n    string private greetMsg;\n    struct HouseData{\n        uint row;\n        uint col;\n        bool used;\n    }\n    mapping(address => HouseData) houseRecord;\n\n    constructor() public{\n        owner = msg.sender;\n        greetMsg = \"Welcome to WorldHouse!\";\n    }\n\n    function greet() public view returns(string){\n        return greetMsg;\n    }\n\n    function getHouse() public view returns(uint, uint, bool){\n        HouseData storage data = houseRecord[msg.sender];\n        return (data.row, data.col, data.used);\n    }\n\n    function buyHouse(uint row, uint col) public{\n        require(houseRecord[msg.sender].used != true, \"Already has one\");\n        HouseData memory data = HouseData(row, col, true);\n        houseRecord[msg.sender] = data;\n    }\n\n}",
   "sourcePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
   "ast": {
     "absolutePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
     "exportedSymbols": {
       "WorldHouse": [
-        89
+        154
       ]
     },
-    "id": 90,
+    "id": 155,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 58,
         "literals": [
           "solidity",
           "^",
@@ -73,7 +87,7 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
       },
       {
         "baseContracts": [],
@@ -81,20 +95,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 89,
+        "id": 154,
         "linearizedBaseContracts": [
-          89
+          154
         ],
         "name": "WorldHouse",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3,
+            "id": 60,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "51:21:0",
+            "scope": 154,
+            "src": "51:21:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -102,10 +116,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2,
+              "id": 59,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "51:7:0",
+              "src": "51:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -116,11 +130,11 @@
           },
           {
             "constant": false,
-            "id": 5,
-            "name": "greeting",
+            "id": 62,
+            "name": "greetMsg",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "78:23:0",
+            "scope": 154,
+            "src": "78:23:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -128,10 +142,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4,
+              "id": 61,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "78:6:0",
+              "src": "78:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -142,15 +156,15 @@
           },
           {
             "canonicalName": "WorldHouse.HouseData",
-            "id": 12,
+            "id": 69,
             "members": [
               {
                 "constant": false,
-                "id": 7,
+                "id": 64,
                 "name": "row",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "133:8:0",
+                "scope": 69,
+                "src": "133:8:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -158,10 +172,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 6,
+                  "id": 63,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "133:4:0",
+                  "src": "133:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -172,11 +186,11 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 66,
                 "name": "col",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "151:8:0",
+                "scope": 69,
+                "src": "151:8:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -184,10 +198,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8,
+                  "id": 65,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "151:4:0",
+                  "src": "151:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -198,11 +212,11 @@
               },
               {
                 "constant": false,
-                "id": 11,
+                "id": 68,
                 "name": "used",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "169:9:0",
+                "scope": 69,
+                "src": "169:9:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -210,10 +224,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 10,
+                  "id": 67,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "169:4:0",
+                  "src": "169:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -225,50 +239,50 @@
             ],
             "name": "HouseData",
             "nodeType": "StructDefinition",
-            "scope": 89,
-            "src": "107:78:0",
+            "scope": 154,
+            "src": "107:78:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 16,
+            "id": 73,
             "name": "houseRecord",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "190:41:0",
+            "scope": 154,
+            "src": "190:41:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
               "typeString": "mapping(address => struct WorldHouse.HouseData)"
             },
             "typeName": {
-              "id": 15,
+              "id": 72,
               "keyType": {
-                "id": 13,
+                "id": 70,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "198:7:0",
+                "src": "198:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "190:29:0",
+              "src": "190:29:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                 "typeString": "mapping(address => struct WorldHouse.HouseData)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 14,
+                "id": 71,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12,
-                "src": "209:9:0",
+                "referencedDeclaration": 69,
+                "src": "209:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               }
@@ -278,26 +292,26 @@
           },
           {
             "body": {
-              "id": 28,
+              "id": 85,
               "nodeType": "Block",
-              "src": "258:80:0",
+              "src": "258:80:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 22,
+                    "id": 79,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 19,
+                      "id": 76,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "268:5:0",
+                      "referencedDeclaration": 60,
+                      "src": "268:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -309,18 +323,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 20,
+                        "id": 77,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 104,
-                        "src": "276:3:0",
+                        "referencedDeclaration": 169,
+                        "src": "276:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 21,
+                      "id": 78,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -328,38 +342,38 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "276:10:0",
+                      "src": "276:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "268:18:0",
+                    "src": "268:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 23,
+                  "id": 80,
                   "nodeType": "ExpressionStatement",
-                  "src": "268:18:0"
+                  "src": "268:18:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 26,
+                    "id": 83,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 24,
-                      "name": "greeting",
+                      "id": 81,
+                      "name": "greetMsg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "296:8:0",
+                      "referencedDeclaration": 62,
+                      "src": "296:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -370,14 +384,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "57656c636f6d6520746f20576f726c64486f75736521",
-                      "id": 25,
+                      "id": 82,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "string",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "307:24:0",
+                      "src": "307:24:1",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_stringliteral_0a4271776a18a0f3e0a10f0e0886216fcd7c56a508b075bca6ffa77e422e08f1",
@@ -385,20 +399,20 @@
                       },
                       "value": "Welcome to WorldHouse!"
                     },
-                    "src": "296:35:0",
+                    "src": "296:35:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 27,
+                  "id": 84,
                   "nodeType": "ExpressionStatement",
-                  "src": "296:35:0"
+                  "src": "296:35:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 86,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -406,57 +420,138 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 17,
+              "id": 74,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "249:2:0"
+              "src": "249:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 18,
+              "id": 75,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "258:0:0"
+              "src": "258:0:1"
             },
-            "scope": 89,
-            "src": "238:100:0",
+            "scope": 154,
+            "src": "238:100:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 53,
+              "id": 93,
               "nodeType": "Block",
-              "src": "401:113:0",
+              "src": "388:32:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
+                    "name": "greetMsg",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 62,
+                    "src": "405:8:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 90,
+                  "id": 92,
+                  "nodeType": "Return",
+                  "src": "398:15:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 94,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "greet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 87,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "358:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 90,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 89,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 94,
+                  "src": "381:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 88,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "380:8:1"
+            },
+            "scope": 154,
+            "src": "344:76:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 118,
+              "nodeType": "Block",
+              "src": "483:113:1",
               "statements": [
                 {
                   "assignments": [
-                    39
+                    104
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 39,
+                      "id": 104,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 54,
-                      "src": "411:22:0",
+                      "scope": 119,
+                      "src": "493:22:1",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                         "typeString": "struct WorldHouse.HouseData"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 38,
+                        "id": 103,
                         "name": "HouseData",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 12,
-                        "src": "411:9:0",
+                        "referencedDeclaration": 69,
+                        "src": "493:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                          "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                           "typeString": "struct WorldHouse.HouseData"
                         }
                       },
@@ -464,39 +559,39 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 44,
+                  "id": 109,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 40,
+                      "id": 105,
                       "name": "houseRecord",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 16,
-                      "src": "436:11:0",
+                      "referencedDeclaration": 73,
+                      "src": "518:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                         "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                       }
                     },
-                    "id": 43,
+                    "id": 108,
                     "indexExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 41,
+                        "id": 106,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 104,
-                        "src": "448:3:0",
+                        "referencedDeclaration": 169,
+                        "src": "530:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 42,
+                      "id": 107,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -504,7 +599,7 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "448:10:0",
+                      "src": "530:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -515,14 +610,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "436:23:0",
+                    "src": "518:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$69_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "411:48:0"
+                  "src": "493:48:1"
                 },
                 {
                   "expression": {
@@ -532,26 +627,26 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 45,
+                          "id": 110,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "477:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "559:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 46,
+                        "id": 111,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "row",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7,
-                        "src": "477:8:0",
+                        "referencedDeclaration": 64,
+                        "src": "559:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -561,26 +656,26 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 47,
+                          "id": 112,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "487:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "569:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 48,
+                        "id": 113,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "col",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9,
-                        "src": "487:8:0",
+                        "referencedDeclaration": 66,
+                        "src": "569:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -590,54 +685,54 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 49,
+                          "id": 114,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "497:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "579:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 50,
+                        "id": 115,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "used",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 11,
-                        "src": "497:9:0",
+                        "referencedDeclaration": 68,
+                        "src": "579:9:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         }
                       }
                     ],
-                    "id": 51,
+                    "id": 116,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "476:31:0",
+                    "src": "558:31:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_bool_$",
                       "typeString": "tuple(uint256,uint256,bool)"
                     }
                   },
-                  "functionReturnParameters": 37,
-                  "id": 52,
+                  "functionReturnParameters": 102,
+                  "id": 117,
                   "nodeType": "Return",
-                  "src": "469:38:0"
+                  "src": "551:38:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 54,
+            "id": 119,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -645,23 +740,23 @@
             "name": "getHouse",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 30,
+              "id": 95,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "361:2:0"
+              "src": "443:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 37,
+              "id": 102,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 32,
+                  "id": 97,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "384:4:0",
+                  "scope": 119,
+                  "src": "466:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -669,10 +764,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 31,
+                    "id": 96,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "384:4:0",
+                    "src": "466:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -683,11 +778,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 34,
+                  "id": 99,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "390:4:0",
+                  "scope": 119,
+                  "src": "472:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -695,10 +790,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 33,
+                    "id": 98,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "390:4:0",
+                    "src": "472:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -709,11 +804,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 36,
+                  "id": 101,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "396:4:0",
+                  "scope": 119,
+                  "src": "478:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -721,10 +816,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 35,
+                    "id": 100,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "396:4:0",
+                    "src": "478:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -734,19 +829,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "383:18:0"
+              "src": "465:18:1"
             },
-            "scope": 89,
-            "src": "344:170:0",
+            "scope": 154,
+            "src": "426:170:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 87,
+              "id": 152,
               "nodeType": "Block",
-              "src": "564:180:0",
+              "src": "646:180:1",
               "statements": [
                 {
                   "expression": {
@@ -758,7 +853,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 68,
+                        "id": 133,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -769,34 +864,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 62,
+                              "id": 127,
                               "name": "houseRecord",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 16,
-                              "src": "582:11:0",
+                              "referencedDeclaration": 73,
+                              "src": "664:11:1",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                                 "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                               }
                             },
-                            "id": 65,
+                            "id": 130,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 63,
+                                "id": 128,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 104,
-                                "src": "594:3:0",
+                                "referencedDeclaration": 169,
+                                "src": "676:3:1",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 64,
+                              "id": 129,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -804,7 +899,7 @@
                               "memberName": "sender",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": null,
-                              "src": "594:10:0",
+                              "src": "676:10:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -815,39 +910,39 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "582:23:0",
+                            "src": "664:23:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                              "typeIdentifier": "t_struct$_HouseData_$69_storage",
                               "typeString": "struct WorldHouse.HouseData storage ref"
                             }
                           },
-                          "id": 66,
+                          "id": 131,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "used",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 11,
-                          "src": "582:28:0",
+                          "referencedDeclaration": 68,
+                          "src": "664:28:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
                         "nodeType": "BinaryOperation",
-                        "operator": "==",
+                        "operator": "!=",
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 67,
+                          "id": 132,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "614:4:0",
+                          "src": "696:4:1",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -855,7 +950,7 @@
                           },
                           "value": "true"
                         },
-                        "src": "582:36:0",
+                        "src": "664:36:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -864,14 +959,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "416c726561647920686173206f6e65",
-                        "id": 69,
+                        "id": 134,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "620:17:0",
+                        "src": "702:17:1",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
@@ -891,21 +986,21 @@
                           "typeString": "literal_string \"Already has one\""
                         }
                       ],
-                      "id": 61,
+                      "id": 126,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        107,
-                        108
+                        172,
+                        173
                       ],
-                      "referencedDeclaration": 108,
-                      "src": "574:7:0",
+                      "referencedDeclaration": 173,
+                      "src": "656:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 70,
+                    "id": 135,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -913,43 +1008,43 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "574:64:0",
+                    "src": "656:64:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 71,
+                  "id": 136,
                   "nodeType": "ExpressionStatement",
-                  "src": "574:64:0"
+                  "src": "656:64:1"
                 },
                 {
                   "assignments": [
-                    73
+                    138
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 73,
+                      "id": 138,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 88,
-                      "src": "648:21:0",
+                      "scope": 153,
+                      "src": "730:21:1",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_memory_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_memory_ptr",
                         "typeString": "struct WorldHouse.HouseData"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 72,
+                        "id": 137,
                         "name": "HouseData",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 12,
-                        "src": "648:9:0",
+                        "referencedDeclaration": 69,
+                        "src": "730:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                          "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                           "typeString": "struct WorldHouse.HouseData"
                         }
                       },
@@ -957,18 +1052,18 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 79,
+                  "id": 144,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 75,
+                        "id": 140,
                         "name": "row",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 56,
-                        "src": "682:3:0",
+                        "referencedDeclaration": 121,
+                        "src": "764:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -976,12 +1071,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 76,
+                        "id": 141,
                         "name": "col",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 58,
-                        "src": "687:3:0",
+                        "referencedDeclaration": 123,
+                        "src": "769:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -990,14 +1085,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 77,
+                        "id": 142,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "692:4:0",
+                        "src": "774:4:1",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -1021,18 +1116,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 74,
+                      "id": 139,
                       "name": "HouseData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 12,
-                      "src": "672:9:0",
+                      "referencedDeclaration": 69,
+                      "src": "754:9:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_HouseData_$12_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_HouseData_$69_storage_ptr_$",
                         "typeString": "type(struct WorldHouse.HouseData storage pointer)"
                       }
                     },
-                    "id": 78,
+                    "id": 143,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1040,19 +1135,19 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "672:25:0",
+                    "src": "754:25:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_memory",
+                      "typeIdentifier": "t_struct$_HouseData_$69_memory",
                       "typeString": "struct WorldHouse.HouseData memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "648:49:0"
+                  "src": "730:49:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 85,
+                    "id": 150,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1061,34 +1156,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 80,
+                        "id": 145,
                         "name": "houseRecord",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16,
-                        "src": "707:11:0",
+                        "referencedDeclaration": 73,
+                        "src": "789:11:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                           "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                         }
                       },
-                      "id": 83,
+                      "id": 148,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 81,
+                          "id": 146,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 104,
-                          "src": "719:3:0",
+                          "referencedDeclaration": 169,
+                          "src": "801:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 82,
+                        "id": 147,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1096,7 +1191,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "719:10:0",
+                        "src": "801:10:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1107,9 +1202,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "707:23:0",
+                      "src": "789:23:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                        "typeIdentifier": "t_struct$_HouseData_$69_storage",
                         "typeString": "struct WorldHouse.HouseData storage ref"
                       }
                     },
@@ -1117,31 +1212,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 84,
+                      "id": 149,
                       "name": "data",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 73,
-                      "src": "733:4:0",
+                      "referencedDeclaration": 138,
+                      "src": "815:4:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_memory_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_memory_ptr",
                         "typeString": "struct WorldHouse.HouseData memory"
                       }
                     },
-                    "src": "707:30:0",
+                    "src": "789:30:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$69_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
-                  "id": 86,
+                  "id": 151,
                   "nodeType": "ExpressionStatement",
-                  "src": "707:30:0"
+                  "src": "789:30:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 88,
+            "id": 153,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1149,16 +1244,16 @@
             "name": "buyHouse",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 124,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 56,
+                  "id": 121,
                   "name": "row",
                   "nodeType": "VariableDeclaration",
-                  "scope": 88,
-                  "src": "538:8:0",
+                  "scope": 153,
+                  "src": "620:8:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1166,10 +1261,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 55,
+                    "id": 120,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "538:4:0",
+                    "src": "620:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1180,11 +1275,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 123,
                   "name": "col",
                   "nodeType": "VariableDeclaration",
-                  "scope": 88,
-                  "src": "548:8:0",
+                  "scope": 153,
+                  "src": "630:8:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1192,10 +1287,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 122,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "548:4:0",
+                    "src": "630:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1205,40 +1300,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "537:20:0"
+              "src": "619:20:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 60,
+              "id": 125,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "564:0:0"
+              "src": "646:0:1"
             },
-            "scope": 89,
-            "src": "520:224:0",
+            "scope": 154,
+            "src": "602:224:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 90,
-        "src": "26:721:0"
+        "scope": 155,
+        "src": "26:803:1"
       }
     ],
-    "src": "0:747:0"
+    "src": "0:829:1"
   },
   "legacyAST": {
     "absolutePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
     "exportedSymbols": {
       "WorldHouse": [
-        89
+        154
       ]
     },
-    "id": 90,
+    "id": 155,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1,
+        "id": 58,
         "literals": [
           "solidity",
           "^",
@@ -1246,7 +1341,7 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:0"
+        "src": "0:24:1"
       },
       {
         "baseContracts": [],
@@ -1254,20 +1349,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 89,
+        "id": 154,
         "linearizedBaseContracts": [
-          89
+          154
         ],
         "name": "WorldHouse",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3,
+            "id": 60,
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "51:21:0",
+            "scope": 154,
+            "src": "51:21:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1275,10 +1370,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 2,
+              "id": 59,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "51:7:0",
+              "src": "51:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -1289,11 +1384,11 @@
           },
           {
             "constant": false,
-            "id": 5,
-            "name": "greeting",
+            "id": 62,
+            "name": "greetMsg",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "78:23:0",
+            "scope": 154,
+            "src": "78:23:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -1301,10 +1396,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 4,
+              "id": 61,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "78:6:0",
+              "src": "78:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -1315,15 +1410,15 @@
           },
           {
             "canonicalName": "WorldHouse.HouseData",
-            "id": 12,
+            "id": 69,
             "members": [
               {
                 "constant": false,
-                "id": 7,
+                "id": 64,
                 "name": "row",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "133:8:0",
+                "scope": 69,
+                "src": "133:8:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1331,10 +1426,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 6,
+                  "id": 63,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "133:4:0",
+                  "src": "133:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1345,11 +1440,11 @@
               },
               {
                 "constant": false,
-                "id": 9,
+                "id": 66,
                 "name": "col",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "151:8:0",
+                "scope": 69,
+                "src": "151:8:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1357,10 +1452,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8,
+                  "id": 65,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "151:4:0",
+                  "src": "151:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1371,11 +1466,11 @@
               },
               {
                 "constant": false,
-                "id": 11,
+                "id": 68,
                 "name": "used",
                 "nodeType": "VariableDeclaration",
-                "scope": 12,
-                "src": "169:9:0",
+                "scope": 69,
+                "src": "169:9:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1383,10 +1478,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 10,
+                  "id": 67,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "169:4:0",
+                  "src": "169:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1398,50 +1493,50 @@
             ],
             "name": "HouseData",
             "nodeType": "StructDefinition",
-            "scope": 89,
-            "src": "107:78:0",
+            "scope": 154,
+            "src": "107:78:1",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 16,
+            "id": 73,
             "name": "houseRecord",
             "nodeType": "VariableDeclaration",
-            "scope": 89,
-            "src": "190:41:0",
+            "scope": 154,
+            "src": "190:41:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
               "typeString": "mapping(address => struct WorldHouse.HouseData)"
             },
             "typeName": {
-              "id": 15,
+              "id": 72,
               "keyType": {
-                "id": 13,
+                "id": 70,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "198:7:0",
+                "src": "198:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "190:29:0",
+              "src": "190:29:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                 "typeString": "mapping(address => struct WorldHouse.HouseData)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 14,
+                "id": 71,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 12,
-                "src": "209:9:0",
+                "referencedDeclaration": 69,
+                "src": "209:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               }
@@ -1451,26 +1546,26 @@
           },
           {
             "body": {
-              "id": 28,
+              "id": 85,
               "nodeType": "Block",
-              "src": "258:80:0",
+              "src": "258:80:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 22,
+                    "id": 79,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 19,
+                      "id": 76,
                       "name": "owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3,
-                      "src": "268:5:0",
+                      "referencedDeclaration": 60,
+                      "src": "268:5:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1482,18 +1577,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 20,
+                        "id": 77,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 104,
-                        "src": "276:3:0",
+                        "referencedDeclaration": 169,
+                        "src": "276:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 21,
+                      "id": 78,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1501,38 +1596,38 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "276:10:0",
+                      "src": "276:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "268:18:0",
+                    "src": "268:18:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 23,
+                  "id": 80,
                   "nodeType": "ExpressionStatement",
-                  "src": "268:18:0"
+                  "src": "268:18:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 26,
+                    "id": 83,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 24,
-                      "name": "greeting",
+                      "id": 81,
+                      "name": "greetMsg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5,
-                      "src": "296:8:0",
+                      "referencedDeclaration": 62,
+                      "src": "296:8:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -1543,14 +1638,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "57656c636f6d6520746f20576f726c64486f75736521",
-                      "id": 25,
+                      "id": 82,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "string",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "307:24:0",
+                      "src": "307:24:1",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_stringliteral_0a4271776a18a0f3e0a10f0e0886216fcd7c56a508b075bca6ffa77e422e08f1",
@@ -1558,20 +1653,20 @@
                       },
                       "value": "Welcome to WorldHouse!"
                     },
-                    "src": "296:35:0",
+                    "src": "296:35:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 27,
+                  "id": 84,
                   "nodeType": "ExpressionStatement",
-                  "src": "296:35:0"
+                  "src": "296:35:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 29,
+            "id": 86,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -1579,57 +1674,138 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 17,
+              "id": 74,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "249:2:0"
+              "src": "249:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 18,
+              "id": 75,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "258:0:0"
+              "src": "258:0:1"
             },
-            "scope": 89,
-            "src": "238:100:0",
+            "scope": 154,
+            "src": "238:100:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 53,
+              "id": 93,
               "nodeType": "Block",
-              "src": "401:113:0",
+              "src": "388:32:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
+                    "name": "greetMsg",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 62,
+                    "src": "405:8:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 90,
+                  "id": 92,
+                  "nodeType": "Return",
+                  "src": "398:15:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 94,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "greet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 87,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "358:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 90,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 89,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 94,
+                  "src": "381:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 88,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "380:8:1"
+            },
+            "scope": 154,
+            "src": "344:76:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 118,
+              "nodeType": "Block",
+              "src": "483:113:1",
               "statements": [
                 {
                   "assignments": [
-                    39
+                    104
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 39,
+                      "id": 104,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 54,
-                      "src": "411:22:0",
+                      "scope": 119,
+                      "src": "493:22:1",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                         "typeString": "struct WorldHouse.HouseData"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 38,
+                        "id": 103,
                         "name": "HouseData",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 12,
-                        "src": "411:9:0",
+                        "referencedDeclaration": 69,
+                        "src": "493:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                          "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                           "typeString": "struct WorldHouse.HouseData"
                         }
                       },
@@ -1637,39 +1813,39 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 44,
+                  "id": 109,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 40,
+                      "id": 105,
                       "name": "houseRecord",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 16,
-                      "src": "436:11:0",
+                      "referencedDeclaration": 73,
+                      "src": "518:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                         "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                       }
                     },
-                    "id": 43,
+                    "id": 108,
                     "indexExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 41,
+                        "id": 106,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 104,
-                        "src": "448:3:0",
+                        "referencedDeclaration": 169,
+                        "src": "530:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 42,
+                      "id": 107,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1677,7 +1853,7 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "448:10:0",
+                      "src": "530:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1688,14 +1864,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "436:23:0",
+                    "src": "518:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$69_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "411:48:0"
+                  "src": "493:48:1"
                 },
                 {
                   "expression": {
@@ -1705,26 +1881,26 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 45,
+                          "id": 110,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "477:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "559:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 46,
+                        "id": 111,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "row",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7,
-                        "src": "477:8:0",
+                        "referencedDeclaration": 64,
+                        "src": "559:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1734,26 +1910,26 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 47,
+                          "id": 112,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "487:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "569:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 48,
+                        "id": 113,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "col",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 9,
-                        "src": "487:8:0",
+                        "referencedDeclaration": 66,
+                        "src": "569:8:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1763,54 +1939,54 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 49,
+                          "id": 114,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 39,
-                          "src": "497:4:0",
+                          "referencedDeclaration": 104,
+                          "src": "579:4:1",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                            "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                             "typeString": "struct WorldHouse.HouseData storage pointer"
                           }
                         },
-                        "id": 50,
+                        "id": 115,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "used",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 11,
-                        "src": "497:9:0",
+                        "referencedDeclaration": 68,
+                        "src": "579:9:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         }
                       }
                     ],
-                    "id": 51,
+                    "id": 116,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "476:31:0",
+                    "src": "558:31:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_bool_$",
                       "typeString": "tuple(uint256,uint256,bool)"
                     }
                   },
-                  "functionReturnParameters": 37,
-                  "id": 52,
+                  "functionReturnParameters": 102,
+                  "id": 117,
                   "nodeType": "Return",
-                  "src": "469:38:0"
+                  "src": "551:38:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 54,
+            "id": 119,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -1818,23 +1994,23 @@
             "name": "getHouse",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 30,
+              "id": 95,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "361:2:0"
+              "src": "443:2:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 37,
+              "id": 102,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 32,
+                  "id": 97,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "384:4:0",
+                  "scope": 119,
+                  "src": "466:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1842,10 +2018,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 31,
+                    "id": 96,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "384:4:0",
+                    "src": "466:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1856,11 +2032,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 34,
+                  "id": 99,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "390:4:0",
+                  "scope": 119,
+                  "src": "472:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1868,10 +2044,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 33,
+                    "id": 98,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "390:4:0",
+                    "src": "472:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1882,11 +2058,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 36,
+                  "id": 101,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 54,
-                  "src": "396:4:0",
+                  "scope": 119,
+                  "src": "478:4:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1894,10 +2070,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 35,
+                    "id": 100,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "396:4:0",
+                    "src": "478:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1907,19 +2083,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "383:18:0"
+              "src": "465:18:1"
             },
-            "scope": 89,
-            "src": "344:170:0",
+            "scope": 154,
+            "src": "426:170:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 87,
+              "id": 152,
               "nodeType": "Block",
-              "src": "564:180:0",
+              "src": "646:180:1",
               "statements": [
                 {
                   "expression": {
@@ -1931,7 +2107,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 68,
+                        "id": 133,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1942,34 +2118,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 62,
+                              "id": 127,
                               "name": "houseRecord",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 16,
-                              "src": "582:11:0",
+                              "referencedDeclaration": 73,
+                              "src": "664:11:1",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                                 "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                               }
                             },
-                            "id": 65,
+                            "id": 130,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 63,
+                                "id": 128,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 104,
-                                "src": "594:3:0",
+                                "referencedDeclaration": 169,
+                                "src": "676:3:1",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 64,
+                              "id": 129,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1977,7 +2153,7 @@
                               "memberName": "sender",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": null,
-                              "src": "594:10:0",
+                              "src": "676:10:1",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -1988,39 +2164,39 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "582:23:0",
+                            "src": "664:23:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                              "typeIdentifier": "t_struct$_HouseData_$69_storage",
                               "typeString": "struct WorldHouse.HouseData storage ref"
                             }
                           },
-                          "id": 66,
+                          "id": 131,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "used",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 11,
-                          "src": "582:28:0",
+                          "referencedDeclaration": 68,
+                          "src": "664:28:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
                         "nodeType": "BinaryOperation",
-                        "operator": "==",
+                        "operator": "!=",
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 67,
+                          "id": 132,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "bool",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "614:4:0",
+                          "src": "696:4:1",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -2028,7 +2204,7 @@
                           },
                           "value": "true"
                         },
-                        "src": "582:36:0",
+                        "src": "664:36:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2037,14 +2213,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "416c726561647920686173206f6e65",
-                        "id": 69,
+                        "id": 134,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "620:17:0",
+                        "src": "702:17:1",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
@@ -2064,21 +2240,21 @@
                           "typeString": "literal_string \"Already has one\""
                         }
                       ],
-                      "id": 61,
+                      "id": 126,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        107,
-                        108
+                        172,
+                        173
                       ],
-                      "referencedDeclaration": 108,
-                      "src": "574:7:0",
+                      "referencedDeclaration": 173,
+                      "src": "656:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 70,
+                    "id": 135,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2086,43 +2262,43 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "574:64:0",
+                    "src": "656:64:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 71,
+                  "id": 136,
                   "nodeType": "ExpressionStatement",
-                  "src": "574:64:0"
+                  "src": "656:64:1"
                 },
                 {
                   "assignments": [
-                    73
+                    138
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 73,
+                      "id": 138,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 88,
-                      "src": "648:21:0",
+                      "scope": 153,
+                      "src": "730:21:1",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_memory_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_memory_ptr",
                         "typeString": "struct WorldHouse.HouseData"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 72,
+                        "id": 137,
                         "name": "HouseData",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 12,
-                        "src": "648:9:0",
+                        "referencedDeclaration": 69,
+                        "src": "730:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_HouseData_$12_storage_ptr",
+                          "typeIdentifier": "t_struct$_HouseData_$69_storage_ptr",
                           "typeString": "struct WorldHouse.HouseData"
                         }
                       },
@@ -2130,18 +2306,18 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 79,
+                  "id": 144,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 75,
+                        "id": 140,
                         "name": "row",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 56,
-                        "src": "682:3:0",
+                        "referencedDeclaration": 121,
+                        "src": "764:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2149,12 +2325,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 76,
+                        "id": 141,
                         "name": "col",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 58,
-                        "src": "687:3:0",
+                        "referencedDeclaration": 123,
+                        "src": "769:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -2163,14 +2339,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 77,
+                        "id": 142,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "692:4:0",
+                        "src": "774:4:1",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -2194,18 +2370,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 74,
+                      "id": 139,
                       "name": "HouseData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 12,
-                      "src": "672:9:0",
+                      "referencedDeclaration": 69,
+                      "src": "754:9:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_HouseData_$12_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_HouseData_$69_storage_ptr_$",
                         "typeString": "type(struct WorldHouse.HouseData storage pointer)"
                       }
                     },
-                    "id": 78,
+                    "id": 143,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2213,19 +2389,19 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "672:25:0",
+                    "src": "754:25:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_memory",
+                      "typeIdentifier": "t_struct$_HouseData_$69_memory",
                       "typeString": "struct WorldHouse.HouseData memory"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "648:49:0"
+                  "src": "730:49:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 85,
+                    "id": 150,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2234,34 +2410,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 80,
+                        "id": 145,
                         "name": "houseRecord",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16,
-                        "src": "707:11:0",
+                        "referencedDeclaration": 73,
+                        "src": "789:11:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$12_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$69_storage_$",
                           "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                         }
                       },
-                      "id": 83,
+                      "id": 148,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 81,
+                          "id": 146,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 104,
-                          "src": "719:3:0",
+                          "referencedDeclaration": 169,
+                          "src": "801:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 82,
+                        "id": 147,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2269,7 +2445,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "719:10:0",
+                        "src": "801:10:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2280,9 +2456,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "707:23:0",
+                      "src": "789:23:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                        "typeIdentifier": "t_struct$_HouseData_$69_storage",
                         "typeString": "struct WorldHouse.HouseData storage ref"
                       }
                     },
@@ -2290,31 +2466,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 84,
+                      "id": 149,
                       "name": "data",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 73,
-                      "src": "733:4:0",
+                      "referencedDeclaration": 138,
+                      "src": "815:4:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_HouseData_$12_memory_ptr",
+                        "typeIdentifier": "t_struct$_HouseData_$69_memory_ptr",
                         "typeString": "struct WorldHouse.HouseData memory"
                       }
                     },
-                    "src": "707:30:0",
+                    "src": "789:30:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$12_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$69_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
-                  "id": 86,
+                  "id": 151,
                   "nodeType": "ExpressionStatement",
-                  "src": "707:30:0"
+                  "src": "789:30:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 88,
+            "id": 153,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -2322,16 +2498,16 @@
             "name": "buyHouse",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 59,
+              "id": 124,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 56,
+                  "id": 121,
                   "name": "row",
                   "nodeType": "VariableDeclaration",
-                  "scope": 88,
-                  "src": "538:8:0",
+                  "scope": 153,
+                  "src": "620:8:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2339,10 +2515,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 55,
+                    "id": 120,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "538:4:0",
+                    "src": "620:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2353,11 +2529,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 58,
+                  "id": 123,
                   "name": "col",
                   "nodeType": "VariableDeclaration",
-                  "scope": 88,
-                  "src": "548:8:0",
+                  "scope": 153,
+                  "src": "630:8:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2365,10 +2541,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 57,
+                    "id": 122,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "548:4:0",
+                    "src": "630:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2378,40 +2554,52 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "537:20:0"
+              "src": "619:20:1"
             },
             "payable": false,
             "returnParameters": {
-              "id": 60,
+              "id": 125,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "564:0:0"
+              "src": "646:0:1"
             },
-            "scope": 89,
-            "src": "520:224:0",
+            "scope": 154,
+            "src": "602:224:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 90,
-        "src": "26:721:0"
+        "scope": 155,
+        "src": "26:803:1"
       }
     ],
-    "src": "0:747:0"
+    "src": "0:829:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
-    "1541404271851": {
+    "999": {
       "events": {},
       "links": {},
-      "address": "0xfbce0fe4e8ba81059dfee0df73087cfc1eff56dd",
-      "transactionHash": "0xb9086e7fc2a6e5b672f3872b19ca5cb47053b3ea1f2cc3b9d2bfb61796548179"
+      "address": "0x7a27ddee30848c68d7a984aef4d286d906bc633c",
+      "transactionHash": "0xfa946cb25307a1e38e4742e248ce5c9d7d1accd3d050ac79594184f3a614918d"
+    },
+    "1541572383356": {
+      "events": {},
+      "links": {},
+      "address": "0x90529d398e01ec4992ebbb59aa74a1d6148d0a67",
+      "transactionHash": "0xfa946cb25307a1e38e4742e248ce5c9d7d1accd3d050ac79594184f3a614918d"
+    },
+    "1541646205207": {
+      "events": {},
+      "links": {},
+      "address": "0x51fb1f300f5bfe2c673aa17789014f8113b0ad08",
+      "transactionHash": "0xfa946cb25307a1e38e4742e248ce5c9d7d1accd3d050ac79594184f3a614918d"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-05T08:08:18.469Z"
+  "updatedAt": "2018-11-08T07:23:36.887Z"
 }
