@@ -1,6 +1,6 @@
 import contract from 'truffle-contract'
 import WorldHouseArtifact from '../../../build/contracts/WorldHouse.json'
-import { log } from '../utils'
+import { log, logError } from '../utils'
 
 class ContractWorldHouse {
     constructor() {
@@ -22,13 +22,15 @@ class ContractWorldHouse {
     }
 
     getHouse() {
-        return this.instance.getHouse()
+        const account = app.metamask.account
+        return this.instance.getHouse({from: account})
     }
 
-    buyHouse(row, col){
+    buyHouse(row, col) {
         const account = app.metamask.account
-        return this.instance.buyHouse(row, col, {from: account})
+        return this.instance.buyHouse(row, col, { from: account })
     }
+
 }
 
 export default ContractWorldHouse

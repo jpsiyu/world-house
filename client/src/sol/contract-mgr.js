@@ -34,6 +34,16 @@ class ContractMgr {
             .then(callback)
             .catch(err => logError(err))
     }
+
+    getReceipt(tx) {
+        return new Promise((resolve, reject) => {
+            this.web3.eth.getTransactionReceipt(tx, (err, result) => {
+                if (err != null) reject(err)
+                else resolve(result)
+            })
+        })
+    }
+
 }
 
 export default ContractMgr

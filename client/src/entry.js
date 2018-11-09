@@ -20,16 +20,12 @@ class Entry extends React.Component {
             })
             if (pass) {
                 this.setState({ canPlay: pass, })
-                app.contractMgr.fetchUserData(this.receiveUserData.bind(this))
+                app.enterPlayerMode()
             } else {
                 const viewArgs = { check: res, }
                 app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.LoginGuide, viewArgs })
             }
         })
-    }
-
-    receiveUserData() {
-        console.log('receiveUserData', app.player.houseData)
     }
 
     render() {

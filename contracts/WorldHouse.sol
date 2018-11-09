@@ -3,6 +3,7 @@ pragma solidity ^0.4.23;
 contract WorldHouse{
     address private owner;
     string private greetMsg;
+    event BuySuccess(address buyer);
     struct HouseData{
         uint row;
         uint col;
@@ -28,6 +29,7 @@ contract WorldHouse{
         require(houseRecord[msg.sender].used != true, "Already has one");
         HouseData memory data = HouseData(row, col, true);
         houseRecord[msg.sender] = data;
+        emit BuySuccess(msg.sender);
     }
 
 }

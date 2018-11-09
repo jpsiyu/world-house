@@ -18,27 +18,13 @@ class App {
         this.player = new Player()
     }
 
-    start(render){
+    start(render) {
         this.imageMgr.loadImages().then(render)
     }
 
-    run(success, fail) {
-        this.imageMgr.loadImages()
-            .then(() => {
-                return this.contractMgr.worldHouse.init(this.contractMgr.provider)
-            })
-            .then((instance) => {
-                this.contractMgr.worldHouse.setInstance(instance)
-                return this.contractMgr.worldHouse.getHouse()
-            })
-            .then(houseData => {
-                this.player.setHouseData(houseData)
-                success()
-            })
-            .catch(err => {
-                log(err.name, err.message, err.stack)
-                fail()
-            })
+    enterPlayerMode() {
+        this.contractMgr.fetchUserData(() => log('Enter Player Mode'))
+        this.metamask.checkIfAccountChange()
     }
 }
 

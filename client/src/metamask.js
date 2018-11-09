@@ -1,9 +1,10 @@
 import { log, logError } from './utils'
-import { MacroNetworkType } from './macro'
+import { MacroNetworkType, MacroEventType } from './macro'
 
 class Metamask {
     constructor() {
         this.account = null
+        this.accountTimer = null
     }
 
     isSupportedBrowser() {
@@ -67,6 +68,20 @@ class Metamask {
 
     getWeb3() {
         return web3
+    }
+
+    checkIfAccountChange() {
+        this.accountTimer = setInterval(() => {
+            app.contractMgr.web3.eth.getAccounts()
+                .then(accounts => {
+                    const account = accounts[0]
+                    if (account != this.account) {
+                        clearInterval(this.accountTimer)
+                        alert('Account change, reload page!')
+                        window.location.reload()
+                    }
+                })
+        }, 5000)
     }
 }
 

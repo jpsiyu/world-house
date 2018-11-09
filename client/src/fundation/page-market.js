@@ -1,9 +1,11 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
+import { log, logError } from '../utils'
 
 class PageMarket extends React.Component {
     constructor(props) {
         super(props)
+        this.waitTimer = null
     }
 
     onCloseClick() {
@@ -12,13 +14,30 @@ class PageMarket extends React.Component {
 
 
     onPurchaseClick(houseType) {
+        if (app.player.hasHouse()) {
+            alert('Anybody can only buy one house!')
+            return
+        }
         app.contractMgr.worldHouse.buyHouse(2, 2)
             .then(res => {
-                console.log(res)
+                log(res)
+                this.waitForReceipt(res.tx)
             })
-            .catch( err => {
-                console.log(err.name, err.message, err.stack)
+            .catch(err => {
+                logError(err.name, err.message, err.stack)
+                alert(err.message)
             })
+    }
+
+    waitForReceipt(tx) {
+        this.waitTimer = setInterval( () => {
+            app.contractMgr.getReceipt(tx)
+                .then(receipt => {
+                    log(receipt)
+                    clearInterval(this.waitTimer)
+                    alert('You buy a house!')
+                })
+        }, 1000)
     }
 
     render() {
