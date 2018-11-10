@@ -5,11 +5,13 @@ const MacroMap = {
     ColNum: 1000,
     CanvasWidth: 800,
     CanvasHeight: 400,
+    Surround: 3,
 }
 
 const MacroEventType = {
     ShowView: 'ShowView',
     HideView: 'HideView',
+    PlayerMode: 'PlayerMode',
 }
 
 const MacroViewType = {

@@ -1,4 +1,4 @@
-import {MacroMap} from '../macro'
+import { MacroMap } from '../macro'
 
 const drawWrapper = (ctx, pos, callback) => {
     ctx.save()
@@ -21,6 +21,12 @@ const grid2posMid = (r, c) => {
     return { x, y }
 }
 
+const posToGrid = (pos) => {
+    const r = Math.floor(pos.y / MacroMap.HourseSize)
+    const c = Math.floor(pos.x / MacroMap.HourseSize)
+    return { r, c }
+}
+
 const rectInCanvas = (ctx, objPos, pos, objSize) => {
     const fixedX = objPos.x + pos.x
     const fixedY = objPos.y + pos.y
@@ -30,7 +36,29 @@ const rectInCanvas = (ctx, objPos, pos, objSize) => {
 }
 
 const drawImageMid = (ctx, midPos, image, imageSize) => {
-    ctx.drawImage(image,  midPos.x-imageSize/2, midPos.y-imageSize/2, imageSize, imageSize)
+    ctx.drawImage(image, midPos.x - imageSize / 2, midPos.y - imageSize / 2, imageSize, imageSize)
 }
 
-export { drawWrapper, grid2pos, grid2posMid, rectInCanvas, drawImageMid }
+const surround = (r, c, distance) => {
+    const rows = []
+    const cols = []
+    for (let ri = r - distance; ri < r + distance; ri++) {
+        if (ri < 0 || ri >= MacroMap.RowNum) continue
+        for (let ci = c - distance; ci < c + distance; ci++) {
+            if (ci < 0 || ci >= MacroMap.ColNum) continue
+            rows.push(ri)
+            cols.push(ci)
+        }
+    }
+    return { rows, cols }
+}
+
+export {
+    drawWrapper,
+    grid2pos,
+    grid2posMid,
+    rectInCanvas,
+    drawImageMid,
+    surround,
+    posToGrid,
+}

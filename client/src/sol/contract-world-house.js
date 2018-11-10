@@ -34,6 +34,10 @@ class ContractWorldHouse {
         return this.instance.buyHouse(row, col, { from: account })
     }
 
+    getGridInfos(row, col){
+        const account = app.metamask.account
+        return this.instance.getGridInfos(row, col, { from: account })
+    }
 }
 
 export default ContractWorldHouse

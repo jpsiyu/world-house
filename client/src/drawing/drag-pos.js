@@ -35,8 +35,15 @@ class DragPos {
         this.posY += this.movedY
     }
 
-    getMoved(){
-        return {x: this.movedX, y: this.movedY}
+    getMoved() {
+        return { x: this.movedX, y: this.movedY }
+    }
+
+    getCanvasMidPos(ctx) {
+        return {
+            x: ctx.canvas.width / 2 - this.posX,
+            y: ctx.canvas.height / 2 - this.posY,
+        }
     }
 }
 
