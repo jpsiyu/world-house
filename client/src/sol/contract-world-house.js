@@ -8,13 +8,16 @@ class ContractWorldHouse {
     }
 
     init(provider) {
-        const worldHouse = contract(WorldHouseArtifact)
-        worldHouse.setProvider(provider)
-        return worldHouse.deployed()
-    }
-
-    setInstance(instance) {
-        this.instance = instance
+        return new Promise((resolve, reject) => {
+            const worldHouse = contract(WorldHouseArtifact)
+            worldHouse.setProvider(provider)
+            worldHouse.deployed()
+                .then(instance => {
+                    this.instance = instance
+                    resolve(instance)
+                })
+                .catch(err => logError(err))
+        })
     }
 
     greet() {
@@ -23,7 +26,7 @@ class ContractWorldHouse {
 
     getHouse() {
         const account = app.metamask.account
-        return this.instance.getHouse({from: account})
+        return this.instance.getHouse({ from: account })
     }
 
     buyHouse(row, col) {

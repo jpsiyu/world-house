@@ -115874,12 +115874,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x06bbbe438511ac07de8e8e4478a0d30c04c51a00",
+      "address": "0x7cf55d525c2c5680df5912beb7de5f0d0e309060",
       "transactionHash": "0xd969040b0d5ce7cb80b94dc0cb15edf61e8eaba2d36afe47c933ab3a9c9c3400"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-09T07:08:45.700Z"
+  "updatedAt": "2018-11-10T03:12:29.329Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -115915,14 +115915,18 @@ function () {
   _createClass(ContractWorldHouse, [{
     key: "init",
     value: function init(provider) {
-      var worldHouse = (0, _truffleContract.default)(_WorldHouse.default);
-      worldHouse.setProvider(provider);
-      return worldHouse.deployed();
-    }
-  }, {
-    key: "setInstance",
-    value: function setInstance(instance) {
-      this.instance = instance;
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        var worldHouse = (0, _truffleContract.default)(_WorldHouse.default);
+        worldHouse.setProvider(provider);
+        worldHouse.deployed().then(function (instance) {
+          _this.instance = instance;
+          resolve(instance);
+        }).catch(function (err) {
+          return (0, _utils.logError)(err);
+        });
+      });
     }
   }, {
     key: "greet",
@@ -116003,27 +116007,17 @@ function () {
       return this.web3.eth.net.getId();
     }
   }, {
-    key: "fetchUserData",
-    value: function fetchUserData(callback) {
-      var _this = this;
-
-      this.worldHouse.init(this.provider).then(function (instance) {
-        _this.worldHouse.setInstance(instance);
-
-        return _this.worldHouse.getHouse();
-      }).then(function (houseData) {
-        app.player.setHouseData(houseData);
-      }).then(callback).catch(function (err) {
-        return (0, _utils.logError)(err);
-      });
+    key: "getContractInstance",
+    value: function getContractInstance() {
+      return this.worldHouse.init(this.provider);
     }
   }, {
     key: "getReceipt",
     value: function getReceipt(tx) {
-      var _this2 = this;
+      var _this = this;
 
       return new Promise(function (resolve, reject) {
-        _this2.web3.eth.getTransactionReceipt(tx, function (err, result) {
+        _this.web3.eth.getTransactionReceipt(tx, function (err, result) {
           if (err != null) reject(err);else resolve(result);
         });
       });
@@ -116042,6 +116036,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _utils = require("./utils");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -116068,6 +116064,21 @@ function () {
       };
     }
   }, {
+    key: "updateHouseData",
+    value: function updateHouseData() {
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        app.contractMgr.worldHouse.getHouse().then(function (houseData) {
+          _this.setHouseData(houseData);
+
+          resolve(houseData);
+        }).catch(function (err) {
+          return (0, _utils.logError)(err);
+        });
+      });
+    }
+  }, {
     key: "hasHouse",
     value: function hasHouse() {
       if (!this.houseData) return false;
@@ -116080,7 +116091,7 @@ function () {
 
 var _default = Player;
 exports.default = _default;
-},{}],"../src/app.js":[function(require,module,exports) {
+},{"./utils":"../src/utils.js"}],"../src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -116135,8 +116146,12 @@ function () {
   }, {
     key: "enterPlayerMode",
     value: function enterPlayerMode() {
-      this.contractMgr.fetchUserData(function () {
-        return (0, _utils.log)('Enter Player Mode');
+      var _this = this;
+
+      this.contractMgr.getContractInstance().then(function () {
+        return _this.player.updateHouseData();
+      }).then((0, _utils.log)('Enter Player Mode')).catch(function (err) {
+        return (0, _utils.logError)(err);
       });
       this.metamask.checkIfAccountChange();
     }
@@ -116855,6 +116870,7 @@ function (_React$Component) {
         app.contractMgr.getReceipt(tx).then(function (receipt) {
           (0, _utils.log)(receipt);
           clearInterval(_this3.waitTimer);
+          app.player.updateHouseData();
           alert('You buy a house!');
         });
       }, 1000);
@@ -117163,7 +117179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49570" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51211" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

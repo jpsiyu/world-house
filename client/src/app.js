@@ -4,7 +4,7 @@ import Metamask from './metamask'
 import EventListener from './event-listener'
 import ContractMgr from './sol/contract-mgr'
 import Player from './player'
-import { log } from './utils'
+import { log, logError } from './utils'
 
 class App {
     constructor() { }
@@ -23,7 +23,14 @@ class App {
     }
 
     enterPlayerMode() {
-        this.contractMgr.fetchUserData(() => log('Enter Player Mode'))
+        this.contractMgr.getContractInstance()
+            .then( () => {
+                return this.player.updateHouseData()
+            })
+            .then(
+                log('Enter Player Mode')
+            )
+            .catch(err => logError(err))
         this.metamask.checkIfAccountChange()
     }
 }

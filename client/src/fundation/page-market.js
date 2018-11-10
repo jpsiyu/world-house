@@ -35,6 +35,7 @@ class PageMarket extends React.Component {
                 .then(receipt => {
                     log(receipt)
                     clearInterval(this.waitTimer)
+                    app.player.updateHouseData()
                     alert('You buy a house!')
                 })
         }, 1000)

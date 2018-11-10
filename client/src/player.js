@@ -1,3 +1,5 @@
+import {logError} from './utils'
+
 class Player {
     constructor() {
         this.houseData = null
@@ -9,6 +11,17 @@ class Player {
             col: data[1].toNumber(),
             used: data[2],
         }
+    }
+
+    updateHouseData(){
+        return new Promise((resolve, reject) => {
+            app.contractMgr.worldHouse.getHouse()
+                .then(houseData => {
+                    this.setHouseData(houseData)
+                    resolve(houseData)
+                })
+                .catch(err => logError(err))
+        })
     }
 
     hasHouse(){

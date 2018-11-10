@@ -22,17 +22,8 @@ class ContractMgr {
         return this.web3.eth.net.getId()
     }
 
-    fetchUserData(callback) {
-        this.worldHouse.init(this.provider)
-            .then(instance => {
-                this.worldHouse.setInstance(instance)
-                return this.worldHouse.getHouse()
-            })
-            .then(houseData => {
-                app.player.setHouseData(houseData)
-            })
-            .then(callback)
-            .catch(err => logError(err))
+    getContractInstance(){
+        return this.worldHouse.init(this.provider)
     }
 
     getReceipt(tx) {
