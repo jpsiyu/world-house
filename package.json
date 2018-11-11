@@ -10,6 +10,7 @@
     "start": "nodemon -w server -V server/app.js",
     "watch": "parcel watch client/public/index.html",
     "ganache": "ganache-cli -p 8545 -i 999",
+    "clear": "rm -rf .cache dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

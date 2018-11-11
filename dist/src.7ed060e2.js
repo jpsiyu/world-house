@@ -113459,39 +113459,39 @@ module.exports = {
   }],
   "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040805190810160405280601681526020017f57656c636f6d6520746f20576f726c64486f75736521000000000000000000008152506001908051906020019061009c9291906100a2565b50610147565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100e357805160ff1916838001178555610111565b82800160010185558215610111579182015b828111156101105782518255916020019190600101906100f5565b5b50905061011e9190610122565b5090565b61014491905b80821115610140576000816000905550600101610128565b5090565b90565b6107cd806101566000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f14610067578063cfae3217146100b6578063d770920c14610146578063e1a4f98814610185575b600080fd5b34801561007357600080fd5b5061007c610283565b604051808461ffff1661ffff1681526020018361ffff1661ffff1681526020018260ff1660ff168152602001935050505060405180910390f35b3480156100c257600080fd5b506100cb61030e565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561010b5780820151818401526020810190506100f0565b50505050905090810190601f1680156101385780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561015257600080fd5b50610183600480360381019080803561ffff169060200190929190803561ffff1690602001909291905050506103b0565b005b34801561019157600080fd5b5061022c6004803603810190808035906020019082018035906020019080806020026020016040519081016040528093929190818152602001838360200280828437820191505050505050919291929080359060200190820180359060200190808060200260200160405190810160405280939291908181526020018383602002808284378201915050505050509192919290505050610632565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561026f578082015181840152602081019050610254565b505050509050019250505060405180910390f35b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160009054906101000a900461ffff168160000160029054906101000a900461ffff168260000160049054906101000a900460ff1693509350935050909192565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103a65780601f1061037b576101008083540402835291602001916103a6565b820191906000526020600020905b81548152906001019060200180831161038957829003601f168201915b5050505050905090565b6103b8610774565b6001600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160049054906101000a900460ff1660ff1614151515610483576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b6060604051908101604052808461ffff1681526020018361ffff168152602001600160ff16815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548161ffff021916908361ffff16021790555060208201518160000160026101000a81548161ffff021916908361ffff16021790555060408201518160000160046101000a81548160ff021916908360ff16021790555090505033600360008561ffff1661ffff16815260200190815260200160002060008461ffff1661ffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f31b7449f376c6be33190791b67b91ab915d8751fa8a39cc7e88a4c97baa3755f33604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505050565b6060806000806000865160405190808252806020026020018201604052801561066a5781602001602082028038833980820191505090505b509350600092505b86518360ff16101561076757868360ff1681518110151561068f57fe5b906020019060200201519150858360ff168151811015156106ac57fe5b906020019060200201519050600360008361ffff1661ffff16815260200190815260200160002060008261ffff1661ffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16848460ff1681518110151561071e57fe5b9060200190602002019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff16815250508280600101935050610672565b8394505050505092915050565b606060405190810160405280600061ffff168152602001600061ffff168152602001600060ff16815250905600a165627a7a7230582092e1e91c73c94ff91e95121a9731c433de375e829b4eed2800da59d62a5f04c10029",
   "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304e2064f14610067578063cfae3217146100b6578063d770920c14610146578063e1a4f98814610185575b600080fd5b34801561007357600080fd5b5061007c610283565b604051808461ffff1661ffff1681526020018361ffff1661ffff1681526020018260ff1660ff168152602001935050505060405180910390f35b3480156100c257600080fd5b506100cb61030e565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561010b5780820151818401526020810190506100f0565b50505050905090810190601f1680156101385780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561015257600080fd5b50610183600480360381019080803561ffff169060200190929190803561ffff1690602001909291905050506103b0565b005b34801561019157600080fd5b5061022c6004803603810190808035906020019082018035906020019080806020026020016040519081016040528093929190818152602001838360200280828437820191505050505050919291929080359060200190820180359060200190808060200260200160405190810160405280939291908181526020018383602002808284378201915050505050509192919290505050610632565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b8381101561026f578082015181840152602081019050610254565b505050509050019250505060405180910390f35b600080600080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060000160009054906101000a900461ffff168160000160029054906101000a900461ffff168260000160049054906101000a900460ff1693509350935050909192565b606060018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103a65780601f1061037b576101008083540402835291602001916103a6565b820191906000526020600020905b81548152906001019060200180831161038957829003601f168201915b5050505050905090565b6103b8610774565b6001600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160049054906101000a900460ff1660ff1614151515610483576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600f8152602001807f416c726561647920686173206f6e65000000000000000000000000000000000081525060200191505060405180910390fd5b6060604051908101604052808461ffff1681526020018361ffff168152602001600160ff16815250905080600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548161ffff021916908361ffff16021790555060208201518160000160026101000a81548161ffff021916908361ffff16021790555060408201518160000160046101000a81548160ff021916908360ff16021790555090505033600360008561ffff1661ffff16815260200190815260200160002060008461ffff1661ffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055507f31b7449f376c6be33190791b67b91ab915d8751fa8a39cc7e88a4c97baa3755f33604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390a1505050565b6060806000806000865160405190808252806020026020018201604052801561066a5781602001602082028038833980820191505090505b509350600092505b86518360ff16101561076757868360ff1681518110151561068f57fe5b906020019060200201519150858360ff168151811015156106ac57fe5b906020019060200201519050600360008361ffff1661ffff16815260200190815260200160002060008261ffff1661ffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16848460ff1681518110151561071e57fe5b9060200190602002019073ffffffffffffffffffffffffffffffffffffffff16908173ffffffffffffffffffffffffffffffffffffffff16815250508280600101935050610672565b8394505050505092915050565b606060405190810160405280600061ffff168152602001600061ffff168152602001600060ff16815250905600a165627a7a7230582092e1e91c73c94ff91e95121a9731c433de375e829b4eed2800da59d62a5f04c10029",
-  "sourceMap": "26:1336:0:-;;;336:100;8:9:-1;5:2;;;30:1;27;20:12;5:2;336:100:0;374:10;366:5;;:18;;;;;;;;;;;;;;;;;;394:35;;;;;;;;;;;;;;;;;;:8;:35;;;;;;;;;;;;:::i;:::-;;26:1336;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "26:1336:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;524:175;;8:9:-1;5:2;;;30:1;27;20:12;5:2;524:175:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;442:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;442:76:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;442:76:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;705:296;;8:9:-1;5:2;;;30:1;27;20:12;5:2;705:296:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1007:353;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1007:353:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1007:353:0;;;;;;;;;;;;;;;;;524:175;564:6;572;580:5;596:22;621:11;:23;633:10;621:23;;;;;;;;;;;;;;;596:48;;662:4;:8;;;;;;;;;;;;672:4;:8;;;;;;;;;;;;682:4;:9;;;;;;;;;;;;654:38;;;;;;524:175;;;;:::o;442:76::-;479:6;503:8;496:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;442:76;:::o;705:296::-;834:21;;:::i;:::-;803:1;771:11;:23;783:10;771:23;;;;;;;;;;;;;;;:28;;;;;;;;;;;;:33;;;;763:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;858:22;;;;;;;;;868:3;858:22;;;;;;873:3;858:22;;;;;;878:1;858:22;;;;;834:46;;916:4;890:11;:23;902:10;890:23;;;;;;;;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;947:10;930:4;:9;935:3;930:9;;;;;;;;;;;;;;;:14;940:3;930:14;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;972:22;983:10;972:22;;;;;;;;;;;;;;;;;;;;;;705:296;;;:::o;1007:353::-;1079:9;1099:27;1169:7;1217:10;1251;1143:4;:11;1129:26;;;;;;;;;;;;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;1129:26:0;;;;1099:56;;1179:1;1169:11;;1165:162;1186:4;:11;1182:1;:15;;;1165:162;;;1230:4;1235:1;1230:7;;;;;;;;;;;;;;;;;;;;1217:20;;1264:4;1269:1;1264:7;;;;;;;;;;;;;;;;;;;;1251:20;;1302:4;:9;1307:3;1302:9;;;;;;;;;;;;;;;:14;1312:3;1302:14;;;;;;;;;;;;;;;;;;;;;;;;;1286:10;1297:1;1286:13;;;;;;;;;;;;;;;;;;;:30;;;;;;;;;;;1199:3;;;;;;;1165:162;;;1343:10;1336:17;;1007:353;;;;;;;;:::o;26:1336::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "sourceMap": "26:1336:1:-;;;336:100;8:9:-1;5:2;;;30:1;27;20:12;5:2;336:100:1;374:10;366:5;;:18;;;;;;;;;;;;;;;;;;394:35;;;;;;;;;;;;;;;;;;:8;:35;;;;;;;;;;;;:::i;:::-;;26:1336;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "26:1336:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;524:175;;8:9:-1;5:2;;;30:1;27;20:12;5:2;524:175:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;442:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;442:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;442:76:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;705:296;;8:9:-1;5:2;;;30:1;27;20:12;5:2;705:296:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1007:353;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1007:353:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1007:353:1;;;;;;;;;;;;;;;;;524:175;564:6;572;580:5;596:22;621:11;:23;633:10;621:23;;;;;;;;;;;;;;;596:48;;662:4;:8;;;;;;;;;;;;672:4;:8;;;;;;;;;;;;682:4;:9;;;;;;;;;;;;654:38;;;;;;524:175;;;;:::o;442:76::-;479:6;503:8;496:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;442:76;:::o;705:296::-;834:21;;:::i;:::-;803:1;771:11;:23;783:10;771:23;;;;;;;;;;;;;;;:28;;;;;;;;;;;;:33;;;;763:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;858:22;;;;;;;;;868:3;858:22;;;;;;873:3;858:22;;;;;;878:1;858:22;;;;;834:46;;916:4;890:11;:23;902:10;890:23;;;;;;;;;;;;;;;:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;947:10;930:4;:9;935:3;930:9;;;;;;;;;;;;;;;:14;940:3;930:14;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;972:22;983:10;972:22;;;;;;;;;;;;;;;;;;;;;;705:296;;;:::o;1007:353::-;1079:9;1099:27;1169:7;1217:10;1251;1143:4;:11;1129:26;;;;;;;;;;;;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;1129:26:1;;;;1099:56;;1179:1;1169:11;;1165:162;1186:4;:11;1182:1;:15;;;1165:162;;;1230:4;1235:1;1230:7;;;;;;;;;;;;;;;;;;;;1217:20;;1264:4;1269:1;1264:7;;;;;;;;;;;;;;;;;;;;1251:20;;1302:4;:9;1307:3;1302:9;;;;;;;;;;;;;;;:14;1312:3;1302:14;;;;;;;;;;;;;;;;;;;;;;;;;1286:10;1297:1;1286:13;;;;;;;;;;;;;;;;;;;:30;;;;;;;;;;;1199:3;;;;;;;1165:162;;;1343:10;1336:17;;1007:353;;;;;;;;:::o;26:1336::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "pragma solidity ^0.4.23;\n\ncontract WorldHouse{\n    address private owner;\n    string private greetMsg;\n    event BuySuccess(address buyer);\n    struct HouseData{\n        uint16 row;\n        uint16 col;\n        uint8 used;\n    }\n    mapping(address => HouseData) houseRecord;\n    mapping(uint16 => mapping(uint16 => address)) grid;\n\n    constructor() public{\n        owner = msg.sender;\n        greetMsg = \"Welcome to WorldHouse!\";\n    }\n\n    function greet() public view returns(string){\n        return greetMsg;\n    }\n\n    function getHouse() public view returns(uint16, uint16, uint8){\n        HouseData storage data = houseRecord[msg.sender];\n        return (data.row, data.col, data.used);\n    }\n\n    function buyHouse(uint16 row, uint16 col) public{\n        require(houseRecord[msg.sender].used != 1, \"Already has one\");\n        HouseData memory data = HouseData(row, col, 1);\n        houseRecord[msg.sender] = data;\n        grid[row][col] = msg.sender;\n        emit BuySuccess(msg.sender);\n    }\n\n    function getGridInfos(uint16[] rows, uint16[] cols) public view returns(address[]){\n        address[] memory gridOwners = new address[](rows.length);\n        for(uint8 i = 0; i < rows.length; i++){\n            uint16 row = rows[i];\n            uint16 col = cols[i]; \n            gridOwners[i] = grid[row][col];\n        }\n        return gridOwners;\n    }\n}",
   "sourcePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
   "ast": {
     "absolutePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
     "exportedSymbols": {
-      "WorldHouse": [182]
+      "WorldHouse": [239]
     },
-    "id": 183,
+    "id": 240,
     "nodeType": "SourceUnit",
     "nodes": [{
-      "id": 1,
+      "id": 58,
       "literals": ["solidity", "^", "0.4", ".23"],
       "nodeType": "PragmaDirective",
-      "src": "0:24:0"
+      "src": "0:24:1"
     }, {
       "baseContracts": [],
       "contractDependencies": [],
       "contractKind": "contract",
       "documentation": null,
       "fullyImplemented": true,
-      "id": 182,
-      "linearizedBaseContracts": [182],
+      "id": 239,
+      "linearizedBaseContracts": [239],
       "name": "WorldHouse",
       "nodeType": "ContractDefinition",
       "nodes": [{
         "constant": false,
-        "id": 3,
+        "id": 60,
         "name": "owner",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "51:21:0",
+        "scope": 239,
+        "src": "51:21:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -113499,10 +113499,10 @@ module.exports = {
           "typeString": "address"
         },
         "typeName": {
-          "id": 2,
+          "id": 59,
           "name": "address",
           "nodeType": "ElementaryTypeName",
-          "src": "51:7:0",
+          "src": "51:7:1",
           "typeDescriptions": {
             "typeIdentifier": "t_address",
             "typeString": "address"
@@ -113512,11 +113512,11 @@ module.exports = {
         "visibility": "private"
       }, {
         "constant": false,
-        "id": 5,
+        "id": 62,
         "name": "greetMsg",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "78:23:0",
+        "scope": 239,
+        "src": "78:23:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -113524,10 +113524,10 @@ module.exports = {
           "typeString": "string"
         },
         "typeName": {
-          "id": 4,
+          "id": 61,
           "name": "string",
           "nodeType": "ElementaryTypeName",
-          "src": "78:6:0",
+          "src": "78:6:1",
           "typeDescriptions": {
             "typeIdentifier": "t_string_storage_ptr",
             "typeString": "string"
@@ -113538,20 +113538,20 @@ module.exports = {
       }, {
         "anonymous": false,
         "documentation": null,
-        "id": 9,
+        "id": 66,
         "name": "BuySuccess",
         "nodeType": "EventDefinition",
         "parameters": {
-          "id": 8,
+          "id": 65,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 7,
+            "id": 64,
             "indexed": false,
             "name": "buyer",
             "nodeType": "VariableDeclaration",
-            "scope": 9,
-            "src": "124:13:0",
+            "scope": 66,
+            "src": "124:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -113559,10 +113559,10 @@ module.exports = {
               "typeString": "address"
             },
             "typeName": {
-              "id": 6,
+              "id": 63,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "124:7:0",
+              "src": "124:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -113571,19 +113571,19 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "123:15:0"
+          "src": "123:15:1"
         },
-        "src": "107:32:0"
+        "src": "107:32:1"
       }, {
         "canonicalName": "WorldHouse.HouseData",
-        "id": 16,
+        "id": 73,
         "members": [{
           "constant": false,
-          "id": 11,
+          "id": 68,
           "name": "row",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "170:10:0",
+          "scope": 73,
+          "src": "170:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -113591,10 +113591,10 @@ module.exports = {
             "typeString": "uint16"
           },
           "typeName": {
-            "id": 10,
+            "id": 67,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "170:6:0",
+            "src": "170:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
@@ -113604,11 +113604,11 @@ module.exports = {
           "visibility": "internal"
         }, {
           "constant": false,
-          "id": 13,
+          "id": 70,
           "name": "col",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "190:10:0",
+          "scope": 73,
+          "src": "190:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -113616,10 +113616,10 @@ module.exports = {
             "typeString": "uint16"
           },
           "typeName": {
-            "id": 12,
+            "id": 69,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "190:6:0",
+            "src": "190:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
@@ -113629,11 +113629,11 @@ module.exports = {
           "visibility": "internal"
         }, {
           "constant": false,
-          "id": 15,
+          "id": 72,
           "name": "used",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "210:10:0",
+          "scope": 73,
+          "src": "210:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -113641,10 +113641,10 @@ module.exports = {
             "typeString": "uint8"
           },
           "typeName": {
-            "id": 14,
+            "id": 71,
             "name": "uint8",
             "nodeType": "ElementaryTypeName",
-            "src": "210:5:0",
+            "src": "210:5:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint8",
               "typeString": "uint8"
@@ -113655,49 +113655,49 @@ module.exports = {
         }],
         "name": "HouseData",
         "nodeType": "StructDefinition",
-        "scope": 182,
-        "src": "144:83:0",
+        "scope": 239,
+        "src": "144:83:1",
         "visibility": "public"
       }, {
         "constant": false,
-        "id": 20,
+        "id": 77,
         "name": "houseRecord",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "232:41:0",
+        "scope": 239,
+        "src": "232:41:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
-          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
           "typeString": "mapping(address => struct WorldHouse.HouseData)"
         },
         "typeName": {
-          "id": 19,
+          "id": 76,
           "keyType": {
-            "id": 17,
+            "id": 74,
             "name": "address",
             "nodeType": "ElementaryTypeName",
-            "src": "240:7:0",
+            "src": "240:7:1",
             "typeDescriptions": {
               "typeIdentifier": "t_address",
               "typeString": "address"
             }
           },
           "nodeType": "Mapping",
-          "src": "232:29:0",
+          "src": "232:29:1",
           "typeDescriptions": {
-            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
             "typeString": "mapping(address => struct WorldHouse.HouseData)"
           },
           "valueType": {
             "contractScope": null,
-            "id": 18,
+            "id": 75,
             "name": "HouseData",
             "nodeType": "UserDefinedTypeName",
-            "referencedDeclaration": 16,
-            "src": "251:9:0",
+            "referencedDeclaration": 73,
+            "src": "251:9:1",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+              "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
               "typeString": "struct WorldHouse.HouseData"
             }
           }
@@ -113706,11 +113706,11 @@ module.exports = {
         "visibility": "internal"
       }, {
         "constant": false,
-        "id": 26,
+        "id": 83,
         "name": "grid",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "279:50:0",
+        "scope": 239,
+        "src": "279:50:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -113718,46 +113718,46 @@ module.exports = {
           "typeString": "mapping(uint16 => mapping(uint16 => address))"
         },
         "typeName": {
-          "id": 25,
+          "id": 82,
           "keyType": {
-            "id": 21,
+            "id": 78,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "287:6:0",
+            "src": "287:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
             }
           },
           "nodeType": "Mapping",
-          "src": "279:45:0",
+          "src": "279:45:1",
           "typeDescriptions": {
             "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
             "typeString": "mapping(uint16 => mapping(uint16 => address))"
           },
           "valueType": {
-            "id": 24,
+            "id": 81,
             "keyType": {
-              "id": 22,
+              "id": 79,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "305:6:0",
+              "src": "305:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
               }
             },
             "nodeType": "Mapping",
-            "src": "297:26:0",
+            "src": "297:26:1",
             "typeDescriptions": {
               "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
               "typeString": "mapping(uint16 => address)"
             },
             "valueType": {
-              "id": 23,
+              "id": 80,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "315:7:0",
+              "src": "315:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -113769,25 +113769,25 @@ module.exports = {
         "visibility": "internal"
       }, {
         "body": {
-          "id": 38,
+          "id": 95,
           "nodeType": "Block",
-          "src": "356:80:0",
+          "src": "356:80:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
-              "id": 32,
+              "id": 89,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftHandSide": {
                 "argumentTypes": null,
-                "id": 29,
+                "id": 86,
                 "name": "owner",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 3,
-                "src": "366:5:0",
+                "referencedDeclaration": 60,
+                "src": "366:5:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -113799,18 +113799,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 30,
+                  "id": 87,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "374:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "374:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 31,
+                "id": 88,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -113818,37 +113818,37 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "374:10:0",
+                "src": "374:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "src": "366:18:0",
+              "src": "366:18:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
               }
             },
-            "id": 33,
+            "id": 90,
             "nodeType": "ExpressionStatement",
-            "src": "366:18:0"
+            "src": "366:18:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 36,
+              "id": 93,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftHandSide": {
                 "argumentTypes": null,
-                "id": 34,
+                "id": 91,
                 "name": "greetMsg",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 5,
-                "src": "394:8:0",
+                "referencedDeclaration": 62,
+                "src": "394:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_string_storage",
                   "typeString": "string storage ref"
@@ -113859,14 +113859,14 @@ module.exports = {
               "rightHandSide": {
                 "argumentTypes": null,
                 "hexValue": "57656c636f6d6520746f20576f726c64486f75736521",
-                "id": 35,
+                "id": 92,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "405:24:0",
+                "src": "405:24:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_0a4271776a18a0f3e0a10f0e0886216fcd7c56a508b075bca6ffa77e422e08f1",
@@ -113874,19 +113874,19 @@ module.exports = {
                 },
                 "value": "Welcome to WorldHouse!"
               },
-              "src": "394:35:0",
+              "src": "394:35:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage",
                 "typeString": "string storage ref"
               }
             },
-            "id": 37,
+            "id": 94,
             "nodeType": "ExpressionStatement",
-            "src": "394:35:0"
+            "src": "394:35:1"
           }]
         },
         "documentation": null,
-        "id": 39,
+        "id": 96,
         "implemented": true,
         "isConstructor": true,
         "isDeclaredConst": false,
@@ -113894,50 +113894,50 @@ module.exports = {
         "name": "",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 27,
+          "id": 84,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "347:2:0"
+          "src": "347:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 28,
+          "id": 85,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "356:0:0"
+          "src": "356:0:1"
         },
-        "scope": 182,
-        "src": "336:100:0",
+        "scope": 239,
+        "src": "336:100:1",
         "stateMutability": "nonpayable",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 46,
+          "id": 103,
           "nodeType": "Block",
-          "src": "486:32:0",
+          "src": "486:32:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
-              "id": 44,
+              "id": 101,
               "name": "greetMsg",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 5,
-              "src": "503:8:0",
+              "referencedDeclaration": 62,
+              "src": "503:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage",
                 "typeString": "string storage ref"
               }
             },
-            "functionReturnParameters": 43,
-            "id": 45,
+            "functionReturnParameters": 100,
+            "id": 102,
             "nodeType": "Return",
-            "src": "496:15:0"
+            "src": "496:15:1"
           }]
         },
         "documentation": null,
-        "id": 47,
+        "id": 104,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -113945,22 +113945,22 @@ module.exports = {
         "name": "greet",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 40,
+          "id": 97,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "456:2:0"
+          "src": "456:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 43,
+          "id": 100,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 42,
+            "id": 99,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 47,
-            "src": "479:6:0",
+            "scope": 104,
+            "src": "479:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -113968,10 +113968,10 @@ module.exports = {
               "typeString": "string"
             },
             "typeName": {
-              "id": 41,
+              "id": 98,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "479:6:0",
+              "src": "479:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -113980,81 +113980,81 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "478:8:0"
+          "src": "478:8:1"
         },
-        "scope": 182,
-        "src": "442:76:0",
+        "scope": 239,
+        "src": "442:76:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 71,
+          "id": 128,
           "nodeType": "Block",
-          "src": "586:113:0",
+          "src": "586:113:1",
           "statements": [{
-            "assignments": [57],
+            "assignments": [114],
             "declarations": [{
               "constant": false,
-              "id": 57,
+              "id": 114,
               "name": "data",
               "nodeType": "VariableDeclaration",
-              "scope": 72,
-              "src": "596:22:0",
+              "scope": 129,
+              "src": "596:22:1",
               "stateVariable": false,
               "storageLocation": "storage",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                 "typeString": "struct WorldHouse.HouseData"
               },
               "typeName": {
                 "contractScope": null,
-                "id": 56,
+                "id": 113,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 16,
-                "src": "596:9:0",
+                "referencedDeclaration": 73,
+                "src": "596:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               },
               "value": null,
               "visibility": "internal"
             }],
-            "id": 62,
+            "id": 119,
             "initialValue": {
               "argumentTypes": null,
               "baseExpression": {
                 "argumentTypes": null,
-                "id": 58,
+                "id": 115,
                 "name": "houseRecord",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 20,
-                "src": "621:11:0",
+                "referencedDeclaration": 77,
+                "src": "621:11:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                   "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                 }
               },
-              "id": 61,
+              "id": 118,
               "indexExpression": {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 59,
+                  "id": 116,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "633:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "633:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 60,
+                "id": 117,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -114062,7 +114062,7 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "633:10:0",
+                "src": "633:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -114073,14 +114073,14 @@ module.exports = {
               "isPure": false,
               "lValueRequested": false,
               "nodeType": "IndexAccess",
-              "src": "621:23:0",
+              "src": "621:23:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage",
                 "typeString": "struct WorldHouse.HouseData storage ref"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "596:48:0"
+            "src": "596:48:1"
           }, {
             "expression": {
               "argumentTypes": null,
@@ -114088,26 +114088,26 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 63,
+                  "id": 120,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "662:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "662:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 64,
+                "id": 121,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "row",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 11,
-                "src": "662:8:0",
+                "referencedDeclaration": 68,
+                "src": "662:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -114116,26 +114116,26 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 65,
+                  "id": 122,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "672:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "672:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 66,
+                "id": 123,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "col",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 13,
-                "src": "672:8:0",
+                "referencedDeclaration": 70,
+                "src": "672:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -114144,52 +114144,52 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 67,
+                  "id": 124,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "682:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "682:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 68,
+                "id": 125,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "used",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 15,
-                "src": "682:9:0",
+                "referencedDeclaration": 72,
+                "src": "682:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
                 }
               }],
-              "id": 69,
+              "id": 126,
               "isConstant": false,
               "isInlineArray": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "nodeType": "TupleExpression",
-              "src": "661:31:0",
+              "src": "661:31:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$_t_uint16_$_t_uint16_$_t_uint8_$",
                 "typeString": "tuple(uint16,uint16,uint8)"
               }
             },
-            "functionReturnParameters": 55,
-            "id": 70,
+            "functionReturnParameters": 112,
+            "id": 127,
             "nodeType": "Return",
-            "src": "654:38:0"
+            "src": "654:38:1"
           }]
         },
         "documentation": null,
-        "id": 72,
+        "id": 129,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -114197,22 +114197,22 @@ module.exports = {
         "name": "getHouse",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 48,
+          "id": 105,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "541:2:0"
+          "src": "541:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 55,
+          "id": 112,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 50,
+            "id": 107,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "564:6:0",
+            "scope": 129,
+            "src": "564:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -114220,10 +114220,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 49,
+              "id": 106,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "564:6:0",
+              "src": "564:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -114233,11 +114233,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 52,
+            "id": 109,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "572:6:0",
+            "scope": 129,
+            "src": "572:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -114245,10 +114245,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 51,
+              "id": 108,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "572:6:0",
+              "src": "572:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -114258,11 +114258,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 54,
+            "id": 111,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "580:5:0",
+            "scope": 129,
+            "src": "580:5:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -114270,10 +114270,10 @@ module.exports = {
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 53,
+              "id": 110,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
-              "src": "580:5:0",
+              "src": "580:5:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint8",
                 "typeString": "uint8"
@@ -114282,18 +114282,18 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "563:23:0"
+          "src": "563:23:1"
         },
-        "scope": 182,
-        "src": "524:175:0",
+        "scope": 239,
+        "src": "524:175:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 119,
+          "id": 176,
           "nodeType": "Block",
-          "src": "753:248:0",
+          "src": "753:248:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
@@ -114303,7 +114303,7 @@ module.exports = {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
                 },
-                "id": 86,
+                "id": 143,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -114314,34 +114314,34 @@ module.exports = {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 80,
+                      "id": 137,
                       "name": "houseRecord",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 20,
-                      "src": "771:11:0",
+                      "referencedDeclaration": 77,
+                      "src": "771:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                         "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                       }
                     },
-                    "id": 83,
+                    "id": 140,
                     "indexExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 81,
+                        "id": 138,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 197,
-                        "src": "783:3:0",
+                        "referencedDeclaration": 254,
+                        "src": "783:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 82,
+                      "id": 139,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -114349,7 +114349,7 @@ module.exports = {
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "783:10:0",
+                      "src": "783:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -114360,21 +114360,21 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "771:23:0",
+                    "src": "771:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$73_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
-                  "id": 84,
+                  "id": 141,
                   "isConstant": false,
                   "isLValue": true,
                   "isPure": false,
                   "lValueRequested": false,
                   "memberName": "used",
                   "nodeType": "MemberAccess",
-                  "referencedDeclaration": 15,
-                  "src": "771:28:0",
+                  "referencedDeclaration": 72,
+                  "src": "771:28:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -114385,14 +114385,14 @@ module.exports = {
                 "rightExpression": {
                   "argumentTypes": null,
                   "hexValue": "31",
-                  "id": 85,
+                  "id": 142,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "803:1:0",
+                  "src": "803:1:1",
                   "subdenomination": null,
                   "typeDescriptions": {
                     "typeIdentifier": "t_rational_1_by_1",
@@ -114400,7 +114400,7 @@ module.exports = {
                   },
                   "value": "1"
                 },
-                "src": "771:33:0",
+                "src": "771:33:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -114408,14 +114408,14 @@ module.exports = {
               }, {
                 "argumentTypes": null,
                 "hexValue": "416c726561647920686173206f6e65",
-                "id": 87,
+                "id": 144,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "806:17:0",
+                "src": "806:17:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
@@ -114431,18 +114431,18 @@ module.exports = {
                   "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
                   "typeString": "literal_string \"Already has one\""
                 }],
-                "id": 79,
+                "id": 136,
                 "name": "require",
                 "nodeType": "Identifier",
-                "overloadedDeclarations": [200, 201],
-                "referencedDeclaration": 201,
-                "src": "763:7:0",
+                "overloadedDeclarations": [257, 258],
+                "referencedDeclaration": 258,
+                "src": "763:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                   "typeString": "function (bool,string memory) pure"
                 }
               },
-              "id": 88,
+              "id": 145,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -114450,68 +114450,68 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "763:61:0",
+              "src": "763:61:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$__$",
                 "typeString": "tuple()"
               }
             },
-            "id": 89,
+            "id": 146,
             "nodeType": "ExpressionStatement",
-            "src": "763:61:0"
+            "src": "763:61:1"
           }, {
-            "assignments": [91],
+            "assignments": [148],
             "declarations": [{
               "constant": false,
-              "id": 91,
+              "id": 148,
               "name": "data",
               "nodeType": "VariableDeclaration",
-              "scope": 120,
-              "src": "834:21:0",
+              "scope": 177,
+              "src": "834:21:1",
               "stateVariable": false,
               "storageLocation": "memory",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_memory_ptr",
+                "typeIdentifier": "t_struct$_HouseData_$73_memory_ptr",
                 "typeString": "struct WorldHouse.HouseData"
               },
               "typeName": {
                 "contractScope": null,
-                "id": 90,
+                "id": 147,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 16,
-                "src": "834:9:0",
+                "referencedDeclaration": 73,
+                "src": "834:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               },
               "value": null,
               "visibility": "internal"
             }],
-            "id": 97,
+            "id": 154,
             "initialValue": {
               "argumentTypes": null,
               "arguments": [{
                 "argumentTypes": null,
-                "id": 93,
+                "id": 150,
                 "name": "row",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 74,
-                "src": "868:3:0",
+                "referencedDeclaration": 131,
+                "src": "868:3:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               }, {
                 "argumentTypes": null,
-                "id": 94,
+                "id": 151,
                 "name": "col",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 76,
-                "src": "873:3:0",
+                "referencedDeclaration": 133,
+                "src": "873:3:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -114519,14 +114519,14 @@ module.exports = {
               }, {
                 "argumentTypes": null,
                 "hexValue": "31",
-                "id": 95,
+                "id": 152,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "878:1:0",
+                "src": "878:1:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_1_by_1",
@@ -114545,18 +114545,18 @@ module.exports = {
                   "typeIdentifier": "t_rational_1_by_1",
                   "typeString": "int_const 1"
                 }],
-                "id": 92,
+                "id": 149,
                 "name": "HouseData",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 16,
-                "src": "858:9:0",
+                "referencedDeclaration": 73,
+                "src": "858:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_struct$_HouseData_$16_storage_ptr_$",
+                  "typeIdentifier": "t_type$_t_struct$_HouseData_$73_storage_ptr_$",
                   "typeString": "type(struct WorldHouse.HouseData storage pointer)"
                 }
               },
-              "id": 96,
+              "id": 153,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -114564,18 +114564,18 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "858:22:0",
+              "src": "858:22:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_memory",
+                "typeIdentifier": "t_struct$_HouseData_$73_memory",
                 "typeString": "struct WorldHouse.HouseData memory"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "834:46:0"
+            "src": "834:46:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 103,
+              "id": 160,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -114584,34 +114584,34 @@ module.exports = {
                 "argumentTypes": null,
                 "baseExpression": {
                   "argumentTypes": null,
-                  "id": 98,
+                  "id": 155,
                   "name": "houseRecord",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 20,
-                  "src": "890:11:0",
+                  "referencedDeclaration": 77,
+                  "src": "890:11:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                     "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                   }
                 },
-                "id": 101,
+                "id": 158,
                 "indexExpression": {
                   "argumentTypes": null,
                   "expression": {
                     "argumentTypes": null,
-                    "id": 99,
+                    "id": 156,
                     "name": "msg",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 197,
-                    "src": "902:3:0",
+                    "referencedDeclaration": 254,
+                    "src": "902:3:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_magic_message",
                       "typeString": "msg"
                     }
                   },
-                  "id": 100,
+                  "id": 157,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -114619,7 +114619,7 @@ module.exports = {
                   "memberName": "sender",
                   "nodeType": "MemberAccess",
                   "referencedDeclaration": null,
-                  "src": "902:10:0",
+                  "src": "902:10:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -114630,9 +114630,9 @@ module.exports = {
                 "isPure": false,
                 "lValueRequested": true,
                 "nodeType": "IndexAccess",
-                "src": "890:23:0",
+                "src": "890:23:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage",
                   "typeString": "struct WorldHouse.HouseData storage ref"
                 }
               },
@@ -114640,30 +114640,30 @@ module.exports = {
               "operator": "=",
               "rightHandSide": {
                 "argumentTypes": null,
-                "id": 102,
+                "id": 159,
                 "name": "data",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 91,
-                "src": "916:4:0",
+                "referencedDeclaration": 148,
+                "src": "916:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_memory_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_memory_ptr",
                   "typeString": "struct WorldHouse.HouseData memory"
                 }
               },
-              "src": "890:30:0",
+              "src": "890:30:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage",
                 "typeString": "struct WorldHouse.HouseData storage ref"
               }
             },
-            "id": 104,
+            "id": 161,
             "nodeType": "ExpressionStatement",
-            "src": "890:30:0"
+            "src": "890:30:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 112,
+              "id": 169,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -114674,26 +114674,26 @@ module.exports = {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 105,
+                    "id": 162,
                     "name": "grid",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 26,
-                    "src": "930:4:0",
+                    "referencedDeclaration": 83,
+                    "src": "930:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
                       "typeString": "mapping(uint16 => mapping(uint16 => address))"
                     }
                   },
-                  "id": 108,
+                  "id": 165,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 106,
+                    "id": 163,
                     "name": "row",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 74,
-                    "src": "935:3:0",
+                    "referencedDeclaration": 131,
+                    "src": "935:3:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -114704,21 +114704,21 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "930:9:0",
+                  "src": "930:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
                     "typeString": "mapping(uint16 => address)"
                   }
                 },
-                "id": 109,
+                "id": 166,
                 "indexExpression": {
                   "argumentTypes": null,
-                  "id": 107,
+                  "id": 164,
                   "name": "col",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 76,
-                  "src": "940:3:0",
+                  "referencedDeclaration": 133,
+                  "src": "940:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
@@ -114729,7 +114729,7 @@ module.exports = {
                 "isPure": false,
                 "lValueRequested": true,
                 "nodeType": "IndexAccess",
-                "src": "930:14:0",
+                "src": "930:14:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -114741,18 +114741,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 110,
+                  "id": 167,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "947:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "947:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 111,
+                "id": 168,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -114760,21 +114760,21 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "947:10:0",
+                "src": "947:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "src": "930:27:0",
+              "src": "930:27:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
               }
             },
-            "id": 113,
+            "id": 170,
             "nodeType": "ExpressionStatement",
-            "src": "930:27:0"
+            "src": "930:27:1"
           }, {
             "eventCall": {
               "argumentTypes": null,
@@ -114782,18 +114782,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 115,
+                  "id": 172,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "983:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "983:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 116,
+                "id": 173,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -114801,7 +114801,7 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "983:10:0",
+                "src": "983:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -114812,18 +114812,18 @@ module.exports = {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }],
-                "id": 114,
+                "id": 171,
                 "name": "BuySuccess",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 9,
-                "src": "972:10:0",
+                "referencedDeclaration": 66,
+                "src": "972:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                   "typeString": "function (address)"
                 }
               },
-              "id": 117,
+              "id": 174,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -114831,19 +114831,19 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "972:22:0",
+              "src": "972:22:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$__$",
                 "typeString": "tuple()"
               }
             },
-            "id": 118,
+            "id": 175,
             "nodeType": "EmitStatement",
-            "src": "967:27:0"
+            "src": "967:27:1"
           }]
         },
         "documentation": null,
-        "id": 120,
+        "id": 177,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": false,
@@ -114851,15 +114851,15 @@ module.exports = {
         "name": "buyHouse",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 77,
+          "id": 134,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 74,
+            "id": 131,
             "name": "row",
             "nodeType": "VariableDeclaration",
-            "scope": 120,
-            "src": "723:10:0",
+            "scope": 177,
+            "src": "723:10:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -114867,10 +114867,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 73,
+              "id": 130,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "723:6:0",
+              "src": "723:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -114880,11 +114880,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 76,
+            "id": 133,
             "name": "col",
             "nodeType": "VariableDeclaration",
-            "scope": 120,
-            "src": "735:10:0",
+            "scope": 177,
+            "src": "735:10:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -114892,10 +114892,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 75,
+              "id": 132,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "735:6:0",
+              "src": "735:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -114904,34 +114904,34 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "722:24:0"
+          "src": "722:24:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 78,
+          "id": 135,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "753:0:0"
+          "src": "753:0:1"
         },
-        "scope": 182,
-        "src": "705:296:0",
+        "scope": 239,
+        "src": "705:296:1",
         "stateMutability": "nonpayable",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 180,
+          "id": 237,
           "nodeType": "Block",
-          "src": "1089:271:0",
+          "src": "1089:271:1",
           "statements": [{
-            "assignments": [135],
+            "assignments": [192],
             "declarations": [{
               "constant": false,
-              "id": 135,
+              "id": 192,
               "name": "gridOwners",
               "nodeType": "VariableDeclaration",
-              "scope": 181,
-              "src": "1099:27:0",
+              "scope": 238,
+              "src": "1099:27:1",
               "stateVariable": false,
               "storageLocation": "memory",
               "typeDescriptions": {
@@ -114940,19 +114940,19 @@ module.exports = {
               },
               "typeName": {
                 "baseType": {
-                  "id": 133,
+                  "id": 190,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1099:7:0",
+                  "src": "1099:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 134,
+                "id": 191,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1099:9:0",
+                "src": "1099:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                   "typeString": "address[]"
@@ -114961,25 +114961,25 @@ module.exports = {
               "value": null,
               "visibility": "internal"
             }],
-            "id": 142,
+            "id": 199,
             "initialValue": {
               "argumentTypes": null,
               "arguments": [{
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 139,
+                  "id": 196,
                   "name": "rows",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 123,
-                  "src": "1143:4:0",
+                  "referencedDeclaration": 180,
+                  "src": "1143:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                     "typeString": "uint16[] memory"
                   }
                 },
-                "id": 140,
+                "id": 197,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -114987,7 +114987,7 @@ module.exports = {
                 "memberName": "length",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "1143:11:0",
+                "src": "1143:11:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
@@ -114998,39 +114998,39 @@ module.exports = {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }],
-                "id": 138,
+                "id": 195,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "lValueRequested": false,
                 "nodeType": "NewExpression",
-                "src": "1129:13:0",
+                "src": "1129:13:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_address_$dyn_memory_$",
                   "typeString": "function (uint256) pure returns (address[] memory)"
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 136,
+                    "id": 193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1133:7:0",
+                    "src": "1133:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 137,
+                  "id": 194,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "1133:9:0",
+                  "src": "1133:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
                   }
                 }
               },
-              "id": 141,
+              "id": 198,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -115038,28 +115038,28 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "1129:26:0",
+              "src": "1129:26:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_memory",
                 "typeString": "address[] memory"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "1099:56:0"
+            "src": "1099:56:1"
           }, {
             "body": {
-              "id": 176,
+              "id": 233,
               "nodeType": "Block",
-              "src": "1203:124:0",
+              "src": "1203:124:1",
               "statements": [{
-                "assignments": [155],
+                "assignments": [212],
                 "declarations": [{
                   "constant": false,
-                  "id": 155,
+                  "id": 212,
                   "name": "row",
                   "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "1217:10:0",
+                  "scope": 238,
+                  "src": "1217:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -115067,10 +115067,10 @@ module.exports = {
                     "typeString": "uint16"
                   },
                   "typeName": {
-                    "id": 154,
+                    "id": 211,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1217:6:0",
+                    "src": "1217:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -115079,31 +115079,31 @@ module.exports = {
                   "value": null,
                   "visibility": "internal"
                 }],
-                "id": 159,
+                "id": 216,
                 "initialValue": {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 156,
+                    "id": 213,
                     "name": "rows",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 123,
-                    "src": "1230:4:0",
+                    "referencedDeclaration": 180,
+                    "src": "1230:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                       "typeString": "uint16[] memory"
                     }
                   },
-                  "id": 158,
+                  "id": 215,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 157,
+                    "id": 214,
                     "name": "i",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 144,
-                    "src": "1235:1:0",
+                    "referencedDeclaration": 201,
+                    "src": "1235:1:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -115114,23 +115114,23 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "1230:7:0",
+                  "src": "1230:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
                   }
                 },
                 "nodeType": "VariableDeclarationStatement",
-                "src": "1217:20:0"
+                "src": "1217:20:1"
               }, {
-                "assignments": [161],
+                "assignments": [218],
                 "declarations": [{
                   "constant": false,
-                  "id": 161,
+                  "id": 218,
                   "name": "col",
                   "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "1251:10:0",
+                  "scope": 238,
+                  "src": "1251:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -115138,10 +115138,10 @@ module.exports = {
                     "typeString": "uint16"
                   },
                   "typeName": {
-                    "id": 160,
+                    "id": 217,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1251:6:0",
+                    "src": "1251:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -115150,31 +115150,31 @@ module.exports = {
                   "value": null,
                   "visibility": "internal"
                 }],
-                "id": 165,
+                "id": 222,
                 "initialValue": {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 162,
+                    "id": 219,
                     "name": "cols",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 126,
-                    "src": "1264:4:0",
+                    "referencedDeclaration": 183,
+                    "src": "1264:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                       "typeString": "uint16[] memory"
                     }
                   },
-                  "id": 164,
+                  "id": 221,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 163,
+                    "id": 220,
                     "name": "i",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 144,
-                    "src": "1269:1:0",
+                    "referencedDeclaration": 201,
+                    "src": "1269:1:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -115185,18 +115185,18 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "1264:7:0",
+                  "src": "1264:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
                   }
                 },
                 "nodeType": "VariableDeclarationStatement",
-                "src": "1251:20:0"
+                "src": "1251:20:1"
               }, {
                 "expression": {
                   "argumentTypes": null,
-                  "id": 174,
+                  "id": 231,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -115205,26 +115205,26 @@ module.exports = {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 166,
+                      "id": 223,
                       "name": "gridOwners",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 135,
-                      "src": "1286:10:0",
+                      "referencedDeclaration": 192,
+                      "src": "1286:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                         "typeString": "address[] memory"
                       }
                     },
-                    "id": 168,
+                    "id": 225,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 167,
+                      "id": 224,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 144,
-                      "src": "1297:1:0",
+                      "referencedDeclaration": 201,
+                      "src": "1297:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -115235,7 +115235,7 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": true,
                     "nodeType": "IndexAccess",
-                    "src": "1286:13:0",
+                    "src": "1286:13:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -115249,26 +115249,26 @@ module.exports = {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 169,
+                        "id": 226,
                         "name": "grid",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 26,
-                        "src": "1302:4:0",
+                        "referencedDeclaration": 83,
+                        "src": "1302:4:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
                           "typeString": "mapping(uint16 => mapping(uint16 => address))"
                         }
                       },
-                      "id": 171,
+                      "id": 228,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 170,
+                        "id": 227,
                         "name": "row",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 155,
-                        "src": "1307:3:0",
+                        "referencedDeclaration": 212,
+                        "src": "1307:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint16",
                           "typeString": "uint16"
@@ -115279,21 +115279,21 @@ module.exports = {
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1302:9:0",
+                      "src": "1302:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
                         "typeString": "mapping(uint16 => address)"
                       }
                     },
-                    "id": 173,
+                    "id": 230,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 172,
+                      "id": 229,
                       "name": "col",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 161,
-                      "src": "1312:3:0",
+                      "referencedDeclaration": 218,
+                      "src": "1312:3:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
                         "typeString": "uint16"
@@ -115304,21 +115304,21 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "1302:14:0",
+                    "src": "1302:14:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "src": "1286:30:0",
+                  "src": "1286:30:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 175,
+                "id": 232,
                 "nodeType": "ExpressionStatement",
-                "src": "1286:30:0"
+                "src": "1286:30:1"
               }]
             },
             "condition": {
@@ -115327,19 +115327,19 @@ module.exports = {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               },
-              "id": 150,
+              "id": 207,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftExpression": {
                 "argumentTypes": null,
-                "id": 147,
+                "id": 204,
                 "name": "i",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 144,
-                "src": "1182:1:0",
+                "referencedDeclaration": 201,
+                "src": "1182:1:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
@@ -115351,18 +115351,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 148,
+                  "id": 205,
                   "name": "rows",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 123,
-                  "src": "1186:4:0",
+                  "referencedDeclaration": 180,
+                  "src": "1186:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                     "typeString": "uint16[] memory"
                   }
                 },
-                "id": 149,
+                "id": 206,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -115370,28 +115370,28 @@ module.exports = {
                 "memberName": "length",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "1186:11:0",
+                "src": "1186:11:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "src": "1182:15:0",
+              "src": "1182:15:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_bool",
                 "typeString": "bool"
               }
             },
-            "id": 177,
+            "id": 234,
             "initializationExpression": {
-              "assignments": [144],
+              "assignments": [201],
               "declarations": [{
                 "constant": false,
-                "id": 144,
+                "id": 201,
                 "name": "i",
                 "nodeType": "VariableDeclaration",
-                "scope": 181,
-                "src": "1169:7:0",
+                "scope": 238,
+                "src": "1169:7:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -115399,10 +115399,10 @@ module.exports = {
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 143,
+                  "id": 200,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1169:5:0",
+                  "src": "1169:5:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -115411,18 +115411,18 @@ module.exports = {
                 "value": null,
                 "visibility": "internal"
               }],
-              "id": 146,
+              "id": 203,
               "initialValue": {
                 "argumentTypes": null,
                 "hexValue": "30",
-                "id": 145,
+                "id": 202,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "1179:1:0",
+                "src": "1179:1:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_0_by_1",
@@ -115431,12 +115431,12 @@ module.exports = {
                 "value": "0"
               },
               "nodeType": "VariableDeclarationStatement",
-              "src": "1169:11:0"
+              "src": "1169:11:1"
             },
             "loopExpression": {
               "expression": {
                 "argumentTypes": null,
-                "id": 152,
+                "id": 209,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -115444,15 +115444,15 @@ module.exports = {
                 "nodeType": "UnaryOperation",
                 "operator": "++",
                 "prefix": false,
-                "src": "1199:3:0",
+                "src": "1199:3:1",
                 "subExpression": {
                   "argumentTypes": null,
-                  "id": 151,
+                  "id": 208,
                   "name": "i",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 144,
-                  "src": "1199:1:0",
+                  "referencedDeclaration": 201,
+                  "src": "1199:1:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -115463,34 +115463,34 @@ module.exports = {
                   "typeString": "uint8"
                 }
               },
-              "id": 153,
+              "id": 210,
               "nodeType": "ExpressionStatement",
-              "src": "1199:3:0"
+              "src": "1199:3:1"
             },
             "nodeType": "ForStatement",
-            "src": "1165:162:0"
+            "src": "1165:162:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 178,
+              "id": 235,
               "name": "gridOwners",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 135,
-              "src": "1343:10:0",
+              "referencedDeclaration": 192,
+              "src": "1343:10:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                 "typeString": "address[] memory"
               }
             },
-            "functionReturnParameters": 131,
-            "id": 179,
+            "functionReturnParameters": 188,
+            "id": 236,
             "nodeType": "Return",
-            "src": "1336:17:0"
+            "src": "1336:17:1"
           }]
         },
         "documentation": null,
-        "id": 181,
+        "id": 238,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -115498,15 +115498,15 @@ module.exports = {
         "name": "getGridInfos",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 127,
+          "id": 184,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 123,
+            "id": 180,
             "name": "rows",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1029:13:0",
+            "scope": 238,
+            "src": "1029:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -115515,19 +115515,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 121,
+                "id": 178,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "1029:6:0",
+                "src": "1029:6:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               },
-              "id": 122,
+              "id": 179,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1029:8:0",
+              "src": "1029:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint16_$dyn_storage_ptr",
                 "typeString": "uint16[]"
@@ -115537,11 +115537,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 126,
+            "id": 183,
             "name": "cols",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1044:13:0",
+            "scope": 238,
+            "src": "1044:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -115550,19 +115550,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 124,
+                "id": 181,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "1044:6:0",
+                "src": "1044:6:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               },
-              "id": 125,
+              "id": 182,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1044:8:0",
+              "src": "1044:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint16_$dyn_storage_ptr",
                 "typeString": "uint16[]"
@@ -115571,19 +115571,19 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "1028:30:0"
+          "src": "1028:30:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 131,
+          "id": 188,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 130,
+            "id": 187,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1079:9:0",
+            "scope": 238,
+            "src": "1079:9:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -115592,19 +115592,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 128,
+                "id": 185,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "1079:7:0",
+                "src": "1079:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "id": 129,
+              "id": 186,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1079:9:0",
+              "src": "1079:9:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                 "typeString": "address[]"
@@ -115613,48 +115613,48 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "1078:11:0"
+          "src": "1078:11:1"
         },
-        "scope": 182,
-        "src": "1007:353:0",
+        "scope": 239,
+        "src": "1007:353:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }],
-      "scope": 183,
-      "src": "26:1336:0"
+      "scope": 240,
+      "src": "26:1336:1"
     }],
-    "src": "0:1362:0"
+    "src": "0:1362:1"
   },
   "legacyAST": {
     "absolutePath": "/fisher/program/ethereum/world-house/contracts/WorldHouse.sol",
     "exportedSymbols": {
-      "WorldHouse": [182]
+      "WorldHouse": [239]
     },
-    "id": 183,
+    "id": 240,
     "nodeType": "SourceUnit",
     "nodes": [{
-      "id": 1,
+      "id": 58,
       "literals": ["solidity", "^", "0.4", ".23"],
       "nodeType": "PragmaDirective",
-      "src": "0:24:0"
+      "src": "0:24:1"
     }, {
       "baseContracts": [],
       "contractDependencies": [],
       "contractKind": "contract",
       "documentation": null,
       "fullyImplemented": true,
-      "id": 182,
-      "linearizedBaseContracts": [182],
+      "id": 239,
+      "linearizedBaseContracts": [239],
       "name": "WorldHouse",
       "nodeType": "ContractDefinition",
       "nodes": [{
         "constant": false,
-        "id": 3,
+        "id": 60,
         "name": "owner",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "51:21:0",
+        "scope": 239,
+        "src": "51:21:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -115662,10 +115662,10 @@ module.exports = {
           "typeString": "address"
         },
         "typeName": {
-          "id": 2,
+          "id": 59,
           "name": "address",
           "nodeType": "ElementaryTypeName",
-          "src": "51:7:0",
+          "src": "51:7:1",
           "typeDescriptions": {
             "typeIdentifier": "t_address",
             "typeString": "address"
@@ -115675,11 +115675,11 @@ module.exports = {
         "visibility": "private"
       }, {
         "constant": false,
-        "id": 5,
+        "id": 62,
         "name": "greetMsg",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "78:23:0",
+        "scope": 239,
+        "src": "78:23:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -115687,10 +115687,10 @@ module.exports = {
           "typeString": "string"
         },
         "typeName": {
-          "id": 4,
+          "id": 61,
           "name": "string",
           "nodeType": "ElementaryTypeName",
-          "src": "78:6:0",
+          "src": "78:6:1",
           "typeDescriptions": {
             "typeIdentifier": "t_string_storage_ptr",
             "typeString": "string"
@@ -115701,20 +115701,20 @@ module.exports = {
       }, {
         "anonymous": false,
         "documentation": null,
-        "id": 9,
+        "id": 66,
         "name": "BuySuccess",
         "nodeType": "EventDefinition",
         "parameters": {
-          "id": 8,
+          "id": 65,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 7,
+            "id": 64,
             "indexed": false,
             "name": "buyer",
             "nodeType": "VariableDeclaration",
-            "scope": 9,
-            "src": "124:13:0",
+            "scope": 66,
+            "src": "124:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -115722,10 +115722,10 @@ module.exports = {
               "typeString": "address"
             },
             "typeName": {
-              "id": 6,
+              "id": 63,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "124:7:0",
+              "src": "124:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -115734,19 +115734,19 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "123:15:0"
+          "src": "123:15:1"
         },
-        "src": "107:32:0"
+        "src": "107:32:1"
       }, {
         "canonicalName": "WorldHouse.HouseData",
-        "id": 16,
+        "id": 73,
         "members": [{
           "constant": false,
-          "id": 11,
+          "id": 68,
           "name": "row",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "170:10:0",
+          "scope": 73,
+          "src": "170:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -115754,10 +115754,10 @@ module.exports = {
             "typeString": "uint16"
           },
           "typeName": {
-            "id": 10,
+            "id": 67,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "170:6:0",
+            "src": "170:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
@@ -115767,11 +115767,11 @@ module.exports = {
           "visibility": "internal"
         }, {
           "constant": false,
-          "id": 13,
+          "id": 70,
           "name": "col",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "190:10:0",
+          "scope": 73,
+          "src": "190:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -115779,10 +115779,10 @@ module.exports = {
             "typeString": "uint16"
           },
           "typeName": {
-            "id": 12,
+            "id": 69,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "190:6:0",
+            "src": "190:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
@@ -115792,11 +115792,11 @@ module.exports = {
           "visibility": "internal"
         }, {
           "constant": false,
-          "id": 15,
+          "id": 72,
           "name": "used",
           "nodeType": "VariableDeclaration",
-          "scope": 16,
-          "src": "210:10:0",
+          "scope": 73,
+          "src": "210:10:1",
           "stateVariable": false,
           "storageLocation": "default",
           "typeDescriptions": {
@@ -115804,10 +115804,10 @@ module.exports = {
             "typeString": "uint8"
           },
           "typeName": {
-            "id": 14,
+            "id": 71,
             "name": "uint8",
             "nodeType": "ElementaryTypeName",
-            "src": "210:5:0",
+            "src": "210:5:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint8",
               "typeString": "uint8"
@@ -115818,49 +115818,49 @@ module.exports = {
         }],
         "name": "HouseData",
         "nodeType": "StructDefinition",
-        "scope": 182,
-        "src": "144:83:0",
+        "scope": 239,
+        "src": "144:83:1",
         "visibility": "public"
       }, {
         "constant": false,
-        "id": 20,
+        "id": 77,
         "name": "houseRecord",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "232:41:0",
+        "scope": 239,
+        "src": "232:41:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
-          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
           "typeString": "mapping(address => struct WorldHouse.HouseData)"
         },
         "typeName": {
-          "id": 19,
+          "id": 76,
           "keyType": {
-            "id": 17,
+            "id": 74,
             "name": "address",
             "nodeType": "ElementaryTypeName",
-            "src": "240:7:0",
+            "src": "240:7:1",
             "typeDescriptions": {
               "typeIdentifier": "t_address",
               "typeString": "address"
             }
           },
           "nodeType": "Mapping",
-          "src": "232:29:0",
+          "src": "232:29:1",
           "typeDescriptions": {
-            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
             "typeString": "mapping(address => struct WorldHouse.HouseData)"
           },
           "valueType": {
             "contractScope": null,
-            "id": 18,
+            "id": 75,
             "name": "HouseData",
             "nodeType": "UserDefinedTypeName",
-            "referencedDeclaration": 16,
-            "src": "251:9:0",
+            "referencedDeclaration": 73,
+            "src": "251:9:1",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+              "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
               "typeString": "struct WorldHouse.HouseData"
             }
           }
@@ -115869,11 +115869,11 @@ module.exports = {
         "visibility": "internal"
       }, {
         "constant": false,
-        "id": 26,
+        "id": 83,
         "name": "grid",
         "nodeType": "VariableDeclaration",
-        "scope": 182,
-        "src": "279:50:0",
+        "scope": 239,
+        "src": "279:50:1",
         "stateVariable": true,
         "storageLocation": "default",
         "typeDescriptions": {
@@ -115881,46 +115881,46 @@ module.exports = {
           "typeString": "mapping(uint16 => mapping(uint16 => address))"
         },
         "typeName": {
-          "id": 25,
+          "id": 82,
           "keyType": {
-            "id": 21,
+            "id": 78,
             "name": "uint16",
             "nodeType": "ElementaryTypeName",
-            "src": "287:6:0",
+            "src": "287:6:1",
             "typeDescriptions": {
               "typeIdentifier": "t_uint16",
               "typeString": "uint16"
             }
           },
           "nodeType": "Mapping",
-          "src": "279:45:0",
+          "src": "279:45:1",
           "typeDescriptions": {
             "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
             "typeString": "mapping(uint16 => mapping(uint16 => address))"
           },
           "valueType": {
-            "id": 24,
+            "id": 81,
             "keyType": {
-              "id": 22,
+              "id": 79,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "305:6:0",
+              "src": "305:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
               }
             },
             "nodeType": "Mapping",
-            "src": "297:26:0",
+            "src": "297:26:1",
             "typeDescriptions": {
               "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
               "typeString": "mapping(uint16 => address)"
             },
             "valueType": {
-              "id": 23,
+              "id": 80,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "315:7:0",
+              "src": "315:7:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -115932,25 +115932,25 @@ module.exports = {
         "visibility": "internal"
       }, {
         "body": {
-          "id": 38,
+          "id": 95,
           "nodeType": "Block",
-          "src": "356:80:0",
+          "src": "356:80:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
-              "id": 32,
+              "id": 89,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftHandSide": {
                 "argumentTypes": null,
-                "id": 29,
+                "id": 86,
                 "name": "owner",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 3,
-                "src": "366:5:0",
+                "referencedDeclaration": 60,
+                "src": "366:5:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -115962,18 +115962,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 30,
+                  "id": 87,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "374:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "374:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 31,
+                "id": 88,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -115981,37 +115981,37 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "374:10:0",
+                "src": "374:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "src": "366:18:0",
+              "src": "366:18:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
               }
             },
-            "id": 33,
+            "id": 90,
             "nodeType": "ExpressionStatement",
-            "src": "366:18:0"
+            "src": "366:18:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 36,
+              "id": 93,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftHandSide": {
                 "argumentTypes": null,
-                "id": 34,
+                "id": 91,
                 "name": "greetMsg",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 5,
-                "src": "394:8:0",
+                "referencedDeclaration": 62,
+                "src": "394:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_string_storage",
                   "typeString": "string storage ref"
@@ -116022,14 +116022,14 @@ module.exports = {
               "rightHandSide": {
                 "argumentTypes": null,
                 "hexValue": "57656c636f6d6520746f20576f726c64486f75736521",
-                "id": 35,
+                "id": 92,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "405:24:0",
+                "src": "405:24:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_0a4271776a18a0f3e0a10f0e0886216fcd7c56a508b075bca6ffa77e422e08f1",
@@ -116037,19 +116037,19 @@ module.exports = {
                 },
                 "value": "Welcome to WorldHouse!"
               },
-              "src": "394:35:0",
+              "src": "394:35:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage",
                 "typeString": "string storage ref"
               }
             },
-            "id": 37,
+            "id": 94,
             "nodeType": "ExpressionStatement",
-            "src": "394:35:0"
+            "src": "394:35:1"
           }]
         },
         "documentation": null,
-        "id": 39,
+        "id": 96,
         "implemented": true,
         "isConstructor": true,
         "isDeclaredConst": false,
@@ -116057,50 +116057,50 @@ module.exports = {
         "name": "",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 27,
+          "id": 84,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "347:2:0"
+          "src": "347:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 28,
+          "id": 85,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "356:0:0"
+          "src": "356:0:1"
         },
-        "scope": 182,
-        "src": "336:100:0",
+        "scope": 239,
+        "src": "336:100:1",
         "stateMutability": "nonpayable",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 46,
+          "id": 103,
           "nodeType": "Block",
-          "src": "486:32:0",
+          "src": "486:32:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
-              "id": 44,
+              "id": 101,
               "name": "greetMsg",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 5,
-              "src": "503:8:0",
+              "referencedDeclaration": 62,
+              "src": "503:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage",
                 "typeString": "string storage ref"
               }
             },
-            "functionReturnParameters": 43,
-            "id": 45,
+            "functionReturnParameters": 100,
+            "id": 102,
             "nodeType": "Return",
-            "src": "496:15:0"
+            "src": "496:15:1"
           }]
         },
         "documentation": null,
-        "id": 47,
+        "id": 104,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -116108,22 +116108,22 @@ module.exports = {
         "name": "greet",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 40,
+          "id": 97,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "456:2:0"
+          "src": "456:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 43,
+          "id": 100,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 42,
+            "id": 99,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 47,
-            "src": "479:6:0",
+            "scope": 104,
+            "src": "479:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -116131,10 +116131,10 @@ module.exports = {
               "typeString": "string"
             },
             "typeName": {
-              "id": 41,
+              "id": 98,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "479:6:0",
+              "src": "479:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -116143,81 +116143,81 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "478:8:0"
+          "src": "478:8:1"
         },
-        "scope": 182,
-        "src": "442:76:0",
+        "scope": 239,
+        "src": "442:76:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 71,
+          "id": 128,
           "nodeType": "Block",
-          "src": "586:113:0",
+          "src": "586:113:1",
           "statements": [{
-            "assignments": [57],
+            "assignments": [114],
             "declarations": [{
               "constant": false,
-              "id": 57,
+              "id": 114,
               "name": "data",
               "nodeType": "VariableDeclaration",
-              "scope": 72,
-              "src": "596:22:0",
+              "scope": 129,
+              "src": "596:22:1",
               "stateVariable": false,
               "storageLocation": "storage",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                 "typeString": "struct WorldHouse.HouseData"
               },
               "typeName": {
                 "contractScope": null,
-                "id": 56,
+                "id": 113,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 16,
-                "src": "596:9:0",
+                "referencedDeclaration": 73,
+                "src": "596:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               },
               "value": null,
               "visibility": "internal"
             }],
-            "id": 62,
+            "id": 119,
             "initialValue": {
               "argumentTypes": null,
               "baseExpression": {
                 "argumentTypes": null,
-                "id": 58,
+                "id": 115,
                 "name": "houseRecord",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 20,
-                "src": "621:11:0",
+                "referencedDeclaration": 77,
+                "src": "621:11:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                   "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                 }
               },
-              "id": 61,
+              "id": 118,
               "indexExpression": {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 59,
+                  "id": 116,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "633:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "633:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 60,
+                "id": 117,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -116225,7 +116225,7 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "633:10:0",
+                "src": "633:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -116236,14 +116236,14 @@ module.exports = {
               "isPure": false,
               "lValueRequested": false,
               "nodeType": "IndexAccess",
-              "src": "621:23:0",
+              "src": "621:23:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage",
                 "typeString": "struct WorldHouse.HouseData storage ref"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "596:48:0"
+            "src": "596:48:1"
           }, {
             "expression": {
               "argumentTypes": null,
@@ -116251,26 +116251,26 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 63,
+                  "id": 120,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "662:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "662:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 64,
+                "id": 121,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "row",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 11,
-                "src": "662:8:0",
+                "referencedDeclaration": 68,
+                "src": "662:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -116279,26 +116279,26 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 65,
+                  "id": 122,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "672:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "672:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 66,
+                "id": 123,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "col",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 13,
-                "src": "672:8:0",
+                "referencedDeclaration": 70,
+                "src": "672:8:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -116307,52 +116307,52 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 67,
+                  "id": 124,
                   "name": "data",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 57,
-                  "src": "682:4:0",
+                  "referencedDeclaration": 114,
+                  "src": "682:4:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                    "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                     "typeString": "struct WorldHouse.HouseData storage pointer"
                   }
                 },
-                "id": 68,
+                "id": 125,
                 "isConstant": false,
                 "isLValue": true,
                 "isPure": false,
                 "lValueRequested": false,
                 "memberName": "used",
                 "nodeType": "MemberAccess",
-                "referencedDeclaration": 15,
-                "src": "682:9:0",
+                "referencedDeclaration": 72,
+                "src": "682:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
                 }
               }],
-              "id": 69,
+              "id": 126,
               "isConstant": false,
               "isInlineArray": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "nodeType": "TupleExpression",
-              "src": "661:31:0",
+              "src": "661:31:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$_t_uint16_$_t_uint16_$_t_uint8_$",
                 "typeString": "tuple(uint16,uint16,uint8)"
               }
             },
-            "functionReturnParameters": 55,
-            "id": 70,
+            "functionReturnParameters": 112,
+            "id": 127,
             "nodeType": "Return",
-            "src": "654:38:0"
+            "src": "654:38:1"
           }]
         },
         "documentation": null,
-        "id": 72,
+        "id": 129,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -116360,22 +116360,22 @@ module.exports = {
         "name": "getHouse",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 48,
+          "id": 105,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "541:2:0"
+          "src": "541:2:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 55,
+          "id": 112,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 50,
+            "id": 107,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "564:6:0",
+            "scope": 129,
+            "src": "564:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -116383,10 +116383,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 49,
+              "id": 106,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "564:6:0",
+              "src": "564:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -116396,11 +116396,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 52,
+            "id": 109,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "572:6:0",
+            "scope": 129,
+            "src": "572:6:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -116408,10 +116408,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 51,
+              "id": 108,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "572:6:0",
+              "src": "572:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -116421,11 +116421,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 54,
+            "id": 111,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 72,
-            "src": "580:5:0",
+            "scope": 129,
+            "src": "580:5:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -116433,10 +116433,10 @@ module.exports = {
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 53,
+              "id": 110,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
-              "src": "580:5:0",
+              "src": "580:5:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint8",
                 "typeString": "uint8"
@@ -116445,18 +116445,18 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "563:23:0"
+          "src": "563:23:1"
         },
-        "scope": 182,
-        "src": "524:175:0",
+        "scope": 239,
+        "src": "524:175:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 119,
+          "id": 176,
           "nodeType": "Block",
-          "src": "753:248:0",
+          "src": "753:248:1",
           "statements": [{
             "expression": {
               "argumentTypes": null,
@@ -116466,7 +116466,7 @@ module.exports = {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
                 },
-                "id": 86,
+                "id": 143,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -116477,34 +116477,34 @@ module.exports = {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 80,
+                      "id": 137,
                       "name": "houseRecord",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 20,
-                      "src": "771:11:0",
+                      "referencedDeclaration": 77,
+                      "src": "771:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                         "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                       }
                     },
-                    "id": 83,
+                    "id": 140,
                     "indexExpression": {
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 81,
+                        "id": 138,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 197,
-                        "src": "783:3:0",
+                        "referencedDeclaration": 254,
+                        "src": "783:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 82,
+                      "id": 139,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -116512,7 +116512,7 @@ module.exports = {
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "783:10:0",
+                      "src": "783:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -116523,21 +116523,21 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "771:23:0",
+                    "src": "771:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                      "typeIdentifier": "t_struct$_HouseData_$73_storage",
                       "typeString": "struct WorldHouse.HouseData storage ref"
                     }
                   },
-                  "id": 84,
+                  "id": 141,
                   "isConstant": false,
                   "isLValue": true,
                   "isPure": false,
                   "lValueRequested": false,
                   "memberName": "used",
                   "nodeType": "MemberAccess",
-                  "referencedDeclaration": 15,
-                  "src": "771:28:0",
+                  "referencedDeclaration": 72,
+                  "src": "771:28:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -116548,14 +116548,14 @@ module.exports = {
                 "rightExpression": {
                   "argumentTypes": null,
                   "hexValue": "31",
-                  "id": 85,
+                  "id": 142,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "803:1:0",
+                  "src": "803:1:1",
                   "subdenomination": null,
                   "typeDescriptions": {
                     "typeIdentifier": "t_rational_1_by_1",
@@ -116563,7 +116563,7 @@ module.exports = {
                   },
                   "value": "1"
                 },
-                "src": "771:33:0",
+                "src": "771:33:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_bool",
                   "typeString": "bool"
@@ -116571,14 +116571,14 @@ module.exports = {
               }, {
                 "argumentTypes": null,
                 "hexValue": "416c726561647920686173206f6e65",
-                "id": 87,
+                "id": 144,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "string",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "806:17:0",
+                "src": "806:17:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
@@ -116594,18 +116594,18 @@ module.exports = {
                   "typeIdentifier": "t_stringliteral_a9b7b094199c866d92e9278eea69dd7143e4c20094f00b7d143c16d77c6a5aed",
                   "typeString": "literal_string \"Already has one\""
                 }],
-                "id": 79,
+                "id": 136,
                 "name": "require",
                 "nodeType": "Identifier",
-                "overloadedDeclarations": [200, 201],
-                "referencedDeclaration": 201,
-                "src": "763:7:0",
+                "overloadedDeclarations": [257, 258],
+                "referencedDeclaration": 258,
+                "src": "763:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                   "typeString": "function (bool,string memory) pure"
                 }
               },
-              "id": 88,
+              "id": 145,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -116613,68 +116613,68 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "763:61:0",
+              "src": "763:61:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$__$",
                 "typeString": "tuple()"
               }
             },
-            "id": 89,
+            "id": 146,
             "nodeType": "ExpressionStatement",
-            "src": "763:61:0"
+            "src": "763:61:1"
           }, {
-            "assignments": [91],
+            "assignments": [148],
             "declarations": [{
               "constant": false,
-              "id": 91,
+              "id": 148,
               "name": "data",
               "nodeType": "VariableDeclaration",
-              "scope": 120,
-              "src": "834:21:0",
+              "scope": 177,
+              "src": "834:21:1",
               "stateVariable": false,
               "storageLocation": "memory",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_memory_ptr",
+                "typeIdentifier": "t_struct$_HouseData_$73_memory_ptr",
                 "typeString": "struct WorldHouse.HouseData"
               },
               "typeName": {
                 "contractScope": null,
-                "id": 90,
+                "id": 147,
                 "name": "HouseData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 16,
-                "src": "834:9:0",
+                "referencedDeclaration": 73,
+                "src": "834:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage_ptr",
                   "typeString": "struct WorldHouse.HouseData"
                 }
               },
               "value": null,
               "visibility": "internal"
             }],
-            "id": 97,
+            "id": 154,
             "initialValue": {
               "argumentTypes": null,
               "arguments": [{
                 "argumentTypes": null,
-                "id": 93,
+                "id": 150,
                 "name": "row",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 74,
-                "src": "868:3:0",
+                "referencedDeclaration": 131,
+                "src": "868:3:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               }, {
                 "argumentTypes": null,
-                "id": 94,
+                "id": 151,
                 "name": "col",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 76,
-                "src": "873:3:0",
+                "referencedDeclaration": 133,
+                "src": "873:3:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -116682,14 +116682,14 @@ module.exports = {
               }, {
                 "argumentTypes": null,
                 "hexValue": "31",
-                "id": 95,
+                "id": 152,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "878:1:0",
+                "src": "878:1:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_1_by_1",
@@ -116708,18 +116708,18 @@ module.exports = {
                   "typeIdentifier": "t_rational_1_by_1",
                   "typeString": "int_const 1"
                 }],
-                "id": 92,
+                "id": 149,
                 "name": "HouseData",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 16,
-                "src": "858:9:0",
+                "referencedDeclaration": 73,
+                "src": "858:9:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_struct$_HouseData_$16_storage_ptr_$",
+                  "typeIdentifier": "t_type$_t_struct$_HouseData_$73_storage_ptr_$",
                   "typeString": "type(struct WorldHouse.HouseData storage pointer)"
                 }
               },
-              "id": 96,
+              "id": 153,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -116727,18 +116727,18 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "858:22:0",
+              "src": "858:22:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_memory",
+                "typeIdentifier": "t_struct$_HouseData_$73_memory",
                 "typeString": "struct WorldHouse.HouseData memory"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "834:46:0"
+            "src": "834:46:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 103,
+              "id": 160,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -116747,34 +116747,34 @@ module.exports = {
                 "argumentTypes": null,
                 "baseExpression": {
                   "argumentTypes": null,
-                  "id": 98,
+                  "id": 155,
                   "name": "houseRecord",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 20,
-                  "src": "890:11:0",
+                  "referencedDeclaration": 77,
+                  "src": "890:11:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$16_storage_$",
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_HouseData_$73_storage_$",
                     "typeString": "mapping(address => struct WorldHouse.HouseData storage ref)"
                   }
                 },
-                "id": 101,
+                "id": 158,
                 "indexExpression": {
                   "argumentTypes": null,
                   "expression": {
                     "argumentTypes": null,
-                    "id": 99,
+                    "id": 156,
                     "name": "msg",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 197,
-                    "src": "902:3:0",
+                    "referencedDeclaration": 254,
+                    "src": "902:3:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_magic_message",
                       "typeString": "msg"
                     }
                   },
-                  "id": 100,
+                  "id": 157,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -116782,7 +116782,7 @@ module.exports = {
                   "memberName": "sender",
                   "nodeType": "MemberAccess",
                   "referencedDeclaration": null,
-                  "src": "902:10:0",
+                  "src": "902:10:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -116793,9 +116793,9 @@ module.exports = {
                 "isPure": false,
                 "lValueRequested": true,
                 "nodeType": "IndexAccess",
-                "src": "890:23:0",
+                "src": "890:23:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                  "typeIdentifier": "t_struct$_HouseData_$73_storage",
                   "typeString": "struct WorldHouse.HouseData storage ref"
                 }
               },
@@ -116803,30 +116803,30 @@ module.exports = {
               "operator": "=",
               "rightHandSide": {
                 "argumentTypes": null,
-                "id": 102,
+                "id": 159,
                 "name": "data",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 91,
-                "src": "916:4:0",
+                "referencedDeclaration": 148,
+                "src": "916:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_HouseData_$16_memory_ptr",
+                  "typeIdentifier": "t_struct$_HouseData_$73_memory_ptr",
                   "typeString": "struct WorldHouse.HouseData memory"
                 }
               },
-              "src": "890:30:0",
+              "src": "890:30:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_HouseData_$16_storage",
+                "typeIdentifier": "t_struct$_HouseData_$73_storage",
                 "typeString": "struct WorldHouse.HouseData storage ref"
               }
             },
-            "id": 104,
+            "id": 161,
             "nodeType": "ExpressionStatement",
-            "src": "890:30:0"
+            "src": "890:30:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 112,
+              "id": 169,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -116837,26 +116837,26 @@ module.exports = {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 105,
+                    "id": 162,
                     "name": "grid",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 26,
-                    "src": "930:4:0",
+                    "referencedDeclaration": 83,
+                    "src": "930:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
                       "typeString": "mapping(uint16 => mapping(uint16 => address))"
                     }
                   },
-                  "id": 108,
+                  "id": 165,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 106,
+                    "id": 163,
                     "name": "row",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 74,
-                    "src": "935:3:0",
+                    "referencedDeclaration": 131,
+                    "src": "935:3:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -116867,21 +116867,21 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "930:9:0",
+                  "src": "930:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
                     "typeString": "mapping(uint16 => address)"
                   }
                 },
-                "id": 109,
+                "id": 166,
                 "indexExpression": {
                   "argumentTypes": null,
-                  "id": 107,
+                  "id": 164,
                   "name": "col",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 76,
-                  "src": "940:3:0",
+                  "referencedDeclaration": 133,
+                  "src": "940:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
@@ -116892,7 +116892,7 @@ module.exports = {
                 "isPure": false,
                 "lValueRequested": true,
                 "nodeType": "IndexAccess",
-                "src": "930:14:0",
+                "src": "930:14:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -116904,18 +116904,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 110,
+                  "id": 167,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "947:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "947:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 111,
+                "id": 168,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -116923,21 +116923,21 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "947:10:0",
+                "src": "947:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "src": "930:27:0",
+              "src": "930:27:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
               }
             },
-            "id": 113,
+            "id": 170,
             "nodeType": "ExpressionStatement",
-            "src": "930:27:0"
+            "src": "930:27:1"
           }, {
             "eventCall": {
               "argumentTypes": null,
@@ -116945,18 +116945,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 115,
+                  "id": 172,
                   "name": "msg",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 197,
-                  "src": "983:3:0",
+                  "referencedDeclaration": 254,
+                  "src": "983:3:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_magic_message",
                     "typeString": "msg"
                   }
                 },
-                "id": 116,
+                "id": 173,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -116964,7 +116964,7 @@ module.exports = {
                 "memberName": "sender",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "983:10:0",
+                "src": "983:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
@@ -116975,18 +116975,18 @@ module.exports = {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }],
-                "id": 114,
+                "id": 171,
                 "name": "BuySuccess",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 9,
-                "src": "972:10:0",
+                "referencedDeclaration": 66,
+                "src": "972:10:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
                   "typeString": "function (address)"
                 }
               },
-              "id": 117,
+              "id": 174,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -116994,19 +116994,19 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "972:22:0",
+              "src": "972:22:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_tuple$__$",
                 "typeString": "tuple()"
               }
             },
-            "id": 118,
+            "id": 175,
             "nodeType": "EmitStatement",
-            "src": "967:27:0"
+            "src": "967:27:1"
           }]
         },
         "documentation": null,
-        "id": 120,
+        "id": 177,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": false,
@@ -117014,15 +117014,15 @@ module.exports = {
         "name": "buyHouse",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 77,
+          "id": 134,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 74,
+            "id": 131,
             "name": "row",
             "nodeType": "VariableDeclaration",
-            "scope": 120,
-            "src": "723:10:0",
+            "scope": 177,
+            "src": "723:10:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -117030,10 +117030,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 73,
+              "id": 130,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "723:6:0",
+              "src": "723:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -117043,11 +117043,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 76,
+            "id": 133,
             "name": "col",
             "nodeType": "VariableDeclaration",
-            "scope": 120,
-            "src": "735:10:0",
+            "scope": 177,
+            "src": "735:10:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -117055,10 +117055,10 @@ module.exports = {
               "typeString": "uint16"
             },
             "typeName": {
-              "id": 75,
+              "id": 132,
               "name": "uint16",
               "nodeType": "ElementaryTypeName",
-              "src": "735:6:0",
+              "src": "735:6:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint16",
                 "typeString": "uint16"
@@ -117067,34 +117067,34 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "722:24:0"
+          "src": "722:24:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 78,
+          "id": 135,
           "nodeType": "ParameterList",
           "parameters": [],
-          "src": "753:0:0"
+          "src": "753:0:1"
         },
-        "scope": 182,
-        "src": "705:296:0",
+        "scope": 239,
+        "src": "705:296:1",
         "stateMutability": "nonpayable",
         "superFunction": null,
         "visibility": "public"
       }, {
         "body": {
-          "id": 180,
+          "id": 237,
           "nodeType": "Block",
-          "src": "1089:271:0",
+          "src": "1089:271:1",
           "statements": [{
-            "assignments": [135],
+            "assignments": [192],
             "declarations": [{
               "constant": false,
-              "id": 135,
+              "id": 192,
               "name": "gridOwners",
               "nodeType": "VariableDeclaration",
-              "scope": 181,
-              "src": "1099:27:0",
+              "scope": 238,
+              "src": "1099:27:1",
               "stateVariable": false,
               "storageLocation": "memory",
               "typeDescriptions": {
@@ -117103,19 +117103,19 @@ module.exports = {
               },
               "typeName": {
                 "baseType": {
-                  "id": 133,
+                  "id": 190,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1099:7:0",
+                  "src": "1099:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 134,
+                "id": 191,
                 "length": null,
                 "nodeType": "ArrayTypeName",
-                "src": "1099:9:0",
+                "src": "1099:9:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                   "typeString": "address[]"
@@ -117124,25 +117124,25 @@ module.exports = {
               "value": null,
               "visibility": "internal"
             }],
-            "id": 142,
+            "id": 199,
             "initialValue": {
               "argumentTypes": null,
               "arguments": [{
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 139,
+                  "id": 196,
                   "name": "rows",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 123,
-                  "src": "1143:4:0",
+                  "referencedDeclaration": 180,
+                  "src": "1143:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                     "typeString": "uint16[] memory"
                   }
                 },
-                "id": 140,
+                "id": 197,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -117150,7 +117150,7 @@ module.exports = {
                 "memberName": "length",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "1143:11:0",
+                "src": "1143:11:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
@@ -117161,39 +117161,39 @@ module.exports = {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }],
-                "id": 138,
+                "id": 195,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "lValueRequested": false,
                 "nodeType": "NewExpression",
-                "src": "1129:13:0",
+                "src": "1129:13:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_address_$dyn_memory_$",
                   "typeString": "function (uint256) pure returns (address[] memory)"
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 136,
+                    "id": 193,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1133:7:0",
+                    "src": "1133:7:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 137,
+                  "id": 194,
                   "length": null,
                   "nodeType": "ArrayTypeName",
-                  "src": "1133:9:0",
+                  "src": "1133:9:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
                   }
                 }
               },
-              "id": 141,
+              "id": 198,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
@@ -117201,28 +117201,28 @@ module.exports = {
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "1129:26:0",
+              "src": "1129:26:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_memory",
                 "typeString": "address[] memory"
               }
             },
             "nodeType": "VariableDeclarationStatement",
-            "src": "1099:56:0"
+            "src": "1099:56:1"
           }, {
             "body": {
-              "id": 176,
+              "id": 233,
               "nodeType": "Block",
-              "src": "1203:124:0",
+              "src": "1203:124:1",
               "statements": [{
-                "assignments": [155],
+                "assignments": [212],
                 "declarations": [{
                   "constant": false,
-                  "id": 155,
+                  "id": 212,
                   "name": "row",
                   "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "1217:10:0",
+                  "scope": 238,
+                  "src": "1217:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -117230,10 +117230,10 @@ module.exports = {
                     "typeString": "uint16"
                   },
                   "typeName": {
-                    "id": 154,
+                    "id": 211,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1217:6:0",
+                    "src": "1217:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -117242,31 +117242,31 @@ module.exports = {
                   "value": null,
                   "visibility": "internal"
                 }],
-                "id": 159,
+                "id": 216,
                 "initialValue": {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 156,
+                    "id": 213,
                     "name": "rows",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 123,
-                    "src": "1230:4:0",
+                    "referencedDeclaration": 180,
+                    "src": "1230:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                       "typeString": "uint16[] memory"
                     }
                   },
-                  "id": 158,
+                  "id": 215,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 157,
+                    "id": 214,
                     "name": "i",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 144,
-                    "src": "1235:1:0",
+                    "referencedDeclaration": 201,
+                    "src": "1235:1:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -117277,23 +117277,23 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "1230:7:0",
+                  "src": "1230:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
                   }
                 },
                 "nodeType": "VariableDeclarationStatement",
-                "src": "1217:20:0"
+                "src": "1217:20:1"
               }, {
-                "assignments": [161],
+                "assignments": [218],
                 "declarations": [{
                   "constant": false,
-                  "id": 161,
+                  "id": 218,
                   "name": "col",
                   "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "1251:10:0",
+                  "scope": 238,
+                  "src": "1251:10:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -117301,10 +117301,10 @@ module.exports = {
                     "typeString": "uint16"
                   },
                   "typeName": {
-                    "id": 160,
+                    "id": 217,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1251:6:0",
+                    "src": "1251:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -117313,31 +117313,31 @@ module.exports = {
                   "value": null,
                   "visibility": "internal"
                 }],
-                "id": 165,
+                "id": 222,
                 "initialValue": {
                   "argumentTypes": null,
                   "baseExpression": {
                     "argumentTypes": null,
-                    "id": 162,
+                    "id": 219,
                     "name": "cols",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 126,
-                    "src": "1264:4:0",
+                    "referencedDeclaration": 183,
+                    "src": "1264:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                       "typeString": "uint16[] memory"
                     }
                   },
-                  "id": 164,
+                  "id": 221,
                   "indexExpression": {
                     "argumentTypes": null,
-                    "id": 163,
+                    "id": 220,
                     "name": "i",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 144,
-                    "src": "1269:1:0",
+                    "referencedDeclaration": 201,
+                    "src": "1269:1:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -117348,18 +117348,18 @@ module.exports = {
                   "isPure": false,
                   "lValueRequested": false,
                   "nodeType": "IndexAccess",
-                  "src": "1264:7:0",
+                  "src": "1264:7:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
                   }
                 },
                 "nodeType": "VariableDeclarationStatement",
-                "src": "1251:20:0"
+                "src": "1251:20:1"
               }, {
                 "expression": {
                   "argumentTypes": null,
-                  "id": 174,
+                  "id": 231,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": false,
@@ -117368,26 +117368,26 @@ module.exports = {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 166,
+                      "id": 223,
                       "name": "gridOwners",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 135,
-                      "src": "1286:10:0",
+                      "referencedDeclaration": 192,
+                      "src": "1286:10:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                         "typeString": "address[] memory"
                       }
                     },
-                    "id": 168,
+                    "id": 225,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 167,
+                      "id": 224,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 144,
-                      "src": "1297:1:0",
+                      "referencedDeclaration": 201,
+                      "src": "1297:1:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -117398,7 +117398,7 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": true,
                     "nodeType": "IndexAccess",
-                    "src": "1286:13:0",
+                    "src": "1286:13:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -117412,26 +117412,26 @@ module.exports = {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 169,
+                        "id": 226,
                         "name": "grid",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 26,
-                        "src": "1302:4:0",
+                        "referencedDeclaration": 83,
+                        "src": "1302:4:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint16_$_t_mapping$_t_uint16_$_t_address_$_$",
                           "typeString": "mapping(uint16 => mapping(uint16 => address))"
                         }
                       },
-                      "id": 171,
+                      "id": 228,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 170,
+                        "id": 227,
                         "name": "row",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 155,
-                        "src": "1307:3:0",
+                        "referencedDeclaration": 212,
+                        "src": "1307:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint16",
                           "typeString": "uint16"
@@ -117442,21 +117442,21 @@ module.exports = {
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1302:9:0",
+                      "src": "1302:9:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_uint16_$_t_address_$",
                         "typeString": "mapping(uint16 => address)"
                       }
                     },
-                    "id": 173,
+                    "id": 230,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 172,
+                      "id": 229,
                       "name": "col",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 161,
-                      "src": "1312:3:0",
+                      "referencedDeclaration": 218,
+                      "src": "1312:3:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
                         "typeString": "uint16"
@@ -117467,21 +117467,21 @@ module.exports = {
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "1302:14:0",
+                    "src": "1302:14:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "src": "1286:30:0",
+                  "src": "1286:30:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
                   }
                 },
-                "id": 175,
+                "id": 232,
                 "nodeType": "ExpressionStatement",
-                "src": "1286:30:0"
+                "src": "1286:30:1"
               }]
             },
             "condition": {
@@ -117490,19 +117490,19 @@ module.exports = {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
               },
-              "id": 150,
+              "id": 207,
               "isConstant": false,
               "isLValue": false,
               "isPure": false,
               "lValueRequested": false,
               "leftExpression": {
                 "argumentTypes": null,
-                "id": 147,
+                "id": 204,
                 "name": "i",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 144,
-                "src": "1182:1:0",
+                "referencedDeclaration": 201,
+                "src": "1182:1:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint8",
                   "typeString": "uint8"
@@ -117514,18 +117514,18 @@ module.exports = {
                 "argumentTypes": null,
                 "expression": {
                   "argumentTypes": null,
-                  "id": 148,
+                  "id": 205,
                   "name": "rows",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 123,
-                  "src": "1186:4:0",
+                  "referencedDeclaration": 180,
+                  "src": "1186:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_uint16_$dyn_memory_ptr",
                     "typeString": "uint16[] memory"
                   }
                 },
-                "id": 149,
+                "id": 206,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -117533,28 +117533,28 @@ module.exports = {
                 "memberName": "length",
                 "nodeType": "MemberAccess",
                 "referencedDeclaration": null,
-                "src": "1186:11:0",
+                "src": "1186:11:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "src": "1182:15:0",
+              "src": "1182:15:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_bool",
                 "typeString": "bool"
               }
             },
-            "id": 177,
+            "id": 234,
             "initializationExpression": {
-              "assignments": [144],
+              "assignments": [201],
               "declarations": [{
                 "constant": false,
-                "id": 144,
+                "id": 201,
                 "name": "i",
                 "nodeType": "VariableDeclaration",
-                "scope": 181,
-                "src": "1169:7:0",
+                "scope": 238,
+                "src": "1169:7:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -117562,10 +117562,10 @@ module.exports = {
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 143,
+                  "id": 200,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1169:5:0",
+                  "src": "1169:5:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -117574,18 +117574,18 @@ module.exports = {
                 "value": null,
                 "visibility": "internal"
               }],
-              "id": 146,
+              "id": 203,
               "initialValue": {
                 "argumentTypes": null,
                 "hexValue": "30",
-                "id": 145,
+                "id": 202,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "1179:1:0",
+                "src": "1179:1:1",
                 "subdenomination": null,
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_0_by_1",
@@ -117594,12 +117594,12 @@ module.exports = {
                 "value": "0"
               },
               "nodeType": "VariableDeclarationStatement",
-              "src": "1169:11:0"
+              "src": "1169:11:1"
             },
             "loopExpression": {
               "expression": {
                 "argumentTypes": null,
-                "id": 152,
+                "id": 209,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -117607,15 +117607,15 @@ module.exports = {
                 "nodeType": "UnaryOperation",
                 "operator": "++",
                 "prefix": false,
-                "src": "1199:3:0",
+                "src": "1199:3:1",
                 "subExpression": {
                   "argumentTypes": null,
-                  "id": 151,
+                  "id": 208,
                   "name": "i",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 144,
-                  "src": "1199:1:0",
+                  "referencedDeclaration": 201,
+                  "src": "1199:1:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -117626,34 +117626,34 @@ module.exports = {
                   "typeString": "uint8"
                 }
               },
-              "id": 153,
+              "id": 210,
               "nodeType": "ExpressionStatement",
-              "src": "1199:3:0"
+              "src": "1199:3:1"
             },
             "nodeType": "ForStatement",
-            "src": "1165:162:0"
+            "src": "1165:162:1"
           }, {
             "expression": {
               "argumentTypes": null,
-              "id": 178,
+              "id": 235,
               "name": "gridOwners",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 135,
-              "src": "1343:10:0",
+              "referencedDeclaration": 192,
+              "src": "1343:10:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                 "typeString": "address[] memory"
               }
             },
-            "functionReturnParameters": 131,
-            "id": 179,
+            "functionReturnParameters": 188,
+            "id": 236,
             "nodeType": "Return",
-            "src": "1336:17:0"
+            "src": "1336:17:1"
           }]
         },
         "documentation": null,
-        "id": 181,
+        "id": 238,
         "implemented": true,
         "isConstructor": false,
         "isDeclaredConst": true,
@@ -117661,15 +117661,15 @@ module.exports = {
         "name": "getGridInfos",
         "nodeType": "FunctionDefinition",
         "parameters": {
-          "id": 127,
+          "id": 184,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 123,
+            "id": 180,
             "name": "rows",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1029:13:0",
+            "scope": 238,
+            "src": "1029:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -117678,19 +117678,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 121,
+                "id": 178,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "1029:6:0",
+                "src": "1029:6:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               },
-              "id": 122,
+              "id": 179,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1029:8:0",
+              "src": "1029:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint16_$dyn_storage_ptr",
                 "typeString": "uint16[]"
@@ -117700,11 +117700,11 @@ module.exports = {
             "visibility": "internal"
           }, {
             "constant": false,
-            "id": 126,
+            "id": 183,
             "name": "cols",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1044:13:0",
+            "scope": 238,
+            "src": "1044:13:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -117713,19 +117713,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 124,
+                "id": 181,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "1044:6:0",
+                "src": "1044:6:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
                 }
               },
-              "id": 125,
+              "id": 182,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1044:8:0",
+              "src": "1044:8:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint16_$dyn_storage_ptr",
                 "typeString": "uint16[]"
@@ -117734,19 +117734,19 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "1028:30:0"
+          "src": "1028:30:1"
         },
         "payable": false,
         "returnParameters": {
-          "id": 131,
+          "id": 188,
           "nodeType": "ParameterList",
           "parameters": [{
             "constant": false,
-            "id": 130,
+            "id": 187,
             "name": "",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
-            "src": "1079:9:0",
+            "scope": 238,
+            "src": "1079:9:1",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -117755,19 +117755,19 @@ module.exports = {
             },
             "typeName": {
               "baseType": {
-                "id": 128,
+                "id": 185,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "1079:7:0",
+                "src": "1079:7:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
-              "id": 129,
+              "id": 186,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "1079:9:0",
+              "src": "1079:9:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                 "typeString": "address[]"
@@ -117776,18 +117776,18 @@ module.exports = {
             "value": null,
             "visibility": "internal"
           }],
-          "src": "1078:11:0"
+          "src": "1078:11:1"
         },
-        "scope": 182,
-        "src": "1007:353:0",
+        "scope": 239,
+        "src": "1007:353:1",
         "stateMutability": "view",
         "superFunction": null,
         "visibility": "public"
       }],
-      "scope": 183,
-      "src": "26:1336:0"
+      "scope": 240,
+      "src": "26:1336:1"
     }],
-    "src": "0:1362:0"
+    "src": "0:1362:1"
   },
   "compiler": {
     "name": "solc",
@@ -117797,12 +117797,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0xbbb95071f638ec30a893e92a7101f22d349889b6",
-      "transactionHash": "0xdac7ebddaa1bfd421a419fccd667625d1741d6bbd700a856e7861d61b6f0202e"
+      "address": "0x9a80758856bba452fc15f92b555767d6e657d3d8",
+      "transactionHash": "0x84e26b91324c92951bf157a515ffa67b44fca52ac33b557d21c3e82d7957d5a8"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-10T07:22:27.164Z"
+  "updatedAt": "2018-11-11T03:04:41.578Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -118044,8 +118044,6 @@ var _player = _interopRequireDefault(require("./player"));
 
 var _utils = require("./utils");
 
-var _macro = require("./macro");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -118059,8 +118057,6 @@ var App =
 function () {
   function App() {
     _classCallCheck(this, App);
-
-    this.playerMode = false;
   }
 
   _createClass(App, [{
@@ -118085,15 +118081,7 @@ function () {
 
       this.contractMgr.getContractInstance().then(function () {
         return _this.player.updateHouseData();
-      }).then(function () {
-        return _this.ownership.getSurroundInfo();
-      }).then(function () {
-        _this.playerMode = true;
-
-        _this.eventListener.dispatch(_macro.MacroEventType.PlayerMode);
-
-        (0, _utils.log)('Enter Player Mode');
-      }).catch(function (err) {
+      }).then((0, _utils.log)('Enter Player Mode')).catch(function (err) {
         return (0, _utils.logError)(err);
       });
       this.metamask.checkIfAccountChange();
@@ -118105,7 +118093,7 @@ function () {
 
 var _default = App;
 exports.default = _default;
-},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/contract-mgr":"../src/sol/contract-mgr.js","./player":"../src/player.js","./utils":"../src/utils.js","./macro":"../src/macro.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
+},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/contract-mgr":"../src/sol/contract-mgr.js","./player":"../src/player.js","./utils":"../src/utils.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119101,7 +119089,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51211" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51639" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
