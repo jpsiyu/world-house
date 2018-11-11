@@ -1,7 +1,7 @@
 import React from 'react'
 import { MacroMap, MacroEventType } from './macro'
 import DrawLand from './drawing/draw-land'
-import DragPos from './drawing/drag-pos'
+import MapPos from './drawing/map-pos'
 import {
     drawWrapper,
     grid2pos,
@@ -18,7 +18,7 @@ class Map extends React.Component {
         this.ctx = null
         this.canvas = null
         this.state = {}
-        this.dragPos = new DragPos(0, 0)
+        this.mapPos = new MapPos(0, 0)
         this.draging = false
         this.clickFlag = false
         this.land = new DrawLand()
@@ -51,7 +51,7 @@ class Map extends React.Component {
 
     updateAndDraw() {
         if (!app.playerMode) return
-        const canvasMidPos = this.dragPos.getCanvasMidPos(this.ctx)
+        const canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx)
         const gridPos = posToGrid(canvasMidPos)
         const res = app.ownership.setCenter(gridPos)
         if (!res) return
@@ -69,7 +69,7 @@ class Map extends React.Component {
     }
 
     drawLand() {
-        const pos = this.dragPos.getPos()
+        const pos = this.mapPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             this.land.draw(ctx, pos)
         })
@@ -77,11 +77,20 @@ class Map extends React.Component {
 
     drawSelectedGrid() {
         if (!this.selectedGrid) return
-        
+        const pos = this.mapPos.getPos()
+        drawWrapper(this.ctx, pos, (ctx, pos) => {
+            const rectPos = {
+                x: this.selectedGrid.c * MacroMap.HourseSize,
+                y: this.selectedGrid.r * MacroMap.HourseSize,
+            }
+            ctx.fillStyle = 'rgba(188,213,103, 0.7)'
+            ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
+            ctx.fill()
+        })
     }
 
     drawHouse() {
-        const pos = this.dragPos.getPos()
+        const pos = this.mapPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
@@ -98,9 +107,15 @@ class Map extends React.Component {
     }
 
     onClick(event) {
+        if (!app.playerMode) return
         const canvasPos = { x: event.offsetX, y: event.offsetY }
-        const gridPos = posToGrid(canvasPos)
-        console.log(canvasPos, gridPos)
+        const mapPos = this.mapPos.canvasPos2MapPos(canvasPos)
+        const gridPos = posToGrid(mapPos)
+        if (gridPos.r < 0 || gridPos.r >= MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= MacroMap.ColNum)
+            this.selectedGrid = null
+        else
+            this.selectedGrid = gridPos
+        this.draw()
     }
 
     onMouseDown(event) {
@@ -108,7 +123,7 @@ class Map extends React.Component {
         const startY = event.clientY
         this.draging = true
         this.clickFlag = true
-        this.dragPos.setStart(startX, startY)
+        this.mapPos.setStart(startX, startY)
     }
 
     onMouseUp(event) {
@@ -123,11 +138,11 @@ class Map extends React.Component {
 
         const targetX = event.clientX
         const targetY = event.clientY
-        this.dragPos.setTarget(targetX, targetY)
-        this.dragPos.move()
+        this.mapPos.setTarget(targetX, targetY)
+        this.mapPos.move()
 
         this.draw()
-        this.dragPos.setStart(targetX, targetY)
+        this.mapPos.setStart(targetX, targetY)
     }
 }
 

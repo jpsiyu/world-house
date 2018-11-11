@@ -118185,7 +118185,7 @@ function () {
 
 var _default = DrawLand;
 exports.default = _default;
-},{"../macro":"../src/macro.js"}],"../src/drawing/drag-pos.js":[function(require,module,exports) {
+},{"../macro":"../src/macro.js"}],"../src/drawing/map-pos.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118199,11 +118199,11 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var DragPos =
+var MapPos =
 /*#__PURE__*/
 function () {
-  function DragPos(x, y) {
-    _classCallCheck(this, DragPos);
+  function MapPos(x, y) {
+    _classCallCheck(this, MapPos);
 
     this.posX = x;
     this.posY = y;
@@ -118215,7 +118215,7 @@ function () {
     this.movedY = 0;
   }
 
-  _createClass(DragPos, [{
+  _createClass(MapPos, [{
     key: "getPos",
     value: function getPos() {
       return {
@@ -118269,10 +118269,10 @@ function () {
     }
   }]);
 
-  return DragPos;
+  return MapPos;
 }();
 
-var _default = DragPos;
+var _default = MapPos;
 exports.default = _default;
 },{}],"../src/map.js":[function(require,module,exports) {
 "use strict";
@@ -118288,7 +118288,7 @@ var _macro = require("./macro");
 
 var _drawLand = _interopRequireDefault(require("./drawing/draw-land"));
 
-var _dragPos = _interopRequireDefault(require("./drawing/drag-pos"));
+var _mapPos = _interopRequireDefault(require("./drawing/map-pos"));
 
 var _drawUtil = require("./drawing/draw-util");
 
@@ -118327,7 +118327,7 @@ function (_React$Component) {
     _this.ctx = null;
     _this.canvas = null;
     _this.state = {};
-    _this.dragPos = new _dragPos.default(0, 0);
+    _this.mapPos = new _mapPos.default(0, 0);
     _this.draging = false;
     _this.clickFlag = false;
     _this.land = new _drawLand.default();
@@ -118366,7 +118366,7 @@ function (_React$Component) {
       var _this2 = this;
 
       if (!app.playerMode) return;
-      var canvasMidPos = this.dragPos.getCanvasMidPos(this.ctx);
+      var canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx);
       var gridPos = (0, _drawUtil.posToGrid)(canvasMidPos);
       var res = app.ownership.setCenter(gridPos);
       if (!res) return;
@@ -118387,7 +118387,7 @@ function (_React$Component) {
     value: function drawLand() {
       var _this3 = this;
 
-      var pos = this.dragPos.getPos();
+      var pos = this.mapPos.getPos();
       (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
         _this3.land.draw(ctx, pos);
       });
@@ -118395,12 +118395,24 @@ function (_React$Component) {
   }, {
     key: "drawSelectedGrid",
     value: function drawSelectedGrid() {
+      var _this4 = this;
+
       if (!this.selectedGrid) return;
+      var pos = this.mapPos.getPos();
+      (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
+        var rectPos = {
+          x: _this4.selectedGrid.c * _macro.MacroMap.HourseSize,
+          y: _this4.selectedGrid.r * _macro.MacroMap.HourseSize
+        };
+        ctx.fillStyle = 'rgba(188,213,103, 0.7)';
+        ctx.rect(rectPos.x, rectPos.y, _macro.MacroMap.HourseSize, _macro.MacroMap.HourseSize);
+        ctx.fill();
+      });
     }
   }, {
     key: "drawHouse",
     value: function drawHouse() {
-      var pos = this.dragPos.getPos();
+      var pos = this.mapPos.getPos();
       (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
         var owners = app.ownership.getOwners();
         Object.keys(owners).forEach(function (ownerAddr) {
@@ -118418,12 +118430,15 @@ function (_React$Component) {
   }, {
     key: "onClick",
     value: function onClick(event) {
+      if (!app.playerMode) return;
       var canvasPos = {
         x: event.offsetX,
         y: event.offsetY
       };
-      var gridPos = (0, _drawUtil.posToGrid)(canvasPos);
-      console.log(canvasPos, gridPos);
+      var mapPos = this.mapPos.canvasPos2MapPos(canvasPos);
+      var gridPos = (0, _drawUtil.posToGrid)(mapPos);
+      if (gridPos.r < 0 || gridPos.r >= _macro.MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= _macro.MacroMap.ColNum) this.selectedGrid = null;else this.selectedGrid = gridPos;
+      this.draw();
     }
   }, {
     key: "onMouseDown",
@@ -118432,7 +118447,7 @@ function (_React$Component) {
       var startY = event.clientY;
       this.draging = true;
       this.clickFlag = true;
-      this.dragPos.setStart(startX, startY);
+      this.mapPos.setStart(startX, startY);
     }
   }, {
     key: "onMouseUp",
@@ -118448,10 +118463,10 @@ function (_React$Component) {
       if (!this.draging) return;
       var targetX = event.clientX;
       var targetY = event.clientY;
-      this.dragPos.setTarget(targetX, targetY);
-      this.dragPos.move();
+      this.mapPos.setTarget(targetX, targetY);
+      this.mapPos.move();
       this.draw();
-      this.dragPos.setStart(targetX, targetY);
+      this.mapPos.setStart(targetX, targetY);
     }
   }]);
 
@@ -118460,7 +118475,7 @@ function (_React$Component) {
 
 var _default = Map;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/drag-pos":"../src/drawing/drag-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/fundation/fundation.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/fundation/fundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

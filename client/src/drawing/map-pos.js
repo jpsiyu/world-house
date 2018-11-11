@@ -1,4 +1,4 @@
-class DragPos {
+class MapPos {
     constructor(x, y) {
         this.posX = x
         this.posY = y
@@ -54,4 +54,4 @@ class DragPos {
     }
 }
 
-export default DragPos
+export default MapPos
