@@ -1,6 +1,5 @@
 import React from 'react'
 import Map from './map'
-import Fundation from './fundation/fundation'
 import PageMgr from './page-mgr'
 import { MacroEventType, MacroViewType } from './macro'
 
@@ -32,7 +31,7 @@ class Entry extends React.Component {
         return <div className='entry'>
             <div className='entry-title'><img src='/images/title.png'></img></div>
             <Map />
-            {this.state.canPlay ? <Fundation /> : <button className='entry-play' onClick={this.onPlayClick.bind(this)}><p>Play</p></button>}
+            {this.state.canPlay ? null : <button className='entry-play' onClick={this.onPlayClick.bind(this)}><p>Play</p></button>}
             <PageMgr />
         </div>
     }

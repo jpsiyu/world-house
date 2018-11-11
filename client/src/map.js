@@ -1,5 +1,5 @@
 import React from 'react'
-import { MacroMap, MacroEventType } from './macro'
+import { MacroMap, MacroEventType, MacroViewType } from './macro'
 import DrawLand from './drawing/draw-land'
 import MapPos from './drawing/map-pos'
 import {
@@ -17,12 +17,14 @@ class Map extends React.Component {
         this.canvasRef = React.createRef()
         this.ctx = null
         this.canvas = null
-        this.state = {}
+        this.state = {
+            selectedGrid: null,
+            playerMode: false,
+        }
         this.mapPos = new MapPos(0, 0)
         this.draging = false
         this.clickFlag = false
         this.land = new DrawLand()
-        this.selectedGrid = null
     }
 
     render() {
@@ -33,6 +35,26 @@ class Map extends React.Component {
                 height={MacroMap.CanvasHeight}
                 ref={this.canvasRef}>
             </canvas>
+            {this.state.selectedGrid == null ? null : this.renderRight()}
+            {this.state.playerMode ? this.renderBottom() : null}
+        </div>
+    }
+
+    renderRight() {
+        return <div className='map-right'>
+            <p>{`Location: ${this.state.selectedGrid.r}, ${this.state.selectedGrid.c}`}</p>
+            {app.player.hasHouse()
+                ? <button >Move</button>
+                : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
+            }
+        </div>
+    }
+
+    renderBottom() {
+        return <div className='map-bottom'>
+            <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
+                <img src='/images/house.png'></img>
+            </div>
         </div>
     }
 
@@ -44,7 +66,10 @@ class Map extends React.Component {
         canvas.addEventListener('mousemove', this.onMouseMove.bind(this))
         canvas.addEventListener('mouseup', this.onMouseUp.bind(this))
         canvas.addEventListener('mouseout', this.onMouseUp.bind(this))
-        app.eventListener.register(MacroEventType.PlayerMode, this, this.updateAndDraw.bind(this))
+        app.eventListener.register(MacroEventType.PlayerMode, this, () => {
+            this.setState({ playerMode: true })
+            this.updateAndDraw()
+        })
 
         this.draw()
     }
@@ -76,12 +101,12 @@ class Map extends React.Component {
     }
 
     drawSelectedGrid() {
-        if (!this.selectedGrid) return
+        if (!this.state.selectedGrid) return
         const pos = this.mapPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const rectPos = {
-                x: this.selectedGrid.c * MacroMap.HourseSize,
-                y: this.selectedGrid.r * MacroMap.HourseSize,
+                x: this.state.selectedGrid.c * MacroMap.HourseSize,
+                y: this.state.selectedGrid.r * MacroMap.HourseSize,
             }
             ctx.fillStyle = 'rgba(188,213,103, 0.7)'
             ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
@@ -112,9 +137,13 @@ class Map extends React.Component {
         const mapPos = this.mapPos.canvasPos2MapPos(canvasPos)
         const gridPos = posToGrid(mapPos)
         if (gridPos.r < 0 || gridPos.r >= MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= MacroMap.ColNum)
-            this.selectedGrid = null
+            this.setState({
+                selectedGrid: null
+            })
         else
-            this.selectedGrid = gridPos
+            this.setState({
+                selectedGrid: gridPos
+            })
         this.draw()
     }
 
@@ -143,6 +172,14 @@ class Map extends React.Component {
 
         this.draw()
         this.mapPos.setStart(targetX, targetY)
+    }
+
+    onMarketClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMarket })
+    }
+
+    onHomeClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
     }
 }
 

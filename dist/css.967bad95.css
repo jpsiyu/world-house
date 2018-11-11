@@ -1,13 +1,7 @@
-.fundation{
-    width: 800px;
-    height: 80px;
-    display: flex;
-}
-
 .fundation-icon{
     background-color: white;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 10px;
     border-radius: 10px;
     border: 1px gray solid;
@@ -211,6 +205,7 @@
 
 /* map */
 .map-container{
+    position: relative;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -220,4 +215,39 @@
 
 .map-canvas{
     background-image: url('grassland.4fa52485.png')
+}
+
+.map-right{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 140px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.map-right button{
+    width: 100px;
+    height: 30px;
+    margin: 10px 0;
+    background-color: lightseagreen;
+    outline: none;
+    color: white;
+    border: none;
+}
+
+.map-right button:hover{
+    box-shadow: 2px -2px rgba(250, 250, 250, 0.2);
+}
+
+.map-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }

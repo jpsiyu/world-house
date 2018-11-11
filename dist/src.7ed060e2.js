@@ -118326,12 +118326,14 @@ function (_React$Component) {
     _this.canvasRef = _react.default.createRef();
     _this.ctx = null;
     _this.canvas = null;
-    _this.state = {};
+    _this.state = {
+      selectedGrid: null,
+      playerMode: false
+    };
     _this.mapPos = new _mapPos.default(0, 0);
     _this.draging = false;
     _this.clickFlag = false;
     _this.land = new _drawLand.default();
-    _this.selectedGrid = null;
     return _this;
   }
 
@@ -118345,11 +118347,34 @@ function (_React$Component) {
         width: _macro.MacroMap.CanvasWidth,
         height: _macro.MacroMap.CanvasHeight,
         ref: this.canvasRef
-      }));
+      }), this.state.selectedGrid == null ? null : this.renderRight(), this.state.playerMode ? this.renderBottom() : null);
+    }
+  }, {
+    key: "renderRight",
+    value: function renderRight() {
+      return _react.default.createElement("div", {
+        className: "map-right"
+      }, _react.default.createElement("p", null, "Location: ".concat(this.state.selectedGrid.r, ", ").concat(this.state.selectedGrid.c)), app.player.hasHouse() ? _react.default.createElement("button", null, "Move") : _react.default.createElement("button", {
+        onClick: this.onMarketClick.bind(this)
+      }, "Purchase"));
+    }
+  }, {
+    key: "renderBottom",
+    value: function renderBottom() {
+      return _react.default.createElement("div", {
+        className: "map-bottom"
+      }, _react.default.createElement("div", {
+        className: "fundation-icon",
+        onClick: this.onHomeClick.bind(this)
+      }, _react.default.createElement("img", {
+        src: "/images/house.png"
+      })));
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       var canvas = this.canvasRef.current;
       this.canvas = canvas;
       this.ctx = canvas.getContext('2d');
@@ -118357,13 +118382,19 @@ function (_React$Component) {
       canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
       canvas.addEventListener('mouseup', this.onMouseUp.bind(this));
       canvas.addEventListener('mouseout', this.onMouseUp.bind(this));
-      app.eventListener.register(_macro.MacroEventType.PlayerMode, this, this.updateAndDraw.bind(this));
+      app.eventListener.register(_macro.MacroEventType.PlayerMode, this, function () {
+        _this2.setState({
+          playerMode: true
+        });
+
+        _this2.updateAndDraw();
+      });
       this.draw();
     }
   }, {
     key: "updateAndDraw",
     value: function updateAndDraw() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (!app.playerMode) return;
       var canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx);
@@ -118371,7 +118402,7 @@ function (_React$Component) {
       var res = app.ownership.setCenter(gridPos);
       if (!res) return;
       app.ownership.getSurroundInfo().then(function () {
-        _this2.draw();
+        _this3.draw();
       });
     }
   }, {
@@ -118385,24 +118416,24 @@ function (_React$Component) {
   }, {
     key: "drawLand",
     value: function drawLand() {
-      var _this3 = this;
+      var _this4 = this;
 
       var pos = this.mapPos.getPos();
       (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
-        _this3.land.draw(ctx, pos);
+        _this4.land.draw(ctx, pos);
       });
     }
   }, {
     key: "drawSelectedGrid",
     value: function drawSelectedGrid() {
-      var _this4 = this;
+      var _this5 = this;
 
-      if (!this.selectedGrid) return;
+      if (!this.state.selectedGrid) return;
       var pos = this.mapPos.getPos();
       (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
         var rectPos = {
-          x: _this4.selectedGrid.c * _macro.MacroMap.HourseSize,
-          y: _this4.selectedGrid.r * _macro.MacroMap.HourseSize
+          x: _this5.state.selectedGrid.c * _macro.MacroMap.HourseSize,
+          y: _this5.state.selectedGrid.r * _macro.MacroMap.HourseSize
         };
         ctx.fillStyle = 'rgba(188,213,103, 0.7)';
         ctx.rect(rectPos.x, rectPos.y, _macro.MacroMap.HourseSize, _macro.MacroMap.HourseSize);
@@ -118437,7 +118468,11 @@ function (_React$Component) {
       };
       var mapPos = this.mapPos.canvasPos2MapPos(canvasPos);
       var gridPos = (0, _drawUtil.posToGrid)(mapPos);
-      if (gridPos.r < 0 || gridPos.r >= _macro.MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= _macro.MacroMap.ColNum) this.selectedGrid = null;else this.selectedGrid = gridPos;
+      if (gridPos.r < 0 || gridPos.r >= _macro.MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= _macro.MacroMap.ColNum) this.setState({
+        selectedGrid: null
+      });else this.setState({
+        selectedGrid: gridPos
+      });
       this.draw();
     }
   }, {
@@ -118468,63 +118503,6 @@ function (_React$Component) {
       this.draw();
       this.mapPos.setStart(targetX, targetY);
     }
-  }]);
-
-  return Map;
-}(_react.default.Component);
-
-var _default = Map;
-exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/fundation/fundation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _macro = require("../macro");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Fundation =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Fundation, _React$Component);
-
-  function Fundation(props) {
-    _classCallCheck(this, Fundation);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Fundation).call(this, props));
-  }
-
-  _createClass(Fundation, [{
-    key: "onHomeClick",
-    value: function onHomeClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageHome
-      });
-    }
   }, {
     key: "onMarketClick",
     value: function onMarketClick() {
@@ -118533,34 +118511,20 @@ function (_React$Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", {
-        className: "fundation"
-      }, _react.default.createElement("div", {
-        className: "fundation-icon",
-        onClick: this.onHomeClick.bind(this)
-      }, _react.default.createElement("img", {
-        src: "/images/house.png"
-      })), _react.default.createElement("div", {
-        className: "fundation-icon",
-        onClick: this.onMarketClick.bind(this)
-      }, _react.default.createElement("img", {
-        src: "/images/sale.png"
-      })), _react.default.createElement("div", {
-        className: "fundation-icon"
-      }, _react.default.createElement("img", {
-        src: "/images/travel.png"
-      })));
+    key: "onHomeClick",
+    value: function onHomeClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageHome
+      });
     }
   }]);
 
-  return Fundation;
+  return Map;
 }(_react.default.Component);
 
-var _default = Fundation;
+var _default = Map;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/login-guide.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/login-guide.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119005,8 +118969,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _map = _interopRequireDefault(require("./map"));
 
-var _fundation = _interopRequireDefault(require("./fundation/fundation"));
-
 var _pageMgr = _interopRequireDefault(require("./page-mgr"));
 
 var _macro = require("./macro");
@@ -119085,7 +119047,7 @@ function (_React$Component) {
         className: "entry-title"
       }, _react.default.createElement("img", {
         src: "/images/title.png"
-      })), _react.default.createElement(_map.default, null), this.state.canPlay ? _react.default.createElement(_fundation.default, null) : _react.default.createElement("button", {
+      })), _react.default.createElement(_map.default, null), this.state.canPlay ? null : _react.default.createElement("button", {
         className: "entry-play",
         onClick: this.onPlayClick.bind(this)
       }, _react.default.createElement("p", null, "Play")), _react.default.createElement(_pageMgr.default, null));
@@ -119097,7 +119059,7 @@ function (_React$Component) {
 
 var _default = Entry;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./map":"../src/map.js","./fundation/fundation":"../src/fundation/fundation.js","./page-mgr":"../src/page-mgr.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./map":"../src/map.js","./page-mgr":"../src/page-mgr.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
