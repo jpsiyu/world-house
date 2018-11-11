@@ -20,12 +20,19 @@ class Map extends React.Component {
         this.state = {}
         this.dragPos = new DragPos(0, 0)
         this.draging = false
+        this.clickFlag = false
         this.land = new DrawLand()
+        this.selectedGrid = null
     }
 
     render() {
         return <div className='map-container'>
-            <canvas className='map-canvas' width={MacroMap.CanvasWidth} height={MacroMap.CanvasHeight} ref={this.canvasRef}></canvas>
+            <canvas
+                className='map-canvas'
+                width={MacroMap.CanvasWidth}
+                height={MacroMap.CanvasHeight}
+                ref={this.canvasRef}>
+            </canvas>
         </div>
     }
 
@@ -46,7 +53,8 @@ class Map extends React.Component {
         if (!app.playerMode) return
         const canvasMidPos = this.dragPos.getCanvasMidPos(this.ctx)
         const gridPos = posToGrid(canvasMidPos)
-        app.ownership.setCenter(gridPos)
+        const res = app.ownership.setCenter(gridPos)
+        if (!res) return
         app.ownership.getSurroundInfo()
             .then(() => {
                 this.draw()
@@ -56,6 +64,7 @@ class Map extends React.Component {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.drawLand()
+        this.drawSelectedGrid()
         this.drawHouse()
     }
 
@@ -64,6 +73,11 @@ class Map extends React.Component {
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             this.land.draw(ctx, pos)
         })
+    }
+
+    drawSelectedGrid() {
+        if (!this.selectedGrid) return
+        
     }
 
     drawHouse() {
@@ -83,19 +97,28 @@ class Map extends React.Component {
 
     }
 
+    onClick(event) {
+        const canvasPos = { x: event.offsetX, y: event.offsetY }
+        const gridPos = posToGrid(canvasPos)
+        console.log(canvasPos, gridPos)
+    }
+
     onMouseDown(event) {
         const startX = event.clientX
         const startY = event.clientY
         this.draging = true
+        this.clickFlag = true
         this.dragPos.setStart(startX, startY)
     }
 
-    onMouseUp() {
+    onMouseUp(event) {
         this.draging = false
         this.updateAndDraw()
+        if (this.clickFlag) this.onClick(event)
     }
 
     onMouseMove(event) {
+        this.clickFlag = false
         if (!this.draging) return
 
         const targetX = event.clientX

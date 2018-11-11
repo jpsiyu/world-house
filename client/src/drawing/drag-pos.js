@@ -45,6 +45,13 @@ class DragPos {
             y: ctx.canvas.height / 2 - this.posY,
         }
     }
+
+    canvasPos2MapPos(pos) {
+        return {
+            x: pos.x - this.posX,
+            y: pos.y - this.posY,
+        }
+    }
 }
 
 export default DragPos

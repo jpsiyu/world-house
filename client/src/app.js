@@ -5,9 +5,12 @@ import EventListener from './event-listener'
 import ContractMgr from './sol/contract-mgr'
 import Player from './player'
 import { log, logError } from './utils'
+import { MacroEventType } from './macro'
 
 class App {
-    constructor() { }
+    constructor() {
+        this.playerMode = false
+    }
 
     init() {
         this.imageMgr = new ImageMgr()
@@ -24,12 +27,14 @@ class App {
 
     enterPlayerMode() {
         this.contractMgr.getContractInstance()
-            .then( () => {
+            .then(() => {
                 return this.player.updateHouseData()
             })
-            .then(
+            .then(() => {
+                this.playerMode = true
+                this.eventListener.dispatch(MacroEventType.PlayerMode)
                 log('Enter Player Mode')
-            )
+            })
             .catch(err => logError(err))
         this.metamask.checkIfAccountChange()
     }

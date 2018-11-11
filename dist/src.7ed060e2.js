@@ -23370,7 +23370,9 @@ function () {
   }, {
     key: "setCenter",
     value: function setCenter(grid) {
-      this.center = grid;
+      var same = this.center.r == grid.r && this.center.c == grid.c;
+      if (!same) this.center = grid;
+      return !same;
     }
   }, {
     key: "addOwner",
@@ -118044,6 +118046,8 @@ var _player = _interopRequireDefault(require("./player"));
 
 var _utils = require("./utils");
 
+var _macro = require("./macro");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -118057,6 +118061,8 @@ var App =
 function () {
   function App() {
     _classCallCheck(this, App);
+
+    this.playerMode = false;
   }
 
   _createClass(App, [{
@@ -118081,7 +118087,13 @@ function () {
 
       this.contractMgr.getContractInstance().then(function () {
         return _this.player.updateHouseData();
-      }).then((0, _utils.log)('Enter Player Mode')).catch(function (err) {
+      }).then(function () {
+        _this.playerMode = true;
+
+        _this.eventListener.dispatch(_macro.MacroEventType.PlayerMode);
+
+        (0, _utils.log)('Enter Player Mode');
+      }).catch(function (err) {
         return (0, _utils.logError)(err);
       });
       this.metamask.checkIfAccountChange();
@@ -118093,7 +118105,7 @@ function () {
 
 var _default = App;
 exports.default = _default;
-},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/contract-mgr":"../src/sol/contract-mgr.js","./player":"../src/player.js","./utils":"../src/utils.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
+},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/contract-mgr":"../src/sol/contract-mgr.js","./player":"../src/player.js","./utils":"../src/utils.js","./macro":"../src/macro.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118247,6 +118259,14 @@ function () {
         y: ctx.canvas.height / 2 - this.posY
       };
     }
+  }, {
+    key: "canvasPos2MapPos",
+    value: function canvasPos2MapPos(pos) {
+      return {
+        x: pos.x - this.posX,
+        y: pos.y - this.posY
+      };
+    }
   }]);
 
   return DragPos;
@@ -118309,7 +118329,9 @@ function (_React$Component) {
     _this.state = {};
     _this.dragPos = new _dragPos.default(0, 0);
     _this.draging = false;
+    _this.clickFlag = false;
     _this.land = new _drawLand.default();
+    _this.selectedGrid = null;
     return _this;
   }
 
@@ -118346,7 +118368,8 @@ function (_React$Component) {
       if (!app.playerMode) return;
       var canvasMidPos = this.dragPos.getCanvasMidPos(this.ctx);
       var gridPos = (0, _drawUtil.posToGrid)(canvasMidPos);
-      app.ownership.setCenter(gridPos);
+      var res = app.ownership.setCenter(gridPos);
+      if (!res) return;
       app.ownership.getSurroundInfo().then(function () {
         _this2.draw();
       });
@@ -118356,6 +118379,7 @@ function (_React$Component) {
     value: function draw() {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.drawLand();
+      this.drawSelectedGrid();
       this.drawHouse();
     }
   }, {
@@ -118367,6 +118391,11 @@ function (_React$Component) {
       (0, _drawUtil.drawWrapper)(this.ctx, pos, function (ctx, pos) {
         _this3.land.draw(ctx, pos);
       });
+    }
+  }, {
+    key: "drawSelectedGrid",
+    value: function drawSelectedGrid() {
+      if (!this.selectedGrid) return;
     }
   }, {
     key: "drawHouse",
@@ -118387,22 +118416,35 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "onClick",
+    value: function onClick(event) {
+      var canvasPos = {
+        x: event.offsetX,
+        y: event.offsetY
+      };
+      var gridPos = (0, _drawUtil.posToGrid)(canvasPos);
+      console.log(canvasPos, gridPos);
+    }
+  }, {
     key: "onMouseDown",
     value: function onMouseDown(event) {
       var startX = event.clientX;
       var startY = event.clientY;
       this.draging = true;
+      this.clickFlag = true;
       this.dragPos.setStart(startX, startY);
     }
   }, {
     key: "onMouseUp",
-    value: function onMouseUp() {
+    value: function onMouseUp(event) {
       this.draging = false;
       this.updateAndDraw();
+      if (this.clickFlag) this.onClick(event);
     }
   }, {
     key: "onMouseMove",
     value: function onMouseMove(event) {
+      this.clickFlag = false;
       if (!this.draging) return;
       var targetX = event.clientX;
       var targetY = event.clientY;

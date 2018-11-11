@@ -22,7 +22,10 @@ class Ownership {
     }
 
     setCenter(grid) {
-        this.center = grid
+        const same = this.center.r == grid.r && this.center.c == grid.c
+        if (!same)
+            this.center = grid
+        return !same
     }
 
     addOwner(address, r, c) {
