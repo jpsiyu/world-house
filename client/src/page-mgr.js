@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginGuide from './login-guide'
-import PageHome from './fundation/page-home'
-import PageMarket from './fundation/page-market'
+import PageHome from './pages/page-home'
+import PageMarket from './pages/page-market'
 import { MacroEventType, MacroViewType } from './macro'
 
 

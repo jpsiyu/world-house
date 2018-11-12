@@ -66,20 +66,24 @@ class Map extends React.Component {
         canvas.addEventListener('mousemove', this.onMouseMove.bind(this))
         canvas.addEventListener('mouseup', this.onMouseUp.bind(this))
         canvas.addEventListener('mouseout', this.onMouseUp.bind(this))
+
         app.eventListener.register(MacroEventType.PlayerMode, this, () => {
             this.setState({ playerMode: true })
             this.updateAndDraw()
+        })
+        app.eventListener.register(MacroEventType.BuyHouse, this, () => {
+            this.updateAndDraw(true)
         })
 
         this.draw()
     }
 
-    updateAndDraw() {
+    updateAndDraw(force = false) {
         if (!app.playerMode) return
         const canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx)
         const gridPos = posToGrid(canvasMidPos)
         const res = app.ownership.setCenter(gridPos)
-        if (!res) return
+        if (!res && !force) return
         app.ownership.getSurroundInfo()
             .then(() => {
                 this.draw()
@@ -175,7 +179,10 @@ class Map extends React.Component {
     }
 
     onMarketClick() {
-        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMarket })
+        app.eventListener.dispatch(
+            MacroEventType.ShowView,
+            { viewName: MacroViewType.PageMarket, viewArgs: this.state.selectedGrid }
+        )
     }
 
     onHomeClick() {

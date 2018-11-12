@@ -23159,13 +23159,14 @@ var MacroMap = {
   ColNum: 1000,
   CanvasWidth: 800,
   CanvasHeight: 400,
-  Surround: 3
+  Surround: 4
 };
 exports.MacroMap = MacroMap;
 var MacroEventType = {
   ShowView: 'ShowView',
   HideView: 'HideView',
-  PlayerMode: 'PlayerMode'
+  PlayerMode: 'PlayerMode',
+  BuyHouse: 'BuyHouse'
 };
 exports.MacroEventType = MacroEventType;
 var MacroViewType = {
@@ -117799,12 +117800,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x9a80758856bba452fc15f92b555767d6e657d3d8",
+      "address": "0x705ab816cbe4c367e4ae345f015d3b04365a9a29",
       "transactionHash": "0x84e26b91324c92951bf157a515ffa67b44fca52ac33b557d21c3e82d7957d5a8"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-11T03:04:41.578Z"
+  "updatedAt": "2018-11-12T08:29:45.114Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -118389,6 +118390,9 @@ function (_React$Component) {
 
         _this2.updateAndDraw();
       });
+      app.eventListener.register(_macro.MacroEventType.BuyHouse, this, function () {
+        _this2.updateAndDraw(true);
+      });
       this.draw();
     }
   }, {
@@ -118396,11 +118400,12 @@ function (_React$Component) {
     value: function updateAndDraw() {
       var _this3 = this;
 
+      var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       if (!app.playerMode) return;
       var canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx);
       var gridPos = (0, _drawUtil.posToGrid)(canvasMidPos);
       var res = app.ownership.setCenter(gridPos);
-      if (!res) return;
+      if (!res && !force) return;
       app.ownership.getSurroundInfo().then(function () {
         _this3.draw();
       });
@@ -118507,7 +118512,8 @@ function (_React$Component) {
     key: "onMarketClick",
     value: function onMarketClick() {
       app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageMarket
+        viewName: _macro.MacroViewType.PageMarket,
+        viewArgs: this.state.selectedGrid
       });
     }
   }, {
@@ -118630,7 +118636,7 @@ function (_React$Component) {
 
 var _default = LoginGuide;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/fundation/page-home.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/pages/page-home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118719,7 +118725,7 @@ function (_React$Component) {
 
 var _default = PageHome;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/fundation/page-market.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/pages/page-market.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118764,6 +118770,7 @@ function (_React$Component) {
     _classCallCheck(this, PageMarket);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PageMarket).call(this, props));
+    _this.grid = props.viewArgs;
     _this.waitTimer = null;
     return _this;
   }
@@ -118783,7 +118790,7 @@ function (_React$Component) {
         return;
       }
 
-      app.contractMgr.worldHouse.buyHouse(2, 2).then(function (res) {
+      app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c).then(function (res) {
         (0, _utils.log)(res);
 
         _this2.waitForReceipt(res.tx);
@@ -118801,7 +118808,10 @@ function (_React$Component) {
         app.contractMgr.getReceipt(tx).then(function (receipt) {
           (0, _utils.log)(receipt);
           clearInterval(_this3.waitTimer);
-          app.player.updateHouseData();
+        }).then(function () {
+          return app.player.updateHouseData();
+        }).then(function () {
+          app.eventListener.dispatch(_macro.MacroEventType.BuyHouse);
           alert('You buy a house!');
         });
       }, 1000);
@@ -118821,6 +118831,8 @@ function (_React$Component) {
         className: "popup-close",
         onClick: this.onCloseClick.bind(this)
       }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+        className: "market-location"
+      }, "Selected Location: ", "".concat(this.grid.r, ", ").concat(this.grid.c)), _react.default.createElement("div", {
         className: "popup-content"
       }, _react.default.createElement("div", {
         className: "market-content"
@@ -118861,9 +118873,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _loginGuide = _interopRequireDefault(require("./login-guide"));
 
-var _pageHome = _interopRequireDefault(require("./fundation/page-home"));
+var _pageHome = _interopRequireDefault(require("./pages/page-home"));
 
-var _pageMarket = _interopRequireDefault(require("./fundation/page-market"));
+var _pageMarket = _interopRequireDefault(require("./pages/page-market"));
 
 var _macro = require("./macro");
 
@@ -118957,7 +118969,7 @@ function (_React$Component) {
 
 var _default = PageMgr;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./fundation/page-home":"../src/fundation/page-home.js","./fundation/page-market":"../src/fundation/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./pages/page-home":"../src/pages/page-home.js","./pages/page-market":"../src/pages/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119108,7 +119120,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51639" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58579" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

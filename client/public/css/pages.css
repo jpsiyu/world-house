@@ -51,6 +51,11 @@
     box-shadow: none;
 }
 
+.market-location{
+    padding: 0 20px;
+    font-size: 20px;
+}
+
 /* home page */
 .owned-house{
     width: 100%;

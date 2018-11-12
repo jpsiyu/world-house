@@ -5,6 +5,7 @@ import { log, logError } from '../utils'
 class PageMarket extends React.Component {
     constructor(props) {
         super(props)
+        this.grid = props.viewArgs
         this.waitTimer = null
     }
 
@@ -18,7 +19,7 @@ class PageMarket extends React.Component {
             alert('Anybody can only buy one house!')
             return
         }
-        app.contractMgr.worldHouse.buyHouse(2, 2)
+        app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c)
             .then(res => {
                 log(res)
                 this.waitForReceipt(res.tx)
@@ -30,12 +31,17 @@ class PageMarket extends React.Component {
     }
 
     waitForReceipt(tx) {
-        this.waitTimer = setInterval( () => {
+        this.waitTimer = setInterval(() => {
             app.contractMgr.getReceipt(tx)
                 .then(receipt => {
                     log(receipt)
                     clearInterval(this.waitTimer)
-                    app.player.updateHouseData()
+                })
+                .then(() => {
+                    return app.player.updateHouseData()
+                })
+                .then(() => {
+                    app.eventListener.dispatch(MacroEventType.BuyHouse)
                     alert('You buy a house!')
                 })
         }, 1000)
@@ -50,6 +56,7 @@ class PageMarket extends React.Component {
                         <p>Close</p>
                     </button>
                 </div>
+                <div className='market-location'>Selected Location: {`${this.grid.r}, ${this.grid.c}`}</div>
                 <div className='popup-content'>
                     <div className='market-content'>
                         <div className='market-item'>
