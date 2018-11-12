@@ -22,7 +22,7 @@ class Entry extends React.Component {
                 app.enterPlayerMode()
             } else {
                 const viewArgs = { check: res, }
-                app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.LoginGuide, viewArgs })
+                app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageGuide, viewArgs })
             }
         })
     }

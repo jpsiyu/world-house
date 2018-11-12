@@ -31,7 +31,7 @@ class PageHome extends React.Component {
                 <div className='popup-top'>
                     <h2>My House</h2>
                     <button className='popup-close' onClick={this.onCloseClick.bind(this)}>
-                        <p>Close</p>
+                        <p>X</p>
                     </button>
                 </div>
                 <div className='popup-content'>

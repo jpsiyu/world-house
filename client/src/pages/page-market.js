@@ -51,18 +51,32 @@ class PageMarket extends React.Component {
         return <div className='overflow'>
             <div className='popup'>
                 <div className='popup-top'>
-                    <h2>House Market</h2>
+                    <h2>House Market<small>{`   (${this.grid.r}, ${this.grid.c})`}</small></h2>
                     <button className='popup-close' onClick={this.onCloseClick.bind(this)}>
-                        <p>Close</p>
+                        <p>X</p>
                     </button>
                 </div>
-                <div className='market-location'>Selected Location: {`${this.grid.r}, ${this.grid.c}`}</div>
                 <div className='popup-content'>
                     <div className='market-content'>
                         <div className='market-item'>
                             <img src='/images/house1.png'></img>
                             <p>Price: 0.01ETH</p>
                             <button onClick={() => { this.onPurchaseClick('house1') }}>Purchase</button>
+                        </div>
+                        <div className='market-item'>
+                            <img src='/images/house2.png'></img>
+                            <p>Price: 0.01ETH</p>
+                            <button onClick={() => { this.onPurchaseClick('house2') }}>Purchase</button>
+                        </div>
+                        <div className='market-item'>
+                            <img src='/images/house2.png'></img>
+                            <p>Price: 0.01ETH</p>
+                            <button onClick={() => { this.onPurchaseClick('house2') }}>Purchase</button>
+                        </div>
+                        <div className='market-item'>
+                            <img src='/images/house2.png'></img>
+                            <p>Price: 0.01ETH</p>
+                            <button onClick={() => { this.onPurchaseClick('house2') }}>Purchase</button>
                         </div>
                         <div className='market-item'>
                             <img src='/images/house2.png'></img>

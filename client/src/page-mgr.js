@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginGuide from './login-guide'
+import PageGuide from './pages/page-guide'
 import PageHome from './pages/page-home'
 import PageMarket from './pages/page-market'
 import { MacroEventType, MacroViewType } from './macro'
@@ -20,7 +20,7 @@ class PageMgr extends React.Component {
 
     genViewCfg() {
         const viewCfg = {}
-        viewCfg[MacroViewType.LoginGuide] = LoginGuide
+        viewCfg[MacroViewType.PageGuide] = PageGuide
         viewCfg[MacroViewType.PageHome] = PageHome
         viewCfg[MacroViewType.PageMarket] = PageMarket
         return viewCfg

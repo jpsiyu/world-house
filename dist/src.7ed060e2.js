@@ -23170,7 +23170,7 @@ var MacroEventType = {
 };
 exports.MacroEventType = MacroEventType;
 var MacroViewType = {
-  LoginGuide: 'LoginGuide',
+  PageGuide: 'PageGuide',
   PageHome: 'PageHome',
   PageMarket: 'PageMarket'
 };
@@ -117800,12 +117800,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x705ab816cbe4c367e4ae345f015d3b04365a9a29",
+      "address": "0x6d5c846beaa307c7dc58c69976d2d2779d34774b",
       "transactionHash": "0x84e26b91324c92951bf157a515ffa67b44fca52ac33b557d21c3e82d7957d5a8"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T08:29:45.114Z"
+  "updatedAt": "2018-11-12T19:14:44.615Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -118530,7 +118530,7 @@ function (_React$Component) {
 
 var _default = Map;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/login-guide.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/pages/page-guide.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118540,7 +118540,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _macro = require("./macro");
+var _macro = require("../macro");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118562,25 +118562,43 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var LoginGuide =
+var PageGuide =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(LoginGuide, _React$Component);
+  _inherits(PageGuide, _React$Component);
 
-  function LoginGuide(props) {
+  function PageGuide(props) {
     var _this;
 
-    _classCallCheck(this, LoginGuide);
+    _classCallCheck(this, PageGuide);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginGuide).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PageGuide).call(this, props));
     _this.state = props.viewArgs.check;
     return _this;
   }
 
-  _createClass(LoginGuide, [{
+  _createClass(PageGuide, [{
     key: "onCloseClick",
     value: function onCloseClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.LoginGuide);
+      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageGuide);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var fail = -1;
+      Object.keys(this.state).forEach(function (key, i) {
+        if (!_this2.state[key] && fail == -1) fail = i;
+      });
+
+      if (fail != -1) {
+        var items = document.getElementsByClassName('guide-item');
+        var item = items[fail];
+        item.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
     }
   }, {
     key: "render",
@@ -118601,42 +118619,58 @@ function (_React$Component) {
         className: "popup"
       }, _react.default.createElement("div", {
         className: "popup-top"
-      }, _react.default.createElement("h2", null, "Login with MetaMask account."), _react.default.createElement("button", {
+      }, _react.default.createElement("h2", null, "Set up"), _react.default.createElement("button", {
         className: "popup-close",
         onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
         className: "popup-content"
       }, _react.default.createElement("div", {
-        className: "popup-item"
+        className: "guide-item"
+      }, _react.default.createElement("div", {
+        className: "guide-item-left"
       }, _react.default.createElement("img", {
         className: "guide-img-rect",
         src: "/images/browser.png"
-      }), _react.default.createElement("p", null, "Chrome or Firefox"), yesno(this.state.browserCheck)), _react.default.createElement("div", {
-        className: "popup-item"
+      }), _react.default.createElement("p", null, "Step 1: Use Chrome or Firefox")), _react.default.createElement("div", {
+        className: "guide-item-right"
+      }, yesno(this.state.browserCheck))), _react.default.createElement("div", {
+        className: "guide-item"
+      }, _react.default.createElement("div", {
+        className: "guide-item-left"
       }, _react.default.createElement("img", {
         className: "guide-img-square",
         src: "/images/metamask.png"
-      }), _react.default.createElement("p", null, "MetaMask Extension"), yesno(this.state.extensionCheck)), _react.default.createElement("div", {
-        className: "popup-item"
+      }), _react.default.createElement("p", null, "Step 2: Install MetaMask Extension")), _react.default.createElement("div", {
+        className: "guide-item-right"
+      }, yesno(this.state.extensionCheck))), _react.default.createElement("div", {
+        className: "guide-item"
+      }, _react.default.createElement("div", {
+        className: "guide-item-left"
       }, _react.default.createElement("img", {
         className: "guide-img-rect",
         src: "/images/metamask-login.png"
-      }), _react.default.createElement("p", null, "Login MetaMask"), yesno(this.state.unlockCheck)), _react.default.createElement("div", {
-        className: "popup-item"
+      }), _react.default.createElement("p", null, "Step 3: Register and login MetaMask")), _react.default.createElement("div", {
+        className: "guide-item-right"
+      }, yesno(this.state.unlockCheck))), _react.default.createElement("div", {
+        className: "guide-item"
+      }, _react.default.createElement("div", {
+        className: "guide-item-left"
       }, _react.default.createElement("div", {
         className: "mainnet-guide"
       }, _react.default.createElement("div", {
         className: "circle"
-      }), _react.default.createElement("p", null, "Private Network")), _react.default.createElement("p", null, "Choose Private Net"), yesno(this.state.networkCheck)))));
+      }), _react.default.createElement("p", null, "Private Network")), _react.default.createElement("p", null, "Step 4: Switch to Private Net")), _react.default.createElement("div", {
+        className: "guide-item-right"
+      }, yesno(this.state.networkCheck))))));
     }
   }]);
 
-  return LoginGuide;
+  return PageGuide;
 }(_react.default.Component);
 
-var _default = LoginGuide;
+var _default = PageGuide;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/pages/page-home.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/pages/page-home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118714,7 +118748,7 @@ function (_React$Component) {
       }, _react.default.createElement("h2", null, "My House"), _react.default.createElement("button", {
         className: "popup-close",
         onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
+      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
         className: "popup-content"
       }, app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse())));
     }
@@ -118827,12 +118861,10 @@ function (_React$Component) {
         className: "popup"
       }, _react.default.createElement("div", {
         className: "popup-top"
-      }, _react.default.createElement("h2", null, "House Market"), _react.default.createElement("button", {
+      }, _react.default.createElement("h2", null, "House Market", _react.default.createElement("small", null, "   (".concat(this.grid.r, ", ").concat(this.grid.c, ")"))), _react.default.createElement("button", {
         className: "popup-close",
         onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "Close"))), _react.default.createElement("div", {
-        className: "market-location"
-      }, "Selected Location: ", "".concat(this.grid.r, ", ").concat(this.grid.c)), _react.default.createElement("div", {
+      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
         className: "popup-content"
       }, _react.default.createElement("div", {
         className: "market-content"
@@ -118843,6 +118875,30 @@ function (_React$Component) {
       }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house1');
+        }
+      }, "Purchase")), _react.default.createElement("div", {
+        className: "market-item"
+      }, _react.default.createElement("img", {
+        src: "/images/house2.png"
+      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+        onClick: function onClick() {
+          _this4.onPurchaseClick('house2');
+        }
+      }, "Purchase")), _react.default.createElement("div", {
+        className: "market-item"
+      }, _react.default.createElement("img", {
+        src: "/images/house2.png"
+      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+        onClick: function onClick() {
+          _this4.onPurchaseClick('house2');
+        }
+      }, "Purchase")), _react.default.createElement("div", {
+        className: "market-item"
+      }, _react.default.createElement("img", {
+        src: "/images/house2.png"
+      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+        onClick: function onClick() {
+          _this4.onPurchaseClick('house2');
         }
       }, "Purchase")), _react.default.createElement("div", {
         className: "market-item"
@@ -118871,7 +118927,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _loginGuide = _interopRequireDefault(require("./login-guide"));
+var _pageGuide = _interopRequireDefault(require("./pages/page-guide"));
 
 var _pageHome = _interopRequireDefault(require("./pages/page-home"));
 
@@ -118924,7 +118980,7 @@ function (_React$Component) {
     key: "genViewCfg",
     value: function genViewCfg() {
       var viewCfg = {};
-      viewCfg[_macro.MacroViewType.LoginGuide] = _loginGuide.default;
+      viewCfg[_macro.MacroViewType.PageGuide] = _pageGuide.default;
       viewCfg[_macro.MacroViewType.PageHome] = _pageHome.default;
       viewCfg[_macro.MacroViewType.PageMarket] = _pageMarket.default;
       return viewCfg;
@@ -118969,7 +119025,7 @@ function (_React$Component) {
 
 var _default = PageMgr;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./login-guide":"../src/login-guide.js","./pages/page-home":"../src/pages/page-home.js","./pages/page-market":"../src/pages/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./pages/page-guide":"../src/pages/page-guide.js","./pages/page-home":"../src/pages/page-home.js","./pages/page-market":"../src/pages/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119044,7 +119100,7 @@ function (_React$Component) {
             check: res
           };
           app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-            viewName: _macro.MacroViewType.LoginGuide,
+            viewName: _macro.MacroViewType.PageGuide,
             viewArgs: viewArgs
           });
         }
@@ -119120,7 +119176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49453" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

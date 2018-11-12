@@ -1,3 +1,120 @@
+/* popup */
+.overflow{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup{
+    margin-top: -80px;
+    width: 485px;
+    height: 300px;
+    min-width: 500px;
+    min-height: 300px;
+    background-color: white;
+    border: 2px white solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-top{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 0.2px lightgray solid;
+}
+
+.popup-close{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 2px lightgray solid;
+    outline: none;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.popup-close:hover{
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content{
+    overflow: scroll;
+    padding: 20px;
+    flex: 6;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* guide */
+.guide-item{
+    border: 2px lightgray solid;
+    padding: 0 20px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center; 
+    margin: 10px 0;
+}
+
+.guide-item-left{
+    flex: 3;
+}
+
+.guide-item-right{
+    flex: 1;
+}
+
+.guide-img-rect{
+    width: 160px;
+    height: 80px;
+}
+
+.guide-img-square{
+    width: 80;
+    height: 80px;
+}
+
+.mainnet-guide{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 200px;
+    height: 50px;
+    margin: 15px 0;
+    border-radius: 20px;
+    border: 2px lightgray solid;
+}
+
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px white solid;
+    background-color: green;
+}
+
+.yesno{
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+    border: 2px lightgray solid;
+    border-radius: 50%;
+}
+
+
 .fundation-icon{
     background-color: white;
     width: 60px;
@@ -17,6 +134,7 @@
     display: flex;
     width: 100%;
     height: 100%;
+    flex-wrap: nowrap;
 }
 
 .market-item{
@@ -24,13 +142,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 120%;
 }
 .market-item img{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
 }
 .market-item p{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .market-item button{
@@ -41,6 +160,7 @@
     margin: 20px 0;
     width: 120px;
     height: 50px;
+    border: none;
 }
 
 .market-item button:hover{
