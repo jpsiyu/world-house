@@ -116,8 +116,8 @@
 
 .fundation-icon{
     background-color: white;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin: 10px;
     border-radius: 10px;
     border: 1px gray solid;
@@ -134,27 +134,27 @@
     width: 100%;
     height: 100%;
     flex-wrap: nowrap;
+    align-items: center;
 }
 
 .market-item{
-    padding: 0 20px;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .market-item img{
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 }
 .market-item p{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .market-item button{
     background-color: lightseagreen;
     outline: none;
     color: white;
-    font-size: 20px;
     margin: 20px 0;
     width: 120px;
     height: 50px;
@@ -169,7 +169,17 @@
     box-shadow: none;
 }
 
+.market-item span{
+    font-size: 20px;
+}
+
+.market-item p{
+    font-size: 12px;
+    display: inline-block;
+}
+
 .market-location{
+    position: absolute;
     padding: 0 20px;
     font-size: 20px;
 }

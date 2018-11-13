@@ -1,14 +1,11 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
+import { PopUpTop } from './page-widgets'
 
 class PageGuide extends React.Component {
     constructor(props) {
         super(props)
         this.state = props.viewArgs.check
-    }
-
-    onCloseClick() {
-        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageGuide)
     }
 
     componentDidMount() {
@@ -21,7 +18,7 @@ class PageGuide extends React.Component {
         if (fail != -1) {
             const items = document.getElementsByClassName('guide-item')
             const item = items[fail]
-            item.scrollIntoView({behavior: "smooth"})
+            item.scrollIntoView({ behavior: "smooth" })
         }
     }
 
@@ -34,12 +31,7 @@ class PageGuide extends React.Component {
 
         return <div className='overflow'>
             <div className='popup'>
-                <div className='popup-top'>
-                    <h2>Set up</h2>
-                    <button className='popup-close' onClick={this.onCloseClick.bind(this)}>
-                        <p>X</p>
-                    </button>
-                </div>
+                <PopUpTop title='Set up' viewType={MacroViewType.PageGuide} />
                 <div className='popup-content'>
                     <div className='guide-item'>
                         <div className='guide-item-left'>
@@ -62,7 +54,7 @@ class PageGuide extends React.Component {
                     <div className='guide-item'>
                         <div className='guide-item-left'>
                             <img className='guide-img-rect' src='/images/metamask-login.png'></img>
-                            <p>Step 3: Register and login MetaMask</p>
+                            <p>Step 3: Sign in MetaMask</p>
                         </div>
                         <div className='guide-item-right'>
                             {yesno(this.state.unlockCheck)}

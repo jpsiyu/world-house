@@ -34,6 +34,91 @@ class MapFace extends React.Component {
     }
 }
 
+class MapBottom extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            active: false
+        }
+    }
+
+    render() {
+        if (!this.state.active) return null
+        return <div className='map-bottom'>
+            <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
+                <img src='/images/house.png'></img>
+            </div>
+        </div>
+
+    }
+
+    componentDidMount() {
+        app.eventListener.register(MacroEventType.PlayerMode, this, this.activeSelf.bind(this))
+    }
+
+    activeSelf() {
+        this.setState({
+            active: true
+        })
+    }
+
+    onHomeClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
+    }
+}
+
+class MapRight extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return <div className='map-right'>
+            <p>{`Location: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
+            {app.player.hasHouse()
+                ? <button >Move</button>
+                : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
+            }
+        </div>
+    }
+
+    onMarketClick() {
+        app.eventListener.dispatch(
+            MacroEventType.ShowView,
+            { viewName: MacroViewType.PageMarket, viewArgs: this.props.selectedGrid }
+        )
+    }
+}
+
+class MapLogo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            active: false
+        }
+    }
+
+    activeSelf() {
+        this.setState({
+            active: true
+        })
+    }
+
+    componentDidMount() {
+        app.eventListener.register(MacroEventType.PlayerMode, this, this.activeSelf.bind(this))
+    }
+
+    render() {
+        if (!this.state.active) return null
+        return <div className='map-logo'>
+            <img src='/images/title.png'></img>
+        </div>
+    }
+}
+
 export {
     MapFace,
+    MapBottom,
+    MapRight,
+    MapLogo,
 }

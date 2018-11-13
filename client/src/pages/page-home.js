@@ -1,13 +1,10 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
+import { PopUpTop } from './page-widgets'
 
 class PageHome extends React.Component {
     constructor(props) {
         super(props)
-    }
-
-    onCloseClick() {
-        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageHome)
     }
 
     whenNoHouse() {
@@ -28,12 +25,7 @@ class PageHome extends React.Component {
     render() {
         return <div className='overflow'>
             <div className='popup'>
-                <div className='popup-top'>
-                    <h2>My House</h2>
-                    <button className='popup-close' onClick={this.onCloseClick.bind(this)}>
-                        <p>X</p>
-                    </button>
-                </div>
+                <PopUpTop title='My House' viewType={MacroViewType.PageHome} />
                 <div className='popup-content'>
                     {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse()}
                 </div>

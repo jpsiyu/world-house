@@ -116,8 +116,8 @@
 
 .fundation-icon{
     background-color: white;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     margin: 10px;
     border-radius: 10px;
     border: 1px gray solid;
@@ -134,27 +134,27 @@
     width: 100%;
     height: 100%;
     flex-wrap: nowrap;
+    align-items: center;
 }
 
 .market-item{
-    padding: 0 20px;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .market-item img{
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 }
 .market-item p{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .market-item button{
     background-color: lightseagreen;
     outline: none;
     color: white;
-    font-size: 20px;
     margin: 20px 0;
     width: 120px;
     height: 50px;
@@ -169,7 +169,17 @@
     box-shadow: none;
 }
 
+.market-item span{
+    font-size: 20px;
+}
+
+.market-item p{
+    font-size: 12px;
+    display: inline-block;
+}
+
 .market-location{
+    position: absolute;
     padding: 0 20px;
     font-size: 20px;
 }
@@ -267,7 +277,7 @@
 .map-right{
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: 32%;
     width: 140px;
     height: 70px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -297,4 +307,14 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.map-logo{
+    position: absolute;
+    width: 300px;
+}
+
+.map-logo img{
+    width: 100%;
+    height: 100%;
 }

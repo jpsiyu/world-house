@@ -1,8 +1,15 @@
 import React from 'react'
-import { MacroMap, MacroEventType, MacroViewType } from './macro'
+import { MacroMap, MacroEventType } from './macro'
 import DrawLand from './drawing/draw-land'
 import MapPos from './drawing/map-pos'
-import {MapFace} from './map-widgets'
+
+import {
+    MapFace,
+    MapBottom,
+    MapRight,
+    MapLogo,
+} from './map-widgets'
+
 import {
     drawWrapper,
     grid2pos,
@@ -11,7 +18,6 @@ import {
     grid2posMid,
     posToGrid,
 } from './drawing/draw-util'
-import { format } from 'url';
 
 class Map extends React.Component {
     constructor(props) {
@@ -21,7 +27,6 @@ class Map extends React.Component {
         this.canvas = null
         this.state = {
             selectedGrid: null,
-            playerMode: false,
         }
         this.mapPos = new MapPos(0, 0)
         this.draging = false
@@ -37,27 +42,10 @@ class Map extends React.Component {
                 height={MacroMap.CanvasHeight}
                 ref={this.canvasRef}>
             </canvas>
-            <MapFace /> 
-            {this.state.selectedGrid == null ? null : this.renderRight()}
-            {this.state.playerMode ? this.renderBottom() : null}
-        </div>
-    }
-
-    renderRight() {
-        return <div className='map-right'>
-            <p>{`Location: ${this.state.selectedGrid.r}, ${this.state.selectedGrid.c}`}</p>
-            {app.player.hasHouse()
-                ? <button >Move</button>
-                : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
-            }
-        </div>
-    }
-
-    renderBottom() {
-        return <div className='map-bottom'>
-            <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
-                <img src='/images/house.png'></img>
-            </div>
+            <MapLogo />
+            <MapFace />
+            <MapBottom />
+            {this.state.selectedGrid == null ? null : <MapRight selectedGrid={this.state.selectedGrid} />}
         </div>
     }
 
@@ -70,8 +58,7 @@ class Map extends React.Component {
         canvas.addEventListener('mouseup', this.onMouseUp.bind(this))
         canvas.addEventListener('mouseout', this.onMouseUp.bind(this))
 
-        app.eventListener.register(MacroEventType.PlayerMode, this, () => {
-            this.setState({ playerMode: true })
+        app.eventListener.register(MacroEventType.PlayerMode, this,  () => {
             this.updateAndDraw()
         })
         app.eventListener.register(MacroEventType.BuyHouse, this, () => {
@@ -179,17 +166,6 @@ class Map extends React.Component {
 
         this.draw()
         this.mapPos.setStart(targetX, targetY)
-    }
-
-    onMarketClick() {
-        app.eventListener.dispatch(
-            MacroEventType.ShowView,
-            { viewName: MacroViewType.PageMarket, viewArgs: this.state.selectedGrid }
-        )
-    }
-
-    onHomeClick() {
-        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
     }
 }
 

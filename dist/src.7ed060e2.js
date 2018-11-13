@@ -117800,12 +117800,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x26913ac586c7fe260f76185a7e34526fb6bf76c5",
+      "address": "0x9c2da7baaea142c2478952c4c3af0bddc8c94c9e",
       "transactionHash": "0x84e26b91324c92951bf157a515ffa67b44fca52ac33b557d21c3e82d7957d5a8"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T03:34:32.027Z"
+  "updatedAt": "2018-11-13T06:56:40.370Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -118281,7 +118281,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MapFace = void 0;
+exports.MapLogo = exports.MapRight = exports.MapBottom = exports.MapFace = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -118373,6 +118373,143 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.MapFace = MapFace;
+
+var MapBottom =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(MapBottom, _React$Component2);
+
+  function MapBottom(props) {
+    var _this3;
+
+    _classCallCheck(this, MapBottom);
+
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(MapBottom).call(this, props));
+    _this3.state = {
+      active: false
+    };
+    return _this3;
+  }
+
+  _createClass(MapBottom, [{
+    key: "render",
+    value: function render() {
+      if (!this.state.active) return null;
+      return _react.default.createElement("div", {
+        className: "map-bottom"
+      }, _react.default.createElement("div", {
+        className: "fundation-icon",
+        onClick: this.onHomeClick.bind(this)
+      }, _react.default.createElement("img", {
+        src: "/images/house.png"
+      })));
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      app.eventListener.register(_macro.MacroEventType.PlayerMode, this, this.activeSelf.bind(this));
+    }
+  }, {
+    key: "activeSelf",
+    value: function activeSelf() {
+      this.setState({
+        active: true
+      });
+    }
+  }, {
+    key: "onHomeClick",
+    value: function onHomeClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageHome
+      });
+    }
+  }]);
+
+  return MapBottom;
+}(_react.default.Component);
+
+exports.MapBottom = MapBottom;
+
+var MapRight =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(MapRight, _React$Component3);
+
+  function MapRight(props) {
+    _classCallCheck(this, MapRight);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MapRight).call(this, props));
+  }
+
+  _createClass(MapRight, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "map-right"
+      }, _react.default.createElement("p", null, "Location: (".concat(this.props.selectedGrid.r, ", ").concat(this.props.selectedGrid.c, ")")), app.player.hasHouse() ? _react.default.createElement("button", null, "Move") : _react.default.createElement("button", {
+        onClick: this.onMarketClick.bind(this)
+      }, "Purchase"));
+    }
+  }, {
+    key: "onMarketClick",
+    value: function onMarketClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageMarket,
+        viewArgs: this.props.selectedGrid
+      });
+    }
+  }]);
+
+  return MapRight;
+}(_react.default.Component);
+
+exports.MapRight = MapRight;
+
+var MapLogo =
+/*#__PURE__*/
+function (_React$Component4) {
+  _inherits(MapLogo, _React$Component4);
+
+  function MapLogo(props) {
+    var _this4;
+
+    _classCallCheck(this, MapLogo);
+
+    _this4 = _possibleConstructorReturn(this, _getPrototypeOf(MapLogo).call(this, props));
+    _this4.state = {
+      active: false
+    };
+    return _this4;
+  }
+
+  _createClass(MapLogo, [{
+    key: "activeSelf",
+    value: function activeSelf() {
+      this.setState({
+        active: true
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      app.eventListener.register(_macro.MacroEventType.PlayerMode, this, this.activeSelf.bind(this));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.state.active) return null;
+      return _react.default.createElement("div", {
+        className: "map-logo"
+      }, _react.default.createElement("img", {
+        src: "/images/title.png"
+      }));
+    }
+  }]);
+
+  return MapLogo;
+}(_react.default.Component);
+
+exports.MapLogo = MapLogo;
 },{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/map.js":[function(require,module,exports) {
 "use strict";
 
@@ -118392,8 +118529,6 @@ var _mapPos = _interopRequireDefault(require("./drawing/map-pos"));
 var _mapWidgets = require("./map-widgets");
 
 var _drawUtil = require("./drawing/draw-util");
-
-var _url = require("url");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118430,8 +118565,7 @@ function (_React$Component) {
     _this.ctx = null;
     _this.canvas = null;
     _this.state = {
-      selectedGrid: null,
-      playerMode: false
+      selectedGrid: null
     };
     _this.mapPos = new _mapPos.default(0, 0);
     _this.draging = false;
@@ -118450,28 +118584,9 @@ function (_React$Component) {
         width: _macro.MacroMap.CanvasWidth,
         height: _macro.MacroMap.CanvasHeight,
         ref: this.canvasRef
-      }), _react.default.createElement(_mapWidgets.MapFace, null), this.state.selectedGrid == null ? null : this.renderRight(), this.state.playerMode ? this.renderBottom() : null);
-    }
-  }, {
-    key: "renderRight",
-    value: function renderRight() {
-      return _react.default.createElement("div", {
-        className: "map-right"
-      }, _react.default.createElement("p", null, "Location: ".concat(this.state.selectedGrid.r, ", ").concat(this.state.selectedGrid.c)), app.player.hasHouse() ? _react.default.createElement("button", null, "Move") : _react.default.createElement("button", {
-        onClick: this.onMarketClick.bind(this)
-      }, "Purchase"));
-    }
-  }, {
-    key: "renderBottom",
-    value: function renderBottom() {
-      return _react.default.createElement("div", {
-        className: "map-bottom"
-      }, _react.default.createElement("div", {
-        className: "fundation-icon",
-        onClick: this.onHomeClick.bind(this)
-      }, _react.default.createElement("img", {
-        src: "/images/house.png"
-      })));
+      }), _react.default.createElement(_mapWidgets.MapLogo, null), _react.default.createElement(_mapWidgets.MapFace, null), _react.default.createElement(_mapWidgets.MapBottom, null), this.state.selectedGrid == null ? null : _react.default.createElement(_mapWidgets.MapRight, {
+        selectedGrid: this.state.selectedGrid
+      }));
     }
   }, {
     key: "componentDidMount",
@@ -118486,10 +118601,6 @@ function (_React$Component) {
       canvas.addEventListener('mouseup', this.onMouseUp.bind(this));
       canvas.addEventListener('mouseout', this.onMouseUp.bind(this));
       app.eventListener.register(_macro.MacroEventType.PlayerMode, this, function () {
-        _this2.setState({
-          playerMode: true
-        });
-
         _this2.updateAndDraw();
       });
       app.eventListener.register(_macro.MacroEventType.BuyHouse, this, function () {
@@ -118610,21 +118721,6 @@ function (_React$Component) {
       this.draw();
       this.mapPos.setStart(targetX, targetY);
     }
-  }, {
-    key: "onMarketClick",
-    value: function onMarketClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageMarket,
-        viewArgs: this.state.selectedGrid
-      });
-    }
-  }, {
-    key: "onHomeClick",
-    value: function onHomeClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-        viewName: _macro.MacroViewType.PageHome
-      });
-    }
   }]);
 
   return Map;
@@ -118632,7 +118728,71 @@ function (_React$Component) {
 
 var _default = Map;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./map-widgets":"../src/map-widgets.js","./drawing/draw-util":"../src/drawing/draw-util.js","url":"../../node_modules/url/url.js"}],"../src/pages/page-guide.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./map-widgets":"../src/map-widgets.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/pages/page-widgets.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PopUpTop = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PopUpTop =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PopUpTop, _React$Component);
+
+  function PopUpTop(props) {
+    _classCallCheck(this, PopUpTop);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PopUpTop).call(this, props));
+  }
+
+  _createClass(PopUpTop, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "popup-top"
+      }, _react.default.createElement("h2", null, this.props.title), _react.default.createElement("button", {
+        className: "popup-close",
+        onClick: this.onCloseClick.bind(this)
+      }, _react.default.createElement("p", null, "X")));
+    }
+  }, {
+    key: "onCloseClick",
+    value: function onCloseClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.HideView, this.props.viewType);
+    }
+  }]);
+
+  return PopUpTop;
+}(_react.default.Component);
+
+exports.PopUpTop = PopUpTop;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/pages/page-guide.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118643,6 +118803,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _macro = require("../macro");
+
+var _pageWidgets = require("./page-widgets");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118680,11 +118842,6 @@ function (_React$Component) {
   }
 
   _createClass(PageGuide, [{
-    key: "onCloseClick",
-    value: function onCloseClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageGuide);
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -118719,12 +118876,10 @@ function (_React$Component) {
         className: "overflow"
       }, _react.default.createElement("div", {
         className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "Set up"), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
+      }, _react.default.createElement(_pageWidgets.PopUpTop, {
+        title: "Set up",
+        viewType: _macro.MacroViewType.PageGuide
+      }), _react.default.createElement("div", {
         className: "popup-content"
       }, _react.default.createElement("div", {
         className: "guide-item"
@@ -118751,7 +118906,7 @@ function (_React$Component) {
       }, _react.default.createElement("img", {
         className: "guide-img-rect",
         src: "/images/metamask-login.png"
-      }), _react.default.createElement("p", null, "Step 3: Register and login MetaMask")), _react.default.createElement("div", {
+      }), _react.default.createElement("p", null, "Step 3: Sign in MetaMask")), _react.default.createElement("div", {
         className: "guide-item-right"
       }, yesno(this.state.unlockCheck))), _react.default.createElement("div", {
         className: "guide-item"
@@ -118772,7 +118927,7 @@ function (_React$Component) {
 
 var _default = PageGuide;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/pages/page-home.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/pages/page-home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118783,6 +118938,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _macro = require("../macro");
+
+var _pageWidgets = require("./page-widgets");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118816,11 +118973,6 @@ function (_React$Component) {
   }
 
   _createClass(PageHome, [{
-    key: "onCloseClick",
-    value: function onCloseClick() {
-      app.eventListener.dispatch(_macro.MacroEventType.HideView, _macro.MacroViewType.PageHome);
-    }
-  }, {
     key: "whenNoHouse",
     value: function whenNoHouse() {
       return _react.default.createElement("div", {
@@ -118845,12 +118997,10 @@ function (_React$Component) {
         className: "overflow"
       }, _react.default.createElement("div", {
         className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "My House"), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
+      }, _react.default.createElement(_pageWidgets.PopUpTop, {
+        title: "My House",
+        viewType: _macro.MacroViewType.PageHome
+      }), _react.default.createElement("div", {
         className: "popup-content"
       }, app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse())));
     }
@@ -118861,7 +119011,7 @@ function (_React$Component) {
 
 var _default = PageHome;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js"}],"../src/pages/page-market.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/pages/page-market.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118874,6 +119024,8 @@ var _react = _interopRequireDefault(require("react"));
 var _macro = require("../macro");
 
 var _utils = require("../utils");
+
+var _pageWidgets = require("./page-widgets");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118961,20 +119113,20 @@ function (_React$Component) {
         className: "overflow"
       }, _react.default.createElement("div", {
         className: "popup"
-      }, _react.default.createElement("div", {
-        className: "popup-top"
-      }, _react.default.createElement("h2", null, "House Market", _react.default.createElement("small", null, "   (".concat(this.grid.r, ", ").concat(this.grid.c, ")"))), _react.default.createElement("button", {
-        className: "popup-close",
-        onClick: this.onCloseClick.bind(this)
-      }, _react.default.createElement("p", null, "X"))), _react.default.createElement("div", {
+      }, _react.default.createElement(_pageWidgets.PopUpTop, {
+        title: "Market",
+        viewType: _macro.MacroViewType.PageMarket
+      }), _react.default.createElement("div", {
         className: "popup-content"
       }, _react.default.createElement("div", {
+        className: "market-location"
+      }, _react.default.createElement("p", null, "Selected Location: (", "".concat(this.grid.r, ", ").concat(this.grid.c), ")")), _react.default.createElement("div", {
         className: "market-content"
       }, _react.default.createElement("div", {
         className: "market-item"
       }, _react.default.createElement("img", {
         src: "/images/house1.png"
-      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+      }), _react.default.createElement("span", null, "Price: 0.01", _react.default.createElement("p", null, "ETH")), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house1');
         }
@@ -118982,7 +119134,7 @@ function (_React$Component) {
         className: "market-item"
       }, _react.default.createElement("img", {
         src: "/images/house2.png"
-      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+      }), _react.default.createElement("span", null, "Price: 0.01", _react.default.createElement("p", null, "ETH")), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house2');
         }
@@ -118990,7 +119142,7 @@ function (_React$Component) {
         className: "market-item"
       }, _react.default.createElement("img", {
         src: "/images/house2.png"
-      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+      }), _react.default.createElement("span", null, "Price: 0.01", _react.default.createElement("p", null, "ETH")), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house2');
         }
@@ -118998,7 +119150,7 @@ function (_React$Component) {
         className: "market-item"
       }, _react.default.createElement("img", {
         src: "/images/house2.png"
-      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+      }), _react.default.createElement("span", null, "Price: 0.01", _react.default.createElement("p", null, "ETH")), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house2');
         }
@@ -119006,7 +119158,7 @@ function (_React$Component) {
         className: "market-item"
       }, _react.default.createElement("img", {
         src: "/images/house2.png"
-      }), _react.default.createElement("p", null, "Price: 0.01ETH"), _react.default.createElement("button", {
+      }), _react.default.createElement("span", null, "Price: 0.01", _react.default.createElement("p", null, "ETH")), _react.default.createElement("button", {
         onClick: function onClick() {
           _this4.onPurchaseClick('house2');
         }
@@ -119019,7 +119171,7 @@ function (_React$Component) {
 
 var _default = PageMarket;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","../utils":"../src/utils.js"}],"../src/page-mgr.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","../utils":"../src/utils.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/page-mgr.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119235,7 +119387,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49608" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49440" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
