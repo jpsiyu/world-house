@@ -23157,8 +23157,8 @@ var MacroMap = {
   HourseImageSize: 60,
   RowNum: 1000,
   ColNum: 1000,
-  CanvasWidth: 800,
-  CanvasHeight: 400,
+  CanvasWidth: 1000,
+  CanvasHeight: 618,
   Surround: 4
 };
 exports.MacroMap = MacroMap;
@@ -117800,12 +117800,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x6d5c846beaa307c7dc58c69976d2d2779d34774b",
+      "address": "0x26913ac586c7fe260f76185a7e34526fb6bf76c5",
       "transactionHash": "0x84e26b91324c92951bf157a515ffa67b44fca52ac33b557d21c3e82d7957d5a8"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-12T19:14:44.615Z"
+  "updatedAt": "2018-11-13T03:34:32.027Z"
 };
 },{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
 "use strict";
@@ -118275,7 +118275,105 @@ function () {
 
 var _default = MapPos;
 exports.default = _default;
-},{}],"../src/map.js":[function(require,module,exports) {
+},{}],"../src/map-widgets.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MapFace = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("./macro");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var MapFace =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MapFace, _React$Component);
+
+  function MapFace(props) {
+    var _this;
+
+    _classCallCheck(this, MapFace);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MapFace).call(this, props));
+    _this.state = {
+      canPlay: false
+    };
+    return _this;
+  }
+
+  _createClass(MapFace, [{
+    key: "render",
+    value: function render() {
+      if (this.state.canPlay) return null;
+      return _react.default.createElement("div", {
+        className: "map-face"
+      }, _react.default.createElement("div", {
+        className: "map-title"
+      }, _react.default.createElement("img", {
+        src: "/images/title.png"
+      })), _react.default.createElement("button", {
+        className: "map-play",
+        onClick: this.onPlayClick.bind(this)
+      }, _react.default.createElement("p", null, "Play")));
+    }
+  }, {
+    key: "onPlayClick",
+    value: function onPlayClick() {
+      var _this2 = this;
+
+      app.metamask.canPlay().then(function (res) {
+        var pass = true;
+        Object.keys(res).forEach(function (key) {
+          if (!res[key]) pass = false;
+        });
+
+        if (pass) {
+          _this2.setState({
+            canPlay: pass
+          });
+
+          app.enterPlayerMode();
+        } else {
+          var viewArgs = {
+            check: res
+          };
+          app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+            viewName: _macro.MacroViewType.PageGuide,
+            viewArgs: viewArgs
+          });
+        }
+      });
+    }
+  }]);
+
+  return MapFace;
+}(_react.default.Component);
+
+exports.MapFace = MapFace;
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js"}],"../src/map.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -118291,7 +118389,11 @@ var _drawLand = _interopRequireDefault(require("./drawing/draw-land"));
 
 var _mapPos = _interopRequireDefault(require("./drawing/map-pos"));
 
+var _mapWidgets = require("./map-widgets");
+
 var _drawUtil = require("./drawing/draw-util");
+
+var _url = require("url");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -118348,7 +118450,7 @@ function (_React$Component) {
         width: _macro.MacroMap.CanvasWidth,
         height: _macro.MacroMap.CanvasHeight,
         ref: this.canvasRef
-      }), this.state.selectedGrid == null ? null : this.renderRight(), this.state.playerMode ? this.renderBottom() : null);
+      }), _react.default.createElement(_mapWidgets.MapFace, null), this.state.selectedGrid == null ? null : this.renderRight(), this.state.playerMode ? this.renderBottom() : null);
     }
   }, {
     key: "renderRight",
@@ -118530,7 +118632,7 @@ function (_React$Component) {
 
 var _default = Map;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/pages/page-guide.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./macro":"../src/macro.js","./drawing/draw-land":"../src/drawing/draw-land.js","./drawing/map-pos":"../src/drawing/map-pos.js","./map-widgets":"../src/map-widgets.js","./drawing/draw-util":"../src/drawing/draw-util.js","url":"../../node_modules/url/url.js"}],"../src/pages/page-guide.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119039,8 +119141,6 @@ var _map = _interopRequireDefault(require("./map"));
 
 var _pageMgr = _interopRequireDefault(require("./page-mgr"));
 
-var _macro = require("./macro");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -119067,58 +119167,17 @@ function (_React$Component) {
   _inherits(Entry, _React$Component);
 
   function Entry(props) {
-    var _this;
-
     _classCallCheck(this, Entry);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Entry).call(this, props));
-    _this.state = {
-      canPlay: false
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Entry).call(this, props));
   }
 
   _createClass(Entry, [{
-    key: "onPlayClick",
-    value: function onPlayClick() {
-      var _this2 = this;
-
-      app.metamask.canPlay().then(function (res) {
-        var pass = true;
-        Object.keys(res).forEach(function (key) {
-          if (!res[key]) pass = false;
-        });
-
-        if (pass) {
-          _this2.setState({
-            canPlay: pass
-          });
-
-          app.enterPlayerMode();
-        } else {
-          var viewArgs = {
-            check: res
-          };
-          app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
-            viewName: _macro.MacroViewType.PageGuide,
-            viewArgs: viewArgs
-          });
-        }
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
         className: "entry"
-      }, _react.default.createElement("div", {
-        className: "entry-title"
-      }, _react.default.createElement("img", {
-        src: "/images/title.png"
-      })), _react.default.createElement(_map.default, null), this.state.canPlay ? null : _react.default.createElement("button", {
-        className: "entry-play",
-        onClick: this.onPlayClick.bind(this)
-      }, _react.default.createElement("p", null, "Play")), _react.default.createElement(_pageMgr.default, null));
+      }, _react.default.createElement(_map.default, null), _react.default.createElement(_pageMgr.default, null));
     }
   }]);
 
@@ -119127,7 +119186,7 @@ function (_React$Component) {
 
 var _default = Entry;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./map":"../src/map.js","./page-mgr":"../src/page-mgr.js","./macro":"../src/macro.js"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./map":"../src/map.js","./page-mgr":"../src/page-mgr.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
@@ -119176,7 +119235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49453" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49608" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

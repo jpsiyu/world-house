@@ -12,11 +12,10 @@
 }
 
 .popup{
-    margin-top: -80px;
-    width: 485px;
-    height: 300px;
-    min-width: 500px;
-    min-height: 300px;
+    width: 800px;
+    height: 500px;
+    min-width: 800px;
+    min-height: 500px;
     background-color: white;
     border: 2px white solid;
     border-radius: 10px;
@@ -68,7 +67,7 @@
 }
 
 .guide-item-left{
-    flex: 3;
+    flex: 5;
 }
 
 .guide-item-right{
@@ -142,7 +141,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 120%;
 }
 .market-item img{
     width: 120px;

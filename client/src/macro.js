@@ -3,8 +3,8 @@ const MacroMap = {
     HourseImageSize: 60,
     RowNum: 1000,
     ColNum: 1000,
-    CanvasWidth: 800,
-    CanvasHeight: 400,
+    CanvasWidth: 1000,
+    CanvasHeight: 618,
     Surround: 4,
 }
 

@@ -12,11 +12,10 @@
 }
 
 .popup{
-    margin-top: -80px;
-    width: 485px;
-    height: 300px;
-    min-width: 500px;
-    min-height: 300px;
+    width: 800px;
+    height: 500px;
+    min-width: 800px;
+    min-height: 500px;
     background-color: white;
     border: 2px white solid;
     border-radius: 10px;
@@ -68,7 +67,7 @@
 }
 
 .guide-item-left{
-    flex: 3;
+    flex: 5;
 }
 
 .guide-item-right{
@@ -142,7 +141,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 120%;
 }
 .market-item img{
     width: 120px;
@@ -199,18 +197,42 @@
     margin: 0;
 }
 
+#root{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
 /* entry */
 .entry{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* map */
+.map-face{
+    border-radius: 20px;
+    position: absolute;
+    right: 10%;
+    top: 15%;
+    height: 400px;
+    padding: 0 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
-.entry-title img{
-    width: 250px;
+.map-title img{
+    width: 220px;
 }
 
-.entry-play{
+.map-play{
     background-color: blueviolet;
     color: white;
     font-size: 30px;
@@ -219,16 +241,16 @@
     border-radius: 10px;
     width: 150px;
     height: 60px;
+    border: none;
 }
 
-.entry-play:active{
+.map-play:active{
     background-color: blueviolet;
     width: 155px;
     height: 65px;
 }
 
 
-/* map */
 .map-container{
     position: relative;
     margin: auto;

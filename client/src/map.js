@@ -2,6 +2,7 @@ import React from 'react'
 import { MacroMap, MacroEventType, MacroViewType } from './macro'
 import DrawLand from './drawing/draw-land'
 import MapPos from './drawing/map-pos'
+import {MapFace} from './map-widgets'
 import {
     drawWrapper,
     grid2pos,
@@ -10,6 +11,7 @@ import {
     grid2posMid,
     posToGrid,
 } from './drawing/draw-util'
+import { format } from 'url';
 
 class Map extends React.Component {
     constructor(props) {
@@ -35,6 +37,7 @@ class Map extends React.Component {
                 height={MacroMap.CanvasHeight}
                 ref={this.canvasRef}>
             </canvas>
+            <MapFace /> 
             {this.state.selectedGrid == null ? null : this.renderRight()}
             {this.state.playerMode ? this.renderBottom() : null}
         </div>
