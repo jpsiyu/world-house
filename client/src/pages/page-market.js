@@ -53,7 +53,7 @@ class PageMarket extends React.Component {
             <div className='popup'>
                 <PopUpTop title='Market' viewType={MacroViewType.PageMarket} />
                 <div className='popup-content'>
-                    <div className='market-location'><p>Selected Location: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
+                    <div className='market-location'><p>On Land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
                     <div className='market-content'>
                         <div className='market-item'>
                             <img src='/images/house1.png'></img>

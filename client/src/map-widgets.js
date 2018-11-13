@@ -74,12 +74,21 @@ class MapRight extends React.Component {
 
     render() {
         return <div className='map-right'>
-            <p>{`Location: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
-            {app.player.hasHouse()
-                ? <button >Move</button>
-                : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
+            <p>{`Land: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
+            {app.ownership.getLandOwner(this.props.selectedGrid)
+                ? <img className='map-right-owned' src='/images/house.png'/>
+                : app.player.hasHouse()
+                    ? <button onClick={this.onMoveClick.bind(this)}>Move</button>
+                    : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
             }
         </div>
+    }
+
+    onMoveClick() {
+        app.eventListener.dispatch(
+            MacroEventType.ShowView,
+            { viewName: MacroViewType.PageMove, viewArgs: this.props.selectedGrid }
+        )
     }
 
     onMarketClick() {

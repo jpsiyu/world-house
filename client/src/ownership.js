@@ -49,6 +49,17 @@ class Ownership {
                 .catch(err => logError(err))
         })
     }
+
+    getLandOwner({r, c}){
+        let land
+        let target = null
+        Object.keys(this.owners).forEach( key => {
+            land = this.owners[key].land
+            if(land.r == r && land.c == c)
+                target = key
+        })
+        return target
+    }
 }
 
 export default Ownership

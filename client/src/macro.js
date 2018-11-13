@@ -19,6 +19,7 @@ const MacroViewType = {
     PageGuide: 'PageGuide',
     PageHome: 'PageHome',
     PageMarket: 'PageMarket',
+    PageMove: 'PageMove',
 }
 
 const MacroNetworkType = {

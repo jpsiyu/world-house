@@ -2,6 +2,7 @@ import React from 'react'
 import PageGuide from './pages/page-guide'
 import PageHome from './pages/page-home'
 import PageMarket from './pages/page-market'
+import PageMove from './pages/page-move'
 import { MacroEventType, MacroViewType } from './macro'
 
 
@@ -23,6 +24,7 @@ class PageMgr extends React.Component {
         viewCfg[MacroViewType.PageGuide] = PageGuide
         viewCfg[MacroViewType.PageHome] = PageHome
         viewCfg[MacroViewType.PageMarket] = PageMarket
+        viewCfg[MacroViewType.PageMove] = PageMove
         return viewCfg
     }
 

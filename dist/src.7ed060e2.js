@@ -23172,7 +23172,8 @@ exports.MacroEventType = MacroEventType;
 var MacroViewType = {
   PageGuide: 'PageGuide',
   PageHome: 'PageHome',
-  PageMarket: 'PageMarket'
+  PageMarket: 'PageMarket',
+  PageMove: 'PageMove'
 };
 exports.MacroViewType = MacroViewType;
 var MacroNetworkType = {
@@ -23408,6 +23409,21 @@ function () {
           return (0, _utils.logError)(err);
         });
       });
+    }
+  }, {
+    key: "getLandOwner",
+    value: function getLandOwner(_ref) {
+      var _this2 = this;
+
+      var r = _ref.r,
+          c = _ref.c;
+      var land;
+      var target = null;
+      Object.keys(this.owners).forEach(function (key) {
+        land = _this2.owners[key].land;
+        if (land.r == r && land.c == c) target = key;
+      });
+      return target;
     }
   }]);
 
@@ -118446,9 +118462,22 @@ function (_React$Component3) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "map-right"
-      }, _react.default.createElement("p", null, "Location: (".concat(this.props.selectedGrid.r, ", ").concat(this.props.selectedGrid.c, ")")), app.player.hasHouse() ? _react.default.createElement("button", null, "Move") : _react.default.createElement("button", {
+      }, _react.default.createElement("p", null, "Land: (".concat(this.props.selectedGrid.r, ", ").concat(this.props.selectedGrid.c, ")")), app.ownership.getLandOwner(this.props.selectedGrid) ? _react.default.createElement("img", {
+        className: "map-right-owned",
+        src: "/images/house.png"
+      }) : app.player.hasHouse() ? _react.default.createElement("button", {
+        onClick: this.onMoveClick.bind(this)
+      }, "Move") : _react.default.createElement("button", {
         onClick: this.onMarketClick.bind(this)
       }, "Purchase"));
+    }
+  }, {
+    key: "onMoveClick",
+    value: function onMoveClick() {
+      app.eventListener.dispatch(_macro.MacroEventType.ShowView, {
+        viewName: _macro.MacroViewType.PageMove,
+        viewArgs: this.props.selectedGrid
+      });
     }
   }, {
     key: "onMarketClick",
@@ -118988,7 +119017,7 @@ function (_React$Component) {
         className: "owned-house-item"
       }, _react.default.createElement("img", {
         src: "/images/house1.png"
-      }), _react.default.createElement("p", null, "Position: [", houseData.row, ", ", houseData.col, "]")));
+      }), _react.default.createElement("p", null, "Land: (", houseData.row, ", ", houseData.col, ")")));
     }
   }, {
     key: "render",
@@ -119120,7 +119149,7 @@ function (_React$Component) {
         className: "popup-content"
       }, _react.default.createElement("div", {
         className: "market-location"
-      }, _react.default.createElement("p", null, "Selected Location: (", "".concat(this.grid.r, ", ").concat(this.grid.c), ")")), _react.default.createElement("div", {
+      }, _react.default.createElement("p", null, "On Land: (", "".concat(this.grid.r, ", ").concat(this.grid.c), ")")), _react.default.createElement("div", {
         className: "market-content"
       }, _react.default.createElement("div", {
         className: "market-item"
@@ -119171,7 +119200,73 @@ function (_React$Component) {
 
 var _default = PageMarket;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","../utils":"../src/utils.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/page-mgr.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","../utils":"../src/utils.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/pages/page-move.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _macro = require("../macro");
+
+var _pageWidgets = require("./page-widgets");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var PageMove =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(PageMove, _React$Component);
+
+  function PageMove(props) {
+    _classCallCheck(this, PageMove);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(PageMove).call(this, props));
+  }
+
+  _createClass(PageMove, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "overflow"
+      }, _react.default.createElement("div", {
+        className: "popup"
+      }, _react.default.createElement(_pageWidgets.PopUpTop, {
+        title: "House Move",
+        viewType: _macro.MacroViewType.PageMove
+      }), _react.default.createElement("div", {
+        className: "popup-content"
+      }, _react.default.createElement("p", null, "HaHa"))));
+    }
+  }]);
+
+  return PageMove;
+}(_react.default.Component);
+
+var _default = PageMove;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","./page-widgets":"../src/pages/page-widgets.js"}],"../src/page-mgr.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -119186,6 +119281,8 @@ var _pageGuide = _interopRequireDefault(require("./pages/page-guide"));
 var _pageHome = _interopRequireDefault(require("./pages/page-home"));
 
 var _pageMarket = _interopRequireDefault(require("./pages/page-market"));
+
+var _pageMove = _interopRequireDefault(require("./pages/page-move"));
 
 var _macro = require("./macro");
 
@@ -119237,6 +119334,7 @@ function (_React$Component) {
       viewCfg[_macro.MacroViewType.PageGuide] = _pageGuide.default;
       viewCfg[_macro.MacroViewType.PageHome] = _pageHome.default;
       viewCfg[_macro.MacroViewType.PageMarket] = _pageMarket.default;
+      viewCfg[_macro.MacroViewType.PageMove] = _pageMove.default;
       return viewCfg;
     }
   }, {
@@ -119279,7 +119377,7 @@ function (_React$Component) {
 
 var _default = PageMgr;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./pages/page-guide":"../src/pages/page-guide.js","./pages/page-home":"../src/pages/page-home.js","./pages/page-market":"../src/pages/page-market.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./pages/page-guide":"../src/pages/page-guide.js","./pages/page-home":"../src/pages/page-home.js","./pages/page-market":"../src/pages/page-market.js","./pages/page-move":"../src/pages/page-move.js","./macro":"../src/macro.js"}],"../src/entry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

@@ -17,7 +17,7 @@ class PageHome extends React.Component {
         return <div className='owned-house'>
             <div className='owned-house-item'>
                 <img src='/images/house1.png'></img>
-                <p>Position: [{houseData.row}, {houseData.col}]</p>
+                <p>Land: ({houseData.row}, {houseData.col})</p>
             </div>
         </div>
     }
