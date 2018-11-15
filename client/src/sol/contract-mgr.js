@@ -22,7 +22,7 @@ class ContractMgr {
         return this.web3.eth.net.getId()
     }
 
-    getContractInstance(){
+    getContractInstance() {
         return this.worldHouse.init(this.provider)
     }
 
@@ -33,6 +33,10 @@ class ContractMgr {
                 else resolve(result)
             })
         })
+    }
+
+    fromWei(num) {
+        return this.web3.utils.fromWei(num)
     }
 
 }

@@ -14,8 +14,8 @@ class ContractWorldHouse {
             worldHouse.deployed()
                 .then(instance => {
                     this.instance = instance
-                    resolve(instance)
                 })
+                .then(resolve)
                 .catch(err => logError(err))
         })
     }
@@ -29,24 +29,29 @@ class ContractWorldHouse {
         return this.instance.getHouse({ from: account })
     }
 
-    buyHouse(row, col, houseId) {
+    buyHouse(row, col, houseId, price) {
         const account = app.metamask.account
-        return this.instance.buyHouse(row, col, houseId, { from: account })
+        return this.instance.buyHouse(row, col, houseId, { from: account, value:price })
     }
 
-    getLandOwners(row, col){
+    getLandOwners(row, col) {
         const account = app.metamask.account
         return this.instance.getLandOwners(row, col, { from: account })
     }
 
-    getHouseId(owners){
+    getHouseId(owners) {
         const account = app.metamask.account
         return this.instance.getHouseId(owners, { from: account })
     }
 
-    moveHouse(row, col){
+    moveHouse(row, col) {
         const account = app.metamask.account
         return this.instance.move(row, col, { from: account })
+    }
+
+    getBasePrice() {
+        const account = app.metamask.account
+        return this.instance.getBasePrice({ from: account })
     }
 }
 

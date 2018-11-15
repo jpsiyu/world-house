@@ -4,6 +4,7 @@ import Metamask from './metamask'
 import EventListener from './event-listener'
 import ContractMgr from './sol/contract-mgr'
 import Player from './player'
+import PriceSystem from './price-system'
 import { log, logError } from './utils'
 import { MacroEventType } from './macro'
 
@@ -19,6 +20,7 @@ class App {
         this.eventListener = new EventListener()
         this.contractMgr = new ContractMgr()
         this.player = new Player()
+        this.priceSystem = new PriceSystem()
     }
 
     start(render) {
@@ -29,6 +31,12 @@ class App {
         this.contractMgr.getContractInstance()
             .then(() => {
                 return this.player.updateHouseData()
+            })
+            .then(() => {
+                return this.contractMgr.worldHouse.getBasePrice()
+            })
+            .then(price => {
+                this.priceSystem.setPrice(price)
             })
             .then(() => {
                 this.playerMode = true

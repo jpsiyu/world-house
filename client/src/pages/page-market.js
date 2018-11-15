@@ -21,7 +21,8 @@ class PageMarket extends React.Component {
             alert('Anybody can only buy one house!')
             return
         }
-        app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c, houseId)
+        const price = app.priceSystem.getPriceWithConfigId(houseId)
+        app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c, houseId, price.housePrice)
             .then(res => {
                 log(res)
                 this.waitForReceipt(res.tx)
@@ -51,14 +52,13 @@ class PageMarket extends React.Component {
 
     houseItemList() {
         const itemList = []
-        let item
-        let conf
         for (let i = 0; i < houseConfig.length; i++) {
-            conf = houseConfig[i]
+            const conf = houseConfig[i]
+            const price = app.priceSystem.getPriceWithConfigId(conf.id)
             const houseId = conf.id
-            item = <div className='market-item' key={i}>
+            const item = <div className='market-item' key={i}>
                 <img src={`/images/${conf.img}`}></img>
-                <span>Price: 0.01<p>ETH</p></span>
+                <span>Price: {price.housePriceEth}<p>ETH</p></span>
                 <button onClick={() => { this.onPurchaseClick(houseId) }}>Purchase</button>
             </div>
             itemList.push(item)
@@ -71,7 +71,7 @@ class PageMarket extends React.Component {
             <div className='popup'>
                 <PopUpTop title='Market' viewType={MacroViewType.PageMarket} />
                 <div className='popup-content'>
-                    <div className='market-location'><p>On Land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
+                    <div className='market-location'><p>Build your house On land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
                     <div className='market-content'>
                         {this.houseItemList()}
                     </div>

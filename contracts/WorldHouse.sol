@@ -11,6 +11,7 @@ contract WorldHouse{
     }
     mapping(address => HouseData) houseRecord;
     mapping(uint16 => mapping(uint16 => address)) landRecord;
+    uint count;
 
     constructor() public{
         owner = msg.sender;
@@ -31,11 +32,10 @@ contract WorldHouse{
         return datas;
     }
 
-    function buyHouse(uint16 row, uint16 col, uint16 id) public{
+    function buyHouse(uint16 row, uint16 col, uint16 id) public payable{
         require(houseRecord[msg.sender].used != 1, "Already has one");
-        HouseData memory data = HouseData(row, col, id, 1);
-        houseRecord[msg.sender] = data;
-        landRecord[row][col] = msg.sender;
+        _addRecord(row, col, id);
+        count++;
         emit BuySuccess(msg.sender);
     }
 
@@ -55,9 +55,19 @@ contract WorldHouse{
         require(landRecord[row][col] == 0, "The land you want to move is not empty!");
 
         landRecord[data.row][data.col] = 0;
-        HouseData memory newData = HouseData(row, col, data.id, 1);
-        houseRecord[msg.sender] = newData;
-        landRecord[row][col] = msg.sender;
+        _addRecord(row, col,data. id);
+    }
 
+    function getBasePrice() public view returns(uint){
+        if(count <= 1000) return 1e15;
+        else if(count <= 1000000) return 1e16;
+        else return 1e17;
+    }
+
+    // private
+    function _addRecord(uint16 row, uint16 col, uint16 id) private{
+        HouseData memory data = HouseData(row, col, id, 1);
+        houseRecord[msg.sender] = data;
+        landRecord[row][col] = msg.sender;
     }
 }
