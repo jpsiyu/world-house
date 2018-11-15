@@ -1,5 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from './macro'
+import { getById } from './house-config'
 
 class MapFace extends React.Component {
     constructor(props) {
@@ -82,10 +83,11 @@ class MapRight extends React.Component {
     }
 
     render() {
+        const info = app.ownership.getLandInfo(this.props.selectedGrid)
         return <div className='map-right'>
             <p>{`Land: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
-            {app.ownership.getLandOwner(this.props.selectedGrid)
-                ? <img className='map-right-owned' src='/images/house.png' />
+            {info
+                ? <img className='map-right-owned' src={`/images/${getById(info.id).img}`} />
                 : app.player.hasHouse()
                     ? <button onClick={this.onMoveClick.bind(this)}>Move</button>
                     : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>

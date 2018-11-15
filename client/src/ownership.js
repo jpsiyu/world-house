@@ -6,10 +6,10 @@ class Ownership {
     constructor() {
         this.center = { r: 0, c: 0 }
         this.owners = {
-            '0x101': { land: { r: 0, c: 1 }, house: 'house1' },
-            '0x102': { land: { r: 2, c: 2 }, house: 'house2' },
-            '0x103': { land: { r: 3, c: 5 }, house: 'house1' },
-            '0x104': { land: { r: 4, c: 4 }, house: 'house2' },
+            '0x101': { land: { r: 0, c: 1 }, id: 1 },
+            '0x102': { land: { r: 2, c: 2 }, id: 2 },
+            '0x103': { land: { r: 3, c: 5 }, id: 1 },
+            '0x104': { land: { r: 4, c: 4 }, id: 2 },
         }
     }
 
@@ -28,37 +28,49 @@ class Ownership {
         return !same
     }
 
-    addOwner(address, r, c) {
-        this.owners[address] = { land: { r, c }, house: 'house1' }
+    addOwner(address, r, c, id = 1) {
+        this.owners[address] = { land: { r, c }, id }
     }
 
     getSurroundInfo() {
         return new Promise((resolve, reject) => {
             const sur = surround(this.center.r, this.center.c, MacroMap.Surround)
-            app.contractMgr.worldHouse.getGridInfos(sur.rows, sur.cols)
+            const addresses = []
+            app.contractMgr.worldHouse.getLandOwners(sur.rows, sur.cols)
                 .then(res => {
                     this.clearOwners()
                     let address
                     for (let i = 0; i < res.length; i++) {
                         address = res[i]
                         if (address == 0) continue
-                        else this.addOwner(address, sur.rows[i], sur.cols[i])
+                        else {
+                            addresses.push(address)
+                            this.addOwner(address, sur.rows[i], sur.cols[i])
+                        }
                     }
-                    resolve()
                 })
+                .then(() => {
+                    return app.contractMgr.worldHouse.getHouseId(addresses)
+                })
+                .then(ids => {
+                    addresses.forEach((addr, idx) => {
+                        this.owners[addr].id = ids[idx].toNumber()
+                    })
+                })
+                .then(resolve)
                 .catch(err => logError(err))
         })
     }
 
-    getLandOwner({r, c}){
+    getLandInfo({ r, c }) {
         let land
         let target = null
-        Object.keys(this.owners).forEach( key => {
+        Object.keys(this.owners).forEach(key => {
             land = this.owners[key].land
-            if(land.r == r && land.c == c)
+            if (land.r == r && land.c == c)
                 target = key
         })
-        return target
+        return target ? this.owners[target] : null
     }
 }
 

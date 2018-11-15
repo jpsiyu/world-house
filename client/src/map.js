@@ -2,6 +2,7 @@ import React from 'react'
 import { MacroMap, MacroEventType } from './macro'
 import DrawLand from './drawing/draw-land'
 import MapPos from './drawing/map-pos'
+import { getById } from './house-config'
 
 import {
     MapFace,
@@ -121,7 +122,8 @@ class Map extends React.Component {
                 const objPos = grid2pos(landInfo.land.r, landInfo.land.c)
                 const midPos = grid2posMid(landInfo.land.r, landInfo.land.c)
                 if (rectInCanvas(ctx, pos, objPos, MacroMap.HourseSize)) {
-                    const houseImage = app.imageMgr.getImage(landInfo.house)
+                    const conf = getById(landInfo.id)
+                    const houseImage = app.imageMgr.getImage(conf.img)
                     drawImageMid(ctx, midPos, houseImage.obj, MacroMap.HourseImageSize)
                 }
             })

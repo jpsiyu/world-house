@@ -1,6 +1,7 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
 import { PopUpTop } from './page-widgets'
+import { getById } from '../house-config'
 
 class PageHome extends React.Component {
     constructor(props) {
@@ -14,9 +15,10 @@ class PageHome extends React.Component {
     }
 
     whenOwnedHouse(houseData) {
+        const conf = getById(houseData.id)
         return <div className='owned-house'>
             <div className='owned-house-item'>
-                <img src='/images/house1.png'></img>
+                <img src={`/images/${conf.img}`}></img>
                 <p>Land: ({houseData.row}, {houseData.col})</p>
             </div>
         </div>

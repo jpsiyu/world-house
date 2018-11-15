@@ -147,6 +147,7 @@
     height: 100%;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .market-item{
@@ -362,7 +363,11 @@
 
 .map-logo{
     position: absolute;
+    top: 5px;
     width: 300px;
+    border: 1px lightgray solid;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .map-logo img{

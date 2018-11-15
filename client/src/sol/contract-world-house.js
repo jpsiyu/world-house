@@ -29,14 +29,19 @@ class ContractWorldHouse {
         return this.instance.getHouse({ from: account })
     }
 
-    buyHouse(row, col) {
+    buyHouse(row, col, houseId) {
         const account = app.metamask.account
-        return this.instance.buyHouse(row, col, { from: account })
+        return this.instance.buyHouse(row, col, houseId, { from: account })
     }
 
-    getGridInfos(row, col){
+    getLandOwners(row, col){
         const account = app.metamask.account
-        return this.instance.getGridInfos(row, col, { from: account })
+        return this.instance.getLandOwners(row, col, { from: account })
+    }
+
+    getHouseId(owners){
+        const account = app.metamask.account
+        return this.instance.getHouseId(owners, { from: account })
     }
 
     moveHouse(row, col){
