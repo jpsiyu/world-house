@@ -43,4 +43,16 @@ contract WorldHouse{
         }
         return gridOwners;
     }
+
+    function move(uint16 row, uint16 col) public {
+        HouseData storage data = houseRecord[msg.sender];
+        require(data.used == 1, "You do not have a house!");
+        require(grid[row][col] == 0, "The land you want to move is not empty!");
+
+        grid[data.row][data.col] = 0;
+        HouseData memory newData = HouseData(row, col, 1);
+        houseRecord[msg.sender] = newData;
+        grid[row][col] = msg.sender;
+
+    }
 }

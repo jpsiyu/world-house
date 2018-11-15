@@ -1,3 +1,15 @@
+/* common */
+.btn-shadow{
+    box-shadow: none;
+}
+.btn-shadow:hover{
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-shadow:active{
+    box-shadow:  none;
+}
+
 /* popup */
 .overflow{
     position: fixed;
@@ -202,7 +214,41 @@
     width: 150px;
     height: 150px;
     margin-right: 20px;
-}*{
+}
+
+/* page move */
+.move-content{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.move-mid-img{
+    height: 200px;
+}
+
+.move-img{
+    width: 150px;
+    height: 150px;
+}
+
+.move-house{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.move-btn{
+    width: 150px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+}
+*{
     padding: 0;
     margin: 0;
 }
@@ -230,7 +276,7 @@
     right: 10%;
     top: 15%;
     height: 400px;
-    padding: 0 20px;
+    padding: 0 30px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -278,7 +324,7 @@
     position: absolute;
     right: 0;
     bottom: 32%;
-    width: 140px;
+    width: 180px;
     height: 70px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;

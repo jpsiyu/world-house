@@ -38,6 +38,11 @@ class ContractWorldHouse {
         const account = app.metamask.account
         return this.instance.getGridInfos(row, col, { from: account })
     }
+
+    moveHouse(row, col){
+        const account = app.metamask.account
+        return this.instance.move(row, col, { from: account })
+    }
 }
 
 export default ContractWorldHouse

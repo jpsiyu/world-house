@@ -5,7 +5,7 @@ const MacroMap = {
     ColNum: 1000,
     CanvasWidth: 1000,
     CanvasHeight: 618,
-    Surround: 4,
+    Surround: 5,
 }
 
 const MacroEventType = {
@@ -13,6 +13,8 @@ const MacroEventType = {
     HideView: 'HideView',
     PlayerMode: 'PlayerMode',
     BuyHouse: 'BuyHouse',
+    HouseMove: 'HouseMove',
+    UpdateSurround: 'UpdateSurround',
 }
 
 const MacroViewType = {

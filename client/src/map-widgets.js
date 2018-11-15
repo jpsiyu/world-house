@@ -70,13 +70,22 @@ class MapBottom extends React.Component {
 class MapRight extends React.Component {
     constructor(props) {
         super(props)
+        this.setate = {}
+    }
+
+    componentDidMount() {
+        app.eventListener.register(MacroEventType.UpdateSurround, this, this.update.bind(this))
+    }
+
+    update() {
+        this.setState({})
     }
 
     render() {
         return <div className='map-right'>
             <p>{`Land: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
             {app.ownership.getLandOwner(this.props.selectedGrid)
-                ? <img className='map-right-owned' src='/images/house.png'/>
+                ? <img className='map-right-owned' src='/images/house.png' />
                 : app.player.hasHouse()
                     ? <button onClick={this.onMoveClick.bind(this)}>Move</button>
                     : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>

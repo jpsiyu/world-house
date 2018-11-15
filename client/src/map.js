@@ -58,10 +58,13 @@ class Map extends React.Component {
         canvas.addEventListener('mouseup', this.onMouseUp.bind(this))
         canvas.addEventListener('mouseout', this.onMouseUp.bind(this))
 
-        app.eventListener.register(MacroEventType.PlayerMode, this,  () => {
+        app.eventListener.register(MacroEventType.PlayerMode, this, () => {
             this.updateAndDraw()
         })
         app.eventListener.register(MacroEventType.BuyHouse, this, () => {
+            this.updateAndDraw(true)
+        })
+        app.eventListener.register(MacroEventType.HouseMove, this, () => {
             this.updateAndDraw(true)
         })
 
@@ -77,6 +80,7 @@ class Map extends React.Component {
         app.ownership.getSurroundInfo()
             .then(() => {
                 this.draw()
+                app.eventListener.dispatch(MacroEventType.UpdateSurround)
             })
     }
 
