@@ -16,6 +16,7 @@ const MacroEventType = {
     BuyHouse: 'BuyHouse',
     HouseMove: 'HouseMove',
     UpdateSurround: 'UpdateSurround',
+    Notice: 'Notice',
 }
 
 const MacroViewType = {

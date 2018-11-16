@@ -1,3 +1,5 @@
+import { MacroEventType } from './macro'
+
 const LogSwitch = true
 
 const log = (...args) => {
@@ -6,8 +8,15 @@ const log = (...args) => {
 }
 
 const logError = (err) => {
-    if(LogSwitch)
+    if (LogSwitch)
         console.log(err.name, err.message, err.stack)
 }
 
-export { log, logError }
+const notice = (msg, callback = null) => {
+    app.eventListener.dispatch(
+        MacroEventType.Notice,
+        { msg, callback }
+    )
+}
+
+export { log, logError, notice }

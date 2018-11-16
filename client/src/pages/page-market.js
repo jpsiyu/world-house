@@ -1,6 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { log, logError } from '../utils'
+import { log, logError, notice } from '../utils'
 import { PopUpTop } from './page-widgets'
 import { houseConfig } from '../house-config'
 
@@ -18,7 +18,7 @@ class PageMarket extends React.Component {
 
     onPurchaseClick(houseId) {
         if (app.player.hasHouse()) {
-            alert('Anybody can only buy one house!')
+            notice('Anybody can only buy one house!')
             return
         }
         const price = app.priceSystem.getPriceWithConfigId(houseId)
@@ -29,7 +29,7 @@ class PageMarket extends React.Component {
             })
             .catch(err => {
                 logError(err.name, err.message, err.stack)
-                alert(err.message)
+                notice(err.message)
             })
     }
 
@@ -45,7 +45,7 @@ class PageMarket extends React.Component {
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.BuyHouse)
-                    alert('You buy a house!')
+                    notice('You buy a house!')
                 })
         }, 1000)
     }

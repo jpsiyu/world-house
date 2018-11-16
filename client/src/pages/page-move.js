@@ -1,7 +1,7 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
 import { PopUpTop } from './page-widgets'
-import { log, logError } from '../utils'
+import { log, logError, notice } from '../utils'
 
 class PageMove extends React.Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class PageMove extends React.Component {
             })
             .catch(err => {
                 logError(err.name, err.message, err.stack)
-                alert(err.message)
+                notice(err.message)
             })
     }
 
@@ -56,7 +56,7 @@ class PageMove extends React.Component {
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.HouseMove)
-                    alert('House Move Success!')
+                    notice('House Move Success!')
                 })
         }, 1000)
     }

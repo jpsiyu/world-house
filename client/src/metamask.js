@@ -1,4 +1,4 @@
-import { log, logError } from './utils'
+import { log, logError, notice } from './utils'
 import { MacroNetworkType, MacroEventType } from './macro'
 
 class Metamask {
@@ -77,8 +77,7 @@ class Metamask {
                     const account = accounts[0]
                     if (account != this.account) {
                         clearInterval(this.accountTimer)
-                        alert('Account change, reload page!')
-                        window.location.reload()
+                        notice('Account change, reload page!', () => { window.location.reload() })
                     }
                 })
         }, 5000)

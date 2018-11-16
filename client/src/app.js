@@ -5,7 +5,7 @@ import EventListener from './event-listener'
 import ContractMgr from './contract-js/contract-mgr'
 import Player from './player'
 import PriceSystem from './price-system'
-import { log, logError } from './utils'
+import { log, logError, notice } from './utils'
 import { MacroEventType } from './macro'
 
 class App {
