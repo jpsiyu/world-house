@@ -155,6 +155,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px lightgray solid;
+    margin: 0 3px;
 }
 .market-item img{
     width: 150px;
@@ -227,6 +229,10 @@
     flex: 2;
 }
 
+.owned-house-bottom{
+    display: flex;
+}
+
 /* page move */
 .move-content{
     display: flex;
@@ -258,6 +264,31 @@
     border: none;
     background-color: blueviolet;
     color: white;
+}
+
+.formula{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* formula */
+.formula-desc{
+    width: 200px;
+    padding: 20px;
+}
+
+.formula-desc-pair{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    border: 1px lightgray solid;
+    border-radius: 10px;
+}
+
+.formula-chart{
+    width: 450px;
 }
 *{
     padding: 0;

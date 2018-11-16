@@ -42,9 +42,9 @@ const drawImageMid = (ctx, midPos, image, imageSize) => {
 const surround = (r, c, distance) => {
     const rows = []
     const cols = []
-    for (let ri = r - distance; ri < r + distance; ri++) {
+    for (let ri = r - distance; ri <= r + distance; ri++) {
         if (ri < 0 || ri >= MacroMap.RowNum) continue
-        for (let ci = c - distance; ci < c + distance; ci++) {
+        for (let ci = c - distance; ci <= c + distance; ci++) {
             if (ci < 0 || ci >= MacroMap.ColNum) continue
             rows.push(ri)
             cols.push(ci)

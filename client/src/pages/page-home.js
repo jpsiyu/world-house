@@ -2,16 +2,11 @@ import React from 'react'
 import { MacroMap, MacroViewType } from '../macro'
 import { PopUpTop } from './page-widgets'
 import { getById } from '../house-config'
-import { logError } from '../utils'
-import { surround } from '../drawing/draw-util'
+import { HappinessFormula } from './page-widgets'
 
 class PageHome extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            neighbor: 0,
-            happiness: 0,
-        }
     }
 
     render() {
@@ -25,35 +20,6 @@ class PageHome extends React.Component {
         </div>
     }
 
-    componentDidMount() {
-        if (!app.player.houseData) return
-        const neighbor = surround(app.player.houseData.row, app.player.houseData.col, MacroMap.Neighbor)
-        const addresses = []
-        app.contractMgr.worldHouse.getLandOwners(neighbor.rows, neighbor.cols)
-            .then(res => {
-                for (let i = 0; i < res.length; i++) {
-                    const address = res[i]
-                    if (address == 0) continue
-                    else {
-                        addresses.push(address)
-                    }
-                }
-            })
-            .then(() => {
-                const neighbor = addresses.length - 1
-                const happiness = this.happinessFormular(neighbor)
-                this.setState({
-                    neighbor: neighbor,
-                    happiness: happiness,
-                })
-            })
-            .catch(err => logError(err))
-    }
-
-    happinessFormular(x) {
-        const y = (-6 / 15) * (x * x) + 12 * x + 10
-        return Math.round(y * 10) / 10
-    }
 
     whenNoHouse() {
         return <div className='no-house'>
@@ -73,8 +39,7 @@ class PageHome extends React.Component {
                 </div>
             </div>
             <div className='owned-house-bottom'>
-                <p>{`Neighbor Count: ${this.state.neighbor}`}</p>
-                <p>Happiness: {this.state.happiness}</p>
+                <HappinessFormula />
             </div>
         </div>
     }
