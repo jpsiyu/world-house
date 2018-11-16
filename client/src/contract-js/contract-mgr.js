@@ -1,12 +1,12 @@
 import Web3 from 'web3'
-import ContractWorldHouse from './contract-world-house'
+import WorldHouse from './world-house'
 import { logError } from '../utils'
 
 class ContractMgr {
     constructor() {
         this.provider = this.getProvider()
         this.web3 = new Web3(this.provider)
-        this.worldHouse = new ContractWorldHouse(this.provider)
+        this.worldHouse = new WorldHouse(this.provider)
     }
 
     getProvider() {

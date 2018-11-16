@@ -121395,14 +121395,14 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x2b1535db2f04c407b05fe3d1dfd237402dfa419b",
+      "address": "0xd636a6efdcc215e416f81ca6331f2224d1feadc0",
       "transactionHash": "0xe654fafe8367316f6a4bbef9051931dcabdc7f375f133a0fda465d5b8c6eb1ca"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-15T11:44:51.506Z"
+  "updatedAt": "2018-11-16T03:14:20.975Z"
 };
-},{}],"../src/sol/contract-world-house.js":[function(require,module,exports) {
+},{}],"../src/contract-js/world-house.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -121424,16 +121424,16 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var ContractWorldHouse =
+var WorldHouse =
 /*#__PURE__*/
 function () {
-  function ContractWorldHouse() {
-    _classCallCheck(this, ContractWorldHouse);
+  function WorldHouse() {
+    _classCallCheck(this, WorldHouse);
 
     this.instance = null;
   }
 
-  _createClass(ContractWorldHouse, [{
+  _createClass(WorldHouse, [{
     key: "init",
     value: function init(provider) {
       var _this = this;
@@ -121504,12 +121504,12 @@ function () {
     }
   }]);
 
-  return ContractWorldHouse;
+  return WorldHouse;
 }();
 
-var _default = ContractWorldHouse;
+var _default = WorldHouse;
 exports.default = _default;
-},{"truffle-contract":"../../node_modules/truffle-contract/index.js","../../../build/contracts/WorldHouse.json":"../../build/contracts/WorldHouse.json","../utils":"../src/utils.js"}],"../src/sol/contract-mgr.js":[function(require,module,exports) {
+},{"truffle-contract":"../../node_modules/truffle-contract/index.js","../../../build/contracts/WorldHouse.json":"../../build/contracts/WorldHouse.json","../utils":"../src/utils.js"}],"../src/contract-js/contract-mgr.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -121519,7 +121519,7 @@ exports.default = void 0;
 
 var _web = _interopRequireDefault(require("web3"));
 
-var _contractWorldHouse = _interopRequireDefault(require("./contract-world-house"));
+var _worldHouse = _interopRequireDefault(require("./world-house"));
 
 var _utils = require("../utils");
 
@@ -121539,7 +121539,7 @@ function () {
 
     this.provider = this.getProvider();
     this.web3 = new _web.default(this.provider);
-    this.worldHouse = new _contractWorldHouse.default(this.provider);
+    this.worldHouse = new _worldHouse.default(this.provider);
   }
 
   _createClass(ContractMgr, [{
@@ -121587,7 +121587,7 @@ function () {
 
 var _default = ContractMgr;
 exports.default = _default;
-},{"web3":"../../node_modules/web3/src/index.js","./contract-world-house":"../src/sol/contract-world-house.js","../utils":"../src/utils.js"}],"../src/player.js":[function(require,module,exports) {
+},{"web3":"../../node_modules/web3/src/index.js","./world-house":"../src/contract-js/world-house.js","../utils":"../src/utils.js"}],"../src/player.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -121716,7 +121716,7 @@ var _metamask = _interopRequireDefault(require("./metamask"));
 
 var _eventListener = _interopRequireDefault(require("./event-listener"));
 
-var _contractMgr = _interopRequireDefault(require("./sol/contract-mgr"));
+var _contractMgr = _interopRequireDefault(require("./contract-js/contract-mgr"));
 
 var _player = _interopRequireDefault(require("./player"));
 
@@ -121788,7 +121788,7 @@ function () {
 
 var _default = App;
 exports.default = _default;
-},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./sol/contract-mgr":"../src/sol/contract-mgr.js","./player":"../src/player.js","./price-system":"../src/price-system.js","./utils":"../src/utils.js","./macro":"../src/macro.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
+},{"./image-mgr":"../src/image-mgr.js","./ownership":"../src/ownership.js","./metamask":"../src/metamask.js","./event-listener":"../src/event-listener.js","./contract-js/contract-mgr":"../src/contract-js/contract-mgr.js","./player":"../src/player.js","./price-system":"../src/price-system.js","./utils":"../src/utils.js","./macro":"../src/macro.js"}],"../src/drawing/draw-land.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -123228,7 +123228,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51704" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54132" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

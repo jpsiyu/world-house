@@ -2,7 +2,7 @@ import contract from 'truffle-contract'
 import WorldHouseArtifact from '../../../build/contracts/WorldHouse.json'
 import { log, logError } from '../utils'
 
-class ContractWorldHouse {
+class WorldHouse {
     constructor() {
         this.instance = null
     }
@@ -55,4 +55,4 @@ class ContractWorldHouse {
     }
 }
 
-export default ContractWorldHouse
+export default WorldHouse
