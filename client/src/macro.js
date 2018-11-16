@@ -6,6 +6,7 @@ const MacroMap = {
     CanvasWidth: 1000,
     CanvasHeight: 618,
     Surround: 5,
+    Neighbor: 2,
 }
 
 const MacroEventType = {

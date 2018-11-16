@@ -204,18 +204,27 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px lightgray solid;
 }
 
-.owned-house-item{
-    border: 1px lightgray solid;
+.owned-house-top{
     display: flex;
     align-items: center;
+    border-bottom: 1px lightgray solid;
 }
 
-.owned-house-item img{
+.owned-house-top img{
     width: 150px;
     height: 150px;
     margin-right: 20px;
+}
+
+.owned-house-top-left{
+    flex: 1;
+}
+
+.owned-house-top-right{
+    flex: 2;
 }
 
 /* page move */

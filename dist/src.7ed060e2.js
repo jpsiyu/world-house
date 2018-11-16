@@ -23190,7 +23190,8 @@ var MacroMap = {
   ColNum: 1000,
   CanvasWidth: 1000,
   CanvasHeight: 618,
-  Surround: 5
+  Surround: 5,
+  Neighbor: 2
 };
 exports.MacroMap = MacroMap;
 var MacroEventType = {
@@ -122663,6 +122664,10 @@ var _pageWidgets = require("./page-widgets");
 
 var _houseConfig = require("../house-config");
 
+var _utils = require("../utils");
+
+var _drawUtil = require("../drawing/draw-util");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -122689,31 +122694,19 @@ function (_React$Component) {
   _inherits(PageHome, _React$Component);
 
   function PageHome(props) {
+    var _this;
+
     _classCallCheck(this, PageHome);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(PageHome).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(PageHome).call(this, props));
+    _this.state = {
+      neighbor: 0,
+      happiness: 0
+    };
+    return _this;
   }
 
   _createClass(PageHome, [{
-    key: "whenNoHouse",
-    value: function whenNoHouse() {
-      return _react.default.createElement("div", {
-        className: "no-house"
-      }, _react.default.createElement("p", null, "You don't have one, go to the market and buy one!"));
-    }
-  }, {
-    key: "whenOwnedHouse",
-    value: function whenOwnedHouse(houseData) {
-      var conf = (0, _houseConfig.getById)(houseData.id);
-      return _react.default.createElement("div", {
-        className: "owned-house"
-      }, _react.default.createElement("div", {
-        className: "owned-house-item"
-      }, _react.default.createElement("img", {
-        src: "/images/".concat(conf.img)
-      }), _react.default.createElement("p", null, "Land: (", houseData.row, ", ", houseData.col, ")")));
-    }
-  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
@@ -122727,6 +122720,65 @@ function (_React$Component) {
         className: "popup-content"
       }, app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse())));
     }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      if (!app.player.houseData) return;
+      var neighbor = (0, _drawUtil.surround)(app.player.houseData.row, app.player.houseData.col, _macro.MacroMap.Neighbor);
+      var addresses = [];
+      app.contractMgr.worldHouse.getLandOwners(neighbor.rows, neighbor.cols).then(function (res) {
+        for (var i = 0; i < res.length; i++) {
+          var address = res[i];
+          if (address == 0) continue;else {
+            addresses.push(address);
+          }
+        }
+      }).then(function () {
+        var neighbor = addresses.length - 1;
+
+        var happiness = _this2.happinessFormular(neighbor);
+
+        _this2.setState({
+          neighbor: neighbor,
+          happiness: happiness
+        });
+      }).catch(function (err) {
+        return (0, _utils.logError)(err);
+      });
+    }
+  }, {
+    key: "happinessFormular",
+    value: function happinessFormular(x) {
+      var y = -6 / 15 * (x * x) + 12 * x + 10;
+      return Math.round(y * 10) / 10;
+    }
+  }, {
+    key: "whenNoHouse",
+    value: function whenNoHouse() {
+      return _react.default.createElement("div", {
+        className: "no-house"
+      }, _react.default.createElement("p", null, "You don't have one, go to the market and buy one!"));
+    }
+  }, {
+    key: "whenOwnedHouse",
+    value: function whenOwnedHouse(houseData) {
+      var conf = (0, _houseConfig.getById)(houseData.id);
+      return _react.default.createElement("div", {
+        className: "owned-house"
+      }, _react.default.createElement("div", {
+        className: "owned-house-top"
+      }, _react.default.createElement("div", {
+        className: "owned-house-top-left"
+      }, _react.default.createElement("img", {
+        src: "/images/".concat(conf.img)
+      })), _react.default.createElement("div", {
+        className: "owned-house-top-right"
+      }, _react.default.createElement("p", null, "Land: (", houseData.row, ", ", houseData.col, ")"))), _react.default.createElement("div", {
+        className: "owned-house-bottom"
+      }, _react.default.createElement("p", null, "Neighbor Count: ".concat(this.state.neighbor)), _react.default.createElement("p", null, "Happiness: ", this.state.happiness)));
+    }
   }]);
 
   return PageHome;
@@ -122734,7 +122786,7 @@ function (_React$Component) {
 
 var _default = PageHome;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","./page-widgets":"../src/pages/page-widgets.js","../house-config":"../src/house-config.js"}],"../src/pages/page-market.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../macro":"../src/macro.js","./page-widgets":"../src/pages/page-widgets.js","../house-config":"../src/house-config.js","../utils":"../src/utils.js","../drawing/draw-util":"../src/drawing/draw-util.js"}],"../src/pages/page-market.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
