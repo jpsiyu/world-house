@@ -348,6 +348,30 @@
     color: white;
     outline: none;
     border-radius: 10px;
+}
+
+/* page owner */
+.owner-container{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-container p{
+    font-size: 20px;
+}
+
+.owner-container button{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    background-color: blueviolet;
+    outline: none;
+    border: none;
+    color: white;
+    margin: 20px 0;
 }*{
     padding: 0;
     margin: 0;
@@ -458,6 +482,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    display: flex;
 }
 
 .map-logo{

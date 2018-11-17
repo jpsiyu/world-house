@@ -1,6 +1,7 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from './macro'
 import { getById } from './house-config'
+import { logError } from './utils'
 
 class MapFace extends React.Component {
     constructor(props) {
@@ -39,7 +40,8 @@ class MapBottom extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            active: false
+            active: false,
+            isOwner: false,
         }
     }
 
@@ -49,6 +51,13 @@ class MapBottom extends React.Component {
             <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
                 <img src='/images/house.png'></img>
             </div>
+            {
+                this.state.isOwner
+                    ? <div className='fundation-icon' onClick={this.onOwnerClick.bind(this)}>
+                        <img src='/images/owner.png'></img>
+                    </div>
+                    : null
+            }
         </div>
 
     }
@@ -61,11 +70,21 @@ class MapBottom extends React.Component {
         this.setState({
             active: true
         })
+        app.contractMgr.worldHouse.isOwner()
+            .then(res => {
+                this.setState({ isOwner: res })
+            })
+            .catch(err => logError(err))
     }
 
     onHomeClick() {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
     }
+
+    onOwnerClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageOwner })
+    }
+
 }
 
 class MapRight extends React.Component {

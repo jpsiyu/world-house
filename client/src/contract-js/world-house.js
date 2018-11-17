@@ -53,6 +53,21 @@ class WorldHouse {
         const account = app.metamask.account
         return this.instance.getBasePrice({ from: account })
     }
+
+    isOwner(){
+        const account = app.metamask.account
+        return this.instance.isOwner({ from: account })
+    }
+
+    getBalance() {
+        const account = app.metamask.account
+        return this.instance.getBalance({ from: account })
+    }
+
+    withdraw(){
+        const account = app.metamask.account
+        return this.instance.withdraw({ from: account })
+    }
 }
 
 export default WorldHouse

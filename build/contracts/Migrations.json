@@ -193,7 +193,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 395,
+                        "referencedDeclaration": 444,
                         "src": "150:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -279,7 +279,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 395,
+                        "referencedDeclaration": 444,
                         "src": "201:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -843,7 +843,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 395,
+                        "referencedDeclaration": 444,
                         "src": "150:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -929,7 +929,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 395,
+                        "referencedDeclaration": 444,
                         "src": "201:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1378,10 +1378,10 @@
     "999": {
       "events": {},
       "links": {},
-      "address": "0xc981b916dc7e8137cae3f101b97a05268c53e66d",
+      "address": "0x52265dcd8426fc69e89cb33a841ca6f78fcfcb88",
       "transactionHash": "0xed471243fc49cbdc077a992f50a8e7d83a5722c44e7647a33562902ea10897fe"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-16T11:57:27.866Z"
+  "updatedAt": "2018-11-17T07:45:00.272Z"
 }

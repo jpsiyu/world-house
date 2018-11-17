@@ -24,6 +24,7 @@ const MacroViewType = {
     PageHome: 'PageHome',
     PageMarket: 'PageMarket',
     PageMove: 'PageMove',
+    PageOwner: 'PageOwner',
 }
 
 const MacroNetworkType = {

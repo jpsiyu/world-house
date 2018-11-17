@@ -64,6 +64,23 @@ contract WorldHouse{
         else return 1e17;
     }
 
+    function isOwner() public view returns(bool){
+        return msg.sender == owner;
+    }
+
+    modifier ownerAccess(){
+        require(msg.sender == owner, "Access denied");
+        _;
+    }
+
+    function getBalance() public view ownerAccess returns(uint){
+        return address(this).balance;
+    }
+
+    function withdraw() public ownerAccess {
+        owner.transfer(getBalance());
+    }
+
     // private
     function _addRecord(uint16 row, uint16 col, uint16 id) private{
         HouseData memory data = HouseData(row, col, id, 1);
