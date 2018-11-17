@@ -1,5 +1,5 @@
 const houseConfig = [
-    { id: 1, img: 'house1.png', priceRatio: 100 },
+    { id: 1, img: 'house1.png', priceRatio: 1 },
     { id: 2, img: 'house2.png', priceRatio: 1.2 },
 ]
 

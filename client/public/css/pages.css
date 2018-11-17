@@ -330,7 +330,9 @@
     flex: 3;
     font-size: 20px;
     display: flex;
+    flex-direction: column;
     padding: 20px;
+    overflow: scroll;
 }
 
 .notice-btn{
