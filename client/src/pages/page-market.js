@@ -45,7 +45,9 @@ class PageMarket extends React.Component {
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.BuyHouse)
-                    notice('You buy a house!')
+                    notice('You buy a house!', () => {
+                        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
+                    })
                 })
         }, 1000)
     }

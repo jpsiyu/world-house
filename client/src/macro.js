@@ -17,6 +17,8 @@ const MacroEventType = {
     HouseMove: 'HouseMove',
     UpdateSurround: 'UpdateSurround',
     Notice: 'Notice',
+    Center2Grid: 'Center2Grid',
+    DrawCloudEffect: 'DrawCloudEffect',
 }
 
 const MacroViewType = {
@@ -36,4 +38,11 @@ const MacroNetworkType = {
     Private: 999,
 }
 
-export {MacroMap, MacroEventType, MacroViewType, MacroNetworkType}
+const EffectState = {
+    CloudIn: 'CloudIn',
+    CloudStay: 'CloudStay',
+    CloudOut: 'CloudOut',
+    CloudHide: 'CloudHide'
+}
+
+export { MacroMap, MacroEventType, MacroViewType, MacroNetworkType, EffectState }

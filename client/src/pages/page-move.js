@@ -56,7 +56,9 @@ class PageMove extends React.Component {
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.HouseMove)
-                    notice('House Move Success!')
+                    notice('House Move Success!', () => {
+                        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMove)
+                    })
                 })
         }, 1000)
     }

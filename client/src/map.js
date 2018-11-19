@@ -3,6 +3,7 @@ import { MacroMap, MacroEventType } from './macro'
 import DrawLand from './drawing/draw-land'
 import LandPos from './drawing/land-pos'
 import { getById } from './house-config'
+import Effect from './effect'
 
 import {
     MapFace,
@@ -44,6 +45,7 @@ class Map extends React.Component {
             <MapFace />
             <MapBottom />
             {this.state.selectedGrid == null ? null : <MapRight selectedGrid={this.state.selectedGrid} />}
+            <Effect />
         </div>
     }
 
@@ -69,6 +71,11 @@ class Map extends React.Component {
             this.updateAndDraw()
         })
 
+        app.eventListener.register(MacroEventType.Center2Grid, this, (grid) => {
+            this.setState({ selectedGrid: grid })
+            this.center2grid(grid.r, grid.c)
+        })
+
         this.draw()
     }
 
@@ -92,6 +99,7 @@ class Map extends React.Component {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.drawLand()
         this.drawSelectedGrid()
+        this.drawHomeGrid()
         this.drawHouse()
     }
 
@@ -116,13 +124,27 @@ class Map extends React.Component {
         })
     }
 
+    drawHomeGrid() {
+        if (!app.player.hasHouse()) return
+        const pos = this.landPos.getPos()
+        drawWrapper(this.ctx, pos, (ctx, pos) => {
+            ctx.fillStyle = 'rgba(154,200,255, 0.8)'
+            const rectPos = {
+                x: app.player.houseData.col * MacroMap.HourseSize,
+                y: app.player.houseData.row * MacroMap.HourseSize,
+            }
+            ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
+            ctx.fill()
+        })
+    }
+
     drawHouse() {
         const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
                 const landInfo = owners[ownerAddr]
-                const objPos =  this.landPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
+                const objPos = this.landPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
                 const midPos = this.landPos.gridMiddleInLandPos(landInfo.land.r, landInfo.land.c)
                 if (rectInCanvas(ctx, pos, objPos, MacroMap.HourseSize)) {
                     const conf = getById(landInfo.id)
