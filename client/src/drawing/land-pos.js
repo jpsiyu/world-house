@@ -1,3 +1,5 @@
+import { MacroMap } from '../macro'
+
 class LandPos {
     constructor(x, y) {
         this.posX = x
@@ -46,16 +48,35 @@ class LandPos {
         }
     }
 
-    canvasPos2MapPos(pos) {
+    canvasPos2LandPos(pos) {
         return {
             x: pos.x - this.posX,
             y: pos.y - this.posY,
         }
     }
 
-    setOriginPos(pos){
+    setOriginPos(pos) {
         this.posX = pos.x
         this.posY = pos.y
+    }
+
+    landPosInGrid(pos) {
+        const r = Math.floor(pos.y / MacroMap.HourseSize)
+        const c = Math.floor(pos.x / MacroMap.HourseSize)
+        return { r, c }
+
+    }
+
+    gridInLandPos(r, c) {
+        const x = c * MacroMap.HourseSize
+        const y = r * MacroMap.HourseSize
+        return { x, y }
+    }
+
+    gridMiddleInLandPos(r, c) {
+        const x = c * MacroMap.HourseSize + MacroMap.HourseSize / 2
+        const y = r * MacroMap.HourseSize + MacroMap.HourseSize / 2
+        return { x, y }
     }
 }
 

@@ -13,11 +13,8 @@ import {
 
 import {
     drawWrapper,
-    grid2pos,
     rectInCanvas,
     drawImageMid,
-    grid2posMid,
-    posToGrid,
 } from './drawing/draw-util'
 
 class Map extends React.Component {
@@ -63,24 +60,27 @@ class Map extends React.Component {
             if (app.player.hasHouse()) {
                 this.center2grid(app.player.houseData.row, app.player.houseData.col)
             } else
-                this.updateAndDraw(true)
+                this.updateAndDraw()
         })
         app.eventListener.register(MacroEventType.BuyHouse, this, () => {
-            this.updateAndDraw(true)
+            this.updateAndDraw()
         })
         app.eventListener.register(MacroEventType.HouseMove, this, () => {
-            this.updateAndDraw(true)
+            this.updateAndDraw()
         })
 
         this.draw()
     }
 
-    updateAndDraw(force = false) {
+    updateAndDraw(force = true) {
         if (!app.playerMode) return
         const canvasMidPos = this.landPos.getCanvasMidPos(this.ctx)
-        const gridPos = posToGrid(canvasMidPos)
+        const gridPos = this.landPos.landPosInGrid(canvasMidPos)
         const res = app.ownership.setCenter(gridPos)
+
+        // if not force and center pos not change, just let it go
         if (!res && !force) return
+
         app.ownership.getSurroundInfo()
             .then(() => {
                 this.draw()
@@ -122,8 +122,8 @@ class Map extends React.Component {
             const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
                 const landInfo = owners[ownerAddr]
-                const objPos = grid2pos(landInfo.land.r, landInfo.land.c)
-                const midPos = grid2posMid(landInfo.land.r, landInfo.land.c)
+                const objPos =  this.landPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
+                const midPos = this.landPos.gridMiddleInLandPos(landInfo.land.r, landInfo.land.c)
                 if (rectInCanvas(ctx, pos, objPos, MacroMap.HourseSize)) {
                     const conf = getById(landInfo.id)
                     const houseImage = app.imageMgr.getImage(conf.img)
@@ -137,8 +137,8 @@ class Map extends React.Component {
     onClick(event) {
         if (!app.playerMode) return
         const canvasPos = { x: event.offsetX, y: event.offsetY }
-        const mapPos = this.landPos.canvasPos2MapPos(canvasPos)
-        const gridPos = posToGrid(mapPos)
+        const mapPos = this.landPos.canvasPos2LandPos(canvasPos)
+        const gridPos = this.landPos.landPosInGrid(mapPos)
         if (gridPos.r < 0 || gridPos.r >= MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= MacroMap.ColNum)
             this.setState({
                 selectedGrid: null
@@ -160,7 +160,7 @@ class Map extends React.Component {
 
     onMouseUp(event) {
         this.draging = false
-        this.updateAndDraw()
+        this.updateAndDraw(false)
         if (this.clickFlag) this.onClick(event)
     }
 
@@ -178,12 +178,12 @@ class Map extends React.Component {
     }
 
     center2grid(r, c) {
-        const centerMapPos = grid2posMid(r, c)
-        const mapOriginPos = {
-            x: this.canvas.width / 2 - centerMapPos.x,
-            y: this.canvas.height / 2 - centerMapPos.y,
+        const gridMiddle = this.landPos.gridMiddleInLandPos(r, c)
+        const landOrigin = {
+            x: this.canvas.width / 2 - gridMiddle.x,
+            y: this.canvas.height / 2 - gridMiddle.y,
         }
-        this.landPos.setOriginPos(mapOriginPos)
+        this.landPos.setOriginPos(landOrigin)
         this.updateAndDraw(true)
     }
 }

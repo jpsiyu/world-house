@@ -9,24 +9,6 @@ const drawWrapper = (ctx, pos, callback) => {
     ctx.restore()
 }
 
-const grid2pos = (r, c) => {
-    const x = c * MacroMap.HourseSize
-    const y = r * MacroMap.HourseSize
-    return { x, y }
-}
-
-const grid2posMid = (r, c) => {
-    const x = c * MacroMap.HourseSize + MacroMap.HourseSize / 2
-    const y = r * MacroMap.HourseSize + MacroMap.HourseSize / 2
-    return { x, y }
-}
-
-const posToGrid = (pos) => {
-    const r = Math.floor(pos.y / MacroMap.HourseSize)
-    const c = Math.floor(pos.x / MacroMap.HourseSize)
-    return { r, c }
-}
-
 const rectInCanvas = (ctx, objPos, pos, objSize) => {
     const fixedX = objPos.x + pos.x
     const fixedY = objPos.y + pos.y
@@ -55,10 +37,7 @@ const surround = (r, c, distance) => {
 
 export {
     drawWrapper,
-    grid2pos,
-    grid2posMid,
     rectInCanvas,
     drawImageMid,
     surround,
-    posToGrid,
 }
