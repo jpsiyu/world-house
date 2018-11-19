@@ -200,6 +200,7 @@ class Map extends React.Component {
     }
 
     center2grid(r, c) {
+        app.eventListener.dispatch(MacroEventType.DrawCloudEffect)
         const gridMiddle = this.landPos.gridMiddleInLandPos(r, c)
         const landOrigin = {
             x: this.canvas.width / 2 - gridMiddle.x,

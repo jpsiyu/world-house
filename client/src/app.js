@@ -39,7 +39,6 @@ class App {
                 this.priceSystem.setPrice(price)
             })
             .then(() => {
-                this.eventListener.dispatch(MacroEventType.DrawCloudEffect)
                 this.playerMode = true
                 this.eventListener.dispatch(MacroEventType.PlayerMode)
                 log('Enter Player Mode')

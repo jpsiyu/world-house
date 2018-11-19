@@ -11,18 +11,8 @@ class Effect extends React.Component {
         this.ctx = null
         this.canvas = null
         this.frame = this.frame.bind(this)
-        this.leftCloudPos = { x: -MacroMap.CanvasWidth / 2, y: -MacroMap.CanvasHeight / 4 }
-        this.rightCloudPos = { x: MacroMap.CanvasWidth / 2, y: MacroMap.CanvasHeight / 4 }
-        this.speedX = 400
-        this.speedY = 200
-        this.timePass = 0
-        this.effectState = EffectState.CloudHide
-        this.effectTime = {
-            cloudIn: 0.5,
-            cloudStay: 0.5,
-            cloudOut: 1.5,
-        }
-        this.bgAlpha = 0
+
+        this.reset()
     }
 
     render() {
@@ -116,6 +106,7 @@ class Effect extends React.Component {
     }
 
     activeAnimation() {
+        this.reset()
         this.setState({ active: true })
         this.effectState = EffectState.CloudIn
         window.requestAnimationFrame(this.frame)
@@ -129,6 +120,23 @@ class Effect extends React.Component {
         this.update(elapsed)
         this.draw()
         window.requestAnimationFrame(this.frame)
+    }
+
+    reset() {
+        this.leftCloudPos = { x: -MacroMap.CanvasWidth / 2, y: -MacroMap.CanvasHeight / 4 }
+        this.rightCloudPos = { x: MacroMap.CanvasWidth / 2, y: MacroMap.CanvasHeight / 4 }
+        this.speedX = 2000
+        this.speedY = 200
+        this.timePass = 0
+        this.effectState = EffectState.CloudHide
+        this.effectTime = {
+            cloudIn: 0.2,
+            cloudStay: 0.5,
+            cloudOut: 1.5,
+        }
+        this.bgAlpha = 0
+        this.previous = null
+
     }
 }
 
