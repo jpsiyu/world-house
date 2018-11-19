@@ -1,7 +1,7 @@
 import React from 'react'
 import { MacroMap, MacroEventType } from './macro'
 import DrawLand from './drawing/draw-land'
-import MapPos from './drawing/map-pos'
+import LandPos from './drawing/land-pos'
 import { getById } from './house-config'
 
 import {
@@ -29,7 +29,7 @@ class Map extends React.Component {
         this.state = {
             selectedGrid: null,
         }
-        this.mapPos = new MapPos(0, 0)
+        this.landPos = new LandPos(0, 0)
         this.draging = false
         this.clickFlag = false
         this.land = new DrawLand()
@@ -60,7 +60,10 @@ class Map extends React.Component {
         canvas.addEventListener('mouseout', this.onMouseUp.bind(this))
 
         app.eventListener.register(MacroEventType.PlayerMode, this, () => {
-            this.updateAndDraw()
+            if (app.player.hasHouse()) {
+                this.center2grid(app.player.houseData.row, app.player.houseData.col)
+            } else
+                this.updateAndDraw(true)
         })
         app.eventListener.register(MacroEventType.BuyHouse, this, () => {
             this.updateAndDraw(true)
@@ -74,7 +77,7 @@ class Map extends React.Component {
 
     updateAndDraw(force = false) {
         if (!app.playerMode) return
-        const canvasMidPos = this.mapPos.getCanvasMidPos(this.ctx)
+        const canvasMidPos = this.landPos.getCanvasMidPos(this.ctx)
         const gridPos = posToGrid(canvasMidPos)
         const res = app.ownership.setCenter(gridPos)
         if (!res && !force) return
@@ -93,7 +96,7 @@ class Map extends React.Component {
     }
 
     drawLand() {
-        const pos = this.mapPos.getPos()
+        const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             this.land.draw(ctx, pos)
         })
@@ -101,7 +104,7 @@ class Map extends React.Component {
 
     drawSelectedGrid() {
         if (!this.state.selectedGrid) return
-        const pos = this.mapPos.getPos()
+        const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const rectPos = {
                 x: this.state.selectedGrid.c * MacroMap.HourseSize,
@@ -114,7 +117,7 @@ class Map extends React.Component {
     }
 
     drawHouse() {
-        const pos = this.mapPos.getPos()
+        const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
@@ -134,7 +137,7 @@ class Map extends React.Component {
     onClick(event) {
         if (!app.playerMode) return
         const canvasPos = { x: event.offsetX, y: event.offsetY }
-        const mapPos = this.mapPos.canvasPos2MapPos(canvasPos)
+        const mapPos = this.landPos.canvasPos2MapPos(canvasPos)
         const gridPos = posToGrid(mapPos)
         if (gridPos.r < 0 || gridPos.r >= MacroMap.RowNum || gridPos.c < 0 || gridPos.c >= MacroMap.ColNum)
             this.setState({
@@ -152,7 +155,7 @@ class Map extends React.Component {
         const startY = event.clientY
         this.draging = true
         this.clickFlag = true
-        this.mapPos.setStart(startX, startY)
+        this.landPos.setStart(startX, startY)
     }
 
     onMouseUp(event) {
@@ -167,11 +170,21 @@ class Map extends React.Component {
 
         const targetX = event.clientX
         const targetY = event.clientY
-        this.mapPos.setTarget(targetX, targetY)
-        this.mapPos.move()
+        this.landPos.setTarget(targetX, targetY)
+        this.landPos.move()
 
         this.draw()
-        this.mapPos.setStart(targetX, targetY)
+        this.landPos.setStart(targetX, targetY)
+    }
+
+    center2grid(r, c) {
+        const centerMapPos = grid2posMid(r, c)
+        const mapOriginPos = {
+            x: this.canvas.width / 2 - centerMapPos.x,
+            y: this.canvas.height / 2 - centerMapPos.y,
+        }
+        this.landPos.setOriginPos(mapOriginPos)
+        this.updateAndDraw(true)
     }
 }
 

@@ -1,4 +1,4 @@
-class MapPos {
+class LandPos {
     constructor(x, y) {
         this.posX = x
         this.posY = y
@@ -52,6 +52,11 @@ class MapPos {
             y: pos.y - this.posY,
         }
     }
+
+    setOriginPos(pos){
+        this.posX = pos.x
+        this.posY = pos.y
+    }
 }
 
-export default MapPos
+export default LandPos
