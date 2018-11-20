@@ -50,12 +50,22 @@ class Ownership {
                     }
                 })
                 .then(() => {
-                    return app.contractMgr.worldHouse.getHouseId(addresses)
+                    return app.contractMgr.worldHouse.getHouses(addresses)
                 })
                 .then(ids => {
                     addresses.forEach((addr, idx) => {
                         this.owners[addr].id = ids[idx].toNumber()
                     })
+                })
+                .then(() => {
+                    return app.contractMgr.worldHouse.getEnvs(sur.rows, sur.cols)
+                })
+                .then(res => {
+                    for (let i = 0; i < res.length; i++) {
+                        const envId = res[i]
+                        if (envId == 0) continue
+                        this.addOwner('root', sur.rows[i], sur.cols[i], envId)
+                    }
                 })
                 .then(resolve)
                 .catch(err => logError(err))

@@ -1,10 +1,14 @@
 import React from 'react'
 import { PopUpTop } from './page-widgets'
-import { MacroViewType } from '../macro'
+import { MacroEventType, MacroViewType, HouseType } from '../macro'
+import { houseConfig } from '../house-config'
+import { log, logError, notice } from '../utils'
 
 class PageENV extends React.Component {
     constructor(props) {
         super(props)
+        this.grid = props.viewArgs
+        this.waitTimer = null
     }
 
     render() {
@@ -18,8 +22,59 @@ class PageENV extends React.Component {
 
     renderContainer() {
         return <div className='popup-content'>
-            HaHa
+            <div className='market-content'>
+                {this.envItemList()}
+            </div>
         </div>
+    }
+
+    envItemList() {
+        const itemList = []
+        for (let i = 0; i < houseConfig.length; i++) {
+            const conf = houseConfig[i]
+            if (conf.type != HouseType.Env) continue
+            const price = app.priceSystem.getPriceWithConfigId(conf.id)
+            const houseId = conf.id
+            const item = <div className='market-item' key={i}>
+                <img src={`/images/${conf.img}`}></img>
+                <span>Price: {price.housePriceEth}<p>ETH</p></span>
+                <button onClick={() => { this.onPurchaseClick(houseId) }}>Purchase</button>
+            </div>
+            itemList.push(item)
+        }
+        return itemList
+    }
+
+    onPurchaseClick(houseId) {
+        const price = app.priceSystem.getPriceWithConfigId(houseId)
+        app.contractMgr.worldHouse.buyEnv(this.grid.r, this.grid.c, houseId, price.housePrice)
+            .then(res => {
+                log(res)
+                this.waitForReceipt(res.tx)
+            })
+            .catch(err => {
+                logError(err.name, err.message, err.stack)
+                notice(err.message)
+            })
+    }
+
+    waitForReceipt(tx) {
+        this.waitTimer = setInterval(() => {
+            app.contractMgr.getReceipt(tx)
+                .then(receipt => {
+                    log(receipt)
+                    clearInterval(this.waitTimer)
+                })
+                .then(() => {
+                    return app.player.updateHouseData()
+                })
+                .then(() => {
+                    app.eventListener.dispatch(MacroEventType.BuyHouse)
+                    notice('You buy a env!', () => {
+                        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
+                    })
+                })
+        }, 1000)
     }
 }
 

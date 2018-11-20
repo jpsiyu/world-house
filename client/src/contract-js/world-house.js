@@ -34,14 +34,24 @@ class WorldHouse {
         return this.instance.buyHouse(row, col, houseId, { from: account, value:price })
     }
 
-    getLandOwners(row, col) {
+    buyEnv(row, col, houseId, price){
         const account = app.metamask.account
-        return this.instance.getLandOwners(row, col, { from: account })
+        return this.instance.buyEnv(row, col, houseId, { from: account, value:price })
     }
 
-    getHouseId(owners) {
+    getLandOwners(rows, cols) {
         const account = app.metamask.account
-        return this.instance.getHouseId(owners, { from: account })
+        return this.instance.getLandOwners(rows, cols, { from: account })
+    }
+
+    getHouses(owners) {
+        const account = app.metamask.account
+        return this.instance.getHouses(owners, { from: account })
+    }
+
+    getEnvs(rows, cols){
+        const account = app.metamask.account
+        return this.instance.getEnvs(rows, cols, { from: account })
     }
 
     moveHouse(row, col) {

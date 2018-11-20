@@ -26,10 +26,6 @@ class PageMarket extends React.Component {
             return ViewState.NoHouse
     }
 
-    onCloseClick() {
-        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
-    }
-
 
     onPurchaseClick(houseId) {
         if (app.player.hasHouse()) {
