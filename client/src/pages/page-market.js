@@ -1,13 +1,12 @@
 import React from 'react'
-import { MacroEventType, MacroViewType } from '../macro'
+import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { log, logError, notice } from '../utils'
 import { PopUpTop, MarketGuide, OneGuide } from './page-widgets'
 import { houseConfig } from '../house-config'
 
 const ViewState = {
-    NoHouseNotSelected: 1,
-    NoHouseSelected: 2,
-    HasHouse: 3,
+    HasHouse: 1,
+    NoHouse: 2,
 }
 
 class PageMarket extends React.Component {
@@ -23,10 +22,8 @@ class PageMarket extends React.Component {
     checkState() {
         if (app.player.hasHouse())
             return ViewState.HasHouse
-        else if (this.grid)
-            return ViewState.NoHouseSelected
         else
-            return ViewState.NoHouseNotSelected
+            return ViewState.NoHouse
     }
 
     onCloseClick() {
@@ -74,6 +71,7 @@ class PageMarket extends React.Component {
         const itemList = []
         for (let i = 0; i < houseConfig.length; i++) {
             const conf = houseConfig[i]
+            if (conf.type != HouseType.House) continue
             const price = app.priceSystem.getPriceWithConfigId(conf.id)
             const houseId = conf.id
             const item = <div className='market-item' key={i}>
@@ -92,11 +90,7 @@ class PageMarket extends React.Component {
                 return <div className='popup-content'>
                     <OneGuide />
                 </div>
-            case ViewState.NoHouseNotSelected:
-                return <div className='popup-content'>
-                    <MarketGuide />
-                </div>
-            case ViewState.NoHouseSelected:
+            case ViewState.NoHouse:
                 return this.renderNoHouseSelected()
             default:
                 return <div className='popup-content'></div>

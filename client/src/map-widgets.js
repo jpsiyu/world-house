@@ -51,12 +51,6 @@ class MapBottom extends React.Component {
             <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
                 <img src='/images/house.png'></img>
             </div>
-            <div className='fundation-icon' onClick={this.onMarketClick.bind(this)}>
-                <img src='/images/sale.png'></img>
-            </div>
-            <div className='fundation-icon' onClick={this.onMoveClick.bind(this)}>
-                <img src='/images/travel.png'></img>
-            </div>
             {this.renderOwner()}
         </div>
 
@@ -88,13 +82,6 @@ class MapBottom extends React.Component {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
     }
 
-    onMarketClick() {
-        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMarket })
-    }
-
-    onMoveClick() {
-        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMove })
-    }
 
     onOwnerClick() {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageOwner })
@@ -105,43 +92,75 @@ class MapBottom extends React.Component {
 class MapRight extends React.Component {
     constructor(props) {
         super(props)
-        this.setate = {}
     }
 
     componentDidMount() {
         app.eventListener.register(MacroEventType.UpdateSurround, this, this.update.bind(this))
     }
 
+    componentWillUnmount(){
+        app.eventListener.logout(MacroEventType.UpdateSurround, this)
+    }
+
     update() {
         this.setState({})
     }
 
+    checkState(info) {
+        const current = {
+            showHouseMarket: !info,
+            showEnvMarket: !info,
+            showMove: !info,
+        }
+        return current
+    }
+
     render() {
         const info = app.ownership.getLandInfo(this.props.selectedGrid)
+        const current = this.checkState(info)
+        const landImg = info
+            ? <div className='map-right-owned-div'>
+                <img className='map-right-owned' src={`/images/${getById(info.id).img}`} />
+            </div>
+            : <div className='map-right-owned-div'></div>
+
         return <div className='map-right'>
             <p>{`Land: (${this.props.selectedGrid.r}, ${this.props.selectedGrid.c})`}</p>
-            {info
-                ? <img className='map-right-owned' src={`/images/${getById(info.id).img}`} />
-                : app.player.hasHouse()
-                    ? <button onClick={this.onMoveClick.bind(this)}>Move</button>
-                    : <button onClick={this.onMarketClick.bind(this)}>Purchase</button>
-            }
+            {landImg}
+
+            <div className='map-right-icon' >
+                <img onClick={this.onMarketClick.bind(this)} src='/images/sale.png'></img>
+                {current.showHouseMarket ? null : <div className='icon-cover'></div>}
+            </div>
+            <div className='map-right-icon' >
+                <img src='/images/garden-icon.png' onClick={this.onENVClick.bind(this)}></img>
+                {current.showEnvMarket ? null : <div className='icon-cover'></div>}
+            </div>
+            <div className='map-right-icon' >
+                <img src='/images/travel.png' onClick={this.onMoveClick.bind(this)}></img>
+                {current.showMove ? null : <div className='icon-cover'></div>}
+            </div>
         </div>
     }
 
+    onMarketClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView,
+            { viewName: MacroViewType.PageMarket, viewArgs: this.props.selectedGrid }
+        )
+    }
+
     onMoveClick() {
-        app.eventListener.dispatch(
-            MacroEventType.ShowView,
+        app.eventListener.dispatch(MacroEventType.ShowView,
             { viewName: MacroViewType.PageMove, viewArgs: this.props.selectedGrid }
         )
     }
 
-    onMarketClick() {
-        app.eventListener.dispatch(
-            MacroEventType.ShowView,
-            { viewName: MacroViewType.PageMarket, viewArgs: this.props.selectedGrid }
+    onENVClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView,
+            { viewName: MacroViewType.PageENV, viewArgs: this.props.selectedGrid }
         )
     }
+
 }
 
 class MapLogo extends React.Component {

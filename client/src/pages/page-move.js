@@ -1,12 +1,11 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop, MarketGuide, MoveGuide } from './page-widgets'
+import { PopUpTop, MoveGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
 
 const ViewState = {
     NoHouse: 1,
-    HasHouseSelected: 2,
-    HasHouseNotSelected: 3,
+    HasHouse: 2,
 }
 
 class PageMove extends React.Component {
@@ -23,17 +22,15 @@ class PageMove extends React.Component {
         return <div className='overflow'>
             <div className='popup'>
                 <PopUpTop title='House Move' viewType={MacroViewType.PageMove} />
-                {this.state.viewState == ViewState.HasHouseSelected
-                    ? this.renderHasHouseSelected()
-                    : this.state.viewState == ViewState.NoHouse
-                        ? <div className='popup-content'><MarketGuide /></div>
-                        : <div className='popup-content'><MoveGuide /></div>
+                {this.state.viewState == ViewState.HasHouse
+                    ? this.renderHasHouse()
+                    : <MoveGuide />
                 }
             </div>
         </div>
     }
 
-    renderHasHouseSelected() {
+    renderHasHouse() {
         return <div className='popup-content'>
             <div className='move-content'>
                 <div className='move-house'>
@@ -52,12 +49,7 @@ class PageMove extends React.Component {
 
 
     checkState() {
-        if (!app.player.hasHouse())
-            return ViewState.NoHouse
-        else if (this.grid)
-            return ViewState.HasHouseSelected
-        else
-            return ViewState.HasHouseNotSelected
+        return app.player.hasHouse() ? ViewState.HasHouse : ViewState.NoHouse
     }
 
     onBtnMoveClick() {

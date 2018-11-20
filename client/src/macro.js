@@ -26,6 +26,7 @@ const MacroViewType = {
     PageHome: 'PageHome',
     PageMarket: 'PageMarket',
     PageMove: 'PageMove',
+    PageENV: 'PageENV',
     PageOwner: 'PageOwner',
 }
 
@@ -45,5 +46,10 @@ const EffectState = {
     CloudHide: 'CloudHide'
 }
 
+const HouseType = {
+    House: 1,
+    Env: 2,
+}
 
-export { MacroMap, MacroEventType, MacroViewType, MacroNetworkType, EffectState }
+
+export { MacroMap, MacroEventType, MacroViewType, MacroNetworkType, EffectState, HouseType }
