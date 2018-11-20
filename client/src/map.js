@@ -121,6 +121,10 @@ class Map extends React.Component {
             ctx.fillStyle = 'rgba(188,213,103, 0.7)'
             ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
             ctx.fill()
+
+            ctx.strokeStyle = 'rgba(188,213,103, 1)'
+            ctx.lineWidth = 5
+            ctx.strokeRect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
         })
     }
 

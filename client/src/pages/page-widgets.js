@@ -120,7 +120,7 @@ class MarketGuide extends React.Component {
 
     render(){
         return <div className='rule-guide-container'>
-            <p>You don't have one, go to the market and buy one!</p>
+            <p>You don't have a house, go to the market and buy one!</p>
             <img src = '/images/market-guide.png'></img>
         </div>
     }
@@ -134,7 +134,7 @@ class MoveGuide extends React.Component {
 
     render(){
         return <div className='rule-guide-container'>
-            <p>Whick land would you want to move?</p>
+            <p>Which land would you want to move?</p>
             <img src = '/images/move-guide.png'></img>
         </div>
     }
