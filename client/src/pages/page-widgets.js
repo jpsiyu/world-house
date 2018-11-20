@@ -113,7 +113,52 @@ class HappinessFormula extends React.Component {
     }
 }
 
+class MarketGuide extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return <div className='rule-guide-container'>
+            <p>You don't have one, go to the market and buy one!</p>
+            <img src = '/images/market-guide.png'></img>
+        </div>
+    }
+
+}
+
+class MoveGuide extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return <div className='rule-guide-container'>
+            <p>Whick land would you want to move?</p>
+            <img src = '/images/move-guide.png'></img>
+        </div>
+    }
+
+}
+
+class OneGuide extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        return <div className='rule-guide-container'>
+            <p>You already has a house!</p>
+            <img src = '/images/one.png'></img>
+        </div>
+    }
+
+}
+
 export {
     PopUpTop,
     HappinessFormula,
+    MarketGuide,
+    MoveGuide,
+    OneGuide,
 }

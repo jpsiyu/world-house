@@ -1,14 +1,32 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
 import { log, logError, notice } from '../utils'
-import { PopUpTop } from './page-widgets'
+import { PopUpTop, MarketGuide, OneGuide } from './page-widgets'
 import { houseConfig } from '../house-config'
+
+const ViewState = {
+    NoHouseNotSelected: 1,
+    NoHouseSelected: 2,
+    HasHouse: 3,
+}
 
 class PageMarket extends React.Component {
     constructor(props) {
         super(props)
         this.grid = props.viewArgs
         this.waitTimer = null
+        this.state = {
+            viewState: this.checkState()
+        }
+    }
+
+    checkState() {
+        if (app.player.hasHouse())
+            return ViewState.HasHouse
+        else if (this.grid)
+            return ViewState.NoHouseSelected
+        else
+            return ViewState.NoHouseNotSelected
     }
 
     onCloseClick() {
@@ -68,16 +86,38 @@ class PageMarket extends React.Component {
         return itemList
     }
 
+    renderContainer() {
+        switch (this.state.viewState) {
+            case ViewState.HasHouse:
+                return <div className='popup-content'>
+                    <OneGuide />
+                </div>
+            case ViewState.NoHouseNotSelected:
+                return <div className='popup-content'>
+                    <MarketGuide />
+                </div>
+            case ViewState.NoHouseSelected:
+                return this.renderNoHouseSelected()
+            default:
+                return <div className='popup-content'></div>
+        }
+
+    }
+
     render() {
         return <div className='overflow'>
             <div className='popup'>
                 <PopUpTop title='Market' viewType={MacroViewType.PageMarket} />
-                <div className='popup-content'>
-                    <div className='market-location'><p>Build your house On land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
-                    <div className='market-content'>
-                        {this.houseItemList()}
-                    </div>
-                </div>
+                {this.renderContainer()}
+            </div>
+        </div>
+    }
+
+    renderNoHouseSelected() {
+        return <div className='popup-content'>
+            <div className='market-location'><p>Build your house On land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
+            <div className='market-content'>
+                {this.houseItemList()}
             </div>
         </div>
     }

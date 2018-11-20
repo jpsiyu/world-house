@@ -1,6 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop } from './page-widgets'
+import { PopUpTop, MarketGuide } from './page-widgets'
 import { getById } from '../house-config'
 import { HappinessFormula } from './page-widgets'
 
@@ -14,18 +14,12 @@ class PageHome extends React.Component {
             <div className='popup'>
                 <PopUpTop title='My House' viewType={MacroViewType.PageHome} />
                 <div className='popup-content'>
-                    {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : this.whenNoHouse()}
+                    {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : <MarketGuide />}
                 </div>
             </div>
         </div>
     }
 
-
-    whenNoHouse() {
-        return <div className='no-house'>
-            <p>You don't have one, go to the market and buy one!</p>
-        </div>
-    }
 
     whenOwnedHouse(houseData) {
         const conf = getById(houseData.id)

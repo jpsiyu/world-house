@@ -45,4 +45,5 @@ const EffectState = {
     CloudHide: 'CloudHide'
 }
 
+
 export { MacroMap, MacroEventType, MacroViewType, MacroNetworkType, EffectState }

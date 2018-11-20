@@ -51,15 +51,22 @@ class MapBottom extends React.Component {
             <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
                 <img src='/images/house.png'></img>
             </div>
-            {
-                this.state.isOwner
-                    ? <div className='fundation-icon' onClick={this.onOwnerClick.bind(this)}>
-                        <img src='/images/owner.png'></img>
-                    </div>
-                    : null
-            }
+            <div className='fundation-icon' onClick={this.onMarketClick.bind(this)}>
+                <img src='/images/sale.png'></img>
+            </div>
+            <div className='fundation-icon' onClick={this.onMoveClick.bind(this)}>
+                <img src='/images/travel.png'></img>
+            </div>
+            {this.renderOwner()}
         </div>
 
+    }
+
+    renderOwner() {
+        if (!this.state.isOwner) return null
+        return <div className='fundation-icon' onClick={this.onOwnerClick.bind(this)}>
+            <img src='/images/owner.png'></img>
+        </div>
     }
 
     componentDidMount() {
@@ -79,6 +86,14 @@ class MapBottom extends React.Component {
 
     onHomeClick() {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
+    }
+
+    onMarketClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMarket })
+    }
+
+    onMoveClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageMove })
     }
 
     onOwnerClick() {

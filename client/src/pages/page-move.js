@@ -1,35 +1,63 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop } from './page-widgets'
+import { PopUpTop, MarketGuide, MoveGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
+
+const ViewState = {
+    NoHouse: 1,
+    HasHouseSelected: 2,
+    HasHouseNotSelected: 3,
+}
 
 class PageMove extends React.Component {
     constructor(props) {
         super(props)
         this.grid = props.viewArgs
         this.waitTimer = null
+        this.state = {
+            viewState: this.checkState()
+        }
     }
 
     render() {
         return <div className='overflow'>
             <div className='popup'>
                 <PopUpTop title='House Move' viewType={MacroViewType.PageMove} />
-                <div className='popup-content'>
-                    <div className='move-content'>
-                        <div className='move-house'>
-                            <img className='move-img' src='/images/house.png' />
-                            <p>From ({app.player.houseData.row}, {app.player.houseData.col})</p>
-                        </div>
-                        <img className='move-mid-img' src='/images/house-move.png' />
-                        <div className='move-house'>
-                            <img className='move-img' src='/images/house.png' />
-                            <p>To ({this.grid.r}, {this.grid.c})</p>
-                        </div>
-                    </div>
-                    <button className='move-btn btn-shadow' onClick={this.onBtnMoveClick.bind(this)}>Move</button>
-                </div>
+                {this.state.viewState == ViewState.HasHouseSelected
+                    ? this.renderHasHouseSelected()
+                    : this.state.viewState == ViewState.NoHouse
+                        ? <div className='popup-content'><MarketGuide /></div>
+                        : <div className='popup-content'><MoveGuide /></div>
+                }
             </div>
         </div>
+    }
+
+    renderHasHouseSelected() {
+        return <div className='popup-content'>
+            <div className='move-content'>
+                <div className='move-house'>
+                    <img className='move-img' src='/images/house.png' />
+                    <p>From ({app.player.houseData.row}, {app.player.houseData.col})</p>
+                </div>
+                <img className='move-mid-img' src='/images/house-move.png' />
+                <div className='move-house'>
+                    <img className='move-img' src='/images/house.png' />
+                    <p>To ({this.grid.r}, {this.grid.c})</p>
+                </div>
+            </div>
+            <button className='move-btn btn-shadow' onClick={this.onBtnMoveClick.bind(this)}>Move</button>
+        </div>
+    }
+
+
+    checkState() {
+        if (!app.player.hasHouse())
+            return ViewState.NoHouse
+        else if (this.grid)
+            return ViewState.HasHouseSelected
+        else
+            return ViewState.HasHouseNotSelected
     }
 
     onBtnMoveClick() {

@@ -55,12 +55,14 @@
     align-items: center;
     padding: 20px;
     border-bottom: 0.2px lightgray solid;
+    color: gray;
 }
 
 .popup-close{
     width: 40px;
     height: 40px;
     background-color: white;
+    color: gray;
     border: 2px lightgray solid;
     outline: none;
     font-size: 20px;
@@ -253,6 +255,15 @@
     display: flex;
 }
 
+.no-house p{
+    font-size: 20px;
+    padding: 20px 0;
+}
+
+.no-house img{
+    width: 500px;
+}
+
 /* page move */
 .move-content{
     display: flex;
@@ -394,6 +405,26 @@
     border: none;
     color: white;
     margin: 20px 0;
+}
+
+/* house guide */
+.rule-guide-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rule-guide-container p{
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    color: gray;
+}
+
+.rule-guide-container img{
+    width: 500px;
+    border: 5px lightgray solid;
+    border-radius: 10px;
 }*{
     padding: 0;
     margin: 0;
