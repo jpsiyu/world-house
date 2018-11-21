@@ -2,6 +2,7 @@ import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
 import { PopUpTop, MarketGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
+import { getById } from '../house-config'
 
 const ViewState = {
     NoHouse: 1,
@@ -31,15 +32,17 @@ class PageMove extends React.Component {
     }
 
     renderHasHouse() {
+        const conf = getById(app.player.houseData.id)
+        const imgName = conf.img
         return <div className='popup-content'>
             <div className='move-content'>
                 <div className='move-house'>
-                    <img className='move-img' src='/images/house.png' />
+                    <img className='move-img' src={`/images/${imgName}`} />
                     <p>From ({app.player.houseData.row}, {app.player.houseData.col})</p>
                 </div>
                 <img className='move-mid-img' src='/images/house-move.png' />
                 <div className='move-house'>
-                    <img className='move-img' src='/images/house.png' />
+                    <img className='move-img' src={`/images/${imgName}`} />
                     <p>To ({this.grid.r}, {this.grid.c})</p>
                 </div>
             </div>
