@@ -1,7 +1,7 @@
 import React from 'react'
-import { MacroMap, MacroViewType } from '../macro'
-import { PopUpTop } from './page-widgets'
-import {log, logError, notice} from '../utils'
+import { MacroViewType } from '../macro'
+import { PopUp, PopUpContent, PopUpTop } from './page-widgets'
+import { log, logError, notice } from '../utils'
 
 class PageOwner extends React.Component {
     constructor(props) {
@@ -14,17 +14,15 @@ class PageOwner extends React.Component {
     }
 
     render() {
-        return <div className='overflow'>
-            <div className='popup'>
-                <PopUpTop title='Owner' viewType={MacroViewType.PageOwner} />
-                <div className='popup-content'>
-                    <div className='owner-container'>
-                        <p>Contract Balance: {this.state.balanceEth} eth</p>
-                        <button className='btn-shadow' onClick={this.onBtnWithdrawClick.bind(this)}>Withdraw</button>
-                    </div>
+        return <PopUp>
+            <PopUpTop title='Owner' viewType={MacroViewType.PageOwner} />
+            <PopUpContent>
+                <div className='owner-container'>
+                    <p>Contract Balance: {this.state.balanceEth} eth</p>
+                    <button className='btn-shadow' onClick={this.onBtnWithdrawClick.bind(this)}>Withdraw</button>
                 </div>
-            </div>
-        </div>
+            </PopUpContent>
+        </PopUp>
     }
 
     componentDidMount() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { PopUpTop, MarketItem } from './page-widgets'
+import { PopUp, PopUpContent, PopUpTop, MarketItem } from './page-widgets'
 import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { houseConfig } from '../house-config'
 import { log, logError, notice } from '../utils'
@@ -12,20 +12,14 @@ class PageENV extends React.Component {
     }
 
     render() {
-        return <div className='overflow'>
-            <div className='popup'>
-                <PopUpTop title='Environment' viewType={MacroViewType.PageMarket} />
-                {this.renderContainer()}
-            </div>
-        </div>
-    }
-
-    renderContainer() {
-        return <div className='popup-content'>
-            <div className='market-content'>
-                {this.envItemList()}
-            </div>
-        </div>
+        return <PopUp>
+            <PopUpTop title='Environment' viewType={MacroViewType.PageMarket} />
+            <PopUpContent>
+                <div className='market-content'>
+                    {this.envItemList()}
+                </div>
+            </PopUpContent>
+        </PopUp>
     }
 
     envItemList() {

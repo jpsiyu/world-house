@@ -1,6 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop, MarketGuide } from './page-widgets'
+import { PopUp, PopUpContent, PopUpTop, MarketGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
 import { getById } from '../house-config'
 
@@ -20,21 +20,19 @@ class PageMove extends React.Component {
     }
 
     render() {
-        return <div className='overflow'>
-            <div className='popup'>
-                <PopUpTop title='House Move' viewType={MacroViewType.PageMove} />
-                {this.state.viewState == ViewState.HasHouse
-                    ? this.renderHasHouse()
-                    : <div className='popup-content'> <MarketGuide /> </div>
-                }
-            </div>
-        </div>
+        return <PopUp>
+            <PopUpTop title='House Move' viewType={MacroViewType.PageMove} />
+            {this.state.viewState == ViewState.HasHouse
+                ? this.renderHasHouse()
+                : <PopUpContent><MarketGuide /></PopUpContent>
+            }
+        </PopUp>
     }
 
     renderHasHouse() {
         const conf = getById(app.player.houseData.id)
         const imgName = conf.img
-        return <div className='popup-content'>
+        return <PopUpContent>
             <div className='move-content'>
                 <div className='move-house'>
                     <img className='move-img' src={`/images/${imgName}`} />
@@ -47,7 +45,7 @@ class PageMove extends React.Component {
                 </div>
             </div>
             <button className='btn-violet btn-large btn-shadow' onClick={this.onBtnMoveClick.bind(this)}>Move</button>
-        </div>
+        </PopUpContent>
     }
 
 

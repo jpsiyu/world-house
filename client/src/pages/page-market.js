@@ -1,7 +1,7 @@
 import React from 'react'
 import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { log, logError, notice } from '../utils'
-import { PopUpTop, MarketItem } from './page-widgets'
+import { PopUp, PopUpContent, PopUpTop, MarketItem } from './page-widgets'
 import { houseConfig } from '../house-config'
 
 const ViewState = {
@@ -75,21 +75,15 @@ class PageMarket extends React.Component {
     }
 
     render() {
-        return <div className='overflow'>
-            <div className='popup'>
-                <PopUpTop title='Market' viewType={MacroViewType.PageMarket} />
-                {this.renderMarket()}
-            </div>
-        </div>
-    }
-
-    renderMarket() {
-        return <div className='popup-content'>
-            <div className='market-location'><p>Build your house On land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
-            <div className='market-content'>
-                {this.houseItemList()}
-            </div>
-        </div>
+        return <PopUp>
+            <PopUpTop title='Market' viewType={MacroViewType.PageMarket} />
+            <PopUpContent>
+                <div className='market-location'><p>Build your house On land: ({`${this.grid.r}, ${this.grid.c}`})</p></div>
+                <div className='market-content'>
+                    {this.houseItemList()}
+                </div>
+            </PopUpContent>
+        </PopUp>
     }
 }
 

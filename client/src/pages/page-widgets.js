@@ -4,6 +4,32 @@ import { Line } from 'react-chartjs-2'
 import { logError } from '../utils'
 import { surround } from '../drawing/draw-util'
 
+class PopUp extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return <div className='overflow'>
+            <div className='popup'>
+                {this.props.children}
+            </div>
+        </div>
+    }
+}
+
+class PopUpContent extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return <div className='popup-content' >
+            {this.props.children}
+        </div >
+    }
+}
+
 class PopUpTop extends React.Component {
     constructor(props) {
         super(props)
@@ -148,7 +174,9 @@ class MarketItem extends React.Component {
     }
 }
 export {
+    PopUp,
     PopUpTop,
+    PopUpContent,
     HappinessFormula,
     MarketGuide,
     MarketItem,

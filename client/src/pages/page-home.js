@@ -1,6 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop, MarketGuide } from './page-widgets'
+import { PopUp, PopUpContent, PopUpTop, MarketGuide } from './page-widgets'
 import { getById } from '../house-config'
 import { HappinessFormula } from './page-widgets'
 
@@ -10,14 +10,12 @@ class PageHome extends React.Component {
     }
 
     render() {
-        return <div className='overflow'>
-            <div className='popup'>
-                <PopUpTop title='My House' viewType={MacroViewType.PageHome} />
-                <div className='popup-content'>
-                    {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : <MarketGuide />}
-                </div>
-            </div>
-        </div>
+        return <PopUp>
+            <PopUpTop title='My House' viewType={MacroViewType.PageHome} />
+            <PopUpContent>
+                {app.player.hasHouse() ? this.whenOwnedHouse(app.player.houseData) : <MarketGuide />}
+            </PopUpContent>
+        </PopUp>
     }
 
 
