@@ -1,5 +1,5 @@
 import React from 'react'
-import { MacroMap, MacroEventType } from './macro'
+import { MacroMap, MacroEventType, HouseType } from './macro'
 import DrawLand from './drawing/draw-land'
 import LandPos from './drawing/land-pos'
 import { getById } from './house-config'
@@ -115,11 +115,11 @@ class Map extends React.Component {
         const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const rectPos = {
-                x: this.state.selectedGrid.c * MacroMap.HourseSize,
-                y: this.state.selectedGrid.r * MacroMap.HourseSize,
+                x: this.state.selectedGrid.c * MacroMap.HouseSize,
+                y: this.state.selectedGrid.r * MacroMap.HouseSize,
             }
             ctx.fillStyle = 'rgba(188,213,103, 0.5)'
-            ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
+            ctx.rect(rectPos.x, rectPos.y, MacroMap.HouseSize, MacroMap.HouseSize)
             ctx.fill()
         })
     }
@@ -129,16 +129,16 @@ class Map extends React.Component {
         const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
             const rectPos = {
-                x: app.player.houseData.col * MacroMap.HourseSize,
-                y: app.player.houseData.row * MacroMap.HourseSize,
+                x: app.player.houseData.col * MacroMap.HouseSize,
+                y: app.player.houseData.row * MacroMap.HouseSize,
             }
             ctx.fillStyle = 'rgba(188,213,103, 0.5)'
-            ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
+            ctx.rect(rectPos.x, rectPos.y, MacroMap.HouseSize, MacroMap.HouseSize)
             ctx.fill()
 
             ctx.strokeStyle = 'rgba(188,213,103, 1)'
             ctx.lineWidth = 3
-            ctx.strokeRect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
+            ctx.strokeRect(rectPos.x, rectPos.y, MacroMap.HouseSize, MacroMap.HouseSize)
         })
     }
 
@@ -150,10 +150,13 @@ class Map extends React.Component {
                 const landInfo = owners[ownerAddr]
                 const objPos = this.landPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
                 const midPos = this.landPos.gridMiddleInLandPos(landInfo.land.r, landInfo.land.c)
-                if (rectInCanvas(ctx, pos, objPos, MacroMap.HourseSize)) {
+                if (rectInCanvas(ctx, pos, objPos, MacroMap.HouseSize)) {
                     const conf = getById(landInfo.id)
                     const houseImage = app.imageMgr.getImage(conf.img)
-                    drawImageMid(ctx, midPos, houseImage.obj, MacroMap.HourseImageSize)
+                    const size = conf.type == HouseType.House 
+                        ? MacroMap.HouseImageSize
+                        : MacroMap.EnvImageSize
+                    drawImageMid(ctx, midPos, houseImage.obj, size)
                 }
             })
         })

@@ -1,6 +1,7 @@
 const MacroMap = {
-    HourseSize: 100,
-    HourseImageSize: 60,
+    HouseSize: 100,
+    HouseImageSize: 60,
+    EnvImageSize: 80,
     RowNum: 1000,
     ColNum: 1000,
     CanvasWidth: 1000,

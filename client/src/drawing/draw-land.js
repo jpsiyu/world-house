@@ -18,11 +18,11 @@ class DrawLand {
         let fixedY = 0
         ctx.lineWidth = this.lineWidth
         for (let i = 0; i < MacroMap.ColNum; i++) {
-            lineY = i * MacroMap.HourseSize
+            lineY = i * MacroMap.HouseSize
             fixedY = lineY + pos.y
             if (fixedY >= 0 && fixedY <= ctx.canvas.height) {
                 ctx.moveTo(0, lineY)
-                ctx.lineTo(MacroMap.RowNum * MacroMap.HourseSize, lineY)
+                ctx.lineTo(MacroMap.RowNum * MacroMap.HouseSize, lineY)
             }
         }
         ctx.stroke()
@@ -34,11 +34,11 @@ class DrawLand {
         let lineX = 0
         let fixedX = 0
         for (let i = 0; i < MacroMap.RowNum; i++) {
-            lineX = i * MacroMap.HourseSize
+            lineX = i * MacroMap.HouseSize
             fixedX = lineX + pos.x
             if (fixedX >= 0 && fixedX <= ctx.canvas.width) {
                 ctx.moveTo(lineX, 0)
-                ctx.lineTo(lineX, MacroMap.ColNum * MacroMap.HourseSize)
+                ctx.lineTo(lineX, MacroMap.ColNum * MacroMap.HouseSize)
 
             }
         }

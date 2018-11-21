@@ -61,21 +61,21 @@ class LandPos {
     }
 
     landPosInGrid(pos) {
-        const r = Math.floor(pos.y / MacroMap.HourseSize)
-        const c = Math.floor(pos.x / MacroMap.HourseSize)
+        const r = Math.floor(pos.y / MacroMap.HouseSize)
+        const c = Math.floor(pos.x / MacroMap.HouseSize)
         return { r, c }
 
     }
 
     gridInLandPos(r, c) {
-        const x = c * MacroMap.HourseSize
-        const y = r * MacroMap.HourseSize
+        const x = c * MacroMap.HouseSize
+        const y = r * MacroMap.HouseSize
         return { x, y }
     }
 
     gridMiddleInLandPos(r, c) {
-        const x = c * MacroMap.HourseSize + MacroMap.HourseSize / 2
-        const y = r * MacroMap.HourseSize + MacroMap.HourseSize / 2
+        const x = c * MacroMap.HouseSize + MacroMap.HouseSize / 2
+        const y = r * MacroMap.HouseSize + MacroMap.HouseSize / 2
         return { x, y }
     }
 }
