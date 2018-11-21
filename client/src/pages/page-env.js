@@ -1,5 +1,5 @@
 import React from 'react'
-import { PopUpTop } from './page-widgets'
+import { PopUpTop, MarketItem } from './page-widgets'
 import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { houseConfig } from '../house-config'
 import { log, logError, notice } from '../utils'
@@ -33,14 +33,8 @@ class PageENV extends React.Component {
         for (let i = 0; i < houseConfig.length; i++) {
             const conf = houseConfig[i]
             if (conf.type != HouseType.Env) continue
-            const price = app.priceSystem.getPriceWithConfigId(conf.id)
             const houseId = conf.id
-            const item = <div className='market-item' key={i}>
-                <img src={`/images/${conf.img}`}></img>
-                <span>Price: {price.housePriceEth}<p>ETH</p></span>
-                <button onClick={() => { this.onPurchaseClick(houseId) }}>Purchase</button>
-            </div>
-            itemList.push(item)
+            itemList.push(<MarketItem conf={conf} onPurchaseClick={() => this.onPurchaseClick(houseId)} key={i} />)
         }
         return itemList
     }

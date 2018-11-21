@@ -15,7 +15,7 @@ class MapFace extends React.Component {
         if (this.state.canPlay) return null
         return <div className='map-face'>
             <div className='map-title'><img src='/images/title.png'></img></div>
-            <button className='map-play' onClick={this.onPlayClick.bind(this)}><p>Play</p></button>
+            <button className='btn-violet btn-large btn-shadow' onClick={this.onPlayClick.bind(this)}><p>Play</p></button>
         </div>
     }
 

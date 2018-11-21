@@ -43,7 +43,7 @@ class PageMove extends React.Component {
                     <p>To ({this.grid.r}, {this.grid.c})</p>
                 </div>
             </div>
-            <button className='move-btn btn-shadow' onClick={this.onBtnMoveClick.bind(this)}>Move</button>
+            <button className='btn-violet btn-large btn-shadow' onClick={this.onBtnMoveClick.bind(this)}>Move</button>
         </div>
     }
 

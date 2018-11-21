@@ -18,8 +18,21 @@
     border: none;
 }
 
+.btn-large{
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+}
+
 .btn-violet{
     background-color: blueviolet;
+    color: white;
+}
+
+.btn-green{
+    background-color: lightseagreen;
     color: white;
 }
 
@@ -166,7 +179,7 @@
 }
 
 .market-item{
-    padding: 0 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,43 +190,45 @@
     width: 150px;
     height: 150px;
 }
-.market-item p{
-    font-size: 20px;
-    padding: 0 5px;
-}
-
-.market-item button{
-    background-color: lightseagreen;
-    outline: none;
-    color: white;
-    margin: 20px 0;
-    width: 120px;
-    height: 50px;
-    border: none;
-    font-size: 20px;
-}
-
-.market-item button:hover{
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
-}
-
-.market-item button:active{
-    box-shadow: none;
-}
 
 .market-item span{
     font-size: 20px;
 }
 
-.market-item p{
+.market-item span p{
     font-size: 12px;
     display: inline-block;
+}
+
+.market-price{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.market-price img{
+    width: 25px;
+    height: 25px;
 }
 
 .market-location{
     position: absolute;
     padding: 0 20px;
     font-size: 20px;
+}
+
+.item-name{
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    background-color: lightcoral;
+    color: white;
+}
+
+.item-name p{
+    font-size: 16px;
 }
 
 /* home page */
@@ -285,17 +300,6 @@
     flex-direction: column;
     align-items: center;
     border-bottom: 1px lightgray solid;
-}
-
-.move-btn{
-    width: 150px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    background-color: blueviolet;
-    color: white;
 }
 
 .formula{
@@ -371,16 +375,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.notice-btn button{
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
-    background-color: blueviolet;
-    color: white;
-    outline: none;
-    border-radius: 10px;
 }
 
 /* page owner */

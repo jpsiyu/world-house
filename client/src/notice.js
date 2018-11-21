@@ -22,7 +22,7 @@ class Notice extends React.Component {
                     <p>{this.state.msg}</p>
                 </div>
                 <div className='notice-btn'>
-                    <button className='btn-shadow' onClick={this.onBtnSureClick.bind(this)}>Sure</button>
+                    <button className='btn-violet btn-mid btn-shadow' onClick={this.onBtnSureClick.bind(this)}>Sure</button>
                 </div>
             </div>
         </div>

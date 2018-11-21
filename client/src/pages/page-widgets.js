@@ -114,36 +114,42 @@ class HappinessFormula extends React.Component {
 }
 
 class MarketGuide extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
-    render(){
+    render() {
         return <div className='rule-guide-container'>
             <p>You don't have a house, go to the market and buy one!</p>
-            <img src = '/images/market-guide.png'></img>
+            <img src='/images/market-guide.png'></img>
         </div>
     }
 
 }
 
-class OneGuide extends React.Component {
-    constructor(props){
+class MarketItem extends React.Component {
+    constructor(props) {
         super(props)
     }
 
-    render(){
-        return <div className='rule-guide-container'>
-            <p>You already has a house!</p>
-            <img src = '/images/one.png'></img>
+    render() {
+        const conf = this.props.conf
+        const onPurchaseClick = this.props.onPurchaseClick
+        const price = app.priceSystem.getPriceWithConfigId(conf.id)
+        return <div className='market-item'>
+            <div className='item-name'><p>{conf.name}</p></div>
+            <img src={`/images/${conf.img}`}></img>
+            <div className='market-price'>
+                <img src='/images/eth.png'></img>
+                <span>{price.housePriceEth}<p>ETH</p></span>
+            </div>
+            <button className='btn-green btn-large btn-shadow' onClick={onPurchaseClick}>Purchase</button>
         </div>
     }
-
 }
-
 export {
     PopUpTop,
     HappinessFormula,
     MarketGuide,
-    OneGuide,
+    MarketItem,
 }

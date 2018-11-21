@@ -40,25 +40,6 @@
     width: 220px;
 }
 
-.map-play{
-    background-color: blueviolet;
-    color: white;
-    font-size: 30px;
-    margin-top: 20px;
-    outline: none;
-    border-radius: 10px;
-    width: 150px;
-    height: 60px;
-    border: none;
-}
-
-.map-play:active{
-    background-color: blueviolet;
-    width: 155px;
-    height: 65px;
-}
-
-
 .map-container{
     position: relative;
     margin: auto;
