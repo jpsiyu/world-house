@@ -64,7 +64,7 @@ class PageENV extends React.Component {
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.BuyHouse)
-                    notice('You buy a env!', () => {
+                    notice('New enviroment builded!', () => {
                         app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
                     })
                 })
