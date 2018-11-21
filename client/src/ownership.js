@@ -64,7 +64,7 @@ class Ownership {
                     for (let i = 0; i < res.length; i++) {
                         const envId = res[i]
                         if (envId == 0) continue
-                        this.addOwner('root', sur.rows[i], sur.cols[i], envId)
+                        this.addOwner(`root-${sur.rows[i]}-${sur.cols[i]}`, sur.rows[i], sur.cols[i], envId)
                     }
                 })
                 .then(resolve)

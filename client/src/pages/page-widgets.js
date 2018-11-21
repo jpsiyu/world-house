@@ -127,20 +127,6 @@ class MarketGuide extends React.Component {
 
 }
 
-class MoveGuide extends React.Component {
-    constructor(props){
-        super(props)
-    }
-
-    render(){
-        return <div className='rule-guide-container'>
-            <p>Which land would you want to move?</p>
-            <img src = '/images/move-guide.png'></img>
-        </div>
-    }
-
-}
-
 class OneGuide extends React.Component {
     constructor(props){
         super(props)
@@ -159,6 +145,5 @@ export {
     PopUpTop,
     HappinessFormula,
     MarketGuide,
-    MoveGuide,
     OneGuide,
 }

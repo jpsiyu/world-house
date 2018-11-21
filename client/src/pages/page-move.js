@@ -1,6 +1,6 @@
 import React from 'react'
 import { MacroEventType, MacroViewType } from '../macro'
-import { PopUpTop, MoveGuide } from './page-widgets'
+import { PopUpTop, MarketGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
 
 const ViewState = {
@@ -24,7 +24,7 @@ class PageMove extends React.Component {
                 <PopUpTop title='House Move' viewType={MacroViewType.PageMove} />
                 {this.state.viewState == ViewState.HasHouse
                     ? this.renderHasHouse()
-                    : <MoveGuide />
+                    : <div className='popup-content'> <MarketGuide /> </div>
                 }
             </div>
         </div>

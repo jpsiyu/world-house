@@ -2,8 +2,12 @@ import { HouseType } from './macro'
 
 const houseConfig = [
     { id: 1, type: HouseType.House, img: 'house1.png', priceRatio: 1 },
-    { id: 2, type: HouseType.House, img: 'house2.png', priceRatio: 1.2 },
-    { id: 100, type: HouseType.Env, img: 'garden.png', priceRatio: 2.0 },
+    { id: 2, type: HouseType.House, img: 'house2.png', priceRatio: 1.5 },
+    { id: 3, type: HouseType.House, img: 'house3.png', priceRatio: 2 },
+    { id: 4, type: HouseType.House, img: 'house4.png', priceRatio: 2.5 },
+    { id: 5, type: HouseType.House, img: 'house5.png', priceRatio: 3.0 },
+
+    { id: 100, type: HouseType.Env, img: 'garden.png', priceRatio: 10 },
 ]
 
 const getById = (id) => {
