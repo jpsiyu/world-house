@@ -532,8 +532,9 @@
 
 .map-logo{
     position: absolute;
-    top: 5px;
-    width: 300px;
+    left: 0;
+    top: 0;
+    width: 200px;
 }
 
 .map-logo img{
