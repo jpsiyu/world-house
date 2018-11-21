@@ -7,7 +7,9 @@ const houseConfig = [
     { id: 4, type: HouseType.House, img: 'house4.png', priceRatio: 2.5 },
     { id: 5, type: HouseType.House, img: 'house5.png', priceRatio: 3.0 },
 
-    { id: 100, type: HouseType.Env, img: 'garden.png', priceRatio: 10 },
+    { id: 100, type: HouseType.Env, img: 'env1.png', priceRatio: 10 },
+    { id: 101, type: HouseType.Env, img: 'env2.png', priceRatio: 10 },
+    { id: 102, type: HouseType.Env, img: 'env3.png', priceRatio: 10 },
 ]
 
 const getById = (id) => {

@@ -118,13 +118,9 @@ class Map extends React.Component {
                 x: this.state.selectedGrid.c * MacroMap.HourseSize,
                 y: this.state.selectedGrid.r * MacroMap.HourseSize,
             }
-            ctx.fillStyle = 'rgba(188,213,103, 0.7)'
+            ctx.fillStyle = 'rgba(188,213,103, 0.5)'
             ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
             ctx.fill()
-
-            ctx.strokeStyle = 'rgba(188,213,103, 1)'
-            ctx.lineWidth = 5
-            ctx.strokeRect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
         })
     }
 
@@ -132,13 +128,17 @@ class Map extends React.Component {
         if (!app.player.hasHouse()) return
         const pos = this.landPos.getPos()
         drawWrapper(this.ctx, pos, (ctx, pos) => {
-            ctx.fillStyle = 'rgba(154,200,255, 0.8)'
             const rectPos = {
                 x: app.player.houseData.col * MacroMap.HourseSize,
                 y: app.player.houseData.row * MacroMap.HourseSize,
             }
+            ctx.fillStyle = 'rgba(188,213,103, 0.5)'
             ctx.rect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
             ctx.fill()
+
+            ctx.strokeStyle = 'rgba(188,213,103, 1)'
+            ctx.lineWidth = 3
+            ctx.strokeRect(rectPos.x, rectPos.y, MacroMap.HourseSize, MacroMap.HourseSize)
         })
     }
 
