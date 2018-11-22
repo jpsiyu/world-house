@@ -1,7 +1,7 @@
 import React from 'react'
 import { MacroEventType, MacroViewType, MacroMap } from './macro'
 import { getById } from './house-config'
-import { logError } from './utils'
+import { logError, notice } from './utils'
 import LandPos from './drawing/land-pos'
 
 class MapFace extends React.Component {
@@ -196,6 +196,10 @@ class LittleMap extends React.Component {
         this.state = {
             active: false
         }
+        this.rowRef = React.createRef()
+        this.colRef = React.createRef()
+        this.rowValue = null
+        this.colValue = null
     }
 
     render() {
@@ -203,6 +207,7 @@ class LittleMap extends React.Component {
         return <div className='little-map'>
             {this.renderSelect()}
             {this.renderHome()}
+            {this.renderMapJump()}
         </div>
     }
 
@@ -229,6 +234,20 @@ class LittleMap extends React.Component {
         return <div className='little-map-select' style={selectStyle}></div>
     }
 
+    renderMapJump() {
+        return <div className='map-jump'>
+            <div className='map-jump-part'>
+                <input placeholder='row' type='number' ref={this.rowRef} onChange={this.onChangeRow.bind(this)}></input>
+            </div>
+            <div className='map-jump-part'>
+                <input placeholder='col' type='number' ref={this.colRef} onChange={this.onChangeCol.bind(this)}></input>
+            </div>
+            <div className='map-jump-part'>
+                <button className='btn-small btn-violet' onClick={this.onBtnGoClick.bind(this)}>Go</button>
+            </div>
+        </div>
+    }
+
     componentDidMount() {
         app.eventListener.register(MacroEventType.PlayerMode, this, this.activeSelf.bind(this))
     }
@@ -240,11 +259,54 @@ class LittleMap extends React.Component {
     }
 
     calLittlePos(r, c) {
-        const landPos = LandPos.gridMiddleInLandPos(r, c)
-        const ratio = MacroMap.CanvasWidth / (MacroMap.HouseSize * MacroMap.ColNum)
-        const littleX = landPos.x * ratio
-        const littleY = landPos.y * ratio
-        return { x: littleX, y: littleY }
+        const landPos = LandPos.gridInLandPos(r, c)
+        const ratio = MacroMap.LittleMapWidth / (MacroMap.HouseSize * MacroMap.ColNum)
+        const littleX = landPos.x * ratio - MacroMap.LittlePointSize / 2
+        const littleY = landPos.y * ratio - MacroMap.LittlePointSize / 2
+        const littlePos = { x: littleX, y: littleY }
+        return littlePos
+    }
+
+    checkValue(num) {
+        return num >= 0 && num < MacroMap.RowNum
+    }
+
+    onChangeRow(event) {
+        const newValue = this.rowRef.current.value
+        if (this.checkValue(newValue)) {
+            this.rowValue = newValue
+        } else {
+            this.rowRef.current.value = this.rowValue
+        }
+    }
+    onChangeCol(event) {
+        const newValue = this.colRef.current.value
+        if (this.checkValue(newValue)) {
+            this.colValue = newValue
+        } else {
+            this.colRef.current.value = this.rowValue
+        }
+    }
+
+    clearInput(){
+        this.rowRef.current.value = null
+        this.colRef.current.value = null
+    }
+
+    onBtnGoClick() {
+        const row = this.rowRef.current.value
+        const col = this.colRef.current.value
+        if (!row || !col) {
+            notice('Land pos from [0, 0] to [999, 999]')
+            return
+        }
+        if (this.checkValue(row) && this.checkValue(col)) {
+            app.eventListener.dispatch(
+                MacroEventType.Center2Grid,
+                { r: row, c: col },
+            )
+            this.clearInput()
+        }
     }
 }
 

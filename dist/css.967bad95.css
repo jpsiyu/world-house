@@ -10,6 +10,14 @@
     box-shadow:  none;
 }
 
+.btn-small{
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+    outline: none;
+    border: none;
+}
+
 .btn-mid{
     width: 80px;
     height: 30px;
@@ -550,7 +558,27 @@
 .little-map-select{
     width: 10px;
     height: 10px;
-    background-color: rgb(134, 91, 235);
+    background-color: rgb(221, 39, 54);
+    border-radius: 50%;
+}
+
+.map-jump{
+    position: absolute;
+    bottom: -25px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.map-jump-part{
+    outline: none;
+}
+
+.map-jump-part input{
+    width: 50px;
+    height: 20px;
+    outline: none;
+    padding: 0 5px;
 }
 
 .map-logo{

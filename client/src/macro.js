@@ -8,6 +8,7 @@ const MacroMap = {
     CanvasHeight: 618,
     LittleMapWidth: 180,
     LittleMapHeight: 180,
+    LittlePointSize: 10,
     Surround: 5,
     Neighbor: 2,
 }
