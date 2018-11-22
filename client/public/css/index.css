@@ -67,8 +67,8 @@
 }
 
 .map-right-owned-div{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     box-sizing: border-box;
     background-color: rgb(136, 181, 15);
     border: 1px lightgray solid;
@@ -83,8 +83,8 @@
 .map-right-icon{
     position: relative;
     background-color: white;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 10px;
     border-radius: 10px;
     border: 1px gray solid;
@@ -109,6 +109,28 @@
     bottom: 0;
     left: 0;
     display: flex;
+}
+
+.little-map{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.little-map-home{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(207, 236, 99);
+    border-radius: 50%;
+}
+
+.little-map-select{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(134, 91, 235);
 }
 
 .map-logo{

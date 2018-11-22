@@ -1,7 +1,8 @@
 import React from 'react'
-import { MacroEventType, MacroViewType } from './macro'
+import { MacroEventType, MacroViewType, MacroMap } from './macro'
 import { getById } from './house-config'
 import { logError } from './utils'
+import LandPos from './drawing/land-pos'
 
 class MapFace extends React.Component {
     constructor(props) {
@@ -98,7 +99,7 @@ class MapRight extends React.Component {
         app.eventListener.register(MacroEventType.UpdateSurround, this, this.update.bind(this))
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         app.eventListener.logout(MacroEventType.UpdateSurround, this)
     }
 
@@ -189,9 +190,68 @@ class MapLogo extends React.Component {
     }
 }
 
+class LittleMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            active: false
+        }
+    }
+
+    render() {
+        if (!this.state.active) return null
+        return <div className='little-map'>
+            {this.renderSelect()}
+            {this.renderHome()}
+        </div>
+    }
+
+    renderHome() {
+        if (!app.player.hasHouse()) return null
+        const homePos = this.calLittlePos(app.player.houseData.row, app.player.houseData.col)
+        const homeStyle = {
+            position: 'absolute',
+            left: `${homePos.x}px`,
+            top: `${homePos.y}px`,
+        }
+        return < div className='little-map-home' style={homeStyle} ></div>
+
+    }
+
+    renderSelect() {
+        if (!this.props.selectedGrid) return null
+        const selectPos = this.calLittlePos(this.props.selectedGrid.r, this.props.selectedGrid.c)
+        const selectStyle = {
+            position: 'absolute',
+            left: `${selectPos.x}px`,
+            top: `${selectPos.y}px`,
+        }
+        return <div className='little-map-select' style={selectStyle}></div>
+    }
+
+    componentDidMount() {
+        app.eventListener.register(MacroEventType.PlayerMode, this, this.activeSelf.bind(this))
+    }
+
+    activeSelf() {
+        this.setState({
+            active: true
+        })
+    }
+
+    calLittlePos(r, c) {
+        const landPos = LandPos.gridMiddleInLandPos(r, c)
+        const ratio = MacroMap.CanvasWidth / (MacroMap.HouseSize * MacroMap.ColNum)
+        const littleX = landPos.x * ratio
+        const littleY = landPos.y * ratio
+        return { x: littleX, y: littleY }
+    }
+}
+
 export {
     MapFace,
     MapBottom,
     MapRight,
     MapLogo,
+    LittleMap,
 }

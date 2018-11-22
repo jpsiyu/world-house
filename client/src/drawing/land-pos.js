@@ -67,13 +67,13 @@ class LandPos {
 
     }
 
-    gridInLandPos(r, c) {
+    static gridInLandPos(r, c) {
         const x = c * MacroMap.HouseSize
         const y = r * MacroMap.HouseSize
         return { x, y }
     }
 
-    gridMiddleInLandPos(r, c) {
+    static gridMiddleInLandPos(r, c) {
         const x = c * MacroMap.HouseSize + MacroMap.HouseSize / 2
         const y = r * MacroMap.HouseSize + MacroMap.HouseSize / 2
         return { x, y }

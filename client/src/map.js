@@ -10,6 +10,7 @@ import {
     MapBottom,
     MapRight,
     MapLogo,
+    LittleMap,
 } from './map-widgets'
 
 import {
@@ -43,6 +44,7 @@ class Map extends React.Component {
             </canvas>
             <MapLogo />
             <MapFace />
+            <LittleMap selectedGrid={this.state.selectedGrid}/>
             <MapBottom />
             {this.state.selectedGrid == null ? null : <MapRight selectedGrid={this.state.selectedGrid} />}
             <Effect />
@@ -148,12 +150,12 @@ class Map extends React.Component {
             const owners = app.ownership.getOwners()
             Object.keys(owners).forEach(ownerAddr => {
                 const landInfo = owners[ownerAddr]
-                const objPos = this.landPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
-                const midPos = this.landPos.gridMiddleInLandPos(landInfo.land.r, landInfo.land.c)
+                const objPos = LandPos.gridInLandPos(landInfo.land.r, landInfo.land.c)
+                const midPos = LandPos.gridMiddleInLandPos(landInfo.land.r, landInfo.land.c)
                 if (rectInCanvas(ctx, pos, objPos, MacroMap.HouseSize)) {
                     const conf = getById(landInfo.id)
                     const houseImage = app.imageMgr.getImage(conf.img)
-                    const size = conf.type == HouseType.House 
+                    const size = conf.type == HouseType.House
                         ? MacroMap.HouseImageSize
                         : MacroMap.EnvImageSize
                     drawImageMid(ctx, midPos, houseImage.obj, size)
@@ -208,7 +210,7 @@ class Map extends React.Component {
 
     center2grid(r, c) {
         app.eventListener.dispatch(MacroEventType.DrawCloudEffect)
-        const gridMiddle = this.landPos.gridMiddleInLandPos(r, c)
+        const gridMiddle = LandPos.gridMiddleInLandPos(r, c)
         const landOrigin = {
             x: this.canvas.width / 2 - gridMiddle.x,
             y: this.canvas.height / 2 - gridMiddle.y,

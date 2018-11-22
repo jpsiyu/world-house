@@ -6,6 +6,8 @@ const MacroMap = {
     ColNum: 1000,
     CanvasWidth: 1000,
     CanvasHeight: 618,
+    LittleMapWidth: 180,
+    LittleMapHeight: 180,
     Surround: 5,
     Neighbor: 2,
 }
