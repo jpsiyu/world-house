@@ -10,6 +10,18 @@
     box-shadow:  none;
 }
 
+.btn-shadow-small{
+    box-shadow: none;
+}
+
+.btn-shadow-small:hover{
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-shadow-small:active{
+    box-shadow:  none;
+}
+
 .btn-small{
     width: 50px;
     height: 25px;
@@ -240,51 +252,84 @@
 }
 
 /* home page */
-.owned-house{
+.home-content{
     width: 100%;
-    height: 100%;
+}
+
+.home-content .top{
     display: flex;
-    flex-direction: column;
+    align-items: stretch;
     border: 1px lightgray solid;
+    padding: 20px;
 }
 
-.owned-house-top{
-    display: flex;
-    align-items: center;
-    border-bottom: 1px lightgray solid;
-}
-
-.owned-house-top img{
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-}
-
-.owned-house-top-left{
-    flex: 1;
-}
-
-.owned-house-top-right{
+.home-content .top .left{
     flex: 2;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.owned-house-top-right p{
-    margin: 0 20px;
+.home-content .top .left img{
+    width: 150px;
+    height: 150px;
 }
 
-.owned-house-bottom{
+.home-content .top .mid{
+    flex: 2;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    color: gray;
 }
 
-.no-house p{
-    font-size: 20px;
-    padding: 20px 0;
+.home-content .top .mid .pair{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border: 1px lightgray solid;
+    padding: 5px;
+    margin: 3px 0;
+    border-radius: 5px;
 }
 
-.no-house img{
-    width: 500px;
+.home-content .top .right{
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-content .top .right .content{
+    border: 1px lightgray solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-content .top .right .content .title{
+    flex: 1;
+    color: gray;
+}
+
+.home-content .top .right .content .score{
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: green;
+}
+
+
+.home-content .bottom{
+    display: flex;
+    border: 1px lightgray solid;
+    padding: 20px;
+    color: gray;
 }
 
 /* page move */
@@ -311,25 +356,37 @@
     align-items: center;
 }
 
+/* formula */
 .formula{
     width: 100%;
+    height: 250px;
     display: flex;
     justify-content: space-between;
-
 }
 
-/* formula */
 .formula-desc{
     width: 200px;
-    padding: 20px;
-}
-
-.formula-desc-pair{
     display: flex;
+    flex-direction: column;
     padding: 10px;
     justify-content: space-between;
     border: 1px lightgray solid;
     border-radius: 10px;
+}
+
+.formula-desc-title{
+    flex: 1;
+}
+
+.formula-desc-score{
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+.formula-desc-input{
+    flex: 1;
 }
 
 .formula-chart{
@@ -428,6 +485,49 @@
     width: 500px;
     border: 5px lightgray solid;
     border-radius: 10px;
+}
+
+/* page rank*/
+.rank-content{
+    width: 100%;
+}
+
+.rank-content .col{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-content .item-title{
+    display: flex;
+    justify-content: space-around;
+    border: 1px lightgray solid;
+    background-color: lightcoral;
+    color: white;
+}
+
+.rank-content .item{
+    border-bottom: 1px lightgray solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0;
+    color: gray;
+}
+
+.rank-content .item img{
+    width: 50px;
+    height: 50px;
+}
+
+.rank-content .item .land{
+    display: flex;
+}
+
+.rank-content .item .btn-go{
+    padding: 5px 15px;
+    margin: 0 5px;
 }*{
     padding: 0;
     margin: 0;

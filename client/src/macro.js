@@ -32,6 +32,7 @@ const MacroViewType = {
     PageMove: 'PageMove',
     PageENV: 'PageENV',
     PageOwner: 'PageOwner',
+    PageRank: 'PageRank',
 }
 
 const MacroNetworkType = {

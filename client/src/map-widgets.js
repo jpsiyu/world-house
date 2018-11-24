@@ -52,6 +52,9 @@ class MapBottom extends React.Component {
             <div className='fundation-icon' onClick={this.onHomeClick.bind(this)}>
                 <img src='/images/house.png'></img>
             </div>
+            <div className='fundation-icon' onClick={this.onRankClick.bind(this)}>
+                <img src='/images/ranking.png'></img>
+            </div>
             {this.renderOwner()}
         </div>
 
@@ -83,6 +86,9 @@ class MapBottom extends React.Component {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageHome })
     }
 
+    onRankClick() {
+        app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageRank })
+    }
 
     onOwnerClick() {
         app.eventListener.dispatch(MacroEventType.ShowView, { viewName: MacroViewType.PageOwner })
@@ -243,7 +249,7 @@ class LittleMap extends React.Component {
                 <input placeholder='col' type='number' ref={this.colRef} onChange={this.onChangeCol.bind(this)}></input>
             </div>
             <div className='map-jump-part'>
-                <button className='btn-small btn-violet' onClick={this.onBtnGoClick.bind(this)}>Go</button>
+                <button className='btn-small btn-violet btn-shadow-small' onClick={this.onBtnGoClick.bind(this)}>Go</button>
             </div>
         </div>
     }
@@ -288,7 +294,7 @@ class LittleMap extends React.Component {
         }
     }
 
-    clearInput(){
+    clearInput() {
         this.rowRef.current.value = null
         this.colRef.current.value = null
     }

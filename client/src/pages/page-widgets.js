@@ -61,18 +61,19 @@ class HappinessFormula extends React.Component {
 
     render() {
         return <div className='formula'>
+            <div className='formula-chart'>
+                <Line data={this.genLineData()} options={this.genLineOptions()} />
+            </div>
             <div className='formula-desc'>
-                <div className='formula-desc-pair'>
-                    <p>Neighbor Count</p>
-                    <p>{this.state.neighbor}</p>
+                <div className='formula-desc-title'>
+                    <p>Neighbor Happiness</p>
                 </div>
-                <div className='formula-desc-pair'>
-                    <p>Happiness</p>
+                <div className='formula-desc-score'>
                     <p>{this.state.happiness}</p>
                 </div>
-            </div>
-            <div className='formula-chart'>
-                <Line data={this.genLineData()} />
+                <div className='formula-desc-input'>
+                    <p>Neighbors: {this.state.neighbor}</p>
+                </div>
             </div>
         </div>
     }
@@ -98,6 +99,7 @@ class HappinessFormula extends React.Component {
                     neighbor: neighbor,
                     happiness: happiness,
                 })
+                this.props.reportHappiness('neighbor', happiness)
             })
             .catch(err => logError(err))
     }
@@ -105,6 +107,10 @@ class HappinessFormula extends React.Component {
     happinessFormula(x) {
         const y = (-6 / 15) * (x * x) + 12 * x + 10
         return Math.round(y * 10) / 10
+    }
+
+    genLineOptions() {
+        return {}
     }
 
     genLineData() {
@@ -129,6 +135,102 @@ class HappinessFormula extends React.Component {
                 {
                     type: 'scatter',
                     data: [{ x: this.state.neighbor, y: this.happinessFormula(this.state.neighbor) }],
+                    radius: 8,
+                    backgroundColor: 'blueviolet',
+                    borderColor: 'blueviolet',
+                    label: 'Current',
+                }
+            ]
+        }
+    }
+}
+
+class EnvHappinessFormula extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            differentEnvCount: 0,
+            happiness: 0,
+        }
+    }
+
+    render() {
+        return <div className='formula'>
+            <div className='formula-chart'>
+                <Line data={this.genLineData()} options={this.genLineOptions()} />
+            </div>
+            <div className='formula-desc'>
+                <div className='formula-desc-title'>
+                    <p>Environment Happiness</p>
+                </div>
+                <div className='formula-desc-score'>
+                    <p>{this.state.happiness}</p>
+                </div>
+                <div className='formula-desc-input'>
+                    <p>Different Environments: {this.state.differentEnvCount}</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    componentDidMount() {
+        if (!app.player.houseData) return
+        const envCount = []
+        const sur = surround(app.player.houseData.row, app.player.houseData.col, MacroMap.Neighbor)
+        app.contractMgr.worldHouse.getEnvs(sur.rows, sur.cols)
+            .then(res => {
+                for (let i = 0; i < res.length; i++) {
+                    const envId = res[i]
+                    if (envId == 0) continue
+                    if (envId in envCount) continue
+                    envCount.push(envId)
+                }
+            })
+            .then(() => {
+                const happiness = this.happinessFormula(envCount.length)
+                this.setState({
+                    differentEnvCount: envCount.length,
+                    happiness: happiness,
+                })
+                this.props.reportHappiness('env', happiness)
+            })
+            .catch(err => logError(err))
+    }
+
+    happinessFormula(x) {
+        return x < 0
+            ? 0
+            : x > 3
+                ? 30
+                : 10 * x
+    }
+
+    genLineOptions() {
+        return {}
+    }
+
+    genLineData() {
+        const x = []
+        const y = []
+        for (let i = 0; i < 10; i++) {
+            x.push(i)
+            y.push(this.happinessFormula(i))
+        }
+        return {
+            labels: x,
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Happiness Environment Relationship',
+                    data: y,
+                    fill: false,
+                    pointRadius: 0,
+                    backgroundColor: 'green',
+                    borderColor: 'green',
+                },
+                {
+                    type: 'scatter',
+                    data: [{ x: this.state.differentEnvCount, y: this.happinessFormula(this.state.differentEnvCount) }],
                     radius: 8,
                     backgroundColor: 'blueviolet',
                     borderColor: 'blueviolet',
@@ -178,6 +280,7 @@ export {
     PopUpTop,
     PopUpContent,
     HappinessFormula,
+    EnvHappinessFormula,
     MarketGuide,
     MarketItem,
 }

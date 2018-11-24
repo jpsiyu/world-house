@@ -5,6 +5,7 @@ import PageMarket from './pages/page-market'
 import PageMove from './pages/page-move'
 import PageENV from './pages/page-env'
 import PageOwner from './pages/page-owner'
+import PageRank from './pages/page-rank'
 import { MacroEventType, MacroViewType } from './macro'
 
 
@@ -29,6 +30,7 @@ class PageMgr extends React.Component {
         viewCfg[MacroViewType.PageMove] = PageMove
         viewCfg[MacroViewType.PageOwner] = PageOwner
         viewCfg[MacroViewType.PageENV] = PageENV
+        viewCfg[MacroViewType.PageRank] = PageRank
         return viewCfg
     }
 
