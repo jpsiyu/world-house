@@ -82,11 +82,6 @@ class Metamask {
                 })
         }, 5000)
     }
-
-    accountShort(){
-        if(!this.account) return ''
-        return `${this.account.slice(0, 6)}...`
-    }
 }
 
 export default Metamask

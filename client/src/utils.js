@@ -19,4 +19,8 @@ const notice = (msg, callback = null) => {
     )
 }
 
-export { log, logError, notice }
+const accountForShort = (account) => {
+    return `${account.slice(0, 6)}...`
+}
+
+export { log, logError, notice, accountForShort }

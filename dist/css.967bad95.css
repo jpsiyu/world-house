@@ -528,6 +528,8 @@
 .rank-content .item .btn-go{
     padding: 5px 15px;
     margin: 0 5px;
+    outline: none;
+    border: none;
 }*{
     padding: 0;
     margin: 0;

@@ -25,6 +25,7 @@ class Player {
         })
     }
 
+
     hasHouse() {
         if (!this.houseData) return false
         return this.houseData.used == 1

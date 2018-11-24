@@ -3,6 +3,8 @@ import { MacroEventType, MacroViewType } from '../macro'
 import { PopUp, PopUpContent, PopUpTop, MarketGuide } from './page-widgets'
 import { getById } from '../house-config'
 import { HappinessFormula, EnvHappinessFormula } from './page-widgets'
+import { log, accountForShort } from '../utils'
+import axios from 'axios'
 
 class PageHome extends React.Component {
     constructor(props) {
@@ -37,7 +39,7 @@ class PageHome extends React.Component {
                     </div>
                     <div className='pair'>
                         <div className='pair-left'>Owner</div>
-                        <div className='pair-right'>{app.metamask.accountShort()}</div>
+                        <div className='pair-right'>{accountForShort(app.metamask.account)}</div>
                     </div>
                     <div className='pair'>
                         <div className='pair-left'>Land</div>
@@ -78,6 +80,19 @@ class PageHome extends React.Component {
         else if (happinessType == 'env')
             this.setState({ envHappiness: happiness })
 
+        this.report(this.state.neighborHappiness + this.state.envHappiness)
+    }
+
+    report(happiness) {
+        if (!app.player.hasHouse()) return
+        axios.post('/report', {
+            owner: app.metamask.account,
+            houseId: app.player.houseData.id,
+            happiness: happiness,
+            land: { r: app.player.houseData.row, c: app.player.houseData.col },
+        }).then(response => {
+            log('response', response)
+        })
     }
 }
 
