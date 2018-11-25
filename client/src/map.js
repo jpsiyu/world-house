@@ -98,11 +98,15 @@ class Map extends React.Component {
     }
 
     draw() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.drawClear()
         this.drawLand()
         this.drawSelectedGrid()
         this.drawHomeGrid()
         this.drawHouse()
+    }
+
+    drawClear(){
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
     drawLand() {

@@ -66,11 +66,18 @@ class PageRank extends React.Component {
                 <div className='col'><p>{info.happiness}</p></div>
                 <div className='col'>
                     <p>({info.land.r}, {info.land.c})</p>
-                    <button className='btn-go btn-violet btn-shadow-small'>Go</button>
+                    <button className='btn-go btn-violet btn-shadow-small' onClick={() => { this.onBtnJumpClick(info.land) }}>Go</button>
                 </div>
             </div>)
         }
         return items
+    }
+
+    onBtnJumpClick(land) {
+        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageRank)
+        app.eventListener.dispatch(
+            MacroEventType.Center2Grid, land
+        )
     }
 }
 

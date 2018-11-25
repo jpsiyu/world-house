@@ -18,7 +18,7 @@ class Rank {
         for (let i = 0; i < this.rankList.length; i++) {
             const record = this.rankList[i]
             if (info.owner == record.owner) {
-                this.rankList[i] = record
+                this.rankList[i] = info
                 this.sortTopN()
                 return
             }
