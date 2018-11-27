@@ -64,9 +64,9 @@ class PageGuide extends React.Component {
                         <div className='guide-item-left'>
                             <div className='mainnet-guide'>
                                 <div className='circle'></div>
-                                <p>Private Network</p>
+                                <p>Rinkeby Network</p>
                             </div>
-                            <p>Step 4: Switch to Private Net</p>
+                            <p>Step 4: Switch to Rinkeby Netword</p>
                         </div>
                         <div className='guide-item-right'>
                             {yesno(this.state.networkCheck)}

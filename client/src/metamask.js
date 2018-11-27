@@ -55,7 +55,7 @@ class Metamask {
                     }
                 })
                 .then(networkId => {
-                    if (networkId == MacroNetworkType.Private) {
+                    if (networkId == MacroNetworkType.Rinkeby) {
                         res.networkCheck = true
                     }
                 })
