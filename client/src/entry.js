@@ -2,6 +2,7 @@ import React from 'react'
 import Map from './map'
 import PageMgr from './page-mgr'
 import Notice from './notice'
+import { MapMask } from './map-widgets'
 
 class Entry extends React.Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class Entry extends React.Component {
             <Map />
             <PageMgr />
             <Notice />
+            <MapMask />
         </div>
     }
 }

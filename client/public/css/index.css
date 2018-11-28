@@ -53,6 +53,22 @@
     background-image: url('/images/grassland.png')
 }
 
+.map-mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.map-mask .loading{
+    width: 200px;
+    height: 200px;
+}
+
 .map-right{
     position: absolute;
     right: 0;

@@ -316,10 +316,39 @@ class LittleMap extends React.Component {
     }
 }
 
+class MapMask extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            active: false
+        }
+    }
+
+    render() {
+        if (!this.state.active) return null
+        return <div className='map-mask '>
+            <img className='loading' src='/images/loading.gif'></img>
+        </div>
+    }
+
+    componentDidMount(){
+        app.eventListener.register(MacroEventType.Loading, this, this.receiveEvent.bind(this))
+    }
+
+    componentWillUnmount(){
+        //app.eventListener.logout(MacroEventType.Loading, this)
+    }
+
+    receiveEvent(args){
+        this.setState({active: args.show})
+    }
+}
+
 export {
     MapFace,
     MapBottom,
     MapRight,
     MapLogo,
     LittleMap,
+    MapMask,
 }

@@ -23,6 +23,7 @@ const MacroEventType = {
     Notice: 'Notice',
     Center2Grid: 'Center2Grid',
     DrawCloudEffect: 'DrawCloudEffect',
+    Loading: 'Loading',
 }
 
 const MacroViewType = {

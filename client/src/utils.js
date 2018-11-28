@@ -1,6 +1,6 @@
 import { MacroEventType } from './macro'
 
-const LogSwitch = true
+const LogSwitch = false
 
 const log = (...args) => {
     if (LogSwitch)

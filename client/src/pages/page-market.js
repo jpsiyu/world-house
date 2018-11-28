@@ -3,6 +3,7 @@ import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { log, logError, notice } from '../utils'
 import { PopUp, PopUpContent, PopUpTop, MarketItem } from './page-widgets'
 import { houseConfig } from '../house-config'
+import netui from '../netui'
 
 const ViewState = {
     HasHouse: 1,
@@ -33,12 +34,16 @@ class PageMarket extends React.Component {
             return
         }
         const price = app.priceSystem.getPriceWithConfigId(houseId)
-        app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c, houseId, price.housePrice)
+        netui.start()
+            .then(() => {
+                return app.contractMgr.worldHouse.buyHouse(this.grid.r, this.grid.c, houseId, price.housePrice)
+            })
             .then(res => {
                 log(res)
                 this.waitForReceipt(res.tx)
             })
             .catch(err => {
+                netui.stop()
                 logError(err.name, err.message, err.stack)
                 notice(err.message)
             })
@@ -53,6 +58,9 @@ class PageMarket extends React.Component {
                 })
                 .then(() => {
                     return app.player.updateHouseData()
+                })
+                .then(() => {
+                    return netui.stop()
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.BuyHouse)

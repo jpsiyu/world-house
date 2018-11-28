@@ -3,6 +3,7 @@ import { PopUp, PopUpContent, PopUpTop, MarketItem } from './page-widgets'
 import { MacroEventType, MacroViewType, HouseType } from '../macro'
 import { houseConfig } from '../house-config'
 import { log, logError, notice } from '../utils'
+import netui from '../netui'
 
 class PageENV extends React.Component {
     constructor(props) {
@@ -35,12 +36,16 @@ class PageENV extends React.Component {
 
     onPurchaseClick(houseId) {
         const price = app.priceSystem.getPriceWithConfigId(houseId)
-        app.contractMgr.worldHouse.buyEnv(this.grid.r, this.grid.c, houseId, price.housePrice)
+        netui.start()
+            .then(() => {
+                return app.contractMgr.worldHouse.buyEnv(this.grid.r, this.grid.c, houseId, price.housePrice)
+            })
             .then(res => {
                 log(res)
                 this.waitForReceipt(res.tx)
             })
             .catch(err => {
+                netui.stop()
                 logError(err.name, err.message, err.stack)
                 notice(err.message)
             })
@@ -57,9 +62,12 @@ class PageENV extends React.Component {
                     return app.player.updateHouseData()
                 })
                 .then(() => {
+                    return netui.stop()
+                })
+                .then(() => {
                     app.eventListener.dispatch(MacroEventType.BuyHouse)
                     notice('New enviroment builded!', () => {
-                        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageMarket)
+                        app.eventListener.dispatch(MacroEventType.HideView, MacroViewType.PageENV)
                     })
                 })
         }, 1000)

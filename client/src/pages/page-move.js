@@ -3,6 +3,7 @@ import { MacroEventType, MacroViewType } from '../macro'
 import { PopUp, PopUpContent, PopUpTop, MarketGuide } from './page-widgets'
 import { log, logError, notice } from '../utils'
 import { getById } from '../house-config'
+import netui from '../netui'
 
 const ViewState = {
     NoHouse: 1,
@@ -54,12 +55,16 @@ class PageMove extends React.Component {
     }
 
     onBtnMoveClick() {
-        app.contractMgr.worldHouse.moveHouse(this.grid.r, this.grid.c)
+        netui.start()
+            .then(() => {
+                return app.contractMgr.worldHouse.moveHouse(this.grid.r, this.grid.c)
+            })
             .then((res) => {
                 log(res)
                 this.waitForReceipt(res.tx)
             })
             .catch(err => {
+                netui.stop()
                 logError(err.name, err.message, err.stack)
                 notice(err.message)
             })
@@ -74,6 +79,9 @@ class PageMove extends React.Component {
                 })
                 .then(() => {
                     return app.player.updateHouseData()
+                })
+                .then(() => {
+                    return netui.stop()
                 })
                 .then(() => {
                     app.eventListener.dispatch(MacroEventType.HouseMove)
