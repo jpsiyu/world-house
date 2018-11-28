@@ -21,7 +21,7 @@ app.post('/report', (req, res) => {
     res.send('ok')
 })
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     app.rank = new Rank()
-    console.log('server listening on port 3000...')
+    console.log('server listening on port 3001...')
 })
