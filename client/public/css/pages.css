@@ -495,7 +495,7 @@
 .rank-content .col{
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
