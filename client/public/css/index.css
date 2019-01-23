@@ -27,7 +27,7 @@
     position: absolute;
     right: 10%;
     top: 15%;
-    height: 400px;
+    height: 350px;
     padding: 0 30px;
     background-color: white;
     display: flex;
@@ -46,7 +46,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .map-canvas{
@@ -187,4 +186,10 @@
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+@media (max-width: 768px){
+    .map-face{
+        left: 10%;
+    }
 }

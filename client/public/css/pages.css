@@ -80,6 +80,12 @@
     display: flex;
     flex-direction: column;
 }
+@media (max-width: 768px){
+    .popup{
+        width: 90%;
+        min-width: 90%;
+    }
+}
 
 .popup-top{
     flex: 1;

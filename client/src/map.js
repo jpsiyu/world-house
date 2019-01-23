@@ -38,8 +38,8 @@ class Map extends React.Component {
         return <div className='map-container'>
             <canvas
                 className='map-canvas'
-                width={MacroMap.CanvasWidth}
-                height={MacroMap.CanvasHeight}
+                width={window.innerWidth}
+                height={window.innerHeight}
                 ref={this.canvasRef}>
             </canvas>
             <MapLogo />

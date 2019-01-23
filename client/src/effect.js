@@ -20,8 +20,8 @@ class Effect extends React.Component {
         return <div className='effect-container'>
             <canvas
                 className='effect-canvas'
-                width={MacroMap.CanvasWidth}
-                height={MacroMap.CanvasHeight}
+                width={window.innerWidth}
+                height={window.innerHeight}
                 ref={this.canvasRef}>
             </canvas>
         </div>
@@ -123,8 +123,8 @@ class Effect extends React.Component {
     }
 
     reset() {
-        this.leftCloudPos = { x: -MacroMap.CanvasWidth / 2, y: -MacroMap.CanvasHeight / 4 }
-        this.rightCloudPos = { x: MacroMap.CanvasWidth / 2, y: MacroMap.CanvasHeight / 4 }
+        this.leftCloudPos = { x: -window.innerWidth / 2, y: -window.innerHeight / 4 }
+        this.rightCloudPos = { x: window.innerWidth/ 2, y: window.innerWidth/ 4 }
         this.speedX = 2000
         this.speedY = 200
         this.timePass = 0
