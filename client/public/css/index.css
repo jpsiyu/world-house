@@ -49,7 +49,7 @@
 }
 
 .map-canvas{
-    background-image: url('/images/grassland.png')
+    background-image: url('/images/grassland.png');
 }
 
 .map-mask{

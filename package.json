@@ -2,19 +2,19 @@
   "name": "world-house",
   "version": "1.0.0",
   "description": "",
+  "port": 80,
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "nodemon -w server -V server/app.js",
-    "parcel-watch": "parcel watch client/public/index.html",
-    "parcel-build": "parcel build client/public/index.html",
-    "forever": "forever start server/app.js --uid 'world-house'",
-    "ganache": "ganache-cli -p 8545 -i 999",
-    "clear": "rm -rf .cache dist build",
-    "truffle-rinkeby": "truffle migrate --network rinkeby",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js -w server",
+    "cdev": "parcel watch ./client/public/index.html",
+    "cbuild": "rm -rf .cache dist && parcel build ./client/public/index.html",
+    "cclear": "rm -rf .cache dist",
+    "docker-build": "docker build -t stephenwu2019/worldhouse:latest .",
+    "docker-run": "docker run -p 3008:80 -d stephenwu2019/worldhouse:latest"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +28,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.6.0",
     "truffle-contract": "^3.0.6",
-    "web3": "^1.0.0-beta.36"
+    "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {
     "parcel": "^1.10.3"
